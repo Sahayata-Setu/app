@@ -4,6 +4,8 @@ A new Flutter project.
 
 ## Getting Started
 
+-- Run flutter clean command  
+-- Then run flutter pub get  
 -- Create launch.json file inside .vscode directory  
 -- Copy this configuration  
 
