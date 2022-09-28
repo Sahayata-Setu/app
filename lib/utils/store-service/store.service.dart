@@ -1,0 +1,31 @@
+
+import 'package:expensetracker/constant/config/config.dart';
+import 'package:get_storage/get_storage.dart';
+
+class StorageService {
+  static final box = GetStorage();
+
+  static getToken() async {
+    return box.read('token');
+  }
+
+  static void setToken(String token) async {
+    box.write("${AppConstants.appName}_token", token);
+  }
+
+  static void removeAll() async {
+    box.erase();
+  }
+
+  static void setUser(Map<String, dynamic> user) async {
+    box.write("${AppConstants.appName}_user", user);
+  }
+
+  static getUser() {
+    return box.read("${AppConstants.appName}_user");
+  }
+
+  static void updateUserData(Map<String, dynamic> user) async {
+    box.write("${AppConstants.appName}_user", user);
+  }
+}
