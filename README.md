@@ -9,7 +9,7 @@
 -- Create launch.json file inside .vscode directory  
 -- Copy this configuration  
 
-    {
+  {
     "version": "0.2.0",
     "configurations": [
     {
@@ -49,6 +49,6 @@
         ]
       }
         ]
-}
+  }
 
 
