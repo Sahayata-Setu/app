@@ -4,7 +4,7 @@ A new Flutter project.
 
 ## Getting Started
 
--- Create launch.json file inside .vscode directory
+-- Create launch.json file inside .vscode directory\n
 -- Copy this configuration
 
     {
