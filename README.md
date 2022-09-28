@@ -1,16 +1,53 @@
-# expensetracker
+# Donation App
 
 A new Flutter project.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+-- Create launch.json file inside .vscode directory
+-- Copy this configuration
 
-A few resources to get you started if this is your first Flutter project:
+    {
+    "version": "0.2.0",
+    "configurations": [
+    {
+      "name": "Launch development",
+      "request": "launch",
+      "type": "dart",
+      "program": "lib/main_development.dart",
+      "args": [
+        "--flavor",
+        "development",
+        "--target",
+        "lib/main_development.dart"
+      ]
+    },
+    {
+      "name": "Launch Staging",
+      "request": "launch",
+      "type": "dart",
+      "program": "lib/main_staging.dart",
+      "args": [
+        "--flavor",
+        "development",
+        "--target",
+        "lib/main_staging.dart"
+      ]
+    },
+    {
+        "name": "Launch Production",
+        "request": "launch",
+        "type": "dart",
+        "program": "lib/main_production.dart",
+        "args": [
+            "--flavor",
+            "development",
+            "--target",
+            "lib/main_production.dart"
+        ]
+      }
+        ]
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+}
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
