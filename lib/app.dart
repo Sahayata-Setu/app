@@ -1,5 +1,4 @@
 import 'package:expensetracker/constant/kconstant.dart';
-import 'package:expensetracker/main_common.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -56,7 +55,7 @@ class _AppState extends State<App> {
         child: Consumer(
             builder: (context, ref, child) => AppBar(
                   // backgroundColor: Colors.blue,
-                  title: Text(ref.watch(flavorConfigProvider).appTitle),
+                  title: Text("Donation App"),
                 )),
       ),
       body: SingleChildScrollView(

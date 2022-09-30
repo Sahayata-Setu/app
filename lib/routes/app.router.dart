@@ -1,9 +1,9 @@
 import 'package:auto_route/annotations.dart';
 import 'package:auto_route/auto_route.dart';
-import 'package:expensetracker/features/signup/presentation/organism/signup.dart';
+import 'package:expensetracker/features/signup/SignUp.dart';
 
 @MaterialAutoRouter(routes: [
-  MaterialRoute(page: SignUp, initial: true),
+  MaterialRoute(page: Signup, initial: true, path: "/"),
 ])
 @CustomAutoRouter(routes: [])
 class $AppRouter {}
