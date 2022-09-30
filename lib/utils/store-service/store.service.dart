@@ -1,3 +1,4 @@
+import 'dart:developer';
 
 import 'package:expensetracker/constant/config/config.dart';
 import 'package:get_storage/get_storage.dart';
@@ -5,12 +6,12 @@ import 'package:get_storage/get_storage.dart';
 class StorageService {
   static final box = GetStorage();
 
-  static getToken() async {
+  static String getToken() {
     return box.read('token');
   }
 
   static void setToken(String token) async {
-    box.write("${AppConstants.appName}_token", token);
+    box.write("token", token);
   }
 
   static void removeAll() async {
@@ -18,14 +19,14 @@ class StorageService {
   }
 
   static void setUser(Map<String, dynamic> user) async {
-    box.write("${AppConstants.appName}_user", user);
+    box.write("user", user);
   }
 
   static getUser() {
-    return box.read("${AppConstants.appName}_user");
+    return box.read("user");
   }
 
   static void updateUserData(Map<String, dynamic> user) async {
-    box.write("${AppConstants.appName}_user", user);
+    box.write("user", user);
   }
 }

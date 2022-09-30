@@ -1,5 +1,5 @@
+import 'package:expensetracker/constant/common/NavBar/navbar.dart';
 import 'package:expensetracker/constant/kconstant.dart';
-import 'package:expensetracker/main_common.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -53,11 +53,7 @@ class _AppState extends State<App> {
       backgroundColor: Colors.transparent,
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(50),
-        child: Consumer(
-            builder: (context, ref, child) => AppBar(
-                  // backgroundColor: Colors.blue,
-                  title: Text(ref.watch(flavorConfigProvider).appTitle),
-                )),
+        child: NavBar(),
       ),
       body: SingleChildScrollView(
         controller: _scrollController,
