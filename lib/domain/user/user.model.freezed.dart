@@ -20,9 +20,14 @@ User _$UserFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$User {
-  String get firstName => throw _privateConstructorUsedError;
-  String get email => throw _privateConstructorUsedError;
-  String get token => throw _privateConstructorUsedError;
+  String? get sId => throw _privateConstructorUsedError;
+  String? get userName => throw _privateConstructorUsedError;
+  String? get name => throw _privateConstructorUsedError;
+  String? get email => throw _privateConstructorUsedError; // List<Null>? posts,
+  int? get points => throw _privateConstructorUsedError;
+  String? get role => throw _privateConstructorUsedError;
+  String? get createdAt => throw _privateConstructorUsedError;
+  String? get updatedAt => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -33,7 +38,15 @@ mixin _$User {
 abstract class $UserCopyWith<$Res> {
   factory $UserCopyWith(User value, $Res Function(User) then) =
       _$UserCopyWithImpl<$Res>;
-  $Res call({String firstName, String email, String token});
+  $Res call(
+      {String? sId,
+      String? userName,
+      String? name,
+      String? email,
+      int? points,
+      String? role,
+      String? createdAt,
+      String? updatedAt});
 }
 
 /// @nodoc
@@ -46,23 +59,48 @@ class _$UserCopyWithImpl<$Res> implements $UserCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? firstName = freezed,
+    Object? sId = freezed,
+    Object? userName = freezed,
+    Object? name = freezed,
     Object? email = freezed,
-    Object? token = freezed,
+    Object? points = freezed,
+    Object? role = freezed,
+    Object? createdAt = freezed,
+    Object? updatedAt = freezed,
   }) {
     return _then(_value.copyWith(
-      firstName: firstName == freezed
-          ? _value.firstName
-          : firstName // ignore: cast_nullable_to_non_nullable
-              as String,
+      sId: sId == freezed
+          ? _value.sId
+          : sId // ignore: cast_nullable_to_non_nullable
+              as String?,
+      userName: userName == freezed
+          ? _value.userName
+          : userName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String?,
       email: email == freezed
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
-              as String,
-      token: token == freezed
-          ? _value.token
-          : token // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
+      points: points == freezed
+          ? _value.points
+          : points // ignore: cast_nullable_to_non_nullable
+              as int?,
+      role: role == freezed
+          ? _value.role
+          : role // ignore: cast_nullable_to_non_nullable
+              as String?,
+      createdAt: createdAt == freezed
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as String?,
+      updatedAt: updatedAt == freezed
+          ? _value.updatedAt
+          : updatedAt // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -72,7 +110,15 @@ abstract class _$$_UserCopyWith<$Res> implements $UserCopyWith<$Res> {
   factory _$$_UserCopyWith(_$_User value, $Res Function(_$_User) then) =
       __$$_UserCopyWithImpl<$Res>;
   @override
-  $Res call({String firstName, String email, String token});
+  $Res call(
+      {String? sId,
+      String? userName,
+      String? name,
+      String? email,
+      int? points,
+      String? role,
+      String? createdAt,
+      String? updatedAt});
 }
 
 /// @nodoc
@@ -86,45 +132,88 @@ class __$$_UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? firstName = freezed,
+    Object? sId = freezed,
+    Object? userName = freezed,
+    Object? name = freezed,
     Object? email = freezed,
-    Object? token = freezed,
+    Object? points = freezed,
+    Object? role = freezed,
+    Object? createdAt = freezed,
+    Object? updatedAt = freezed,
   }) {
     return _then(_$_User(
-      firstName: firstName == freezed
-          ? _value.firstName
-          : firstName // ignore: cast_nullable_to_non_nullable
-              as String,
+      sId: sId == freezed
+          ? _value.sId
+          : sId // ignore: cast_nullable_to_non_nullable
+              as String?,
+      userName: userName == freezed
+          ? _value.userName
+          : userName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String?,
       email: email == freezed
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
-              as String,
-      token: token == freezed
-          ? _value.token
-          : token // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
+      points: points == freezed
+          ? _value.points
+          : points // ignore: cast_nullable_to_non_nullable
+              as int?,
+      role: role == freezed
+          ? _value.role
+          : role // ignore: cast_nullable_to_non_nullable
+              as String?,
+      createdAt: createdAt == freezed
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as String?,
+      updatedAt: updatedAt == freezed
+          ? _value.updatedAt
+          : updatedAt // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$_User extends _User {
-  _$_User({required this.firstName, required this.email, required this.token})
-      : super._();
+class _$_User implements _User {
+  const _$_User(
+      {this.sId,
+      this.userName,
+      this.name,
+      this.email,
+      this.points,
+      this.role,
+      this.createdAt,
+      this.updatedAt});
 
   factory _$_User.fromJson(Map<String, dynamic> json) => _$$_UserFromJson(json);
 
   @override
-  final String firstName;
+  final String? sId;
   @override
-  final String email;
+  final String? userName;
   @override
-  final String token;
+  final String? name;
+  @override
+  final String? email;
+// List<Null>? posts,
+  @override
+  final int? points;
+  @override
+  final String? role;
+  @override
+  final String? createdAt;
+  @override
+  final String? updatedAt;
 
   @override
   String toString() {
-    return 'User(firstName: $firstName, email: $email, token: $token)';
+    return 'User(sId: $sId, userName: $userName, name: $name, email: $email, points: $points, role: $role, createdAt: $createdAt, updatedAt: $updatedAt)';
   }
 
   @override
@@ -132,18 +221,28 @@ class _$_User extends _User {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_User &&
-            const DeepCollectionEquality().equals(other.firstName, firstName) &&
+            const DeepCollectionEquality().equals(other.sId, sId) &&
+            const DeepCollectionEquality().equals(other.userName, userName) &&
+            const DeepCollectionEquality().equals(other.name, name) &&
             const DeepCollectionEquality().equals(other.email, email) &&
-            const DeepCollectionEquality().equals(other.token, token));
+            const DeepCollectionEquality().equals(other.points, points) &&
+            const DeepCollectionEquality().equals(other.role, role) &&
+            const DeepCollectionEquality().equals(other.createdAt, createdAt) &&
+            const DeepCollectionEquality().equals(other.updatedAt, updatedAt));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(firstName),
+      const DeepCollectionEquality().hash(sId),
+      const DeepCollectionEquality().hash(userName),
+      const DeepCollectionEquality().hash(name),
       const DeepCollectionEquality().hash(email),
-      const DeepCollectionEquality().hash(token));
+      const DeepCollectionEquality().hash(points),
+      const DeepCollectionEquality().hash(role),
+      const DeepCollectionEquality().hash(createdAt),
+      const DeepCollectionEquality().hash(updatedAt));
 
   @JsonKey(ignore: true)
   @override
@@ -158,21 +257,35 @@ class _$_User extends _User {
   }
 }
 
-abstract class _User extends User {
-  factory _User(
-      {required final String firstName,
-      required final String email,
-      required final String token}) = _$_User;
-  _User._() : super._();
+abstract class _User implements User {
+  const factory _User(
+      {final String? sId,
+      final String? userName,
+      final String? name,
+      final String? email,
+      final int? points,
+      final String? role,
+      final String? createdAt,
+      final String? updatedAt}) = _$_User;
 
   factory _User.fromJson(Map<String, dynamic> json) = _$_User.fromJson;
 
   @override
-  String get firstName;
+  String? get sId;
   @override
-  String get email;
+  String? get userName;
   @override
-  String get token;
+  String? get name;
+  @override
+  String? get email;
+  @override // List<Null>? posts,
+  int? get points;
+  @override
+  String? get role;
+  @override
+  String? get createdAt;
+  @override
+  String? get updatedAt;
   @override
   @JsonKey(ignore: true)
   _$$_UserCopyWith<_$_User> get copyWith => throw _privateConstructorUsedError;

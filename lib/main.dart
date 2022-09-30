@@ -1,4 +1,5 @@
 import 'package:expensetracker/routes/app.router.gr.dart';
+import 'package:expensetracker/utils/base-client/path.provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -7,7 +8,7 @@ import 'package:get_storage/get_storage.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   //initiallize path for offline cache
-  // await AppPathProvider.initPath();
+  await AppPathProvider.initPath();
 
   //initialized getstorage for local database
   await GetStorage.init();
