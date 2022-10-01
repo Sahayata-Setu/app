@@ -8,13 +8,17 @@ part 'user.model.g.dart';
 @freezed
 class User with _$User {
   const factory User({
-    String? sId,
-    String? userName,
-    String? name,
+    String? id,
+    String? firstName,
+    String? lastName,
     String? email,
+    String? address,
+    String? password,
     // List<Null>? posts,
-    int? points,
-    String? role,
+    int? phoneNo,
+    String? gender,
+    String? language,
+    String? profilePic,
     String? createdAt,
     String? updatedAt,
     // int? iV;

@@ -41,34 +41,12 @@ android {
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
     }
-    flavorDimensions "app"
 
-    productFlavors {
-        production {
-            dimension "app"
-            versionCode 1
-            versionName "1.0"
-            applicationIdSuffix ""
-        }
-
-        staging {
-            dimension "app"
-            versionCode 1
-            versionName "1.0"
-            applicationIdSuffix ".stg"
-        }
-        development {
-            dimension "app"
-            versionCode 1
-            versionName "1.0"
-            applicationIdSuffix ".dev"
-        }
-        
-    }
+    
 
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
-        applicationId "com.example.expensetracker"
+        applicationId "com.example.donationapp"
         // You can update the following values to match your application needs.
         // For more information, see: https://docs.flutter.dev/deployment/android#reviewing-the-build-configuration.
         minSdkVersion flutter.minSdkVersion

@@ -2,19 +2,14 @@ import 'dart:convert';
 import 'dart:developer';
 
 import 'package:donationapp/helpers/convertToJsonObject.dart';
+import 'package:donationapp/services/login/login.service.dart';
 import 'package:donationapp/services/signup/signup.service.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-final signUpDetailsProvider = StateProvider(
+final loginDetailsProvider = StateProvider(
   (ref) => ({
-    "firstName": "",
-    "lastName": "",
     "email": "",
-    "phoneNo": "",
-    "address": "",
-    "gender": "",
-    "language": "",
     "password": "",
   }),
 );
@@ -25,9 +20,10 @@ class SignUpNotifier extends ChangeNotifier {
 
   // @override
   signup(data) async {
-    final authService = read(signUpService);
+    // log("${data}");
+    final authService = read(loginService);
     try {
-      final resp = await authService.signUp(data);
+      final resp = await authService.login(data);
 
       notifyListeners();
       return resp;
@@ -38,5 +34,5 @@ class SignUpNotifier extends ChangeNotifier {
   }
 }
 
-final signUpProvider = ChangeNotifierProvider.autoDispose<SignUpNotifier>(
+final loginProvider = ChangeNotifierProvider.autoDispose<SignUpNotifier>(
     (ref) => SignUpNotifier(ref.read));

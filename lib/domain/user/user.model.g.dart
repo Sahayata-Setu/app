@@ -7,23 +7,31 @@ part of 'user.model.dart';
 // **************************************************************************
 
 _$_User _$$_UserFromJson(Map<String, dynamic> json) => _$_User(
-      sId: json['sId'] as String?,
-      userName: json['userName'] as String?,
-      name: json['name'] as String?,
+      id: json['id'] as String?,
+      firstName: json['firstName'] as String?,
+      lastName: json['lastName'] as String?,
       email: json['email'] as String?,
-      points: json['points'] as int?,
-      role: json['role'] as String?,
+      address: json['address'] as String?,
+      password: json['password'] as String?,
+      phoneNo: json['phoneNo'] as int?,
+      gender: json['gender'] as String?,
+      language: json['language'] as String?,
+      profilePic: json['profilePic'] as String?,
       createdAt: json['createdAt'] as String?,
       updatedAt: json['updatedAt'] as String?,
     );
 
 Map<String, dynamic> _$$_UserToJson(_$_User instance) => <String, dynamic>{
-      'sId': instance.sId,
-      'userName': instance.userName,
-      'name': instance.name,
+      'id': instance.id,
+      'firstName': instance.firstName,
+      'lastName': instance.lastName,
       'email': instance.email,
-      'points': instance.points,
-      'role': instance.role,
+      'address': instance.address,
+      'password': instance.password,
+      'phoneNo': instance.phoneNo,
+      'gender': instance.gender,
+      'language': instance.language,
+      'profilePic': instance.profilePic,
       'createdAt': instance.createdAt,
       'updatedAt': instance.updatedAt,
     };

@@ -8,3 +8,4 @@ const Color blackColor = Colors.black;
 const Color yellowColor = Color(0xffEFB74B);
 const Color primaryColor = Color(0xffEFB74B);
 const Color blueColor = Color(0xff000C66);
+const Color backgroundColor = Color(0xffD4F1F4);
