@@ -4,16 +4,16 @@ import 'package:donationapp/utils/base-client/base_client.dart';
 import 'package:donationapp/utils/store-service/store.service.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class SignUpServiceClass {
+class LoginServiceClass {
   final _client = ApiHelper.instance;
 
   //
-  Future<Map<String, dynamic>> signUp(data) async {
+  Future<Map<String, dynamic>> login(data) async {
     // final singUpService
     try {
-      log("this is from$data");
-      final response = await _client.post("/auth/signup", data: data);
-      // log("${response.statusCode()}");
+      // log("this is from$data");
+      final response = await _client.post("/auth/login", data: data);
+      log("${response['token']}");
       // if(response.statusCode(400) )
       StorageService.setToken(response['token']);
 
@@ -25,5 +25,5 @@ class SignUpServiceClass {
   }
 }
 
-final signUpService =
-    Provider.autoDispose<SignUpServiceClass>((ref) => SignUpServiceClass());
+final loginService =
+    Provider.autoDispose<LoginServiceClass>((ref) => LoginServiceClass());

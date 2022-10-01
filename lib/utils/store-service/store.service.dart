@@ -1,6 +1,6 @@
 import 'dart:developer';
 
-import 'package:expensetracker/constant/config/config.dart';
+import 'package:donationapp/constant/config/config.dart';
 import 'package:get_storage/get_storage.dart';
 
 class StorageService {

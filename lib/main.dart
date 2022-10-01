@@ -1,5 +1,5 @@
-import 'package:expensetracker/routes/app.router.gr.dart';
-import 'package:expensetracker/utils/base-client/path.provider.dart';
+import 'package:donationapp/routes/app.router.gr.dart';
+import 'package:donationapp/utils/base-client/path.provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';

@@ -1,13 +1,16 @@
-import 'package:expensetracker/constant/common/NavBar/navbar.dart';
-import 'package:expensetracker/constant/kconstant.dart';
+import 'package:donationapp/constant/common/NavBar/navbar.dart';
+import 'package:donationapp/constant/kconstant.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 // this component shares the common widget among differnt components like futter
 class App extends StatefulWidget {
   final Widget component;
+  final Widget appbar;
   // ignore: non_constant_identifier_names
-  const App({Key? key, required this.component}) : super(key: key);
+  const App({Key? key, required this.component, required this.appbar})
+      : super(key: key);
 
   @override
   State<App> createState() => _AppState();
@@ -53,7 +56,7 @@ class _AppState extends State<App> {
       backgroundColor: Colors.transparent,
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(50),
-        child: NavBar(),
+        child: widget.appbar,
       ),
       body: SingleChildScrollView(
         controller: _scrollController,

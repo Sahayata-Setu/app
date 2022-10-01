@@ -20,12 +20,17 @@ User _$UserFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$User {
-  String? get sId => throw _privateConstructorUsedError;
-  String? get userName => throw _privateConstructorUsedError;
-  String? get name => throw _privateConstructorUsedError;
-  String? get email => throw _privateConstructorUsedError; // List<Null>? posts,
-  int? get points => throw _privateConstructorUsedError;
-  String? get role => throw _privateConstructorUsedError;
+  String? get id => throw _privateConstructorUsedError;
+  String? get firstName => throw _privateConstructorUsedError;
+  String? get lastName => throw _privateConstructorUsedError;
+  String? get email => throw _privateConstructorUsedError;
+  String? get address => throw _privateConstructorUsedError;
+  String? get password =>
+      throw _privateConstructorUsedError; // List<Null>? posts,
+  int? get phoneNo => throw _privateConstructorUsedError;
+  String? get gender => throw _privateConstructorUsedError;
+  String? get language => throw _privateConstructorUsedError;
+  String? get profilePic => throw _privateConstructorUsedError;
   String? get createdAt => throw _privateConstructorUsedError;
   String? get updatedAt => throw _privateConstructorUsedError;
 
@@ -39,12 +44,16 @@ abstract class $UserCopyWith<$Res> {
   factory $UserCopyWith(User value, $Res Function(User) then) =
       _$UserCopyWithImpl<$Res>;
   $Res call(
-      {String? sId,
-      String? userName,
-      String? name,
+      {String? id,
+      String? firstName,
+      String? lastName,
       String? email,
-      int? points,
-      String? role,
+      String? address,
+      String? password,
+      int? phoneNo,
+      String? gender,
+      String? language,
+      String? profilePic,
       String? createdAt,
       String? updatedAt});
 }
@@ -59,39 +68,59 @@ class _$UserCopyWithImpl<$Res> implements $UserCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? sId = freezed,
-    Object? userName = freezed,
-    Object? name = freezed,
+    Object? id = freezed,
+    Object? firstName = freezed,
+    Object? lastName = freezed,
     Object? email = freezed,
-    Object? points = freezed,
-    Object? role = freezed,
+    Object? address = freezed,
+    Object? password = freezed,
+    Object? phoneNo = freezed,
+    Object? gender = freezed,
+    Object? language = freezed,
+    Object? profilePic = freezed,
     Object? createdAt = freezed,
     Object? updatedAt = freezed,
   }) {
     return _then(_value.copyWith(
-      sId: sId == freezed
-          ? _value.sId
-          : sId // ignore: cast_nullable_to_non_nullable
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
               as String?,
-      userName: userName == freezed
-          ? _value.userName
-          : userName // ignore: cast_nullable_to_non_nullable
+      firstName: firstName == freezed
+          ? _value.firstName
+          : firstName // ignore: cast_nullable_to_non_nullable
               as String?,
-      name: name == freezed
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
+      lastName: lastName == freezed
+          ? _value.lastName
+          : lastName // ignore: cast_nullable_to_non_nullable
               as String?,
       email: email == freezed
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String?,
-      points: points == freezed
-          ? _value.points
-          : points // ignore: cast_nullable_to_non_nullable
+      address: address == freezed
+          ? _value.address
+          : address // ignore: cast_nullable_to_non_nullable
+              as String?,
+      password: password == freezed
+          ? _value.password
+          : password // ignore: cast_nullable_to_non_nullable
+              as String?,
+      phoneNo: phoneNo == freezed
+          ? _value.phoneNo
+          : phoneNo // ignore: cast_nullable_to_non_nullable
               as int?,
-      role: role == freezed
-          ? _value.role
-          : role // ignore: cast_nullable_to_non_nullable
+      gender: gender == freezed
+          ? _value.gender
+          : gender // ignore: cast_nullable_to_non_nullable
+              as String?,
+      language: language == freezed
+          ? _value.language
+          : language // ignore: cast_nullable_to_non_nullable
+              as String?,
+      profilePic: profilePic == freezed
+          ? _value.profilePic
+          : profilePic // ignore: cast_nullable_to_non_nullable
               as String?,
       createdAt: createdAt == freezed
           ? _value.createdAt
@@ -111,12 +140,16 @@ abstract class _$$_UserCopyWith<$Res> implements $UserCopyWith<$Res> {
       __$$_UserCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String? sId,
-      String? userName,
-      String? name,
+      {String? id,
+      String? firstName,
+      String? lastName,
       String? email,
-      int? points,
-      String? role,
+      String? address,
+      String? password,
+      int? phoneNo,
+      String? gender,
+      String? language,
+      String? profilePic,
       String? createdAt,
       String? updatedAt});
 }
@@ -132,39 +165,59 @@ class __$$_UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? sId = freezed,
-    Object? userName = freezed,
-    Object? name = freezed,
+    Object? id = freezed,
+    Object? firstName = freezed,
+    Object? lastName = freezed,
     Object? email = freezed,
-    Object? points = freezed,
-    Object? role = freezed,
+    Object? address = freezed,
+    Object? password = freezed,
+    Object? phoneNo = freezed,
+    Object? gender = freezed,
+    Object? language = freezed,
+    Object? profilePic = freezed,
     Object? createdAt = freezed,
     Object? updatedAt = freezed,
   }) {
     return _then(_$_User(
-      sId: sId == freezed
-          ? _value.sId
-          : sId // ignore: cast_nullable_to_non_nullable
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
               as String?,
-      userName: userName == freezed
-          ? _value.userName
-          : userName // ignore: cast_nullable_to_non_nullable
+      firstName: firstName == freezed
+          ? _value.firstName
+          : firstName // ignore: cast_nullable_to_non_nullable
               as String?,
-      name: name == freezed
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
+      lastName: lastName == freezed
+          ? _value.lastName
+          : lastName // ignore: cast_nullable_to_non_nullable
               as String?,
       email: email == freezed
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String?,
-      points: points == freezed
-          ? _value.points
-          : points // ignore: cast_nullable_to_non_nullable
+      address: address == freezed
+          ? _value.address
+          : address // ignore: cast_nullable_to_non_nullable
+              as String?,
+      password: password == freezed
+          ? _value.password
+          : password // ignore: cast_nullable_to_non_nullable
+              as String?,
+      phoneNo: phoneNo == freezed
+          ? _value.phoneNo
+          : phoneNo // ignore: cast_nullable_to_non_nullable
               as int?,
-      role: role == freezed
-          ? _value.role
-          : role // ignore: cast_nullable_to_non_nullable
+      gender: gender == freezed
+          ? _value.gender
+          : gender // ignore: cast_nullable_to_non_nullable
+              as String?,
+      language: language == freezed
+          ? _value.language
+          : language // ignore: cast_nullable_to_non_nullable
+              as String?,
+      profilePic: profilePic == freezed
+          ? _value.profilePic
+          : profilePic // ignore: cast_nullable_to_non_nullable
               as String?,
       createdAt: createdAt == freezed
           ? _value.createdAt
@@ -182,30 +235,42 @@ class __$$_UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_User implements _User {
   const _$_User(
-      {this.sId,
-      this.userName,
-      this.name,
+      {this.id,
+      this.firstName,
+      this.lastName,
       this.email,
-      this.points,
-      this.role,
+      this.address,
+      this.password,
+      this.phoneNo,
+      this.gender,
+      this.language,
+      this.profilePic,
       this.createdAt,
       this.updatedAt});
 
   factory _$_User.fromJson(Map<String, dynamic> json) => _$$_UserFromJson(json);
 
   @override
-  final String? sId;
+  final String? id;
   @override
-  final String? userName;
+  final String? firstName;
   @override
-  final String? name;
+  final String? lastName;
   @override
   final String? email;
+  @override
+  final String? address;
+  @override
+  final String? password;
 // List<Null>? posts,
   @override
-  final int? points;
+  final int? phoneNo;
   @override
-  final String? role;
+  final String? gender;
+  @override
+  final String? language;
+  @override
+  final String? profilePic;
   @override
   final String? createdAt;
   @override
@@ -213,7 +278,7 @@ class _$_User implements _User {
 
   @override
   String toString() {
-    return 'User(sId: $sId, userName: $userName, name: $name, email: $email, points: $points, role: $role, createdAt: $createdAt, updatedAt: $updatedAt)';
+    return 'User(id: $id, firstName: $firstName, lastName: $lastName, email: $email, address: $address, password: $password, phoneNo: $phoneNo, gender: $gender, language: $language, profilePic: $profilePic, createdAt: $createdAt, updatedAt: $updatedAt)';
   }
 
   @override
@@ -221,12 +286,17 @@ class _$_User implements _User {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_User &&
-            const DeepCollectionEquality().equals(other.sId, sId) &&
-            const DeepCollectionEquality().equals(other.userName, userName) &&
-            const DeepCollectionEquality().equals(other.name, name) &&
+            const DeepCollectionEquality().equals(other.id, id) &&
+            const DeepCollectionEquality().equals(other.firstName, firstName) &&
+            const DeepCollectionEquality().equals(other.lastName, lastName) &&
             const DeepCollectionEquality().equals(other.email, email) &&
-            const DeepCollectionEquality().equals(other.points, points) &&
-            const DeepCollectionEquality().equals(other.role, role) &&
+            const DeepCollectionEquality().equals(other.address, address) &&
+            const DeepCollectionEquality().equals(other.password, password) &&
+            const DeepCollectionEquality().equals(other.phoneNo, phoneNo) &&
+            const DeepCollectionEquality().equals(other.gender, gender) &&
+            const DeepCollectionEquality().equals(other.language, language) &&
+            const DeepCollectionEquality()
+                .equals(other.profilePic, profilePic) &&
             const DeepCollectionEquality().equals(other.createdAt, createdAt) &&
             const DeepCollectionEquality().equals(other.updatedAt, updatedAt));
   }
@@ -235,12 +305,16 @@ class _$_User implements _User {
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(sId),
-      const DeepCollectionEquality().hash(userName),
-      const DeepCollectionEquality().hash(name),
+      const DeepCollectionEquality().hash(id),
+      const DeepCollectionEquality().hash(firstName),
+      const DeepCollectionEquality().hash(lastName),
       const DeepCollectionEquality().hash(email),
-      const DeepCollectionEquality().hash(points),
-      const DeepCollectionEquality().hash(role),
+      const DeepCollectionEquality().hash(address),
+      const DeepCollectionEquality().hash(password),
+      const DeepCollectionEquality().hash(phoneNo),
+      const DeepCollectionEquality().hash(gender),
+      const DeepCollectionEquality().hash(language),
+      const DeepCollectionEquality().hash(profilePic),
       const DeepCollectionEquality().hash(createdAt),
       const DeepCollectionEquality().hash(updatedAt));
 
@@ -259,29 +333,41 @@ class _$_User implements _User {
 
 abstract class _User implements User {
   const factory _User(
-      {final String? sId,
-      final String? userName,
-      final String? name,
+      {final String? id,
+      final String? firstName,
+      final String? lastName,
       final String? email,
-      final int? points,
-      final String? role,
+      final String? address,
+      final String? password,
+      final int? phoneNo,
+      final String? gender,
+      final String? language,
+      final String? profilePic,
       final String? createdAt,
       final String? updatedAt}) = _$_User;
 
   factory _User.fromJson(Map<String, dynamic> json) = _$_User.fromJson;
 
   @override
-  String? get sId;
+  String? get id;
   @override
-  String? get userName;
+  String? get firstName;
   @override
-  String? get name;
+  String? get lastName;
   @override
   String? get email;
-  @override // List<Null>? posts,
-  int? get points;
   @override
-  String? get role;
+  String? get address;
+  @override
+  String? get password;
+  @override // List<Null>? posts,
+  int? get phoneNo;
+  @override
+  String? get gender;
+  @override
+  String? get language;
+  @override
+  String? get profilePic;
   @override
   String? get createdAt;
   @override
