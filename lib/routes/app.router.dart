@@ -8,7 +8,10 @@ import 'package:donationapp/features/signup/SignUp.dart';
   MaterialRoute(page: Signup, path: "/signup"),
   // MaterialRoute(page: Signup, path: "/signup"),
   MaterialRoute(page: HomePage, path: "/homepage", initial: true),
-  MaterialRoute(page: Login, path: "/login"),
+  MaterialRoute(
+    page: Login,
+    path: "/login",
+  ),
 ])
 @CustomAutoRouter(routes: [])
 class $AppRouter {}

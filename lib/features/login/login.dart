@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:donationapp/app.dart';
+import 'package:donationapp/constant/common/BottomNavBar/BottomNavBar.dart';
 import 'package:donationapp/constant/common/NavBar/navbar.dart';
 import 'package:donationapp/constant/common/Text/custom-text.dart';
 import 'package:donationapp/constant/kconstant.dart';
@@ -24,8 +25,8 @@ class Login extends ConsumerWidget {
     final loginDetails = ref.watch(loginDetailsProvider);
     final loginref = ref.watch(loginProvider);
     // log("$signUpDetails");
-    final token = StorageService.getToken();
-    log("this id from${token}");
+    // final token = StorageService.getToken();
+    // log("this id from${token}");
 
     handleSumbit() async {
       try {
@@ -33,9 +34,9 @@ class Login extends ConsumerWidget {
         // ignore: use_build_context_synchronously
         CustomScaffoldMessenger.info("Sucessfully logged In", context);
         // ignore: use_build_context_synchronously
-        token.isNotEmpty
-            ? replaceRouteTo('/homepage', context)
-            : replaceRouteTo("/login", context);
+        // token.isNotEmpty
+        //     ? replaceRouteTo('/homepage', context)
+        //     : replaceRouteTo("/login", context);
       } catch (e) {
         log('$e the success');
         CustomScaffoldMessenger.error(
@@ -46,6 +47,7 @@ class Login extends ConsumerWidget {
     return App(
       appbar: NavBar(
         title: "LOGIN",
+        showBadge: false,
       ),
       component: Container(
         // height: 600.h,
@@ -95,6 +97,7 @@ class Login extends ConsumerWidget {
           ),
         ),
       ),
+      bottomNavBar: BottomNavBar(showBottomNavBar: false),
     );
   }
 }

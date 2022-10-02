@@ -13,6 +13,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../constant/common/BottomNavBar/BottomNavBar.dart';
+
 class Signup extends ConsumerWidget {
   const Signup({super.key});
 
@@ -39,6 +41,7 @@ class Signup extends ConsumerWidget {
     return App(
       appbar: NavBar(
         title: "SIGN UP",
+        showBadge: false,
       ),
       component: Container(
         height: 600.h,
@@ -125,6 +128,7 @@ class Signup extends ConsumerWidget {
           ),
         ),
       ),
+      bottomNavBar: BottomNavBar(showBottomNavBar: false),
     );
   }
 }
