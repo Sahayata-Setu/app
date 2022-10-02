@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:donationapp/app.dart';
+import 'package:donationapp/constant/common/BottomNavBar/BottomNavBar.dart';
 import 'package:donationapp/constant/common/NavBar/navbar.dart';
 import 'package:donationapp/constant/common/Text/custom-text.dart';
 import 'package:donationapp/constant/kconstant.dart';
@@ -25,17 +26,16 @@ class Login extends ConsumerWidget {
     final loginref = ref.watch(loginProvider);
     // log("$signUpDetails");
     final isAuthenticated = StorageService.isAuthenticated();
-    // log("this id from${token}");
+    // log("this id from${StorageService.getToken()}");
 
     handleSumbit() async {
       try {
         await loginref.signup(loginDetails);
         // ignore: use_build_context_synchronously
+        replaceRouteTo('/homepage', context);
         CustomScaffoldMessenger.info("Sucessfully logged In", context);
         // ignore: use_build_context_synchronously
-        isAuthenticated
-            ? replaceRouteTo('/homepage', context)
-            : replaceRouteTo("/login", context);
+
       } catch (e) {
         log('$e the success');
         CustomScaffoldMessenger.error(
@@ -46,6 +46,7 @@ class Login extends ConsumerWidget {
     return App(
       appbar: NavBar(
         title: "LOGIN",
+        showBadge: false,
       ),
       component: Container(
         // height: 600.h,
@@ -74,7 +75,7 @@ class Login extends ConsumerWidget {
 
               //
               ElevatedButton(
-                onPressed: () async {
+                onPressed: () {
                   // replaceRouteTo("/homepage", context);
                   // handleSumbit();
                   // log("${loginDetails}");
@@ -87,7 +88,7 @@ class Login extends ConsumerWidget {
               ),
               TextButton(
                 onPressed: () {
-                  replaceRouteTo("/login", context);
+                  replaceRouteTo("/signup", context);
                 },
                 child: Text("Need an account? Signup"),
               )
@@ -95,6 +96,7 @@ class Login extends ConsumerWidget {
           ),
         ),
       ),
+      bottomNavBar: BottomNavBar(showBottomNavBar: false),
     );
   }
 }

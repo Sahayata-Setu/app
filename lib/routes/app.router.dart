@@ -1,5 +1,6 @@
 import 'package:auto_route/annotations.dart';
 import 'package:auto_route/auto_route.dart';
+import 'package:donationapp/auth/auth_check/auth_check.dart';
 import 'package:donationapp/features/apply-for-volunteer/apply-for-volunteer.dart';
 import 'package:donationapp/features/homepage/homepage.dart';
 import 'package:donationapp/features/login/login.dart';
@@ -8,10 +9,11 @@ import 'package:donationapp/features/search-page/search-page.dart';
 import 'package:donationapp/features/signup/SignUp.dart';
 
 @MaterialAutoRouter(routes: [
+  MaterialRoute(page: AuthCheckWidget, initial: true, path: "/"),
   MaterialRoute(page: Signup, path: "/signup"),
   // MaterialRoute(page: Signup, path: "/signup"),
   MaterialRoute(page: HomePage, path: "/homepage"),
-  MaterialRoute(page: Login, path: "/login", initial: true),
+  MaterialRoute(page: Login, path: "/login"),
   MaterialRoute(page: SearchPage, path: "/search"),
   MaterialRoute(page: UserProfile, path: "/user-profile"),
   MaterialRoute(page: ApplyForVolunteer, path: "/apply-volunteer"),

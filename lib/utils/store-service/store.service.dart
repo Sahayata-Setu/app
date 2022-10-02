@@ -7,7 +7,9 @@ class StorageService {
   static final box = GetStorage();
 
   static String getToken() {
-    return box.read('token');
+    final token = box.read('token');
+    log("this is from ${token}");
+    return box.read('token') == null ? '' : box.read('token');
   }
 
   static bool isAuthenticated() {

@@ -1,4 +1,5 @@
 import 'package:donationapp/app.dart';
+import 'package:donationapp/constant/common/BottomNavBar/BottomNavBar.dart';
 import 'package:donationapp/constant/common/NavBar/navbar.dart';
 import 'package:donationapp/constant/common/Text/custom-text.dart';
 import 'package:donationapp/constant/common/textfield/CustomTextField.dart';
@@ -85,9 +86,11 @@ class ApplyForVolunteer extends ConsumerWidget {
         ),
       ),
       appbar: NavBar(
+        showBadge: false,
         route: "/homepage",
         title: "Apply for volunteer",
       ),
+      bottomNavBar: BottomNavBar(showBottomNavBar: false),
     );
   }
 }

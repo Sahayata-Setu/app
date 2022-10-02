@@ -1,4 +1,5 @@
 import 'package:donationapp/app.dart';
+import 'package:donationapp/constant/common/BottomNavBar/BottomNavBar.dart';
 import 'package:donationapp/constant/common/NavBar/navbar.dart';
 import 'package:donationapp/constant/kconstant.dart';
 import 'package:flutter/material.dart';
@@ -16,9 +17,11 @@ class SearchPage extends StatelessWidget {
         child: Column(),
       ),
       appbar: const NavBar(
-        // title: "Search",
+        showBadge: false,
+        title: "Search",
         route: "/homepage",
       ),
+      bottomNavBar: BottomNavBar(showBottomNavBar: false),
     );
   }
 }

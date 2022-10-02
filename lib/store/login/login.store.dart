@@ -32,6 +32,18 @@ class SignUpNotifier extends ChangeNotifier {
       rethrow;
     }
   }
+
+  logout() async {
+    final authService = read(loginService);
+    try {
+      await authService.logOut();
+      notifyListeners();
+      return true;
+    } catch (e) {
+      log('$e');
+      rethrow;
+    }
+  }
 }
 
 final loginProvider = ChangeNotifierProvider.autoDispose<SignUpNotifier>(

@@ -1,4 +1,7 @@
+import 'dart:developer';
+
 import 'package:donationapp/app.dart';
+import 'package:donationapp/constant/common/BottomNavBar/BottomNavBar.dart';
 import 'package:donationapp/constant/common/NavBar/navbar.dart';
 import 'package:donationapp/constant/common/Text/custom-text.dart';
 import 'package:donationapp/constant/common/horizontal-line/horizontal-line.dart';
@@ -6,18 +9,31 @@ import 'package:donationapp/constant/kconstant.dart';
 import 'package:donationapp/features/profile/widgets/user-profile-image.dart';
 import 'package:donationapp/features/profile/widgets/user-profile-info.dart';
 import 'package:donationapp/features/profile/widgets/user-profile-options.dart';
+import 'package:donationapp/helpers/custom.toast.dart';
+import 'package:donationapp/helpers/route.utils.dart';
+import 'package:donationapp/services/login/login.service.dart';
+import 'package:donationapp/store/login/login.store.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class UserProfile extends StatelessWidget {
+class UserProfile extends ConsumerWidget {
   const UserProfile({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    handleLogout() {
+      ref.read(loginProvider).logout();
+      // log("message");
+      replaceRouteTo('/login', context);
+      CustomScaffoldMessenger.info('Logged out', context);
+    }
+
     return App(
       appbar: NavBar(
         title: "Profile",
         route: "/homepage",
+        showBadge: false,
       ),
       component: Container(
         color: blueBackgroundColor,
@@ -58,14 +74,20 @@ class UserProfile extends StatelessWidget {
                 text: "Change Language",
                 imageName: "i-icon",
               ),
-              const UserProfileOptions(
-                text: "Logout",
-                imageName: "logout",
+              GestureDetector(
+                onTap: () {
+                  handleLogout();
+                },
+                child: const UserProfileOptions(
+                  text: "Logout",
+                  imageName: "logout",
+                ),
               ),
             ],
           ),
         ),
       ),
+      bottomNavBar: BottomNavBar(showBottomNavBar: false),
     );
   }
 }
