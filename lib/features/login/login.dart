@@ -24,8 +24,8 @@ class Login extends ConsumerWidget {
     final loginDetails = ref.watch(loginDetailsProvider);
     final loginref = ref.watch(loginProvider);
     // log("$signUpDetails");
-    final token = StorageService.getToken();
-    log("this id from${token}");
+    final isAuthenticated = StorageService.isAuthenticated();
+    // log("this id from${token}");
 
     handleSumbit() async {
       try {
@@ -33,7 +33,7 @@ class Login extends ConsumerWidget {
         // ignore: use_build_context_synchronously
         CustomScaffoldMessenger.info("Sucessfully logged In", context);
         // ignore: use_build_context_synchronously
-        token.isNotEmpty
+        isAuthenticated
             ? replaceRouteTo('/homepage', context)
             : replaceRouteTo("/login", context);
       } catch (e) {

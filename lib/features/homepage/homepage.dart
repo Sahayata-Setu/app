@@ -5,6 +5,7 @@ import 'package:donationapp/constant/common/NavBar/navbar.dart';
 import 'package:donationapp/constant/common/Text/custom-text.dart';
 import 'package:donationapp/constant/kconstant.dart';
 import 'package:donationapp/features/homepage/widgets/dropdown.dart';
+import 'package:donationapp/helpers/route.utils.dart';
 import 'package:donationapp/store/homepage/homepage.store.dart';
 import 'package:donationapp/utils/store-service/store.service.dart';
 import 'package:flutter/material.dart';
@@ -49,7 +50,39 @@ class HomePage extends ConsumerWidget {
                     ref: ref,
                   ),
                 ],
-              )
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  replaceRouteTo("/user-profile", context);
+                },
+                child: CustomText(
+                  text: "userprofile",
+                ),
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  replaceRouteTo("/search", context);
+                },
+                child: CustomText(
+                  text: "search",
+                ),
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  replaceRouteTo("/signup", context);
+                },
+                child: CustomText(
+                  text: "signup",
+                ),
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  replaceRouteTo("/apply-volunteer", context);
+                },
+                child: CustomText(
+                  text: "volunter",
+                ),
+              ),
             ],
           ),
         ),

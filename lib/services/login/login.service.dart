@@ -13,7 +13,7 @@ class LoginServiceClass {
     try {
       // log("this is from$data");
       final response = await _client.post("/auth/login", data: data);
-      log("${response['token']}");
+      // log("${response['token']}");
       // if(response.statusCode(400) )
       StorageService.setToken(response['token']);
 

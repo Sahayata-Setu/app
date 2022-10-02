@@ -10,6 +10,10 @@ class StorageService {
     return box.read('token');
   }
 
+  static bool isAuthenticated() {
+    return box.read('token') != null ? true : false;
+  }
+
   static void setToken(String token) async {
     box.write("token", token);
   }

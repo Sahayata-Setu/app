@@ -39,6 +39,7 @@ class Signup extends ConsumerWidget {
     return App(
       appbar: NavBar(
         title: "SIGN UP",
+        route: "/homepage",
       ),
       component: Container(
         height: 600.h,
