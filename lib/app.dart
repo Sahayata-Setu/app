@@ -1,3 +1,5 @@
+import 'package:flutter_speed_dial/flutter_speed_dial.dart';
+
 import 'package:donationapp/constant/common/NavBar/navbar.dart';
 import 'package:donationapp/constant/kconstant.dart';
 import 'package:flutter/material.dart';
@@ -69,18 +71,42 @@ class _AppState extends State<App> {
           children: [widget.component],
         ),
       ),
-      floatingActionButton:
-          //  _showBackToTopButton == false
-          //     ? null
-          //:
-          FloatingActionButton(
+      //@PathParam()
+      floatingActionButton: SpeedDial(
+        icon: Icons.add,
+        activeIcon: Icons.close,
         backgroundColor: blueColor,
-        onPressed: _scrollToTop,
-        child: const Icon(
-          Icons.add,
-          color: whiteColor,
-        ),
+        foregroundColor: whiteColor,
+        children: [
+          SpeedDialChild(
+            child: Container(width: 80, child: Text("DONATE")),
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
+            labelStyle: TextStyle(
+              fontSize: 18.0,
+            ),
+            onTap: () {},
+            onLongPress: () {},
+          ),
+          SpeedDialChild(
+            label: 'REQUEST',
+            labelStyle: TextStyle(fontSize: 18.0),
+            onTap: () {},
+            onLongPress: () => {},
+          ),
+        ],
       ),
+      //  _showBackToTopButton == false
+      //     ? null
+      //:
+      //   FloatingActionButton(
+      // backgroundColor: blueColor,
+      // onPressed: _scrollToTop,
+      // child: const Icon(
+      //   Icons.add,
+      //   color: whiteColor,
+      // ),
+      // ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: widget.bottomNavBar,
     );

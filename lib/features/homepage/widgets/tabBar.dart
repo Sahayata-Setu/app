@@ -1,5 +1,6 @@
-import 'package:donationapp/features/homepage/widgets/Dontations.dart';
-import 'package:donationapp/features/homepage/widgets/dontaionCard.dart';
+import 'package:donationapp/features/homepage/widgets/Donations/Dontations.dart';
+import 'package:donationapp/features/homepage/widgets/Donations/dontaionCard.dart';
+import 'package:donationapp/features/homepage/widgets/Needs/Needs.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -65,7 +66,7 @@ class _CustomTabBarState extends State<CustomTabBar>
               // height: 400,
               child: TabBarView(
                   controller: tabBarController,
-                  children: [Dontaions(), Text("needs"), Text("others")]),
+                  children: [Dontaions(), Needs(), Text("others")]),
             ),
           )
         ],

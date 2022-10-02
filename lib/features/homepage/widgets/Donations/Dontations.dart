@@ -1,4 +1,4 @@
-import 'package:donationapp/features/homepage/widgets/dontaionCard.dart';
+import 'package:donationapp/features/homepage/widgets/Donations/dontaionCard.dart';
 import 'package:flutter/material.dart';
 
 class Dontaions extends StatelessWidget {
