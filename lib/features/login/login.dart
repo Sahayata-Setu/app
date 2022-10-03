@@ -25,18 +25,17 @@ class Login extends ConsumerWidget {
     final loginDetails = ref.watch(loginDetailsProvider);
     final loginref = ref.watch(loginProvider);
     // log("$signUpDetails");
-    // final token = StorageService.getToken();
-    // log("this id from${token}");
+    final isAuthenticated = StorageService.isAuthenticated();
+    // log("this id from${StorageService.getToken()}");
 
     handleSumbit() async {
       try {
         await loginref.signup(loginDetails);
         // ignore: use_build_context_synchronously
+        replaceRouteTo('/homepage', context);
         CustomScaffoldMessenger.info("Sucessfully logged In", context);
         // ignore: use_build_context_synchronously
-        // token.isNotEmpty
-        //     ? replaceRouteTo('/homepage', context)
-        //     : replaceRouteTo("/login", context);
+
       } catch (e) {
         log('$e the success');
         CustomScaffoldMessenger.error(
@@ -76,7 +75,7 @@ class Login extends ConsumerWidget {
 
               //
               ElevatedButton(
-                onPressed: () async {
+                onPressed: () {
                   // replaceRouteTo("/homepage", context);
                   // handleSumbit();
                   // log("${loginDetails}");
@@ -89,7 +88,7 @@ class Login extends ConsumerWidget {
               ),
               TextButton(
                 onPressed: () {
-                  replaceRouteTo("/login", context);
+                  replaceRouteTo("/signup", context);
                 },
                 child: Text("Need an account? Signup"),
               )

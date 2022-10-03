@@ -30,32 +30,33 @@ class _CustomTabBarState extends State<CustomTabBar>
           Container(
             margin: EdgeInsets.symmetric(vertical: 15),
             child: TabBar(
-                controller: tabBarController,
-                indicatorSize: TabBarIndicatorSize.label,
-                //indicator: ,
-                tabs: [
-                  CustomText(
-                    text: "DONATIONS",
-                    fontColor: blackColor,
-                    fontSize: 14.sp,
-                    fontWeight: FontWeight.w700,
-                  ),
-                  CustomText(
-                    text: "NEED",
-                    fontColor: blackColor,
-                    fontSize: 16.sp,
-                    fontWeight: FontWeight.w700,
-                  ),
-                  CustomText(
-                    text: "Categories",
-                    fontColor: blackColor,
-                    fontSize: 16.sp,
-                    fontWeight: FontWeight.w700,
-                  ),
-                  // CategoriesDropDown(
-                  //   ref: ref,
-                  // ),
-                ]),
+              controller: tabBarController,
+              indicatorSize: TabBarIndicatorSize.label,
+              //indicator: ,
+              tabs: [
+                CustomText(
+                  text: "DONATIONS",
+                  fontColor: blackColor,
+                  fontSize: 14.sp,
+                  fontWeight: FontWeight.w700,
+                ),
+                CustomText(
+                  text: "NEED",
+                  fontColor: blackColor,
+                  fontSize: 16.sp,
+                  fontWeight: FontWeight.w700,
+                ),
+                CustomText(
+                  text: "Categories",
+                  fontColor: blackColor,
+                  fontSize: 16.sp,
+                  fontWeight: FontWeight.w700,
+                ),
+                // CategoriesDropDown(
+                //   ref: ref,
+                // ),
+              ],
+            ),
           ),
           Expanded(
             child: Container(

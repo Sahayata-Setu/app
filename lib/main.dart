@@ -38,7 +38,7 @@ class MyApp extends StatelessWidget {
                 // useInheritedMediaQuery: true,
                 // locale: DevicePreview.locale(context),
                 // builder: DevicePreview.appBuilder,
-                title: 'Broken Terminal',
+                title: 'Donation',
                 debugShowCheckedModeBanner: false,
                 theme: ThemeData(
                   primarySwatch: Colors.blue,

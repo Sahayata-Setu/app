@@ -1,5 +1,6 @@
 import 'dart:developer';
 
+import 'package:auto_route/auto_route.dart';
 import 'package:donationapp/app.dart';
 import 'package:donationapp/constant/common/BottomNavBar/BottomNavBar.dart';
 import 'package:donationapp/constant/common/NavBar/navbar.dart';
@@ -19,7 +20,10 @@ class HomePage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     // final token = StorageService.getToken();
-    log("this is token${ref.watch(categoriesProvider)}");
+    // log("this id from${StorageService.getToken()}");
+    // log("this is token${ref.watch(categoriesProvider)}");
+    final val = AutoRouter.of(context).current.name;
+    // log("this is from home page${val}");
     // var choosenValue;
     return App(
       component: Container(

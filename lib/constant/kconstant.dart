@@ -12,6 +12,7 @@ const Color secondaryBlue = Color(0xff189AB4);
 const Color tertiaryBlue = Color(0xff75E6DA);
 const Color darkBlue = Color(0xff050A30);
 const Color backgroundColor = Color(0xffD4F1F4);
+const Color blueBackgroundColor = Color(0xff050A30);
 const double KiconSize = 30;
 const double kiconSize2 = 25;
 const double kPadding1 = 15;

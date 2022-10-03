@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:donationapp/helpers/route.utils.dart';
 import 'package:flutter/material.dart';
 
@@ -9,9 +11,10 @@ class BottomNavBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // log("this is contenct${context.set}");
     return BottomAppBar(
         color: blueColor,
-        shape: const CircularNotchedRectangle(),
+        // shape: const CircularNotchedRectangle(),
         notchMargin: 5,
         child: showBottomNavBar
             ? Row(
@@ -26,7 +29,7 @@ class BottomNavBar extends StatelessWidget {
                       size: kiconSize2,
                     ),
                     onPressed: () {
-                      replaceRouteTo('/', context);
+                      replaceRouteTo("/homepage", context);
                     },
                   ),
                   Container(
@@ -62,7 +65,7 @@ class BottomNavBar extends StatelessWidget {
                       size: kiconSize2,
                     ),
                     onPressed: () {
-                      replaceRouteTo('/user-profile', context);
+                      routeTo("/user-profile", context);
                     },
                   ),
                 ],
