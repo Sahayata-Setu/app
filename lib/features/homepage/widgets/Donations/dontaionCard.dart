@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:badges/badges.dart';
 import 'package:donationapp/constant/common/Icon/custom-icon.dart';
+import 'package:donationapp/helpers/route.utils.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:donationapp/constant/common/Text/custom-text.dart';
@@ -14,7 +15,9 @@ class DonationCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: () {
+        routeTo("/donations/:8", context);
+      },
       child: Card(
         margin: EdgeInsets.only(bottom: 15),
         shape: RoundedRectangleBorder(

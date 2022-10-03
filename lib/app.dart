@@ -1,3 +1,4 @@
+import 'package:donationapp/helpers/route.utils.dart';
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 
 import 'package:donationapp/constant/common/NavBar/navbar.dart';
@@ -85,7 +86,9 @@ class _AppState extends State<App> {
             labelStyle: TextStyle(
               fontSize: 18.0,
             ),
-            onTap: () {},
+            onTap: () {
+              routeTo("/createDonation", context);
+            },
             onLongPress: () {},
           ),
           SpeedDialChild(
