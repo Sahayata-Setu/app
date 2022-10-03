@@ -25,14 +25,17 @@ class UserProfile extends ConsumerWidget {
     handleLogout() {
       ref.read(loginProvider).logout();
       // log("message");
-      replaceRouteTo('/login', context);
+      // replaceRouteTo('/login', context);
+      // pop(context);
+      // navigateNamed("/login", context);
+      routeTo("/login", context);
       CustomScaffoldMessenger.info('Logged out', context);
     }
 
     return App(
       appbar: NavBar(
         title: "Profile",
-        route: "/homepage",
+        // route: "/homepage",
         showBadge: false,
       ),
       component: Container(
@@ -58,9 +61,14 @@ class UserProfile extends ConsumerWidget {
                 height: 20.h,
               ),
               const HorizontalLine(),
-              const UserProfileOptions(
-                text: "Account Settings",
-                imageName: "profile-setting",
+              GestureDetector(
+                onTap: () {
+                  routeTo("/account-settings", context);
+                },
+                child: const UserProfileOptions(
+                  text: "Account Settings",
+                  imageName: "profile-setting",
+                ),
               ),
               const UserProfileOptions(
                 text: "Certificates",
@@ -73,6 +81,15 @@ class UserProfile extends ConsumerWidget {
               const UserProfileOptions(
                 text: "Change Language",
                 imageName: "i-icon",
+              ),
+              GestureDetector(
+                onTap: () {
+                  routeTo("/apply-volunteer", context);
+                },
+                child: const UserProfileOptions(
+                  text: "Apply for volunteer",
+                  imageName: "volunteer",
+                ),
               ),
               GestureDetector(
                 onTap: () {

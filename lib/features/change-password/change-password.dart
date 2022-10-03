@@ -3,18 +3,16 @@ import 'dart:developer';
 import 'package:donationapp/app.dart';
 import 'package:donationapp/constant/common/BottomNavBar/BottomNavBar.dart';
 import 'package:donationapp/constant/common/NavBar/navbar.dart';
-import 'package:donationapp/constant/common/Text/custom-text.dart';
-import 'package:donationapp/constant/common/textfield/CustomTextField.dart';
 import 'package:donationapp/constant/kconstant.dart';
-import 'package:donationapp/features/apply-for-volunteer/widget/add-images.dart';
 import 'package:donationapp/features/apply-for-volunteer/widget/text-fields-area-volunteer.dart';
-import 'package:donationapp/store/apply-for-volunteer/apply-for-volunteer.store.dart';
+import 'package:donationapp/features/change-password/widgets/button-area-change-password.dart';
+import 'package:donationapp/features/change-password/widgets/text-fields-area-change-password.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class ApplyForVolunteer extends ConsumerWidget {
-  const ApplyForVolunteer({super.key});
+class ChangePassword extends ConsumerWidget {
+  const ChangePassword({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -31,27 +29,16 @@ class ApplyForVolunteer extends ConsumerWidget {
               SizedBox(
                 height: 40.r,
               ),
-              Center(
-                child: CircleAvatar(
-                  radius: 30.r,
-                  child: Image.asset(
-                    "assets/images/profileicon.png",
-                    height: 20.h,
-                  ),
-                ),
-              ),
-              SizedBox(
-                height: 30.h,
-              ),
-              TextFieldAreaVolunteer(),
+              TextFieldAreaChangePassword(),
+              ButtonAreaChangePassword(),
             ],
           ),
         ),
       ),
-      appbar: NavBar(
+      appbar: const NavBar(
         showBadge: false,
         // route: "/homepage",
-        title: "Apply for volunteer",
+        title: "Change Password",
       ),
       bottomNavBar: BottomNavBar(showBottomNavBar: false),
     );

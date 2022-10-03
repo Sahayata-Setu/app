@@ -16,7 +16,7 @@ class UserProfileOptions extends StatelessWidget {
       children: [
         Container(
           padding: EdgeInsets.only(
-            top: kPadding.h + 20.h,
+            top: kPadding.h + 10.h,
           ),
           child: Row(
             // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -26,12 +26,12 @@ class UserProfileOptions extends StatelessWidget {
                 height: 25.h,
               ),
               SizedBox(
-                width: 50.w,
+                width: 40.w,
               ),
               CustomText(
                 text: "${text}",
                 fontColor: whiteColor,
-                fontSize: 20.sp,
+                fontSize: 18.sp,
               )
             ],
           ),

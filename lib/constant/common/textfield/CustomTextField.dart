@@ -26,9 +26,13 @@ class CustomTextField extends StatelessWidget {
           color: borderColor == null ? blackColor : borderColor,
         ),
         decoration: InputDecoration(
-          label: CustomText(
-            text: label,
-            fontColor: borderColor == null ? blackColor : borderColor,
+          // label: CustomText(
+          //   text: label,
+          //   fontColor: borderColor == null ? blackColor : borderColor,
+          // ),
+          hintText: label,
+          hintStyle: TextStyle(
+            color: Colors.grey,
           ),
           fillColor: whiteColor,
           // border: InputBorder.none,

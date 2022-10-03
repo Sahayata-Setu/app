@@ -14,16 +14,16 @@ class DonationCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      margin: EdgeInsets.only(bottom: 15),
+      margin: EdgeInsets.only(bottom: 15.h),
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(15.0),
+        borderRadius: BorderRadius.circular(15.r),
       ),
       child: SizedBox(
-        height: 300,
+        height: 300.h,
         child: Column(
           children: [
             Container(
-              height: 150,
+              height: 150.h,
               decoration: const BoxDecoration(
                   borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(15),
@@ -51,8 +51,8 @@ class DonationCard extends StatelessWidget {
                       ),
                       badgeColor: secondaryBlue,
                       shape: BadgeShape.square,
-                      padding: EdgeInsets.all(5),
-                      borderRadius: BorderRadius.circular(10),
+                      padding: EdgeInsets.all(5.h),
+                      borderRadius: BorderRadius.circular(10.r),
                       toAnimate: false,
                     )
                   ]),
