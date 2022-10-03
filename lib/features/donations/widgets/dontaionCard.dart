@@ -16,7 +16,7 @@ class DonationCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        routeTo("/donations/:8", context);
+        routeTo("/donations/:id", context);
       },
       child: Card(
         margin: EdgeInsets.only(bottom: 15),

@@ -1,5 +1,4 @@
-import 'package:donationapp/features/homepage/widgets/Donations/dontaionCard.dart';
-import 'package:donationapp/features/homepage/widgets/Needs/needCard.dart';
+import 'package:donationapp/features/needs/widgets/needCard.dart';
 import 'package:flutter/material.dart';
 
 class Needs extends StatelessWidget {

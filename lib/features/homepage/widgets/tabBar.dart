@@ -1,6 +1,5 @@
-import 'package:donationapp/features/homepage/widgets/Donations/Dontations.dart';
-import 'package:donationapp/features/homepage/widgets/Donations/dontaionCard.dart';
-import 'package:donationapp/features/homepage/widgets/Needs/Needs.dart';
+import 'package:donationapp/features/donations/Dontations.dart';
+import 'package:donationapp/features/needs/Needs.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter_screenutil/flutter_screenutil.dart';
