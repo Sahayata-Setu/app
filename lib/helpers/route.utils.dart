@@ -15,7 +15,16 @@ replaceRouteTo(path, context) {
   router.replaceNamed(path);
 }
 
+pop(context) {
+  AutoRouter.of(context).pop();
+}
+
 routePush(comp, context) {
   final router = AutoRouter.of(context);
   router.push(comp);
+}
+
+navigateNamed(path, context) {
+  final router = AutoRouter.of(context);
+  router.navigateNamed(path);
 }

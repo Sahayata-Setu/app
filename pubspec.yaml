@@ -1,4 +1,4 @@
-name: expensetracker
+name: donationapp
 description: A new Flutter project.
 
 # The following line prevents the package from being accidentally published to
@@ -53,6 +53,8 @@ dependencies:
   flutter_spinkit: ^5.1.0
   equatable: ^2.0.5
   flutter_statusbarcolor_ns: ^0.4.0
+  badges: ^2.0.3
+  file_picker: ^5.2.0+1
 
 dev_dependencies:
   flutter_test:
@@ -67,6 +69,8 @@ dev_dependencies:
   flutter_lints: ^2.0.0
   auto_route_generator: ^5.0.2
   build_runner: ^2.2.1
+  freezed: ^2.1.0+1
+  json_serializable: ^6.4.1
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

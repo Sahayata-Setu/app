@@ -1,13 +1,25 @@
-import 'package:expensetracker/constant/kconstant.dart';
-import 'package:expensetracker/main_common.dart';
+import 'dart:developer';
+
+import 'package:auto_route/auto_route.dart';
+import 'package:donationapp/constant/common/NavBar/navbar.dart';
+import 'package:donationapp/constant/kconstant.dart';
+import 'package:donationapp/routes/app.router.gr.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 // this component shares the common widget among differnt components like futter
 class App extends StatefulWidget {
   final Widget component;
+  final Widget appbar;
+  final Widget bottomNavBar;
   // ignore: non_constant_identifier_names
-  const App({Key? key, required this.component}) : super(key: key);
+  const App(
+      {Key? key,
+      required this.component,
+      required this.appbar,
+      required this.bottomNavBar})
+      : super(key: key);
 
   @override
   State<App> createState() => _AppState();
@@ -49,15 +61,13 @@ class _AppState extends State<App> {
 
   @override
   Widget build(BuildContext context) {
+    final val = AutoRouter.of(context).current.name;
+    // log("this is route${val}");
     return Scaffold(
-      backgroundColor: Colors.transparent,
+      backgroundColor: backgroundColor,
       appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(50),
-        child: Consumer(
-            builder: (context, ref, child) => AppBar(
-                  // backgroundColor: Colors.blue,
-                  title: Text(ref.watch(flavorConfigProvider).appTitle),
-                )),
+        preferredSize: const Size.fromHeight(60),
+        child: widget.appbar,
       ),
       body: SingleChildScrollView(
         controller: _scrollController,
@@ -65,16 +75,26 @@ class _AppState extends State<App> {
           children: [widget.component],
         ),
       ),
-      floatingActionButton: _showBackToTopButton == false
-          ? null
-          : FloatingActionButton(
-              backgroundColor: blackColor,
-              onPressed: _scrollToTop,
-              child: const Icon(
-                Icons.arrow_upward,
-                color: Colors.amber,
-              ),
-            ),
+      floatingActionButton:
+          //  _showBackToTopButton == false
+          //     ? null
+          //:
+          [
+        HomePageRoute.name,
+        // AuthCheckWidgetRoute.name,
+      ].contains(val)
+              ? FloatingActionButton(
+                  backgroundColor: blueColor,
+                  onPressed: _scrollToTop,
+                  child: const Icon(
+                    Icons.add,
+                    color: whiteColor,
+                  ))
+              : Container(),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      bottomNavigationBar: widget.bottomNavBar,
     );
   }
 }
+// val == HomePageRoute.name
+          // ?? FloatingActionButtonLocation.centerDocked,
