@@ -19,7 +19,7 @@ class DonationCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(15.r),
       ),
       child: SizedBox(
-        height: 300.h,
+        height: 280.h,
         child: Column(
           children: [
             Container(
@@ -77,7 +77,7 @@ class DonationCard extends StatelessWidget {
               endIndent: 15,
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: kPadding1),
+              padding: EdgeInsets.symmetric(horizontal: kPadding1.h),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -94,10 +94,11 @@ class DonationCard extends StatelessWidget {
                       onPressed: () {},
                       style: OutlinedButton.styleFrom(
                           foregroundColor: secondaryBlue,
-                          shape: const RoundedRectangleBorder(
+                          shape: RoundedRectangleBorder(
                               borderRadius:
-                                  BorderRadius.all(Radius.circular(10)),
-                              side: BorderSide(color: Colors.blue, width: 2))),
+                                  BorderRadius.all(Radius.circular(10.r)),
+                              side:
+                                  BorderSide(color: Colors.blue, width: 2.w))),
                       child: Text(
                         "Claim".toUpperCase(),
                       ))

@@ -20,7 +20,7 @@ class ApplyForVolunteer extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return App(
       component: Container(
-        height: MediaQuery.of(context).size.height,
+        // height: MediaQuery.of(context).size.height,
         width: double.infinity,
         color: blueBackgroundColor,
         child: Container(

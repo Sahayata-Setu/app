@@ -26,6 +26,7 @@ class LoginServiceClass implements AuthBase {
     String? str = StorageService.getToken();
     log("${str == null}");
     if (str != '') {
+      log("this is str ${str}");
       controller.add(str);
     } else {
       controller.add(null);

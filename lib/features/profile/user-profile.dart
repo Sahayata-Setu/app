@@ -1,5 +1,6 @@
 import 'dart:developer';
 
+import 'package:auto_route/auto_route.dart';
 import 'package:donationapp/app.dart';
 import 'package:donationapp/constant/common/BottomNavBar/BottomNavBar.dart';
 import 'package:donationapp/constant/common/NavBar/navbar.dart';
@@ -11,6 +12,7 @@ import 'package:donationapp/features/profile/widgets/user-profile-info.dart';
 import 'package:donationapp/features/profile/widgets/user-profile-options.dart';
 import 'package:donationapp/helpers/custom.toast.dart';
 import 'package:donationapp/helpers/route.utils.dart';
+import 'package:donationapp/routes/app.router.gr.dart';
 import 'package:donationapp/services/login/login.service.dart';
 import 'package:donationapp/store/login/login.store.dart';
 import 'package:flutter/material.dart';
@@ -25,11 +27,20 @@ class UserProfile extends ConsumerWidget {
     handleLogout() {
       ref.read(loginProvider).logout();
       // log("message");
-      // replaceRouteTo('/login', context);
+
+      replaceRouteTo("/login", context);
+      // final router = AutoRouter.of(context);
+      // router.replace(const LoginRoute());
+      // log("hrloooo");
       // pop(context);
-      // navigateNamed("/login", context);
-      routeTo("/login", context);
-      CustomScaffoldMessenger.info('Logged out', context);
+      // CustomScaffoldMessenger.error("Loggedout", context);
+      const snackBar = SnackBar(
+        content: Text('Logged Out'),
+      );
+
+// Find the ScaffoldMessenger in the widget tree
+// and use it to show a SnackBar.
+      ScaffoldMessenger.of(context).showSnackBar(snackBar);
     }
 
     return App(

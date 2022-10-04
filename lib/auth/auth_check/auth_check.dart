@@ -25,7 +25,7 @@ class AuthCheckWidget extends ConsumerWidget {
           authenticated: (user) {
             log("24");
             // log("${user}");
-            context.router.replace(const HomePageRoute());
+            context.router.replace(const HomePageDataRoute());
           },
           unAuthenticated: (user) {
             log("28");
@@ -37,6 +37,9 @@ class AuthCheckWidget extends ConsumerWidget {
         );
       },
     );
-    return CircularProgressIndicator();
+    return CircularProgressIndicator(
+      backgroundColor: Colors.transparent,
+      color: Colors.amber,
+    );
   }
 }

@@ -19,7 +19,7 @@ import '../features/account-settings/account-settings.dart' as _i6;
 import '../features/apply-for-volunteer/apply-for-volunteer.dart' as _i10;
 import '../features/change-location/change-location.dart' as _i5;
 import '../features/change-password/change-password.dart' as _i4;
-import '../features/homepage/homepage.dart' as _i3;
+import '../features/homepage/homepage-data.dart' as _i3;
 import '../features/login/login.dart' as _i7;
 import '../features/profile/user-profile.dart' as _i9;
 import '../features/search-page/search-page.dart' as _i8;
@@ -39,9 +39,9 @@ class AppRouter extends _i11.RootStackRouter {
       return _i11.MaterialPageX<dynamic>(
           routeData: routeData, child: const _i2.Signup());
     },
-    HomePageRoute.name: (routeData) {
+    HomePageDataRoute.name: (routeData) {
       return _i11.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i3.HomePage());
+          routeData: routeData, child: const _i3.HomePageData());
     },
     ChangePasswordRoute.name: (routeData) {
       return _i11.MaterialPageX<dynamic>(
@@ -77,7 +77,7 @@ class AppRouter extends _i11.RootStackRouter {
   List<_i11.RouteConfig> get routes => [
         _i11.RouteConfig(AuthCheckWidgetRoute.name, path: '/'),
         _i11.RouteConfig(SignupRoute.name, path: '/signup'),
-        _i11.RouteConfig(HomePageRoute.name, path: '/homepage'),
+        _i11.RouteConfig(HomePageDataRoute.name, path: '/homepage'),
         _i11.RouteConfig(ChangePasswordRoute.name, path: '/change-password'),
         _i11.RouteConfig(ChangeLocationRoute.name, path: '/change-location'),
         _i11.RouteConfig(AccountSettingsRoute.name, path: '/account-settings'),
@@ -105,11 +105,11 @@ class SignupRoute extends _i11.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i3.HomePage]
-class HomePageRoute extends _i11.PageRouteInfo<void> {
-  const HomePageRoute() : super(HomePageRoute.name, path: '/homepage');
+/// [_i3.HomePageData]
+class HomePageDataRoute extends _i11.PageRouteInfo<void> {
+  const HomePageDataRoute() : super(HomePageDataRoute.name, path: '/homepage');
 
-  static const String name = 'HomePageRoute';
+  static const String name = 'HomePageDataRoute';
 }
 
 /// generated route for

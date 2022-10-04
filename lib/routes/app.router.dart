@@ -5,6 +5,7 @@ import 'package:donationapp/features/account-settings/account-settings.dart';
 import 'package:donationapp/features/apply-for-volunteer/apply-for-volunteer.dart';
 import 'package:donationapp/features/change-location/change-location.dart';
 import 'package:donationapp/features/change-password/change-password.dart';
+import 'package:donationapp/features/homepage/homepage-data.dart';
 import 'package:donationapp/features/homepage/homepage.dart';
 import 'package:donationapp/features/login/login.dart';
 import 'package:donationapp/features/profile/user-profile.dart';
@@ -15,7 +16,7 @@ import 'package:donationapp/features/signup/SignUp.dart';
   MaterialRoute(page: AuthCheckWidget, initial: true, path: "/"),
   MaterialRoute(page: Signup, path: "/signup"),
   // MaterialRoute(page: Signup, path: "/signup"),
-  MaterialRoute(page: HomePage, path: "/homepage"),
+  MaterialRoute(page: HomePageData, path: "/homepage"),
   MaterialRoute(page: ChangePassword, path: "/change-password"),
   MaterialRoute(page: ChangeLocation, path: "/change-location"),
   MaterialRoute(page: AccountSettings, path: "/account-settings"),

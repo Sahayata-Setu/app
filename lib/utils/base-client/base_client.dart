@@ -1,3 +1,4 @@
+import 'dart:developer';
 import 'dart:io';
 
 import 'package:dio/adapter.dart';
@@ -24,6 +25,7 @@ class ApiHelper {
       headers: {
         HttpHeaders.contentTypeHeader: 'application/json',
         HttpHeaders.acceptHeader: 'application/json',
+        // HttpHeaders.authorizationHeader: 'Authorization'
       },
     ),
   );
@@ -68,8 +70,10 @@ class ApiHelper {
         options: options,
         cancelToken: cancelToken,
       );
+      // log("${res.data}");
       return res.data;
     } on DioError catch (e) {
+      // log("messagergdf");
       throw e.toNetworkException();
     }
   }

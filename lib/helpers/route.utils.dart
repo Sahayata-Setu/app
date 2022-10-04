@@ -7,7 +7,11 @@ routeTo(path, context) {
 
 goBack(context) {
   final router = AutoRouter.of(context);
-  router.removeLast();
+  router.navigateBack();
+}
+
+pop(context) {
+  AutoRouter.of(context).pop();
 }
 
 replaceRouteTo(path, context) {
@@ -15,16 +19,12 @@ replaceRouteTo(path, context) {
   router.replaceNamed(path);
 }
 
-pop(context) {
-  AutoRouter.of(context).pop();
+navigateNamed(path, context) {
+  final router = AutoRouter.of(context);
+  router.navigateNamed(path);
 }
 
 routePush(comp, context) {
   final router = AutoRouter.of(context);
-  router.push(comp);
-}
-
-navigateNamed(path, context) {
-  final router = AutoRouter.of(context);
-  router.navigateNamed(path);
+  router.navigate(comp);
 }

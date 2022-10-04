@@ -75,12 +75,13 @@ class _AppState extends State<App> {
           children: [widget.component],
         ),
       ),
+      // drawer: Drawer(),
       floatingActionButton:
           //  _showBackToTopButton == false
           //     ? null
           //:
           [
-        HomePageRoute.name,
+        HomePageDataRoute.name,
         // AuthCheckWidgetRoute.name,
       ].contains(val)
               ? FloatingActionButton(
