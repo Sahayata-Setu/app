@@ -9,11 +9,15 @@ class CustomTextField extends StatelessWidget {
       this.ref,
       required this.label,
       required this.name,
-      this.borderColor});
+      this.borderColor,
+      this.lines,
+      this.focusBorder});
   final ref;
   final String label;
   final String name;
   final borderColor;
+  final focusBorder;
+  final lines;
 
   @override
   Widget build(BuildContext context) {
@@ -22,6 +26,7 @@ class CustomTextField extends StatelessWidget {
         bottom: kPadding.h,
       ),
       child: TextField(
+        maxLines: lines == null ? null : lines,
         style: TextStyle(
           color: borderColor == null ? blackColor : borderColor,
         ),
@@ -43,7 +48,7 @@ class CustomTextField extends StatelessWidget {
           ),
           focusedBorder: UnderlineInputBorder(
             borderSide: BorderSide(
-              color: borderColor == null ? blackColor : borderColor,
+              color: focusBorder == null ? blackColor : focusBorder,
             ),
           ),
           // fillColor: whiteColor,

@@ -1,7 +1,6 @@
 import 'dart:async';
 import 'dart:developer';
 
-import 'package:donationapp/domain/user/user.model.dart';
 import 'package:donationapp/utils/base-client/base_client.dart';
 import 'package:donationapp/utils/store-service/store.service.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';

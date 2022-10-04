@@ -20,7 +20,7 @@ class BottomNavBar extends StatelessWidget {
             ? Row(
                 //children inside bottom appbar
                 mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
                   IconButton(
                     icon: const Icon(
@@ -32,21 +32,31 @@ class BottomNavBar extends StatelessWidget {
                       replaceRouteTo("/homepage", context);
                     },
                   ),
-                  IconButton(
-                    icon: const Icon(
-                      Icons.message,
-                      color: whiteColor,
-                      size: kiconSize2,
+                  Container(
+                    // margin: const EdgeInsets.only(right: 35),
+                    child: IconButton(
+                      icon: const Icon(
+                        Icons.message,
+                        color: whiteColor,
+                        size: kiconSize2,
+                      ),
+                      onPressed: () {
+                        replaceRouteTo('/admin-dashboard', context);
+                      },
                     ),
-                    onPressed: () {},
                   ),
-                  IconButton(
-                    icon: const Icon(
-                      Icons.notifications,
-                      color: whiteColor,
-                      size: kiconSize2,
+                  Container(
+                    // margin: EdgeInsets.only(left: 35),
+                    child: IconButton(
+                      icon: const Icon(
+                        Icons.notifications,
+                        color: whiteColor,
+                        size: kiconSize2,
+                      ),
+                      onPressed: () {
+                        replaceRouteTo('/notifications', context);
+                      },
                     ),
-                    onPressed: () {},
                   ),
                   IconButton(
                     icon: const Icon(

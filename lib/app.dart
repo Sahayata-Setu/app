@@ -1,10 +1,13 @@
 import 'dart:developer';
+import 'package:flutter/material.dart';
+
+import 'package:donationapp/helpers/route.utils.dart';
+import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 
 import 'package:auto_route/auto_route.dart';
 import 'package:donationapp/constant/common/NavBar/navbar.dart';
 import 'package:donationapp/constant/kconstant.dart';
 import 'package:donationapp/routes/app.router.gr.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -75,23 +78,38 @@ class _AppState extends State<App> {
           children: [widget.component],
         ),
       ),
-      floatingActionButton:
-          //  _showBackToTopButton == false
-          //     ? null
-          //:
-          [
-        HomePageRoute.name,
-        // AuthCheckWidgetRoute.name,
-      ].contains(val)
-              ? FloatingActionButton(
-                  backgroundColor: blueColor,
-                  onPressed: _scrollToTop,
-                  child: const Icon(
-                    Icons.add,
-                    color: whiteColor,
-                  ))
-              : Container(),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      // floatingActionButton:
+      //     [HomePageRoute.name, AuthCheckWidgetRoute.name].contains(val)
+      //         ? SpeedDial(
+      //             icon: Icons.add,
+      //             activeIcon: Icons.close,
+      //             backgroundColor: blueColor,
+      //             foregroundColor: whiteColor,
+      //             children: [
+      //               SpeedDialChild(
+      //                 child: Container(width: 80, child: Text("DONATE")),
+      //                 shape: RoundedRectangleBorder(
+      //                     borderRadius: BorderRadius.circular(5)),
+      //                 labelStyle: TextStyle(
+      //                   fontSize: 18.0,
+      //                 ),
+      //                 onTap: () {
+      //                   routeTo("/createDonation", context);
+      //                 },
+      //                 onLongPress: () {},
+      //               ),
+      //               SpeedDialChild(
+      //                 label: 'REQUEST',
+      //                 labelStyle: TextStyle(fontSize: 18.0),
+      //                 onTap: () {
+      //                   routeTo("/createNeed", context);
+      //                 },
+      //                 onLongPress: () => {},
+      //               ),
+      //             ],
+      //           )
+      //         : Container(),
+      // floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: widget.bottomNavBar,
     );
   }
