@@ -65,7 +65,7 @@ class _AppState extends State<App> {
   @override
   Widget build(BuildContext context) {
     final val = AutoRouter.of(context).current.name;
-    log("this is route${val}");
+    // log("this is route${val}");
     return Scaffold(
       backgroundColor: backgroundColor,
       appBar: PreferredSize(

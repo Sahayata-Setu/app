@@ -37,6 +37,6 @@ class AuthCheckWidget extends ConsumerWidget {
         );
       },
     );
-    return const Login();
+    return CircularProgressIndicator();
   }
 }
