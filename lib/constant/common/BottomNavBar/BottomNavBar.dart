@@ -20,7 +20,7 @@ class BottomNavBar extends StatelessWidget {
             ? Row(
                 //children inside bottom appbar
                 mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
                   IconButton(
                     icon: const Icon(
@@ -33,7 +33,7 @@ class BottomNavBar extends StatelessWidget {
                     },
                   ),
                   Container(
-                    margin: const EdgeInsets.only(right: 35),
+                    // margin: const EdgeInsets.only(right: 35),
                     child: IconButton(
                       icon: const Icon(
                         Icons.message,
@@ -41,12 +41,12 @@ class BottomNavBar extends StatelessWidget {
                         size: kiconSize2,
                       ),
                       onPressed: () {
-                        replaceRouteTo('/message', context);
+                        replaceRouteTo('/admin-dashboard', context);
                       },
                     ),
                   ),
                   Container(
-                    margin: EdgeInsets.only(left: 35),
+                    // margin: EdgeInsets.only(left: 35),
                     child: IconButton(
                       icon: const Icon(
                         Icons.notifications,
