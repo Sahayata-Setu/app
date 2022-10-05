@@ -33,7 +33,7 @@ class NeedsHome extends StatelessWidget {
                         padding: EdgeInsets.all(10.w),
                         childAspectRatio: 0.98.w,
                         crossAxisSpacing: 8.w,
-                        mainAxisSpacing: 8.w,
+                        mainAxisSpacing: 12.w,
                         crossAxisCount: 2,
                         children: [
                           NeedCategories(

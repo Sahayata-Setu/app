@@ -4,18 +4,23 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
 class CustomElevatedButton extends StatelessWidget {
-  const CustomElevatedButton(
-      {super.key, required this.child, this.height, this.width});
+  CustomElevatedButton(
+      {super.key,
+      required this.child,
+      this.height,
+      this.width,
+      required this.fn});
   final child;
   final width;
   final height;
+  VoidCallback fn;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       width: width,
       height: height,
       child: ElevatedButton(
-        onPressed: () {},
+        onPressed: fn,
         child: child,
         style: ElevatedButton.styleFrom(
             backgroundColor: blueColor,

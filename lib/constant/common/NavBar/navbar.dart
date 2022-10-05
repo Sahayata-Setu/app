@@ -40,7 +40,7 @@ class NavBar extends StatelessWidget {
                   onPressed: () {
                     routeTo("/search", context);
                   },
-                  icon: Icon(Icons.search, size: KiconSize.w),
+                  icon: Icon(Icons.search, size: KiconSize.h),
                 ))
             : showBadge
                 ? Row(

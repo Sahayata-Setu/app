@@ -14,13 +14,13 @@ class DonationHomeCards extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
         ImageOverlay(
-          border_radius: false,
-          image: "assets/images/veg.png",
-          location: "Marwadi University",
-          title: "Canned Foods",
-          height: 200.h,
-          width: 250.w,
-        ),
+            border_radius: false,
+            image: "assets/images/veg.png",
+            location: "Marwadi University",
+            title: "Canned Foods",
+            height: 200.h,
+            width: 250.w,
+            showShareBtn: false),
         Container(
           padding: EdgeInsets.symmetric(horizontal: 10.w),
           width: 250.w,
@@ -28,7 +28,11 @@ class DonationHomeCards extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              CustomElevatedButton(child: Text("CLAIM"), width: 80.w),
+              CustomElevatedButton(
+                child: Text("CLAIM"),
+                width: 80.w,
+                fn: () {},
+              ),
               IconButton(
                   onPressed: () {},
                   icon: CustomIcon(

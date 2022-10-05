@@ -19,19 +19,19 @@ class DonationCard extends StatelessWidget {
         routeTo("/donations/:id", context);
       },
       child: SizedBox(
-        width: 150,
-        height: 150,
+        width: 100.w,
+        height: 270.h,
         child: Card(
-          margin: EdgeInsets.only(bottom: 15),
+          margin: EdgeInsets.only(bottom: kPadding1.h),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(15.0),
           ),
           child: SizedBox(
-            height: 300,
+            height: 300.h,
             child: Column(
               children: [
                 Container(
-                  height: 150,
+                  height: 100.h,
                   decoration: const BoxDecoration(
                       borderRadius: BorderRadius.only(
                           topLeft: Radius.circular(15),
@@ -59,7 +59,7 @@ class DonationCard extends StatelessWidget {
                           ),
                           badgeColor: secondaryBlue,
                           shape: BadgeShape.square,
-                          padding: EdgeInsets.all(5),
+                          padding: EdgeInsets.all(5.w),
                           borderRadius: BorderRadius.circular(10),
                           toAnimate: false,
                         )

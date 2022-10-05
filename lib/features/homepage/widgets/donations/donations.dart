@@ -25,7 +25,8 @@ class DonationsHome extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Container(
-                  margin: EdgeInsets.only(left: kPadding.w),
+                  margin:
+                      EdgeInsets.only(left: kPadding.w, bottom: kPadding1.h),
                   child: Heading(
                     header: "Donations",
                   ),
