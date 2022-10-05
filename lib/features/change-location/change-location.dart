@@ -42,6 +42,7 @@ class ChangeLocation extends ConsumerWidget {
         // route: "/homepage",
         title: "Change Location",
       ),
+      isAdmin: false,
       bottomNavBar: BottomNavBar(showBottomNavBar: false),
     );
   }

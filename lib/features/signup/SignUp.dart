@@ -128,6 +128,7 @@ class Signup extends ConsumerWidget {
           ),
         ),
       ),
+      isAdmin: false,
       bottomNavBar: BottomNavBar(showBottomNavBar: false),
     );
   }

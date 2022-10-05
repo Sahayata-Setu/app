@@ -97,6 +97,7 @@ class Login extends ConsumerWidget {
           ),
         ),
       ),
+      isAdmin: false,
       bottomNavBar: BottomNavBar(showBottomNavBar: false),
     );
   }

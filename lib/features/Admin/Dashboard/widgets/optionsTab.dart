@@ -20,7 +20,7 @@ class _OptionsTabState extends State<OptionsTab> with TickerProviderStateMixin {
         child: Column(children: [
       Container(
           //height: 30,
-          color: Colors.blue,
+          color: secondaryBlue,
           margin: const EdgeInsets.symmetric(vertical: 15),
           child: TabBar(
               padding: EdgeInsets.only(

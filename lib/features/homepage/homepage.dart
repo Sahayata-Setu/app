@@ -4,19 +4,16 @@ import 'package:auto_route/auto_route.dart';
 import 'package:donationapp/app.dart';
 import 'package:donationapp/constant/common/BottomNavBar/BottomNavBar.dart';
 import 'package:donationapp/constant/common/NavBar/navbar.dart';
-import 'package:donationapp/constant/common/Text/custom-text.dart';
 import 'package:donationapp/constant/kconstant.dart';
-import 'package:donationapp/features/homepage/widgets/dropdown.dart';
-import 'package:donationapp/features/homepage/widgets/tabBar.dart';
-import 'package:donationapp/store/homepage/homepage.store.dart';
-import 'package:donationapp/utils/store-service/store.service.dart';
+import 'package:donationapp/features/homepage/widgets/campaigns/campaign.dart';
+import 'package:donationapp/features/homepage/widgets/donations/donations.dart';
+import 'package:donationapp/features/homepage/widgets/needs/needs.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class HomePage extends ConsumerWidget {
-  const HomePage({super.key});
-
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     // final token = StorageService.getToken();
@@ -27,10 +24,12 @@ class HomePage extends ConsumerWidget {
     // var choosenValue;
     return App(
       component: Container(
+        margin: EdgeInsets.symmetric(vertical: kPadding),
+        // padding: EdgeInsets.all(kPadding),
         color: backgroundColor,
-        height: MediaQuery.of(context).size.height,
+        //height: ScreenUtil().screenHeight + kPadding,
         child: Column(
-          children: [CustomTabBar()],
+          children: [Campaigns(), DonationsHome(), NeedsHome()],
         ),
       ),
       //),
@@ -38,6 +37,7 @@ class HomePage extends ConsumerWidget {
         title: "HOME",
         showBadge: true,
       ),
+      isAdmin: false,
       bottomNavBar: BottomNavBar(showBottomNavBar: true),
     );
   }

@@ -18,8 +18,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class UserProfile extends ConsumerWidget {
-  const UserProfile({super.key});
-
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     handleLogout() {
@@ -104,6 +102,7 @@ class UserProfile extends ConsumerWidget {
           ),
         ),
       ),
+      isAdmin: false,
       bottomNavBar: BottomNavBar(showBottomNavBar: false),
     );
   }

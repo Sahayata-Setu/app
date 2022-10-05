@@ -28,6 +28,7 @@ class Notifications extends StatelessWidget {
         title: "Notifications",
         showBadge: true,
       ),
+      isAdmin: false,
       bottomNavBar: const BottomNavBar(showBottomNavBar: true),
     );
   }

@@ -57,6 +57,7 @@ class AddDontaion extends StatelessWidget {
         title: "Create Donation",
         showBadge: false,
       ),
+      isAdmin: false,
       bottomNavBar: const BottomNavBar(showBottomNavBar: false),
     );
   }

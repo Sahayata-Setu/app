@@ -8,9 +8,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class NavBar extends StatelessWidget {
-  const NavBar({super.key, this.title, this.route, required this.showBadge});
+  const NavBar(
+      {super.key,
+      this.title,
+      this.route,
+      required this.showBadge,
+      this.isAdmin});
   final title;
   final route;
+  final isAdmin;
 
   final bool showBadge;
   @override
@@ -22,36 +28,47 @@ class NavBar extends StatelessWidget {
       backgroundColor: blueColor,
       title: CustomText(
         text: title,
-        fontSize: 18.sp,
+        fontSize: 17.sp,
       ),
+
+      //leading: isAdmin == null ? const SizedBox.shrink() : Icon(Icons.menu),
       actions: [
-        showBadge
-            ? Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Badge(
-                    badgeColor: Colors.orange,
-                    badgeContent: const Text(
-                      '9',
-                      style: TextStyle(color: Colors.white),
-                    ),
-                    child: Container(
-                      margin: const EdgeInsets.only(top: 6),
-                      child: const Icon(Icons.star),
-                    ),
-                    // showBadge: showBadge ? true : false,
-                  ),
-                  Container(
-                      margin: const EdgeInsets.symmetric(horizontal: 10),
-                      child: IconButton(
-                        onPressed: () {
-                          routeTo("/search", context);
-                        },
-                        icon: const Icon(Icons.search, size: KiconSize),
-                      ))
-                ],
-              )
-            : const SizedBox()
+        isAdmin != null
+            ? Container(
+                margin: const EdgeInsets.symmetric(horizontal: 10),
+                child: IconButton(
+                  onPressed: () {
+                    routeTo("/search", context);
+                  },
+                  icon: const Icon(Icons.search, size: KiconSize),
+                ))
+            : showBadge
+                ? Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Badge(
+                        badgeColor: Colors.orange,
+                        badgeContent: const Text(
+                          '9',
+                          style: TextStyle(color: Colors.white),
+                        ),
+                        child: Container(
+                          margin: const EdgeInsets.only(top: 6),
+                          child: const Icon(Icons.star),
+                        ),
+                        // showBadge: showBadge ? true : false,
+                      ),
+                      Container(
+                          margin: const EdgeInsets.symmetric(horizontal: 10),
+                          child: IconButton(
+                            onPressed: () {
+                              routeTo("/search", context);
+                            },
+                            icon: const Icon(Icons.search, size: KiconSize),
+                          ))
+                    ],
+                  )
+                : const SizedBox.shrink()
       ],
     );
   }

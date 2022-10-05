@@ -1,5 +1,6 @@
 import 'package:donationapp/features/Admin/Dashboard/widgets/optionsTab.dart';
 import 'package:donationapp/features/Admin/Dashboard/widgets/dashbordCards.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:donationapp/app.dart';
@@ -63,8 +64,11 @@ class AdminDashboard extends StatelessWidget {
           )),
       appbar: const NavBar(
         title: "Dashboard",
-        showBadge: true,
+        showBadge: false,
+        isAdmin: true,
       ),
+      isAdmin: true,
+      // drawer: Drawer(),
       bottomNavBar: const BottomNavBar(showBottomNavBar: false),
     );
   }
