@@ -27,6 +27,7 @@ class Certificates extends StatelessWidget {
         title: "Your Certificates",
         showBadge: true,
       ),
+      isAdmin: false,
       bottomNavBar: const BottomNavBar(showBottomNavBar: false),
     );
   }

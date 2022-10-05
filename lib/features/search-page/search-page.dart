@@ -21,6 +21,7 @@ class SearchPage extends StatelessWidget {
         title: "Search",
         route: "/homepage",
       ),
+      isAdmin: false,
       bottomNavBar: BottomNavBar(showBottomNavBar: false),
     );
   }

@@ -63,6 +63,7 @@ class AccountSettings extends ConsumerWidget {
         showBadge: false,
         title: "Account Settings",
       ),
+      isAdmin: false,
       bottomNavBar: BottomNavBar(
         showBottomNavBar: false,
       ),
