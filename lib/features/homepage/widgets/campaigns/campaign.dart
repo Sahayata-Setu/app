@@ -12,19 +12,19 @@ class Campaigns extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        margin: const EdgeInsets.only(bottom: kPadding1),
+        margin: EdgeInsets.only(bottom: kPadding1.h),
         // height: 250,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
-                margin: const EdgeInsets.only(left: 25, top: kPadding),
+                margin: EdgeInsets.only(left: 25.w, top: kPadding),
                 child: const Heading(
                   header: "Ongoing Campaigns",
                 )),
             Container(
-              height: 250,
-              margin: const EdgeInsets.only(top: kMargin),
+              height: 250.h,
+              margin: EdgeInsets.only(top: kMargin.h),
               child: ListView(children: [
                 CarouselSlider(
                   items: [
@@ -33,13 +33,13 @@ class Campaigns extends StatelessWidget {
                       image: "assets/images/needy/childrenSitting.png",
                       title: "Help children from rajkot city to go to school.",
                       location: "RK University",
-                      height: 250,
+                      height: 250.h,
                       width: double.infinity,
                     ),
                     ImageOverlay(
                       border_radius: true,
                       width: double.infinity,
-                      height: 250,
+                      height: 250.h,
                       image: "assets/images/needy/childrenSitting.png",
                       title: "Help one child monthly",
                       location: "Rajkot city",
@@ -47,7 +47,7 @@ class Campaigns extends StatelessWidget {
                     ImageOverlay(
                       border_radius: true,
                       width: double.infinity,
-                      height: 250,
+                      height: 250.h,
                       image: "assets/images/needy/childrenSitting.png",
                       title: "Let's dress India",
                       location: "Gujarat",
@@ -57,7 +57,7 @@ class Campaigns extends StatelessWidget {
                     //ImageOverlay(image: "assets/images/needy/poor2.jpg"),
                   ],
                   options: CarouselOptions(
-                    height: 250.0,
+                    height: 250.h,
                     enlargeCenterPage: true,
                     autoPlay: true,
                     //aspectRatio: 2 / 9,

@@ -1,14 +1,10 @@
-import 'package:donationapp/constant/common/Icon/custom-icon.dart';
-import 'package:donationapp/constant/common/Text/custom-text.dart';
-import 'package:donationapp/constant/common/button/cusotm-button.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 import 'package:donationapp/constant/kconstant.dart';
-import 'package:donationapp/features/donations/widgets/dontaionCard.dart';
-import 'package:donationapp/constant/common/ImageCarousel/ImageOverlay.dart';
 import 'package:donationapp/features/homepage/widgets/donations/donationCategoty.dart';
 import 'package:donationapp/features/homepage/widgets/donations/donationHomeCards.dart';
 import 'package:donationapp/features/homepage/widgets/heading.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class DonationsHome extends StatelessWidget {
   const DonationsHome({super.key});
@@ -16,7 +12,7 @@ class DonationsHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(top: kPadding),
+      margin: EdgeInsets.only(top: kPadding.w),
       alignment: Alignment.topLeft,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -29,13 +25,13 @@ class DonationsHome extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Container(
-                  margin: EdgeInsets.only(left: kPadding),
+                  margin: EdgeInsets.only(left: kPadding.w),
                   child: Heading(
                     header: "Donations",
                   ),
                 ),
                 SizedBox(
-                  height: 100,
+                  height: 100.h,
                   child: GridView(
                     physics: NeverScrollableScrollPhysics(),
                     gridDelegate:
@@ -54,13 +50,13 @@ class DonationsHome extends StatelessWidget {
                   ),
                 ),
                 SizedBox(
-                    height: 270,
+                    height: 300.h,
                     child: ListView.builder(
                       padding: EdgeInsets.only(left: kPadding),
                       scrollDirection: Axis.horizontal,
                       itemCount: 5,
                       itemBuilder: (context, index) => Container(
-                        margin: EdgeInsets.all(10),
+                        margin: EdgeInsets.all(10.w),
 
                         // height: 200.0,
                         // width: 150,
