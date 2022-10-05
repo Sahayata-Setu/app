@@ -25,16 +25,21 @@ class Login extends ConsumerWidget {
     final loginDetails = ref.watch(loginDetailsProvider);
     final loginref = ref.watch(loginProvider);
     // log("$signUpDetails");
-    final isAuthenticated = StorageService.isAuthenticated();
-    // log("this id from${StorageService.getToken()}");
+    final getUserType = StorageService.getuserType();
+    log("this id from${getUserType}");
+    // StorageService.getuserType();
 
     handleSumbit() async {
       try {
         await loginref.signup(loginDetails);
-        // ignore: use_build_context_synchronously
-        replaceRouteTo('/homepage', context);
+        if (getUserType == "user") {
+          // ignore: use_build_context_synchronously
+          replaceRouteTo('/homepage', context);
+        } else if (getUserType == "admin") {
+          replaceRouteTo("/admin-dashboard", context);
+          CustomScaffoldMessenger.info("Sucessfully logged In", context);
+        }
 
-        CustomScaffoldMessenger.info("Sucessfully logged In", context);
         // ignore: use_build_context_synchronously
 
       } catch (e) {

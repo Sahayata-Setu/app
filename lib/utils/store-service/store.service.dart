@@ -12,12 +12,20 @@ class StorageService {
     return box.read('token') == null ? '' : box.read('token');
   }
 
+  static String getuserType() {
+    return box.read('userType') == null ? '' : box.read('userType');
+  }
+
   static bool isAuthenticated() {
     return box.read('token') != null ? true : false;
   }
 
   static void setToken(String token) async {
     box.write("token", token);
+  }
+
+  static void setUserType(String type) async {
+    box.write("userType", type);
   }
 
   static void removeAll() async {

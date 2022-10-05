@@ -18,7 +18,7 @@ class AuthStateNotifier extends StateNotifier<AuthState> {
   void init() {
     log("jhdhfh");
     authRepository.checkAuth.listen((event) {
-      log("this is event${event}");
+      // log("this is event${event}");
       if (event == null) {
         state = const AuthState.unAuthenticated();
       } else {
