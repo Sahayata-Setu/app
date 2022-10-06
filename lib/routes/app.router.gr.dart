@@ -99,8 +99,10 @@ class AppRouter extends _i18.RootStackRouter {
           child: _i14.DonationDetailData(key: args.key, id: args.id));
     },
     UserProfileRoute.name: (routeData) {
+      final args = routeData.argsAs<UserProfileRouteArgs>();
       return _i18.MaterialPageX<dynamic>(
-          routeData: routeData, child: _i15.UserProfile());
+          routeData: routeData,
+          child: _i15.UserProfile(args.data, key: args.key));
     },
     ApplyForVolunteerRoute.name: (routeData) {
       return _i18.MaterialPageX<dynamic>(
@@ -274,11 +276,26 @@ class DonationDetailDataRouteArgs {
 
 /// generated route for
 /// [_i15.UserProfile]
-class UserProfileRoute extends _i18.PageRouteInfo<void> {
-  const UserProfileRoute()
-      : super(UserProfileRoute.name, path: '/user-profile');
+class UserProfileRoute extends _i18.PageRouteInfo<UserProfileRouteArgs> {
+  UserProfileRoute({required dynamic data, _i19.Key? key})
+      : super(UserProfileRoute.name,
+            path: '/user-profile',
+            args: UserProfileRouteArgs(data: data, key: key));
 
   static const String name = 'UserProfileRoute';
+}
+
+class UserProfileRouteArgs {
+  const UserProfileRouteArgs({required this.data, this.key});
+
+  final dynamic data;
+
+  final _i19.Key? key;
+
+  @override
+  String toString() {
+    return 'UserProfileRouteArgs{data: $data, key: $key}';
+  }
 }
 
 /// generated route for

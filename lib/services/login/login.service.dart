@@ -52,7 +52,7 @@ class LoginServiceClass implements AuthBase {
       // if(response.statusCode(400) )
       log("${response}");
       StorageService.setUserType(response['userRole']);
-      StorageService.setUserType(response['userId']);
+      StorageService.setId(response['userId']);
       StorageService.setToken(response['token']);
 
       return response;

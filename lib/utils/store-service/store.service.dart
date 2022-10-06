@@ -16,6 +16,10 @@ class StorageService {
     return box.read('userType') == null ? '' : box.read('userType');
   }
 
+  static void setId(String userId) async {
+    box.write("userId", userId);
+  }
+
   static String getId() {
     return box.read('userId') == null ? '' : box.read('userId');
   }
@@ -26,10 +30,6 @@ class StorageService {
 
   static void setToken(String token) async {
     box.write("token", token);
-  }
-
-  static void setId(String userId) async {
-    box.write("userId", userId);
   }
 
   static void setUserType(String type) async {
