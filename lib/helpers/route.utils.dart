@@ -19,6 +19,11 @@ replaceRouteTo(path, context) {
   router.replaceNamed(path);
 }
 
+replaceAllRouteTo(route, context) {
+  final router = AutoRouter.of(context);
+  router.replaceAll(route);
+}
+
 navigateNamed(path, context) {
   final router = AutoRouter.of(context);
   router.navigateNamed(path);

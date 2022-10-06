@@ -19,30 +19,30 @@ class NeedCategories extends StatelessWidget {
     return GestureDetector(
       onTap: () {}, //go to requests/:catergories,
       child: Container(
-        margin: const EdgeInsets.only(right: 10),
+        margin: EdgeInsets.only(right: 10.w),
         // padding: const EdgeInsets.all(10),
-        width: 80,
-        height: 50,
+        width: 80.w,
+        height: 50.h,
         decoration: BoxDecoration(
             color: Colors.white,
             boxShadow: [],
-            borderRadius: BorderRadius.circular(10)),
+            borderRadius: BorderRadius.circular(10.w)),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             Container(
                 decoration: BoxDecoration(
-                    color: colorP, borderRadius: BorderRadius.circular(5)),
-                height: 55,
-                width: 55,
-                padding: const EdgeInsets.all(5),
+                    color: colorP, borderRadius: BorderRadius.circular(5.w)),
+                height: 55.h,
+                width: 55.w,
+                padding: EdgeInsets.all(5.w),
                 child: Icon(
                   icon,
                   color: colorS,
                 )),
             Text(
               numb.toString(),
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17.sp),
             ),
             CustomText(
               text: title,

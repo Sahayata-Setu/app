@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:donationapp/constant/common/Icon/custom-icon.dart';
 import 'package:donationapp/helpers/route.utils.dart';
+import 'package:donationapp/routes/app.router.gr.dart';
 import 'package:flutter/material.dart';
 
 import 'package:donationapp/constant/kconstant.dart';
@@ -28,11 +29,11 @@ class _BottomNavBarState extends State<BottomNavBar> {
         switch (index) {
           case 0:
             if (_selectedIndex == index) {
-              routeTo("/homepage", context);
+              replaceRouteTo("/homepage", context);
             }
             break;
           case 1:
-            routeTo('/admin-dashboard', context);
+            routeTo('/messages', context);
             break;
           case 2:
             routeTo('/notifications', context);
@@ -47,38 +48,43 @@ class _BottomNavBarState extends State<BottomNavBar> {
     }
 
     // log("this is contenct${context.set}");
-    return BottomNavigationBar(
-      currentIndex: _selectedIndex,
-      selectedItemColor: blueColor,
-      unselectedItemColor: Colors.grey,
-      showUnselectedLabels: false,
-      onTap: onTabTapped,
-      items: [
-        BottomNavigationBarItem(
-            icon: CustomIcon(
-              icon: Icons.home,
-              size: 25.sp,
-            ),
-            label: "Home"),
-        BottomNavigationBarItem(
-            icon: CustomIcon(
-              icon: Icons.message,
-              size: 25.sp,
-            ),
-            label: "Messages"),
-        BottomNavigationBarItem(
-            icon: CustomIcon(
-              icon: Icons.notifications,
-              size: 25.sp,
-            ),
-            label: "Notifications"),
-        BottomNavigationBarItem(
-            icon: CustomIcon(
-              icon: Icons.person,
-              size: 25.sp,
-            ),
-            label: "Profile")
-      ],
-    );
+    return widget.showBottomNavBar
+        ? BottomNavigationBar(
+            currentIndex: _selectedIndex,
+            selectedItemColor: blueColor,
+            unselectedItemColor: Colors.grey,
+            showUnselectedLabels: false,
+            onTap: onTabTapped,
+            items: [
+              BottomNavigationBarItem(
+                  icon: GestureDetector(
+                    child: CustomIcon(
+                      icon: Icons.home,
+                      size: 25.sp,
+                    ),
+                  ),
+                  label: "Home"),
+              BottomNavigationBarItem(
+                icon: CustomIcon(
+                  icon: Icons.message,
+                  size: 25.sp,
+                ),
+                label: "Messages",
+              ),
+              BottomNavigationBarItem(
+                  icon: CustomIcon(
+                    icon: Icons.notifications,
+                    size: 25.sp,
+                  ),
+                  label: "Notifications"),
+              BottomNavigationBarItem(
+                  icon: CustomIcon(
+                    icon: Icons.person,
+                    size: 25.sp,
+                  ),
+                  label: "Profile")
+            ],
+          )
+        : SizedBox();
   }
 }

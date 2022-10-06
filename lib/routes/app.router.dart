@@ -4,13 +4,16 @@ import 'package:donationapp/auth/auth_check/auth_check.dart';
 import 'package:donationapp/features/Admin/Dashboard/adminDashboard.dart';
 import 'package:donationapp/features/account-settings/account-settings.dart';
 import 'package:donationapp/features/apply-for-volunteer/apply-for-volunteer.dart';
+import 'package:donationapp/features/campaigns/campaignDetails.dart';
+import 'package:donationapp/features/campaigns/campaignsList.dart';
 import 'package:donationapp/features/change-location/change-location.dart';
 import 'package:donationapp/features/change-password/change-password.dart';
+import 'package:donationapp/features/donations/widgets/donationDetails.data.dart';
 import 'package:donationapp/features/homepage/homepage-data.dart';
 import 'package:donationapp/features/donations/Dontations.dart';
 import 'package:donationapp/features/donations/widgets/donationDetails.dart';
-import 'package:donationapp/features/donations/widgets/donationsList.dart';
 import 'package:donationapp/features/homepage/homepage.dart';
+import 'package:donationapp/features/homepage/widgets/campaigns/campaign.dart';
 import 'package:donationapp/features/login/login.dart';
 import 'package:donationapp/features/message/message.dart';
 import 'package:donationapp/features/notifications/notifications.dart';
@@ -29,10 +32,14 @@ import 'package:donationapp/features/signup/SignUp.dart';
   MaterialRoute(page: Login, path: "/login"),
   MaterialRoute(page: SearchPage, path: "/search"),
   MaterialRoute(page: Message, path: "/messages"),
-
   MaterialRoute(page: Notifications, path: "/notifications"),
+
+  MaterialRoute(page: CampaignsList, path: "/campaigns"),
+  MaterialRoute(page: CampiagnDetails, path: "/campaigns/:id"),
+
   MaterialRoute(page: Dontaions, path: "/donations/:category"),
-  MaterialRoute(page: Donation_Detail, path: "/donations/details/:id"),
+  // MaterialRoute(page: DonationDetail, path: "/donations"),
+  MaterialRoute(page: DonationDetailData, path: "/donations-details/:id"),
 
   MaterialRoute(page: UserProfile, path: "/user-profile"),
   MaterialRoute(page: ApplyForVolunteer, path: "/apply-volunteer"),

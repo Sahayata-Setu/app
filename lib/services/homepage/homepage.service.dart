@@ -13,15 +13,39 @@ class HomepageServiceClass {
     // final singUpService
     try {
       // log("message");
+      final token = StorageService.getToken();
+      // log("ths is for tojen ${token}");
       final response = await _client.get(
         "/user/donation/all",
         options: Options(
-          headers: {
-            "Authorization":
-                "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzNhZWU5MmUyYmY5Yjk2ZWI4Y2I2M2EiLCJyb2xlIjoidXNlciIsImlhdCI6MTY2NDkwNzg3NCwiZXhwIjoxNjY0OTk0Mjc0fQ.VbtTY8MhLHR1TViVFp7SnYRjaaugP6ERwn1UQq5Amg4"
-          },
+          headers: {"Authorization": "Bearer ${token}"},
         ),
       );
+      // log("this is from $response['body']");
+      // log("${response.statusCode}");
+      // if(response.statusCode(400) )
+      // StorageService.setToken(response['token']);
+
+      return response;
+    } catch (e) {
+      log("this is error$e");
+      throw Exception("Invalid Request $e");
+    }
+  }
+
+  Future<Map<String, dynamic>> getDontaionsById(id) async {
+    // final singUpService
+    try {
+      // log("message");
+      final token = StorageService.getToken();
+      final response = await _client.get(
+        "/user/donation/${id}",
+        options: Options(
+          headers: {"Authorization": "Bearer ${token}"},
+        ),
+      );
+
+      log("this is from app ${response}");
       // log("this is from $response['body']");
       // log("${response.statusCode}");
       // if(response.statusCode(400) )

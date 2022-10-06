@@ -8,6 +8,7 @@ import 'package:donationapp/constant/kconstant.dart';
 import 'package:donationapp/features/homepage/widgets/campaigns/campaign.dart';
 import 'package:donationapp/features/homepage/widgets/donations/donations.dart';
 import 'package:donationapp/features/homepage/widgets/needs/needs.dart';
+import 'package:donationapp/utils/store-service/store.service.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -25,6 +26,8 @@ class HomePage extends ConsumerWidget {
     // log("this is from home page${data['body']}");
     final post = data['body'];
     // var choosenValue;
+    final getUserId = StorageService.getId();
+    log("this id from${getUserId}");
 
     return App(
       component: Container(

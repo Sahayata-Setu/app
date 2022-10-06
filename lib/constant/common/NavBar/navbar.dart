@@ -38,12 +38,12 @@ class NavBar extends StatelessWidget {
       actions: [
         isAdmin != null
             ? Container(
-                margin: const EdgeInsets.symmetric(horizontal: 10),
+                margin: EdgeInsets.symmetric(horizontal: 10.w),
                 child: IconButton(
                   onPressed: () {
                     routeTo("/search", context);
                   },
-                  icon: const Icon(Icons.search, size: KiconSize),
+                  icon: Icon(Icons.search, size: KiconSize.h),
                 ))
             : showBadge
                 ? Row(
@@ -56,13 +56,13 @@ class NavBar extends StatelessWidget {
                           style: TextStyle(color: Colors.white),
                         ),
                         child: Container(
-                          margin: const EdgeInsets.only(top: 6),
+                          margin: EdgeInsets.only(top: 6.h),
                           child: const Icon(Icons.star),
                         ),
                         // showBadge: showBadge ? true : false,
                       ),
                       Container(
-                          margin: const EdgeInsets.symmetric(horizontal: 10),
+                          margin: EdgeInsets.symmetric(horizontal: 10.w),
                           child: IconButton(
                             onPressed: () {
                               routeTo("/search", context);

@@ -50,8 +50,9 @@ class LoginServiceClass implements AuthBase {
       final response = await _client.post("/auth/login", data: req);
       log("this is from store ${response}");
       // if(response.statusCode(400) )
-      log(response['userRole']);
+      log("${response}");
       StorageService.setUserType(response['userRole']);
+      StorageService.setUserType(response['userId']);
       StorageService.setToken(response['token']);
 
       return response;

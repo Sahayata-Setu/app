@@ -13,13 +13,17 @@ class ImageOverlay extends StatelessWidget {
       required this.location,
       required this.height,
       required this.width,
-      required this.border_radius});
+      required this.border_radius,
+      required this.showShareBtn,
+      this.borderTop});
   final image;
   final title;
   final location;
   final double height;
   final double width;
   final bool border_radius;
+  final bool showShareBtn;
+  final borderTop;
   @override
   Widget build(BuildContext context) {
     return Stack(children: <Widget>[
@@ -27,10 +31,11 @@ class ImageOverlay extends StatelessWidget {
         decoration: BoxDecoration(
           borderRadius: border_radius
               ? BorderRadius.circular(kPadding1.sp)
-              : BorderRadius.only(
-                  topLeft: Radius.circular(kPadding1.sp),
-                  topRight: Radius.circular(kPadding1.sp),
-                ),
+              : borderTop == null
+                  ? BorderRadius.only(
+                      topLeft: Radius.circular(kPadding1.sp),
+                      topRight: Radius.circular(kPadding1.sp))
+                  : BorderRadius.zero,
           color: Colors.transparent,
           image: DecorationImage(
             fit: BoxFit.cover,
@@ -74,16 +79,28 @@ class ImageOverlay extends StatelessWidget {
                 fontSize: 14.sp,
               ),
               Row(
-                mainAxisAlignment: MainAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const CustomIcon(
-                    icon: Icons.location_on,
-                    color: secondaryBlue,
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      const CustomIcon(
+                        icon: Icons.location_on,
+                        color: secondaryBlue,
+                      ),
+                      CustomText(
+                        text: location,
+                        fontColor: secondaryBlue,
+                      ),
+                    ],
                   ),
-                  CustomText(
-                    text: location,
-                    fontColor: secondaryBlue,
-                  )
+                  showShareBtn
+                      ? CustomIcon(
+                          icon: Icons.share,
+                          color: secondaryBlue,
+                          size: KiconSize,
+                        )
+                      : SizedBox()
                 ],
               ),
             ],

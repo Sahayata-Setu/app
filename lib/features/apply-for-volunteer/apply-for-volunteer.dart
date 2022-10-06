@@ -20,7 +20,7 @@ class ApplyForVolunteer extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return App(
       component: Container(
-        // height: MediaQuery.of(context).size.height,
+        height: MediaQuery.of(context).size.height,
         width: double.infinity,
         color: blueBackgroundColor,
         child: Container(
@@ -30,15 +30,6 @@ class ApplyForVolunteer extends ConsumerWidget {
             children: [
               SizedBox(
                 height: 40.r,
-              ),
-              Center(
-                child: CircleAvatar(
-                  radius: 30.r,
-                  child: Image.asset(
-                    "assets/images/profileicon.png",
-                    height: 20.h,
-                  ),
-                ),
               ),
               SizedBox(
                 height: 30.h,
@@ -53,7 +44,7 @@ class ApplyForVolunteer extends ConsumerWidget {
         // route: "/homepage",
         title: "Apply for volunteer",
       ),
-      isAdmin: false,
+      isAdmin: true,
       bottomNavBar: BottomNavBar(showBottomNavBar: false),
     );
   }

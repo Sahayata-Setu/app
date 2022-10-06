@@ -16,12 +16,20 @@ class StorageService {
     return box.read('userType') == null ? '' : box.read('userType');
   }
 
+  static String getId() {
+    return box.read('userId') == null ? '' : box.read('userId');
+  }
+
   static bool isAuthenticated() {
     return box.read('token') != null ? true : false;
   }
 
   static void setToken(String token) async {
     box.write("token", token);
+  }
+
+  static void setId(String userId) async {
+    box.write("userId", userId);
   }
 
   static void setUserType(String type) async {
@@ -38,6 +46,10 @@ class StorageService {
 
   static getUser() {
     return box.read("user");
+  }
+
+  static void setErrorMessage(message) {
+    box.write("errorMessage", message);
   }
 
   static void updateUserData(Map<String, dynamic> user) async {

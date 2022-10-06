@@ -2,6 +2,7 @@ import 'package:donationapp/constant/common/Text/custom-text.dart';
 import 'package:donationapp/constant/kconstant.dart';
 import 'package:donationapp/constant/common/ImageCarousel/ImageOverlay.dart';
 import 'package:donationapp/features/homepage/widgets/heading.dart';
+import 'package:donationapp/helpers/route.utils.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
@@ -12,19 +13,19 @@ class Campaigns extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        margin: const EdgeInsets.only(bottom: kPadding1),
+        margin: EdgeInsets.only(bottom: 10.h),
         // height: 250,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
-                margin: const EdgeInsets.only(left: 25, top: kPadding),
+                margin: EdgeInsets.only(left: 25.w, top: kPadding.h),
                 child: const Heading(
                   header: "Ongoing Campaigns",
                 )),
             Container(
-              height: 250,
-              margin: const EdgeInsets.only(top: kMargin),
+              height: 250.h,
+              margin: EdgeInsets.only(top: kMargin.h),
               child: ListView(children: [
                 CarouselSlider(
                   items: [
@@ -33,31 +34,34 @@ class Campaigns extends StatelessWidget {
                       image: "assets/images/needy/childrenSitting.png",
                       title: "Help children from rajkot city to go to school.",
                       location: "RK University",
-                      height: 250,
+                      height: 250.h,
                       width: double.infinity,
+                      showShareBtn: true,
                     ),
                     ImageOverlay(
                       border_radius: true,
                       width: double.infinity,
-                      height: 250,
+                      height: 250.h,
                       image: "assets/images/needy/childrenSitting.png",
                       title: "Help one child monthly",
                       location: "Rajkot city",
+                      showShareBtn: true,
                     ),
                     ImageOverlay(
                       border_radius: true,
                       width: double.infinity,
-                      height: 250,
+                      height: 250.h,
                       image: "assets/images/needy/childrenSitting.png",
                       title: "Let's dress India",
                       location: "Gujarat",
+                      showShareBtn: true,
                     ),
                     // ImageOverlay(image: "assets/images/needy/poor1.jpg"),
                     // ImageOverlay(image: "assets/images/needy/needy3.jpg"),
                     //ImageOverlay(image: "assets/images/needy/poor2.jpg"),
                   ],
                   options: CarouselOptions(
-                    height: 250.0,
+                    height: 250.h,
                     enlargeCenterPage: true,
                     autoPlay: true,
                     //aspectRatio: 2 / 9,
@@ -70,6 +74,21 @@ class Campaigns extends StatelessWidget {
                 )
               ]),
             ),
+            Container(
+              margin: EdgeInsets.only(
+                left: 25.w,
+              ),
+              child: TextButton(
+                  onPressed: () {
+                    routeTo("/campaigns", context);
+                  }, // go to campaigns page
+                  child: CustomText(
+                    text: "See all",
+                    fontColor: blueColor,
+                    fontSize: 15.sp,
+                    fontWeight: FontWeight.bold,
+                  )),
+            )
           ],
         ));
   }

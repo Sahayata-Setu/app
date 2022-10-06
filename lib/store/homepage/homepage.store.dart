@@ -8,8 +8,9 @@ final donationsOrRequestProvider =
   return ref.watch(homePageService).getDonationsOrRequest(type);
 });
 
-// final singleUserDetailsDataProvider = FutureProvider.family<SingleUser, String>(
-//   (ref, userId) {
-//     return ref.watch(homePageService).getDetailsById(userId);
-//   },
-// );
+final singleDonationsDataProvider =
+    FutureProvider.family<Map<String, dynamic>, String>(
+  (ref, id) {
+    return ref.watch(homePageService).getDontaionsById(id);
+  },
+);

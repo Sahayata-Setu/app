@@ -120,7 +120,7 @@ class _AppState extends State<App> {
           //     ? null
           //:
           [
-        HomePageDataRoute.name,
+        // HomePageDataRoute.name,
         AuthCheckWidgetRoute.name,
         // AdminDashboardRoute.name,
       ].contains(val)
