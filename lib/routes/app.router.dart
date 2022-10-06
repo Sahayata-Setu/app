@@ -11,13 +11,17 @@ import 'package:donationapp/features/change-password/change-password.dart';
 import 'package:donationapp/features/donations/widgets/donationDetails.data.dart';
 import 'package:donationapp/features/homepage/homepage-data.dart';
 import 'package:donationapp/features/donations/Dontations.dart';
+import 'package:donationapp/features/donations/widgets/addDonations.dart';
 import 'package:donationapp/features/donations/widgets/donationDetails.dart';
 import 'package:donationapp/features/homepage/homepage.dart';
-import 'package:donationapp/features/homepage/widgets/campaigns/campaign.dart';
 import 'package:donationapp/features/login/login.dart';
 import 'package:donationapp/features/message/message.dart';
+import 'package:donationapp/features/needs/Needs.dart';
+import 'package:donationapp/features/needs/widgets/addNeed.dart';
+import 'package:donationapp/features/needs/widgets/needDetail.dart';
 import 'package:donationapp/features/notifications/notifications.dart';
 import 'package:donationapp/features/profile/user-profile.dart';
+import 'package:donationapp/features/profile/user-profile.data.dart';
 import 'package:donationapp/features/search-page/search-page.dart';
 import 'package:donationapp/features/signup/SignUp.dart';
 
@@ -25,7 +29,7 @@ import 'package:donationapp/features/signup/SignUp.dart';
   MaterialRoute(page: AuthCheckWidget, initial: true, path: "/"),
   MaterialRoute(page: Signup, path: "/signup"),
   // MaterialRoute(page: Signup, path: "/signup"),
-  MaterialRoute(page: HomePageData, path: "/homepage"),
+  MaterialRoute(page: HomePage, path: "/homepage"),
   MaterialRoute(page: ChangePassword, path: "/change-password"),
   MaterialRoute(page: ChangeLocation, path: "/change-location"),
   MaterialRoute(page: AccountSettings, path: "/account-settings"),
@@ -38,10 +42,17 @@ import 'package:donationapp/features/signup/SignUp.dart';
   MaterialRoute(page: CampiagnDetails, path: "/campaigns/:id"),
 
   MaterialRoute(page: Dontaions, path: "/donations/:category"),
+  MaterialRoute(page: AddDontaion, path: "/createDonation"),
   // MaterialRoute(page: DonationDetail, path: "/donations"),
   MaterialRoute(page: DonationDetailData, path: "/donations-details/:id"),
 
-  MaterialRoute(page: UserProfile, path: "/user-profile"),
+  MaterialRoute(page: Needs, path: "/needs/:category"),
+  MaterialRoute(page: AddRequest, path: "/createNeed"),
+  MaterialRoute(page: NeedDetail, path: "/needs/details/:id"),
+
+  MaterialRoute(page: UserProfileData, path: "/user-profile"),
+
+  // MaterialRoute(page: ApplyForVolunteer, path: "/apply-volunteer"),
   MaterialRoute(page: ApplyForVolunteer, path: "/apply-volunteer"),
   MaterialRoute(page: AdminDashboard, path: "/admin-dashboard"),
 ])
