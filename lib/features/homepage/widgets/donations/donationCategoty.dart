@@ -23,8 +23,8 @@ class DonationsCategory extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Container(
-              width: 50,
-              height: 50,
+              width: 50.w,
+              height: 50.h,
               child: CustomIcon(icon: icon, color: whiteColor),
               decoration:
                   BoxDecoration(shape: BoxShape.circle, color: secondaryBlue),

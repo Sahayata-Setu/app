@@ -1,18 +1,15 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 import 'package:donationapp/features/homepage/widgets/heading.dart';
 import 'package:donationapp/features/homepage/widgets/needs/NeedCatergories.dart';
-import 'package:flutter/material.dart';
-
-import 'package:donationapp/constant/common/Icon/custom-icon.dart';
-import 'package:donationapp/constant/common/Text/custom-text.dart';
 import 'package:donationapp/constant/kconstant.dart';
-
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class NeedsHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        margin: EdgeInsets.all(kPadding),
+        margin: EdgeInsets.all(kPadding.w),
         alignment: Alignment.topLeft,
         // height: 400,
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
@@ -25,18 +22,18 @@ class NeedsHome extends StatelessWidget {
                   children: [
                     Container(
                       margin: EdgeInsets.only(
-                          left: kPadding1, top: kPadding, bottom: kPadding),
+                          left: 10.w, top: kPadding.h, bottom: kPadding.h),
                       child: Heading(
                         header: "Needs",
                       ),
                     ),
                     SizedBox(
-                      height: 400,
+                      height: 400.h,
                       child: GridView.count(
-                        padding: EdgeInsets.all(10),
-                        childAspectRatio: 0.98,
-                        crossAxisSpacing: 8,
-                        mainAxisSpacing: 8,
+                        padding: EdgeInsets.all(10.w),
+                        childAspectRatio: 0.98.w,
+                        crossAxisSpacing: 8.w,
+                        mainAxisSpacing: 12.w,
                         crossAxisCount: 2,
                         children: [
                           NeedCategories(

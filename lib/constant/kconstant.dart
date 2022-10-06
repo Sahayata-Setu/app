@@ -16,6 +16,7 @@ const Color backgroundColor = Color(0xffD4F1F4);
 const Color blueBackgroundColor = Color(0xff050A30);
 const Color lightBlueColor = Color(0xffD4F1F4);
 const Color textBlue = Color(0xffCDD3FD);
+const Color textInfoColor = Color(0xff808080);
 const double KiconSize = 30;
 const double kiconSize2 = 25;
 const double kPadding1 = 15;

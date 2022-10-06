@@ -46,6 +46,7 @@ class AddDontaion extends StatelessWidget {
                   child: CustomElevatedButton(
                     height: 40.sp,
                     width: 180.sp,
+                    fn: () {},
                     child: CustomText(
                       text: "Submit".toUpperCase(),
                       fontSize: 14.sp,
