@@ -25,14 +25,14 @@ import '../features/change-password/change-password.dart' as _i4;
 import '../features/donations/Dontations.dart' as _i13;
 import '../features/donations/widgets/addDonations.dart' as _i14;
 import '../features/donations/widgets/donationDetails.data.dart' as _i15;
-import '../features/homepage/homepage-data.dart' as _i3;
+import '../features/homepage/homepage.dart' as _i3;
 import '../features/login/login.dart' as _i7;
 import '../features/message/message.dart' as _i9;
 import '../features/needs/Needs.dart' as _i16;
 import '../features/needs/widgets/addNeed.dart' as _i17;
 import '../features/needs/widgets/needDetail.dart' as _i18;
 import '../features/notifications/notifications.dart' as _i10;
-import '../features/profile/user-profile.dart' as _i19;
+import '../features/profile/user-profile.data.dart' as _i19;
 import '../features/search-page/search-page.dart' as _i8;
 import '../features/signup/SignUp.dart' as _i2;
 
@@ -50,9 +50,9 @@ class AppRouter extends _i22.RootStackRouter {
       return _i22.MaterialPageX<dynamic>(
           routeData: routeData, child: const _i2.Signup());
     },
-    HomePageDataRoute.name: (routeData) {
+    HomePageRoute.name: (routeData) {
       return _i22.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i3.HomePageData());
+          routeData: routeData, child: const _i3.HomePage());
     },
     ChangePasswordRoute.name: (routeData) {
       return _i22.MaterialPageX<dynamic>(
@@ -118,9 +118,9 @@ class AppRouter extends _i22.RootStackRouter {
       return _i22.MaterialPageX<dynamic>(
           routeData: routeData, child: const _i18.NeedDetail());
     },
-    UserProfileRoute.name: (routeData) {
+    UserProfileDataRoute.name: (routeData) {
       return _i22.MaterialPageX<dynamic>(
-          routeData: routeData, child: _i19.UserProfile());
+          routeData: routeData, child: const _i19.UserProfileData());
     },
     ApplyForVolunteerRoute.name: (routeData) {
       return _i22.MaterialPageX<dynamic>(
@@ -136,7 +136,7 @@ class AppRouter extends _i22.RootStackRouter {
   List<_i22.RouteConfig> get routes => [
         _i22.RouteConfig(AuthCheckWidgetRoute.name, path: '/'),
         _i22.RouteConfig(SignupRoute.name, path: '/signup'),
-        _i22.RouteConfig(HomePageDataRoute.name, path: '/homepage'),
+        _i22.RouteConfig(HomePageRoute.name, path: '/homepage'),
         _i22.RouteConfig(ChangePasswordRoute.name, path: '/change-password'),
         _i22.RouteConfig(ChangeLocationRoute.name, path: '/change-location'),
         _i22.RouteConfig(AccountSettingsRoute.name, path: '/account-settings'),
@@ -152,8 +152,8 @@ class AppRouter extends _i22.RootStackRouter {
             path: '/donations-details/:id'),
         _i22.RouteConfig(NeedsRoute.name, path: '/needs/:category'),
         _i22.RouteConfig(AddRequestRoute.name, path: '/createNeed'),
-        _i22.RouteConfig(NeedDetailRoute.name, path: '/needs-details/:id'),
-        _i22.RouteConfig(UserProfileRoute.name, path: '/user-profile'),
+        _i22.RouteConfig(NeedDetailRoute.name, path: '/needs/details/:id'),
+        _i22.RouteConfig(UserProfileDataRoute.name, path: '/user-profile'),
         _i22.RouteConfig(ApplyForVolunteerRoute.name, path: '/apply-volunteer'),
         _i22.RouteConfig(AdminDashboardRoute.name, path: '/admin-dashboard')
       ];
@@ -176,11 +176,11 @@ class SignupRoute extends _i22.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i3.HomePageData]
-class HomePageDataRoute extends _i22.PageRouteInfo<void> {
-  const HomePageDataRoute() : super(HomePageDataRoute.name, path: '/homepage');
+/// [_i3.HomePage]
+class HomePageRoute extends _i22.PageRouteInfo<void> {
+  const HomePageRoute() : super(HomePageRoute.name, path: '/homepage');
 
-  static const String name = 'HomePageDataRoute';
+  static const String name = 'HomePageRoute';
 }
 
 /// generated route for
@@ -325,18 +325,18 @@ class AddRequestRoute extends _i22.PageRouteInfo<void> {
 /// [_i18.NeedDetail]
 class NeedDetailRoute extends _i22.PageRouteInfo<void> {
   const NeedDetailRoute()
-      : super(NeedDetailRoute.name, path: '/needs-details/:id');
+      : super(NeedDetailRoute.name, path: '/needs/details/:id');
 
   static const String name = 'NeedDetailRoute';
 }
 
 /// generated route for
-/// [_i19.UserProfile]
-class UserProfileRoute extends _i22.PageRouteInfo<void> {
-  const UserProfileRoute()
-      : super(UserProfileRoute.name, path: '/user-profile');
+/// [_i19.UserProfileData]
+class UserProfileDataRoute extends _i22.PageRouteInfo<void> {
+  const UserProfileDataRoute()
+      : super(UserProfileDataRoute.name, path: '/user-profile');
 
-  static const String name = 'UserProfileRoute';
+  static const String name = 'UserProfileDataRoute';
 }
 
 /// generated route for

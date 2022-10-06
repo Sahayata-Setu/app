@@ -1,7 +1,7 @@
 import 'package:donationapp/services/homepage/homepage.service.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-final categoriesProvider = StateProvider((ref) => "");
+final categoriesProvider = StateProvider((ref) => true);
 
 final donationsOrRequestProvider =
     FutureProvider.family<Map<String, dynamic>, String>((ref, type) {

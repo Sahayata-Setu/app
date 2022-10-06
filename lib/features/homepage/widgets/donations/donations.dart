@@ -1,7 +1,10 @@
 import 'dart:developer';
 
 import 'package:donationapp/helpers/route.utils.dart';
+import 'package:donationapp/routes/app.router.gr.dart';
+import 'package:donationapp/store/homepage/homepage.store.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:donationapp/constant/kconstant.dart';
@@ -9,12 +12,16 @@ import 'package:donationapp/features/homepage/widgets/donations/donationCategoty
 import 'package:donationapp/features/homepage/widgets/donations/donationHomeCards.dart';
 import 'package:donationapp/features/homepage/widgets/heading.dart';
 
-class DonationsHome extends StatelessWidget {
-  const DonationsHome({super.key, this.donationsData});
+class DonationsHome extends ConsumerWidget {
+  const DonationsHome(this.donationsData, {super.key});
+
   final donationsData;
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     // log("this is for donations home${donationsData}");
+    final donationsDetails = donationsData['body'].toList();
+    // final donationDetails = ref.watch(donationsOrRequestProvider('donations'));
+    // log("This is from donations ${donationsDetails}");
     return Container(
       margin: EdgeInsets.only(top: kPadding.w),
       alignment: Alignment.topLeft,
@@ -62,7 +69,7 @@ class DonationsHome extends StatelessWidget {
                     child: ListView.builder(
                       padding: EdgeInsets.only(left: kPadding),
                       scrollDirection: Axis.horizontal,
-                      itemCount: donationsData.length,
+                      itemCount: donationsDetails.length,
                       itemBuilder: (context, index) => Container(
                         margin: EdgeInsets.all(10.w),
 
@@ -80,7 +87,7 @@ class DonationsHome extends StatelessWidget {
                                     spreadRadius: 0)
                               ]),
                           child: DonationHomeCards(
-                            singleInfo: donationsData[index],
+                            singleInfo: donationsDetails[index],
                           ),
                         ),
                       ),

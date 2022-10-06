@@ -20,24 +20,17 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class UserProfile extends ConsumerWidget {
+  const UserProfile(this.data, {super.key});
+  final data;
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     handleLogout() {
       ref.read(loginProvider).logout();
-      // log("message");
-
-      // replaceRouteTo("/login", context);
       final router = AutoRouter.of(context);
       router.replaceAll([LoginRoute()]);
-      // log("hrloooo");
-      // pop(context);
-      // CustomScaffoldMessenger.error("Loggedout", context);
       const snackBar = SnackBar(
         content: Text('Logged Out'),
       );
-
-// Find the ScaffoldMessenger in the widget tree
-// and use it to show a SnackBar.
       ScaffoldMessenger.of(context).showSnackBar(snackBar);
     }
 

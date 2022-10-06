@@ -1,23 +1,24 @@
+import 'dart:developer';
+
 import 'package:donationapp/constant/common/Text/custom-text.dart';
 import 'package:donationapp/constant/kconstant.dart';
 import 'package:donationapp/features/homepage/widgets/donations/donations.dart';
+import 'package:donationapp/features/homepage/widgets/donations/donations.data.dart';
 import 'package:donationapp/features/homepage/widgets/heading.dart';
 import 'package:donationapp/features/homepage/widgets/needs/needs.dart';
+import 'package:donationapp/store/homepage/homepage.store.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class CategoriesTab extends StatefulWidget {
-  const CategoriesTab({super.key, this.post});
-  final post;
+class CategoriesTab extends ConsumerWidget {
   @override
-  State<CategoriesTab> createState() => _CategoriesTabState();
-}
-
-class _CategoriesTabState extends State<CategoriesTab> {
-  bool showDonation = true;
-  @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final showDonation = ref.watch(categoriesProvider);
+    // bool showDonation = true;
+    log("this is donation type${showDonation}");
+    final donationData;
     return Container(
       height: 550.h,
       child: Column(
@@ -48,9 +49,7 @@ class _CategoriesTabState extends State<CategoriesTab> {
                     ),
                   ),
                   onTap: () {
-                    setState(() {
-                      showDonation = true;
-                    });
+                    ref.read(categoriesProvider.notifier).state = true;
                   },
                 ),
                 GestureDetector(
@@ -70,19 +69,13 @@ class _CategoriesTabState extends State<CategoriesTab> {
                     ],
                   ),
                   onTap: () {
-                    setState(() {
-                      showDonation = false;
-                    });
+                    ref.read(categoriesProvider.notifier).state = false;
                   },
                 )
               ],
             ),
           ),
-          showDonation
-              ? DonationsHome(
-                  donationsData: widget.post,
-                )
-              : NeedsHome(),
+          showDonation ? DonationsData() : NeedsHome()
         ],
       ),
     );
