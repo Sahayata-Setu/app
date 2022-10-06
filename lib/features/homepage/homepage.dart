@@ -41,7 +41,10 @@ class HomePage extends ConsumerWidget {
         child: Column(
           children: [
             Campaigns(),
-            CategoriesTab(post)
+            CategoriesTab(
+              post: post,
+            )
+            //CategoriesTab(post)
             //CustomTabBar()
             // DonationsHome(), NeedsHome()
           ],
