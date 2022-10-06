@@ -92,6 +92,7 @@ class Donation_Detail extends StatelessWidget {
         title: "Donations Detatil",
         showBadge: false,
       ),
+      isAdmin: false,
       bottomNavBar: const BottomNavBar(showBottomNavBar: false),
     );
     ;

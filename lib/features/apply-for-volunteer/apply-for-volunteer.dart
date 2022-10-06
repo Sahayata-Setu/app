@@ -53,6 +53,7 @@ class ApplyForVolunteer extends ConsumerWidget {
         // route: "/homepage",
         title: "Apply for volunteer",
       ),
+      isAdmin: false,
       bottomNavBar: BottomNavBar(showBottomNavBar: false),
     );
   }

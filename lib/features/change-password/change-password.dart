@@ -40,6 +40,7 @@ class ChangePassword extends ConsumerWidget {
         // route: "/homepage",
         title: "Change Password",
       ),
+      isAdmin: false,
       bottomNavBar: BottomNavBar(showBottomNavBar: false),
     );
   }

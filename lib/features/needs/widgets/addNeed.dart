@@ -58,6 +58,7 @@ class AddRequest extends StatelessWidget {
         title: "Create Request",
         showBadge: false,
       ),
+      isAdmin: false,
       bottomNavBar: const BottomNavBar(showBottomNavBar: false),
     );
   }

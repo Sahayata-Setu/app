@@ -16,12 +16,14 @@ class App extends StatefulWidget {
   final Widget component;
   final Widget appbar;
   final Widget bottomNavBar;
+  final isAdmin;
   // ignore: non_constant_identifier_names
   const App(
       {Key? key,
       required this.component,
       required this.appbar,
-      required this.bottomNavBar})
+      required this.bottomNavBar,
+      required this.isAdmin})
       : super(key: key);
 
   @override
@@ -72,6 +74,40 @@ class _AppState extends State<App> {
         preferredSize: const Size.fromHeight(60),
         child: widget.appbar,
       ),
+      // drawer: widget.isAdmin != null
+      //     ? Drawer(
+      //         backgroundColor: blueColor,
+      //         child: ListView(
+      //             // Important: Remove any padding from the ListView.
+      //             padding: EdgeInsets.zero,
+      //             children: [
+      //               DrawerHeader(
+      //                 decoration: BoxDecoration(
+      //                     //  color: Colors.blue,
+      //                     ),
+      //                 child: IconButton(
+      //                     onPressed: () {
+      //                       Navigator.pop(context);
+      //                     },
+      //                     icon: Icon(Icons.close)),
+      //               ),
+      //               ListTile(
+      //                 title: const Text(
+      //                   'Item 1',
+      //                   style: TextStyle(color: blackColor),
+      //                 ),
+      //                 onTap: () {
+      //                   Navigator.pop(context);
+      //                 },
+      //               ),
+      //               ListTile(
+      //                   title: const Text('Item 2'),
+      //                   onTap: () {
+      //                     Navigator.pop(context);
+      //                   })
+      //             ]),
+      //       )
+      //     : null,
       body: SingleChildScrollView(
         controller: _scrollController,
         child: Column(

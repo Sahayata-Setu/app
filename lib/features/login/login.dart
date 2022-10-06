@@ -25,6 +25,7 @@ class Login extends ConsumerWidget {
     final loginDetails = ref.watch(loginDetailsProvider);
     final loginref = ref.watch(loginProvider);
     // log("$signUpDetails");
+    final state = ref.watch(stateProvider);
     final getUserType = StorageService.getuserType();
     log("this id from${getUserType}");
     // StorageService.getuserType();
@@ -80,18 +81,20 @@ class Login extends ConsumerWidget {
               ),
 
               //
-              ElevatedButton(
-                onPressed: () {
-                  // replaceRouteTo("/homepage", context);
-                  // handleSumbit();
-                  // log("${loginDetails}");
-                  handleSumbit();
-                },
-                style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(blueColor),
-                ),
-                child: Text("Login"),
-              ),
+              state
+                  ? CircularProgressIndicator()
+                  : ElevatedButton(
+                      onPressed: () {
+                        // replaceRouteTo("/homepage", context);
+                        // handleSumbit();
+                        // log("${loginDetails}");
+                        handleSumbit();
+                      },
+                      style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all(blueColor),
+                      ),
+                      child: Text("Login"),
+                    ),
               TextButton(
                 onPressed: () {
                   replaceRouteTo("/signup", context);
@@ -102,6 +105,7 @@ class Login extends ConsumerWidget {
           ),
         ),
       ),
+      isAdmin: false,
       bottomNavBar: BottomNavBar(showBottomNavBar: false),
     );
   }

@@ -46,8 +46,9 @@ class LoginServiceClass implements AuthBase {
     // final singUpService
     try {
       // log("this is from$data");
+
       final response = await _client.post("/auth/login", data: req);
-      // log("${response}");
+      log("this is from store ${response}");
       // if(response.statusCode(400) )
       log(response['userRole']);
       StorageService.setUserType(response['userRole']);

@@ -1,75 +1,84 @@
 import 'dart:developer';
 
+import 'package:donationapp/constant/common/Icon/custom-icon.dart';
 import 'package:donationapp/helpers/route.utils.dart';
 import 'package:flutter/material.dart';
 
 import 'package:donationapp/constant/kconstant.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class BottomNavBar extends StatelessWidget {
+class BottomNavBar extends StatefulWidget {
   final bool showBottomNavBar;
   const BottomNavBar({super.key, required this.showBottomNavBar});
 
   @override
+  State<BottomNavBar> createState() => _BottomNavBarState();
+}
+
+class _BottomNavBarState extends State<BottomNavBar> {
+  @override
   Widget build(BuildContext context) {
+    int _selectedIndex = 0;
+
+    void onTabTapped(int index) {
+      setState(() {
+        _selectedIndex = index;
+        print({_selectedIndex});
+
+        switch (index) {
+          case 0:
+            if (_selectedIndex == index) {
+              routeTo("/homepage", context);
+            }
+            break;
+          case 1:
+            routeTo('/admin-dashboard', context);
+            break;
+          case 2:
+            routeTo('/notifications', context);
+            break;
+          case 3:
+            routeTo('/user-profile', context);
+            break;
+        }
+
+        ///call your PageController.jumpToPage(index) here too, if needed
+      });
+    }
+
     // log("this is contenct${context.set}");
-    return BottomAppBar(
-        color: blueColor,
-        // shape: const CircularNotchedRectangle(),
-        notchMargin: 5,
-        child: showBottomNavBar
-            ? Row(
-                //children inside bottom appbar
-                mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: <Widget>[
-                  IconButton(
-                    icon: const Icon(
-                      Icons.home,
-                      color: whiteColor,
-                      size: kiconSize2,
-                    ),
-                    onPressed: () {
-                      replaceRouteTo("/homepage", context);
-                    },
-                  ),
-                  Container(
-                    // margin: const EdgeInsets.only(right: 35),
-                    child: IconButton(
-                      icon: const Icon(
-                        Icons.message,
-                        color: whiteColor,
-                        size: kiconSize2,
-                      ),
-                      onPressed: () {
-                        replaceRouteTo('/admin-dashboard', context);
-                      },
-                    ),
-                  ),
-                  Container(
-                    // margin: EdgeInsets.only(left: 35),
-                    child: IconButton(
-                      icon: const Icon(
-                        Icons.notifications,
-                        color: whiteColor,
-                        size: kiconSize2,
-                      ),
-                      onPressed: () {
-                        replaceRouteTo('/notifications', context);
-                      },
-                    ),
-                  ),
-                  IconButton(
-                    icon: const Icon(
-                      Icons.person,
-                      color: whiteColor,
-                      size: kiconSize2,
-                    ),
-                    onPressed: () {
-                      routeTo("/user-profile", context);
-                    },
-                  ),
-                ],
-              )
-            : SizedBox());
+    return BottomNavigationBar(
+      currentIndex: _selectedIndex,
+      selectedItemColor: blueColor,
+      unselectedItemColor: Colors.grey,
+      showUnselectedLabels: false,
+      onTap: onTabTapped,
+      items: [
+        BottomNavigationBarItem(
+            icon: CustomIcon(
+              icon: Icons.home,
+              size: 25.sp,
+            ),
+            label: "Home"),
+        BottomNavigationBarItem(
+            icon: CustomIcon(
+              icon: Icons.message,
+              size: 25.sp,
+            ),
+            label: "Messages"),
+        BottomNavigationBarItem(
+            icon: CustomIcon(
+              icon: Icons.notifications,
+              size: 25.sp,
+            ),
+            label: "Notifications"),
+        BottomNavigationBarItem(
+            icon: CustomIcon(
+              icon: Icons.person,
+              size: 25.sp,
+            ),
+            label: "Profile")
+      ],
+    );
   }
 }

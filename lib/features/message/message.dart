@@ -4,8 +4,6 @@ import 'package:donationapp/constant/common/NavBar/navbar.dart';
 import 'package:flutter/cupertino.dart';
 
 class Message extends StatelessWidget {
-  const Message({super.key});
-
   @override
   Widget build(BuildContext context) {
     return App(
@@ -14,6 +12,7 @@ class Message extends StatelessWidget {
         title: "Messages",
         showBadge: true,
       ),
+      isAdmin: false,
       bottomNavBar: BottomNavBar(showBottomNavBar: true),
     );
   }

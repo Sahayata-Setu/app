@@ -17,9 +17,7 @@ class HomePageData extends ConsumerWidget {
       child: data.when(
         data: (data) {
           // log("ffg");
-          return HomePage(data
-              // id: data.id!,
-              );
+          return HomePage(data);
         },
         error: (h, e) {
           log('$h');

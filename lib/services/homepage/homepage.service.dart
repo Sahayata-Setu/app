@@ -12,7 +12,7 @@ class HomepageServiceClass {
   Future<Map<String, dynamic>> getDonationsOrRequest(type) async {
     // final singUpService
     try {
-      log("message");
+      // log("message");
       final response = await _client.get(
         "/user/donation/all",
         options: Options(
