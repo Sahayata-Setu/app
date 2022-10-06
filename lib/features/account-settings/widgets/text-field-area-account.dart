@@ -19,19 +19,26 @@ class TextFieldAreaAccount extends ConsumerWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         CustomText(
-          text: "Name",
+          text: "First Name",
           fontColor: whiteColor,
           fontSize: 20.sp,
         ),
+        CustomTextField(
+          ref: ref.read(userDetailsProvider.notifier),
+          label: "First Name",
+          name: "firstName",
+          borderColor: whiteColor,
+          // ref: ref,
+        ),
         CustomText(
-          text: "(Enter your name as document)",
+          text: "Last Name",
           fontColor: whiteColor,
-          fontSize: 14.sp,
+          fontSize: 20.sp,
         ),
         CustomTextField(
           ref: ref.read(userDetailsProvider.notifier),
-          label: "Name",
-          name: "name",
+          label: "Last Name",
+          name: "firstName",
           borderColor: whiteColor,
           // ref: ref,
         ),

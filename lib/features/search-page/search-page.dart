@@ -19,7 +19,7 @@ class SearchPage extends StatelessWidget {
       appbar: const NavBar(
         showBadge: false,
         title: "Search",
-        route: "/homepage",
+        // route: "/homepage",
       ),
       isAdmin: false,
       bottomNavBar: BottomNavBar(showBottomNavBar: false),

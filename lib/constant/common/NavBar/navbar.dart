@@ -24,7 +24,10 @@ class NavBar extends StatelessWidget {
   Widget build(BuildContext context) {
     final route = AutoRouter.of(context).current.name;
     return AppBar(
-      automaticallyImplyLeading: route == LoginRoute.name ? false : true,
+      automaticallyImplyLeading:
+          route == LoginRoute.name || route == AdminDashboardRoute.name
+              ? false
+              : true,
       elevation: 0,
       backgroundColor: blueColor,
       title: CustomText(

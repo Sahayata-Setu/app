@@ -1,3 +1,4 @@
+import 'dart:developer';
 import 'dart:io';
 
 import 'package:dio/adapter.dart';
@@ -7,6 +8,7 @@ import 'package:dio_cache_interceptor_hive_store/dio_cache_interceptor_hive_stor
 import 'package:donationapp/constant/config/config.dart';
 import 'package:donationapp/utils/base-client/path.provider.dart';
 import 'package:donationapp/utils/network_exception/network_exceptions.dart';
+import 'package:donationapp/utils/store-service/store.service.dart';
 
 const baseUrl = AppConstants.baseUrl;
 
@@ -18,12 +20,14 @@ class ApiHelper {
   static final ApiHelper _instance = ApiHelper._();
   static ApiHelper get instance => _instance;
 
+  // final token = StorageService.getTokesn();
   final Dio _dio = Dio(
     BaseOptions(
       baseUrl: baseUrl,
       headers: {
         HttpHeaders.contentTypeHeader: 'application/json',
         HttpHeaders.acceptHeader: 'application/json',
+        // HttpHeaders.authorizationHeader: 'Bearer $token'
       },
     ),
   );
@@ -68,8 +72,10 @@ class ApiHelper {
         options: options,
         cancelToken: cancelToken,
       );
+      // log("${res.data}");
       return res.data;
     } on DioError catch (e) {
+      // log("messagergdf");
       throw e.toNetworkException();
     }
   }
@@ -92,7 +98,8 @@ class ApiHelper {
       );
       return res.data;
     } on DioError catch (e) {
-      throw e.toNetworkException();
+      // log("this is fdrom cli ${e.response}");
+      throw e.response ?? e.toNetworkException();
     }
   }
 

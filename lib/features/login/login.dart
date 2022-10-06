@@ -25,16 +25,24 @@ class Login extends ConsumerWidget {
     final loginDetails = ref.watch(loginDetailsProvider);
     final loginref = ref.watch(loginProvider);
     // log("$signUpDetails");
-    final isAuthenticated = StorageService.isAuthenticated();
-    // log("this id from${StorageService.getToken()}");
+    final state = ref.watch(stateProvider);
+    final getUserType = StorageService.getuserType();
+
+    // StorageService.getuserType();
 
     handleSumbit() async {
       try {
         await loginref.signup(loginDetails);
+        // if (getUserType == "user") {
         // ignore: use_build_context_synchronously
+        // log("this is message");
         replaceRouteTo('/homepage', context);
+        // CustomScaffoldMessenger.info("Sucessfully logged In", context);
+        // } else if (getUserType == "admin") {
+        // replaceRouteTo("/admin-dashboard", context);
+        // CustomScaffoldMessenger.info("Sucessfully logged In", context);
+        // }
 
-        CustomScaffoldMessenger.info("Sucessfully logged In", context);
         // ignore: use_build_context_synchronously
 
       } catch (e) {
@@ -75,18 +83,20 @@ class Login extends ConsumerWidget {
               ),
 
               //
-              ElevatedButton(
-                onPressed: () {
-                  // replaceRouteTo("/homepage", context);
-                  // handleSumbit();
-                  // log("${loginDetails}");
-                  handleSumbit();
-                },
-                style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(blueColor),
-                ),
-                child: Text("Login"),
-              ),
+              state
+                  ? CircularProgressIndicator()
+                  : ElevatedButton(
+                      onPressed: () {
+                        // replaceRouteTo("/homepage", context);
+                        // handleSumbit();
+                        // log("${loginDetails}");
+                        handleSumbit();
+                      },
+                      style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all(blueColor),
+                      ),
+                      child: Text("Login"),
+                    ),
               TextButton(
                 onPressed: () {
                   replaceRouteTo("/signup", context);

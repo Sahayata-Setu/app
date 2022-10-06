@@ -69,7 +69,7 @@ class AdminDashboard extends StatelessWidget {
       ),
       isAdmin: true,
       // drawer: Drawer(),
-      bottomNavBar: const BottomNavBar(showBottomNavBar: false),
+      bottomNavBar: const BottomNavBar(showBottomNavBar: true),
     );
   }
 }

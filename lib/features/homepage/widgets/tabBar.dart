@@ -27,7 +27,7 @@ class _CustomTabBarState extends State<CustomTabBar>
       child: Column(
         children: [
           Container(
-            margin: EdgeInsets.symmetric(vertical: 15),
+            margin: EdgeInsets.symmetric(vertical: 15.h),
             child: TabBar(
               controller: tabBarController,
               indicatorSize: TabBarIndicatorSize.label,

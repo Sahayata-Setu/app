@@ -1,3 +1,6 @@
+import 'dart:developer';
+
+import 'package:donationapp/helpers/route.utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -7,10 +10,11 @@ import 'package:donationapp/features/homepage/widgets/donations/donationHomeCard
 import 'package:donationapp/features/homepage/widgets/heading.dart';
 
 class DonationsHome extends StatelessWidget {
-  const DonationsHome({super.key});
-
+  const DonationsHome({super.key, this.donationsData});
+  final donationsData;
   @override
   Widget build(BuildContext context) {
+    // log("this is for donations home${donationsData}");
     return Container(
       margin: EdgeInsets.only(top: kPadding.w),
       alignment: Alignment.topLeft,
@@ -52,29 +56,33 @@ class DonationsHome extends StatelessWidget {
                     ],
                   ),
                 ),
+                //Donations cards
                 SizedBox(
                     height: 300.h,
                     child: ListView.builder(
                       padding: EdgeInsets.only(left: kPadding),
                       scrollDirection: Axis.horizontal,
-                      itemCount: 5,
+                      itemCount: donationsData.length,
                       itemBuilder: (context, index) => Container(
                         margin: EdgeInsets.all(10.w),
 
                         // height: 200.0,
                         // width: 150,
                         child: Container(
-                            decoration: BoxDecoration(
-                                color: backgroundColor,
-                                borderRadius: BorderRadius.circular(15),
-                                boxShadow: [
-                                  BoxShadow(
-                                      color: Colors.grey.withOpacity(0.3),
-                                      offset: const Offset(0, 6),
-                                      blurRadius: 11.0,
-                                      spreadRadius: 0)
-                                ]),
-                            child: DonationHomeCards()),
+                          decoration: BoxDecoration(
+                              color: backgroundColor,
+                              borderRadius: BorderRadius.circular(15),
+                              boxShadow: [
+                                BoxShadow(
+                                    color: Colors.grey.withOpacity(0.3),
+                                    offset: const Offset(0, 6),
+                                    blurRadius: 11.0,
+                                    spreadRadius: 0)
+                              ]),
+                          child: DonationHomeCards(
+                            singleInfo: donationsData[index],
+                          ),
+                        ),
                       ),
                     )),
               ],

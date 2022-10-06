@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:donationapp/constant/common/Icon/custom-icon.dart';
 import 'package:donationapp/helpers/route.utils.dart';
+// import 'package:donationapp/routes/app.router.gr.dart';
 import 'package:flutter/material.dart';
 
 import 'package:donationapp/constant/kconstant.dart';
@@ -32,13 +33,13 @@ class _BottomNavBarState extends State<BottomNavBar> {
             }
             break;
           case 1:
-            replaceRouteTo('/admin-dashboard', context);
+            routeTo('/messages', context);
             break;
           case 2:
-            replaceRouteTo('/notifications', context);
+            routeTo('/notifications', context);
             break;
           case 3:
-            replaceRouteTo('/user-profile', context);
+            routeTo('/user-profile', context);
             break;
         }
 
