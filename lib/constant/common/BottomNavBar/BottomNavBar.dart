@@ -33,7 +33,10 @@ class _BottomNavBarState extends State<BottomNavBar> {
             }
             break;
           case 1:
-            routeTo('/messages', context);
+            // routeTo('/messages', context);
+            if (_selectedIndex == index) {
+              replaceRouteTo("/messages", context);
+            }
             break;
           case 2:
             routeTo('/notifications', context);
@@ -56,35 +59,42 @@ class _BottomNavBarState extends State<BottomNavBar> {
             showUnselectedLabels: false,
             onTap: onTabTapped,
             items: [
-              BottomNavigationBarItem(
-                  icon: GestureDetector(
-                    child: CustomIcon(
+                BottomNavigationBarItem(
+                    icon: CustomIcon(
                       icon: Icons.home,
                       size: 25.sp,
                     ),
-                  ),
-                  label: "Home"),
-              BottomNavigationBarItem(
-                icon: CustomIcon(
-                  icon: Icons.message,
-                  size: 25.sp,
-                ),
-                label: "Messages",
-              ),
-              BottomNavigationBarItem(
-                  icon: CustomIcon(
-                    icon: Icons.notifications,
-                    size: 25.sp,
-                  ),
-                  label: "Notifications"),
-              BottomNavigationBarItem(
-                  icon: CustomIcon(
-                    icon: Icons.person,
-                    size: 25.sp,
-                  ),
-                  label: "Profile")
-            ],
-          )
-        : SizedBox();
+                    label: "Home"),
+                BottomNavigationBarItem(
+                    icon: CustomIcon(
+                      icon: Icons.message,
+                      size: 25.sp,
+                    ),
+                    label: "Messages"),
+                BottomNavigationBarItem(
+                    icon: CustomIcon(
+                      icon: Icons.search,
+                      size: 25.sp,
+                    ),
+                    label: "Search"),
+                BottomNavigationBarItem(
+                    icon: CustomIcon(
+                      icon: Icons.notifications,
+                      size: 25.sp,
+                    ),
+                    label: "Notifications"),
+                BottomNavigationBarItem(
+                    icon: GestureDetector(
+                      onTap: () {
+                        routeTo("/user-profile", context);
+                      },
+                      child: CustomIcon(
+                        icon: Icons.person,
+                        size: 25.sp,
+                      ),
+                    ),
+                    label: "Profile")
+              ])
+        : const SizedBox();
   }
 }

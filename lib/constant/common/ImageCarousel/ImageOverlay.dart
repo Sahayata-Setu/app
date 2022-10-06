@@ -97,7 +97,7 @@ class ImageOverlay extends StatelessWidget {
                   showShareBtn
                       ? CustomIcon(
                           icon: Icons.share,
-                          color: secondaryBlue,
+                          color: whiteColor,
                           size: KiconSize,
                         )
                       : SizedBox()

@@ -2,6 +2,8 @@ import 'dart:developer';
 
 import 'package:donationapp/constant/kconstant.dart';
 import 'package:donationapp/store/account-setting/account.setting.store.dart';
+import 'package:donationapp/store/single-user/single-user.store.dart';
+import 'package:donationapp/utils/store-service/store.service.dart';
 import 'package:flutter/material.dart';
 import 'package:donationapp/constant/common/Text/custom-text.dart';
 import 'package:donationapp/constant/common/textfield/CustomTextField.dart';
@@ -13,8 +15,11 @@ class TextFieldAreaAccount extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final id = StorageService.getId();
     final userDetails = ref.watch(userDetailsProvider);
-    // log("this is acount detials${userDetails}");
+
+    final singleUserDetails = ref.watch(singleUserDataProvider(id));
+    log("this is acount detials${singleUserDetails}");
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
