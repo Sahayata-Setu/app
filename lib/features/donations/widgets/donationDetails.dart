@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:donationapp/constant/common/horizontal-line/horizontal-line.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -11,12 +13,17 @@ import '../../../../app.dart';
 import '../../../../constant/common/BottomNavBar/BottomNavBar.dart';
 import '../../../../constant/common/NavBar/navbar.dart';
 
-class Donation_Detail extends StatelessWidget {
-  final donationId;
-  const Donation_Detail({super.key, @PathParam('id') this.donationId});
+class DonationDetail extends StatelessWidget {
+  const DonationDetail({super.key, this.data});
+  final data;
 
   @override
   Widget build(BuildContext context) {
+    final singleData = data['body'];
+    // log("this is from data ${data['quantity']}");
+    log("this is id$data}");
+
+    log("rgtf${singleData}");
     return App(
       component: Container(
           alignment: Alignment.topLeft,
@@ -47,7 +54,7 @@ class Donation_Detail extends StatelessWidget {
                         fontColor: Colors.grey.shade600,
                       ),
                       trailing: CustomText(
-                        text: "4",
+                        text: "${singleData['quantity']}",
                         fontWeight: FontWeight.w500,
                         fontSize: 15.sp,
                       ),
@@ -58,7 +65,7 @@ class Donation_Detail extends StatelessWidget {
                         fontColor: Colors.grey.shade600,
                       ),
                       trailing: CustomText(
-                        text: "9am",
+                        text: "${singleData['pickupDetails']}",
                         fontWeight: FontWeight.w500,
                         fontSize: 15.sp,
                       ),
@@ -75,14 +82,23 @@ class Donation_Detail extends StatelessWidget {
                       ),
                     ),
                     HorizontalLine(),
+                    SizedBox(
+                      height: 10.h,
+                    ),
                     Container(
-                        alignment: Alignment.center,
-                        child: CustomText(text: "Description")),
-                    FittedBox(
-                        child: CustomText(
-                            fontSize: 14.sp,
-                            text:
-                                "kjhkjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjnmbvcfdtyuihkjvcdr6tuygjhvchgjbnvctfuygjhvfgvcfghvfghkjhkjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjnmbvcfdtyuihkjvcdr6tuygjhvchgjbnvctfuygjhvfgvcfghvfgh"))
+                      alignment: Alignment.center,
+                      child: CustomText(
+                        fontSize: 16.sp,
+                        text: "Description",
+                      ),
+                    ),
+                    SizedBox(
+                      height: 10.h,
+                    ),
+                    CustomText(
+                      fontSize: 14.sp,
+                      text: "${singleData['description']}",
+                    )
                   ],
                 ),
               )

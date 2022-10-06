@@ -23,8 +23,8 @@ import '../features/campaigns/campaignsList.dart' as _i11;
 import '../features/change-location/change-location.dart' as _i5;
 import '../features/change-password/change-password.dart' as _i4;
 import '../features/donations/Dontations.dart' as _i13;
-import '../features/donations/widgets/donationDetails.dart' as _i14;
-import '../features/homepage/homepage.dart' as _i3;
+import '../features/donations/widgets/donationDetails.data.dart' as _i14;
+import '../features/homepage/homepage-data.dart' as _i3;
 import '../features/login/login.dart' as _i7;
 import '../features/message/message.dart' as _i9;
 import '../features/notifications/notifications.dart' as _i10;
@@ -46,9 +46,9 @@ class AppRouter extends _i18.RootStackRouter {
       return _i18.MaterialPageX<dynamic>(
           routeData: routeData, child: const _i2.Signup());
     },
-    HomePageRoute.name: (routeData) {
+    HomePageDataRoute.name: (routeData) {
       return _i18.MaterialPageX<dynamic>(
-          routeData: routeData, child: _i3.HomePage());
+          routeData: routeData, child: const _i3.HomePageData());
     },
     ChangePasswordRoute.name: (routeData) {
       return _i18.MaterialPageX<dynamic>(
@@ -90,15 +90,13 @@ class AppRouter extends _i18.RootStackRouter {
       return _i18.MaterialPageX<dynamic>(
           routeData: routeData, child: const _i13.Dontaions());
     },
-    Donation_DetailRoute.name: (routeData) {
+    DonationDetailDataRoute.name: (routeData) {
       final pathParams = routeData.inheritedPathParams;
-      final args = routeData.argsAs<Donation_DetailRouteArgs>(
-          orElse: () =>
-              Donation_DetailRouteArgs(donationId: pathParams.get('id')));
+      final args = routeData.argsAs<DonationDetailDataRouteArgs>(
+          orElse: () => DonationDetailDataRouteArgs(id: pathParams.get('id')));
       return _i18.MaterialPageX<dynamic>(
           routeData: routeData,
-          child:
-              _i14.Donation_Detail(key: args.key, donationId: args.donationId));
+          child: _i14.DonationDetailData(key: args.key, id: args.id));
     },
     UserProfileRoute.name: (routeData) {
       return _i18.MaterialPageX<dynamic>(
@@ -118,7 +116,7 @@ class AppRouter extends _i18.RootStackRouter {
   List<_i18.RouteConfig> get routes => [
         _i18.RouteConfig(AuthCheckWidgetRoute.name, path: '/'),
         _i18.RouteConfig(SignupRoute.name, path: '/signup'),
-        _i18.RouteConfig(HomePageRoute.name, path: '/homepage'),
+        _i18.RouteConfig(HomePageDataRoute.name, path: '/homepage'),
         _i18.RouteConfig(ChangePasswordRoute.name, path: '/change-password'),
         _i18.RouteConfig(ChangeLocationRoute.name, path: '/change-location'),
         _i18.RouteConfig(AccountSettingsRoute.name, path: '/account-settings'),
@@ -129,8 +127,8 @@ class AppRouter extends _i18.RootStackRouter {
         _i18.RouteConfig(CampaignsListRoute.name, path: '/campaigns'),
         _i18.RouteConfig(CampiagnDetailsRoute.name, path: '/campaigns/:id'),
         _i18.RouteConfig(DontaionsRoute.name, path: '/donations/:category'),
-        _i18.RouteConfig(Donation_DetailRoute.name,
-            path: '/donations/details/:id'),
+        _i18.RouteConfig(DonationDetailDataRoute.name,
+            path: '/donations-details/:id'),
         _i18.RouteConfig(UserProfileRoute.name, path: '/user-profile'),
         _i18.RouteConfig(ApplyForVolunteerRoute.name, path: '/apply-volunteer'),
         _i18.RouteConfig(AdminDashboardRoute.name, path: '/admin-dashboard')
@@ -154,11 +152,11 @@ class SignupRoute extends _i18.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i3.HomePage]
-class HomePageRoute extends _i18.PageRouteInfo<void> {
-  const HomePageRoute() : super(HomePageRoute.name, path: '/homepage');
+/// [_i3.HomePageData]
+class HomePageDataRoute extends _i18.PageRouteInfo<void> {
+  const HomePageDataRoute() : super(HomePageDataRoute.name, path: '/homepage');
 
-  static const String name = 'HomePageRoute';
+  static const String name = 'HomePageDataRoute';
 }
 
 /// generated route for
@@ -249,28 +247,28 @@ class DontaionsRoute extends _i18.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i14.Donation_Detail]
-class Donation_DetailRoute
-    extends _i18.PageRouteInfo<Donation_DetailRouteArgs> {
-  Donation_DetailRoute({_i19.Key? key, dynamic donationId})
-      : super(Donation_DetailRoute.name,
-            path: '/donations/details/:id',
-            args: Donation_DetailRouteArgs(key: key, donationId: donationId),
-            rawPathParams: {'id': donationId});
+/// [_i14.DonationDetailData]
+class DonationDetailDataRoute
+    extends _i18.PageRouteInfo<DonationDetailDataRouteArgs> {
+  DonationDetailDataRoute({_i19.Key? key, dynamic id})
+      : super(DonationDetailDataRoute.name,
+            path: '/donations-details/:id',
+            args: DonationDetailDataRouteArgs(key: key, id: id),
+            rawPathParams: {'id': id});
 
-  static const String name = 'Donation_DetailRoute';
+  static const String name = 'DonationDetailDataRoute';
 }
 
-class Donation_DetailRouteArgs {
-  const Donation_DetailRouteArgs({this.key, this.donationId});
+class DonationDetailDataRouteArgs {
+  const DonationDetailDataRouteArgs({this.key, this.id});
 
   final _i19.Key? key;
 
-  final dynamic donationId;
+  final dynamic id;
 
   @override
   String toString() {
-    return 'Donation_DetailRouteArgs{key: $key, donationId: $donationId}';
+    return 'DonationDetailDataRouteArgs{key: $key, id: $id}';
   }
 }
 

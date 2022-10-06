@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:donationapp/constant/common/Icon/custom-icon.dart';
 import 'package:donationapp/helpers/route.utils.dart';
+import 'package:donationapp/routes/app.router.gr.dart';
 import 'package:flutter/material.dart';
 
 import 'package:donationapp/constant/kconstant.dart';
@@ -32,13 +33,13 @@ class _BottomNavBarState extends State<BottomNavBar> {
             }
             break;
           case 1:
-            replaceRouteTo('/admin-dashboard', context);
+            routeTo('/messages', context);
             break;
           case 2:
-            replaceRouteTo('/notifications', context);
+            routeTo('/notifications', context);
             break;
           case 3:
-            replaceRouteTo('/user-profile', context);
+            routeTo('/user-profile', context);
             break;
         }
 
@@ -47,37 +48,43 @@ class _BottomNavBarState extends State<BottomNavBar> {
     }
 
     // log("this is contenct${context.set}");
-    return BottomNavigationBar(
-        currentIndex: _selectedIndex,
-        selectedItemColor: blueColor,
-        unselectedItemColor: Colors.grey,
-        showUnselectedLabels: false,
-        onTap: onTabTapped,
-        items: [
-          BottomNavigationBarItem(
-              icon: CustomIcon(
-                icon: Icons.home,
-                size: 25.sp,
+    return widget.showBottomNavBar
+        ? BottomNavigationBar(
+            currentIndex: _selectedIndex,
+            selectedItemColor: blueColor,
+            unselectedItemColor: Colors.grey,
+            showUnselectedLabels: false,
+            onTap: onTabTapped,
+            items: [
+              BottomNavigationBarItem(
+                  icon: GestureDetector(
+                    child: CustomIcon(
+                      icon: Icons.home,
+                      size: 25.sp,
+                    ),
+                  ),
+                  label: "Home"),
+              BottomNavigationBarItem(
+                icon: CustomIcon(
+                  icon: Icons.message,
+                  size: 25.sp,
+                ),
+                label: "Messages",
               ),
-              label: "Home"),
-          BottomNavigationBarItem(
-              icon: CustomIcon(
-                icon: Icons.message,
-                size: 25.sp,
-              ),
-              label: "Messages"),
-          BottomNavigationBarItem(
-              icon: CustomIcon(
-                icon: Icons.notifications,
-                size: 25.sp,
-              ),
-              label: "Notifications"),
-          BottomNavigationBarItem(
-              icon: CustomIcon(
-                icon: Icons.person,
-                size: 25.sp,
-              ),
-              label: "Profile")
-        ]);
+              BottomNavigationBarItem(
+                  icon: CustomIcon(
+                    icon: Icons.notifications,
+                    size: 25.sp,
+                  ),
+                  label: "Notifications"),
+              BottomNavigationBarItem(
+                  icon: CustomIcon(
+                    icon: Icons.person,
+                    size: 25.sp,
+                  ),
+                  label: "Profile")
+            ],
+          )
+        : SizedBox();
   }
 }

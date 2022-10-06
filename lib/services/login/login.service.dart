@@ -23,8 +23,11 @@ class LoginServiceClass implements AuthBase {
 
   _initUser() {
     String? str = StorageService.getToken();
+    String? getUserType = StorageService.getuserType();
     log("${str == null}");
     if (str != '') {
+      // log("this is str ${str}");
+      controller.add(getUserType);
       controller.add(str);
     } else {
       controller.add(null);
@@ -43,10 +46,13 @@ class LoginServiceClass implements AuthBase {
     // final singUpService
     try {
       // log("this is from$data");
+
       final response = await _client.post("/auth/login", data: req);
-      // log("${response}");
+      log("this is from store ${response}");
       // if(response.statusCode(400) )
-      controller.add(response['token']);
+      log("${response}");
+      StorageService.setUserType(response['userRole']);
+      StorageService.setUserType(response['userId']);
       StorageService.setToken(response['token']);
 
       return response;

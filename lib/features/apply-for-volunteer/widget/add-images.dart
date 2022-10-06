@@ -2,22 +2,27 @@ import 'dart:developer';
 
 import 'package:donationapp/constant/common/Text/custom-text.dart';
 import 'package:donationapp/constant/kconstant.dart';
+import 'package:donationapp/helpers/route.utils.dart';
+import 'package:donationapp/store/apply-for-volunteer/apply-for-volunteer.store.dart';
+import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:image_picker/image_picker.dart';
 
-class AddImage extends StatelessWidget {
+class AddImage extends ConsumerWidget {
   const AddImage({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    PickedFile file;
-    final ImagePicker _picker = ImagePicker();
+  Widget build(BuildContext context, WidgetRef ref) {
+    final imageProv = ref.watch(idImageProvider);
+    // PickedFile file;
+    // final ImagePicker _picker = ImagePicker();
 
-    void takePhoto(ImageSource source) async {
-      final pickedFile = await _picker.pickImage(source: source);
-      // log("${pickedFile}");
-    }
+    // void takePhoto(ImageSource source) async {
+    //   final pickedFile = await _picker.pickImage(source: source);
+    //   // log("${pickedFile}");
+    // }
     // selectImage() async {
     //   final images = await FilePicker.platform.pickFiles(
     //     allowMultiple: false,
@@ -31,6 +36,36 @@ class AddImage extends StatelessWidget {
 
     //   ref.read(imagesProvider.notifier).state = req[0];
     // }
+    // selectImage() async {
+    //   final images = await FilePicker.platform.pickFiles(
+    //     allowMultiple: false,
+    //   );
+    //   if (images == null) return;
+    //   final paths = images.files.map((PlatformFile image) => image.path);
+    //   List req = [];
+    //   for (var item in paths) {
+    //     req.add({"name": "image", 'filePath': item});
+    //   }
+
+    //   ref.read(idImageProvider.notifier).state = req[0];
+    // }
+
+    selectImage() async {
+      final images = await FilePicker.platform.pickFiles(
+        allowMultiple: false,
+      );
+      // log("this is image ${images}");
+      if (images == null) return;
+      final paths = images.files.map((PlatformFile image) => image.path);
+      List req = [];
+      for (var item in paths) {
+        req.add({"name": "image", 'filePath': item});
+      }
+
+      ref.read(idImageProvider.notifier).state = [...imageProv, req[0]];
+      // log("this is req${req}");
+      pop(context);
+    }
 
     bottomSheet() {
       log("this is from modal");
@@ -65,7 +100,7 @@ class AddImage extends StatelessWidget {
                         ),
                         GestureDetector(
                           onTap: () {
-                            takePhoto(ImageSource.camera);
+                            selectImage();
                           },
                           child: Container(
                             // backgroundColor: Colors.grey,
@@ -92,7 +127,7 @@ class AddImage extends StatelessWidget {
                         ),
                         GestureDetector(
                           onTap: () {
-                            takePhoto(ImageSource.gallery);
+                            selectImage();
                           },
                           child: Container(
                             // backgroundColor: Colors.grey,

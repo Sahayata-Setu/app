@@ -114,38 +114,25 @@ class _AppState extends State<App> {
           children: [widget.component],
         ),
       ),
-      // floatingActionButton:
-      //     [HomePageRoute.name, AuthCheckWidgetRoute.name].contains(val)
-      //         ? SpeedDial(
-      //             icon: Icons.add,
-      //             activeIcon: Icons.close,
-      //             backgroundColor: blueColor,
-      //             foregroundColor: whiteColor,
-      //             children: [
-      //               SpeedDialChild(
-      //                 child: Container(width: 80, child: Text("DONATE")),
-      //                 shape: RoundedRectangleBorder(
-      //                     borderRadius: BorderRadius.circular(5)),
-      //                 labelStyle: TextStyle(
-      //                   fontSize: 18.0,
-      //                 ),
-      //                 onTap: () {
-      //                   routeTo("/createDonation", context);
-      //                 },
-      //                 onLongPress: () {},
-      //               ),
-      //               SpeedDialChild(
-      //                 label: 'REQUEST',
-      //                 labelStyle: TextStyle(fontSize: 18.0),
-      //                 onTap: () {
-      //                   routeTo("/createNeed", context);
-      //                 },
-      //                 onLongPress: () => {},
-      //               ),
-      //             ],
-      //           )
-      //         : Container(),
-      // floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      // drawer: Drawer(),
+      floatingActionButton:
+          //  _showBackToTopButton == false
+          //     ? null
+          //:
+          [
+        // HomePageDataRoute.name,
+        AuthCheckWidgetRoute.name,
+        // AdminDashboardRoute.name,
+      ].contains(val)
+              ? FloatingActionButton(
+                  backgroundColor: blueColor,
+                  onPressed: _scrollToTop,
+                  child: const Icon(
+                    Icons.add,
+                    color: whiteColor,
+                  ))
+              : Container(),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: widget.bottomNavBar,
     );
   }
