@@ -1,4 +1,5 @@
 import 'package:donationapp/constant/common/Text/custom-text.dart';
+import 'package:donationapp/helpers/route.utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -17,7 +18,9 @@ class NeedCategories extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {}, //go to requests/:catergories,
+      onTap: () {
+        routeTo("/needs/details/:id", context);
+      }, //go to requests/:catergories,
       child: Container(
         margin: EdgeInsets.only(right: 10.w),
         // padding: const EdgeInsets.all(10),

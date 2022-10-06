@@ -33,15 +33,18 @@ class _BottomNavBarState extends State<BottomNavBar> {
             }
             break;
           case 1:
-            // routeTo('/messages', context);
+            // replaceRouteTo('/messages', context);
             if (_selectedIndex == index) {
               replaceRouteTo("/messages", context);
             }
             break;
           case 2:
-            routeTo('/notifications', context);
+            replaceRouteTo('/search', context);
             break;
           case 3:
+            replaceRouteTo('/notifications', context);
+            break;
+          case 4:
             routeTo('/user-profile', context);
             break;
         }
