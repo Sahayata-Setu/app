@@ -4,7 +4,6 @@ import 'package:donationapp/constant/common/horizontal-line/horizontal-line.dart
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'package:auto_route/annotations.dart';
 import 'package:donationapp/constant/common/ImageCarousel/image_carousel.dart';
 import 'package:donationapp/constant/common/Text/custom-text.dart';
 import 'package:donationapp/constant/kconstant.dart';

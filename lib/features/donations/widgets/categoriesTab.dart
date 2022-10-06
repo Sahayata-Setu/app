@@ -8,8 +8,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CategoriesTab extends StatefulWidget {
-  const CategoriesTab({super.key});
-
+  const CategoriesTab({super.key, this.post});
+  final post;
   @override
   State<CategoriesTab> createState() => _CategoriesTabState();
 }
@@ -78,7 +78,11 @@ class _CategoriesTabState extends State<CategoriesTab> {
               ],
             ),
           ),
-          showDonation ? DonationsHome() : NeedsHome()
+          showDonation
+              ? DonationsHome(
+                  donationsData: widget.post,
+                )
+              : NeedsHome(),
         ],
       ),
     );
