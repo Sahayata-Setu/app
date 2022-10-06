@@ -24,21 +24,22 @@ class DonationsHome extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Container(
-                  margin:
-                      EdgeInsets.only(left: kPadding.w, bottom: kPadding1.h),
-                  child: Heading(
-                    header: "Donations",
-                  ),
-                ),
+                // Container(
+                //   margin:
+                //       EdgeInsets.only(left: kPadding.w, bottom: kPadding1.h),
+                //   child: Heading(
+                //     header: "Donations",
+                //   ),
+                // ),
                 SizedBox(
+                  // padding: EdgeInsets.only(right: kPadding.w),
                   height: 100.h,
                   child: GridView(
-                    physics: NeverScrollableScrollPhysics(),
+                    physics: const NeverScrollableScrollPhysics(),
                     gridDelegate:
                         const SliverGridDelegateWithMaxCrossAxisExtent(
-                            maxCrossAxisExtent: 125),
-                    children: [
+                            maxCrossAxisExtent: 120),
+                    children: const [
                       DonationsCategory(
                           text: "Foods",
                           icon: Icons.food_bank,
@@ -46,7 +47,8 @@ class DonationsHome extends StatelessWidget {
                       DonationsCategory(text: "Toys", icon: Icons.toys),
                       DonationsCategory(
                           text: "Books", icon: Icons.library_books),
-                      DonationsCategory(text: "Clothes", icon: Icons.person)
+                      DonationsCategory(text: "Clothes", icon: Icons.person),
+                      //  DonationsCategory(text: "Others", icon: Icons.more_horiz)
                     ],
                   ),
                 ),

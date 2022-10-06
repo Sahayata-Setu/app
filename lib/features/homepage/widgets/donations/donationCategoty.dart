@@ -19,6 +19,7 @@ class DonationsCategory extends StatelessWidget {
       } //link to donations/category,
       ,
       child: Container(
+        // height: 100,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [

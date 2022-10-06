@@ -13,16 +13,37 @@ class Campaigns extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        margin: EdgeInsets.only(bottom: 10.h),
+        margin: EdgeInsets.only(bottom: 30.h),
         // height: 250,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Container(
-                margin: EdgeInsets.only(left: 25.w, top: kPadding.h),
-                child: const Heading(
-                  header: "Ongoing Campaigns",
-                )),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Container(
+                    margin: EdgeInsets.only(left: 25.w, top: kPadding.h),
+                    child: const Heading(
+                      header: "Ongoing Campaigns",
+                    )),
+                Container(
+                  margin: EdgeInsets.only(
+                    top: kPadding.h,
+                    right: 25.w,
+                  ),
+                  child: TextButton(
+                      onPressed: () {
+                        routeTo("/campaigns", context);
+                      }, // go to campaigns page
+                      child: CustomText(
+                        text: "See all",
+                        fontColor: secondaryBlue,
+                        fontSize: 14.sp,
+                        fontWeight: FontWeight.bold,
+                      )),
+                )
+              ],
+            ),
             Container(
               height: 250.h,
               margin: EdgeInsets.only(top: kMargin.h),
@@ -74,21 +95,6 @@ class Campaigns extends StatelessWidget {
                 )
               ]),
             ),
-            Container(
-              margin: EdgeInsets.only(
-                left: 25.w,
-              ),
-              child: TextButton(
-                  onPressed: () {
-                    routeTo("/campaigns", context);
-                  }, // go to campaigns page
-                  child: CustomText(
-                    text: "See all",
-                    fontColor: blueColor,
-                    fontSize: 15.sp,
-                    fontWeight: FontWeight.bold,
-                  )),
-            )
           ],
         ));
   }

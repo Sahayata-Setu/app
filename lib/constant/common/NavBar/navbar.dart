@@ -19,6 +19,7 @@ class NavBar extends StatelessWidget {
   final isAdmin;
 
   final bool showBadge;
+  void onSelected(BuildContext ctx, int item) {}
   @override
   Widget build(BuildContext context) {
     final route = AutoRouter.of(context).current.name;
@@ -42,33 +43,63 @@ class NavBar extends StatelessWidget {
                   },
                   icon: Icon(Icons.search, size: KiconSize.h),
                 ))
-            : showBadge
-                ? Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Badge(
-                        badgeColor: Colors.orange,
-                        badgeContent: const Text(
-                          '9',
-                          style: TextStyle(color: Colors.white),
-                        ),
-                        child: Container(
-                          margin: EdgeInsets.only(top: 6.h),
-                          child: const Icon(Icons.star),
-                        ),
-                        // showBadge: showBadge ? true : false,
+            :
+            // : showBadge
+            //     ?
+            Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Badge(
+                    badgeColor: Colors.orange,
+                    badgeContent: const Text(
+                      '9',
+                      style: TextStyle(color: Colors.white),
+                    ),
+                    child: Container(
+                      margin: EdgeInsets.only(top: 6.h),
+                      child: Icon(
+                        Icons.star,
+                        size: kiconSize2,
                       ),
-                      Container(
-                          margin: EdgeInsets.symmetric(horizontal: 10.w),
-                          child: IconButton(
-                            onPressed: () {
-                              routeTo("/search", context);
-                            },
-                            icon: const Icon(Icons.search, size: KiconSize),
-                          ))
-                    ],
+                    ),
+                    // showBadge: showBadge ? true : false,
+                  ),
+                  Padding(
+                    padding: EdgeInsets.all(kPadding1),
+                    child: PopupMenuButton(
+                        color: backgroundColor,
+                        child: Icon(
+                          Icons.add,
+                          size: KiconSize,
+                        ),
+                        // onSelected: (item)=>onSelected(context,item),
+                        itemBuilder: (context) => [
+                              PopupMenuItem<int>(
+                                  child: Text("Create donation"),
+                                  onTap: () {
+                                    // go to create post item
+                                    routeTo("/createDonation", context);
+                                  }),
+                              PopupMenuItem<int>(
+                                child: Text("Create need"),
+                                onTap: () {
+                                  routeTo("/createNeed", context);
+                                  // go to create request button
+                                },
+                              )
+                            ]),
                   )
-                : const SizedBox.shrink()
+                  // Container(
+                  //     margin: EdgeInsets.symmetric(horizontal: 10.w),
+                  //     child: IconButton(
+                  //       onPressed: () {
+                  //         // routeTo("/search", context);
+                  //       },
+                  //       icon: const Icon(Icons.search, size: KiconSize),
+                  //     ))
+                ],
+              )
+        // : const SizedBox.shrink()
       ],
     );
   }

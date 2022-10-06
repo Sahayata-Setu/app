@@ -47,37 +47,45 @@ class _BottomNavBarState extends State<BottomNavBar> {
     }
 
     // log("this is contenct${context.set}");
-    return BottomNavigationBar(
-        currentIndex: _selectedIndex,
-        selectedItemColor: blueColor,
-        unselectedItemColor: Colors.grey,
-        showUnselectedLabels: false,
-        onTap: onTabTapped,
-        items: [
-          BottomNavigationBarItem(
-              icon: CustomIcon(
-                icon: Icons.home,
-                size: 25.sp,
-              ),
-              label: "Home"),
-          BottomNavigationBarItem(
-              icon: CustomIcon(
-                icon: Icons.message,
-                size: 25.sp,
-              ),
-              label: "Messages"),
-          BottomNavigationBarItem(
-              icon: CustomIcon(
-                icon: Icons.notifications,
-                size: 25.sp,
-              ),
-              label: "Notifications"),
-          BottomNavigationBarItem(
-              icon: CustomIcon(
-                icon: Icons.person,
-                size: 25.sp,
-              ),
-              label: "Profile")
-        ]);
+    return widget.showBottomNavBar
+        ? BottomNavigationBar(
+            currentIndex: _selectedIndex,
+            selectedItemColor: blueColor,
+            unselectedItemColor: Colors.grey,
+            showUnselectedLabels: false,
+            onTap: onTabTapped,
+            items: [
+                BottomNavigationBarItem(
+                    icon: CustomIcon(
+                      icon: Icons.home,
+                      size: 25.sp,
+                    ),
+                    label: "Home"),
+                BottomNavigationBarItem(
+                    icon: CustomIcon(
+                      icon: Icons.message,
+                      size: 25.sp,
+                    ),
+                    label: "Messages"),
+                BottomNavigationBarItem(
+                    icon: CustomIcon(
+                      icon: Icons.search,
+                      size: 25.sp,
+                    ),
+                    label: "Search"),
+                BottomNavigationBarItem(
+                    icon: CustomIcon(
+                      icon: Icons.notifications,
+                      size: 25.sp,
+                    ),
+                    label: "Notifications"),
+                BottomNavigationBarItem(
+                    icon: CustomIcon(
+                      icon: Icons.person,
+                      size: 25.sp,
+                    ),
+                    label: "Profile")
+              ])
+        : const SizedBox();
   }
 }
