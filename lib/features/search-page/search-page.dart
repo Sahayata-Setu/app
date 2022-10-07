@@ -22,7 +22,7 @@ class SearchPage extends StatelessWidget {
         // route: "/homepage",
       ),
       isAdmin: false,
-      bottomNavBar: BottomNavBar(showBottomNavBar: false),
+      bottomNavBar: BottomNavBar(showBottomNavBar: true),
     );
   }
 }

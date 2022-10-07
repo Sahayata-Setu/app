@@ -28,8 +28,8 @@ class DonationDetailData extends ConsumerWidget {
           );
         },
         error: (h, e) {
-          log('$h');
-          log('$e');
+          // log('$h');
+          // log('$e');
           return Text("Error occures!");
         },
         loading: () => const Center(

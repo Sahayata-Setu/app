@@ -87,14 +87,9 @@ class _BottomNavBarState extends State<BottomNavBar> {
                     ),
                     label: "Notifications"),
                 BottomNavigationBarItem(
-                    icon: GestureDetector(
-                      onTap: () {
-                        routeTo("/user-profile", context);
-                      },
-                      child: CustomIcon(
-                        icon: Icons.person,
-                        size: 25.sp,
-                      ),
+                    icon: CustomIcon(
+                      icon: Icons.person,
+                      size: 25.sp,
                     ),
                     label: "Profile")
               ])

@@ -21,9 +21,9 @@ class DonationDetail extends StatelessWidget {
   Widget build(BuildContext context) {
     final singleData = data['body'];
     // log("this is from data ${data['quantity']}");
-    log("this is id$data}");
+    // log("this is id$data}");
 
-    log("rgtf${singleData}");
+    // log("rgtf${singleData}");
     return App(
       component: Container(
           alignment: Alignment.topLeft,

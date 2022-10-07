@@ -23,11 +23,14 @@ class ButtonAreaVolunteer extends ConsumerWidget {
 
     onSumbit() async {
       try {
-        await volProv.applyVolunter(volunteerDetails, imageProv);
+        final resp = await volProv.applyVolunter(volunteerDetails, imageProv);
+        final snackBar = SnackBar(content: Text(resp['message']));
+        ScaffoldMessenger.of(context).showSnackBar(snackBar);
+        pop(context);
       } catch (e) {
         // jsonDecode(e.toString());
         final val = jsonDecode(e.toString());
-        log("this is val ${val['message']}");
+        // log("this is val ${val['message']}");
 
         final snackBar = SnackBar(content: Text(val['message']));
         ScaffoldMessenger.of(context).showSnackBar(snackBar);

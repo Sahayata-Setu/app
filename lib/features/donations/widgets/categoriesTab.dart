@@ -17,7 +17,7 @@ class CategoriesTab extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final showDonation = ref.watch(categoriesProvider);
     // bool showDonation = true;
-    log("this is donation type${showDonation}");
+    // log("this is donation type${showDonation}");
     final donationData;
     return Container(
       height: 550.h,
