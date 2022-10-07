@@ -1,5 +1,6 @@
 import 'dart:developer';
 
+import 'package:donationapp/constant/common/Text/custom-text.dart';
 import 'package:donationapp/constant/kconstant.dart';
 import 'package:donationapp/domain/donations/donations.model.dart';
 import 'package:donationapp/features/homepage/homepage.dart';
@@ -7,6 +8,8 @@ import 'package:donationapp/features/homepage/widgets/donations/donations.dart';
 import 'package:donationapp/store/homepage/homepage.store.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:donationapp/constant/kconstant.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class DonationsData extends ConsumerWidget {
   const DonationsData({super.key});
@@ -25,7 +28,10 @@ class DonationsData extends ConsumerWidget {
         error: (h, e) {
           log('$h');
           log('$e');
-          return Text("Error occures");
+          return Padding(
+            padding: EdgeInsets.all(kPadding1.w),
+            child: CustomText(text: "Error occured, Please try later"),
+          );
         },
         loading: () => const Center(
           child: CircularProgressIndicator(),

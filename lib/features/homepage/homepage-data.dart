@@ -1,5 +1,6 @@
 import 'dart:developer';
 
+import 'package:donationapp/constant/common/error/error.dart';
 import 'package:donationapp/features/homepage/homepage.dart';
 import 'package:donationapp/store/homepage/homepage.store.dart';
 import 'package:flutter/material.dart';
@@ -22,7 +23,7 @@ class HomePageData extends ConsumerWidget {
         error: (h, e) {
           log('$h');
           log('$e');
-          return Text("Error occures");
+          return ErrorPage();
         },
         loading: () => const Center(
           child: CircularProgressIndicator(),
