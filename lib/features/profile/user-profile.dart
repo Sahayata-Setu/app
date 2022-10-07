@@ -115,7 +115,7 @@ class UserProfile extends ConsumerWidget {
         ),
       ),
       isAdmin: false,
-      bottomNavBar: BottomNavBar(showBottomNavBar: false),
+      bottomNavBar: BottomNavBar(showBottomNavBar: true),
     );
   }
 }

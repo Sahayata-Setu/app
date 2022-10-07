@@ -1,6 +1,7 @@
 import 'package:donationapp/features/donations/widgets/donationDetails.data.dart';
 import 'package:donationapp/helpers/route.utils.dart';
 import 'package:donationapp/routes/app.router.gr.dart';
+import 'package:donationapp/utils/store-service/language.store.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'dart:developer';
@@ -41,7 +42,7 @@ class DonationHomeCards extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 CustomElevatedButton(
-                  child: Text("CLAIM"),
+                  child: Text(translation(context).claim),
                   width: 80.w,
                   fn: () {},
                 ),

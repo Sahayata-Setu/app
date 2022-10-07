@@ -3,6 +3,7 @@ import 'package:donationapp/constant/kconstant.dart';
 import 'package:donationapp/constant/common/ImageCarousel/ImageOverlay.dart';
 import 'package:donationapp/features/homepage/widgets/heading.dart';
 import 'package:donationapp/helpers/route.utils.dart';
+import 'package:donationapp/utils/store-service/language.store.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
@@ -23,8 +24,8 @@ class Campaigns extends StatelessWidget {
               children: [
                 Container(
                     margin: EdgeInsets.only(left: 25.w, top: kPadding.h),
-                    child: const Heading(
-                      header: "Ongoing Campaigns",
+                    child: Heading(
+                      header: translation(context).campaign,
                     )),
                 Container(
                   margin: EdgeInsets.only(
@@ -36,7 +37,7 @@ class Campaigns extends StatelessWidget {
                         routeTo("/campaigns", context);
                       }, // go to campaigns page
                       child: CustomText(
-                        text: "See all",
+                        text: translation(context).seeAll,
                         fontColor: secondaryBlue,
                         fontSize: 14.sp,
                         fontWeight: FontWeight.bold,

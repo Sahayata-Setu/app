@@ -1,0 +1,17 @@
+{
+    "home":"Home",
+    "campaign":"Campaign",
+    "donation":"Donations",
+    "donate":"Donate",
+    "claim":"Claim",
+    "need":"Needs",
+    "food":"Food",
+    "clothes":"Clothes",
+    "books":"Books",
+    "toys":"Toys",
+    "createDonation":"Create a donation",
+    "createNeed":"Create a need",
+    "seeAll":"See all"
+    "latestDonations":"Latest Donations"
+    "latestNeeds":"Latest Need Requests"
+}

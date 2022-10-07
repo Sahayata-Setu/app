@@ -1,5 +1,6 @@
 import 'package:donationapp/constant/common/Text/custom-text.dart';
 import 'package:donationapp/features/homepage/widgets/donations/donationCategoty.dart';
+import 'package:donationapp/utils/store-service/language.store.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -32,30 +33,33 @@ class NeedsHome extends StatelessWidget {
                         gridDelegate:
                             const SliverGridDelegateWithMaxCrossAxisExtent(
                                 maxCrossAxisExtent: 120),
-                        children: const [
+                        children: [
                           DonationsCategory(
-                              text: "Foods",
+                              text: translation(context).food,
                               icon: Icons.food_bank,
                               url: "/needs/:category"),
-                          DonationsCategory(text: "Toys", icon: Icons.toys),
                           DonationsCategory(
-                              text: "Books", icon: Icons.library_books),
+                              text: translation(context).toys,
+                              icon: Icons.toys),
                           DonationsCategory(
-                              text: "Clothes", icon: Icons.person),
-                          //  DonationsCategory(text: "Others", icon: Icons.more_horiz)
+                              text: translation(context).books,
+                              icon: Icons.library_books),
+                          DonationsCategory(
+                              text: translation(context).clothes,
+                              icon: Icons.person),
+                          //DonationsCategory(text: "Others", icon: Icons.more_horiz)
                         ],
                       ),
                     ),
                     Padding(
                       padding: EdgeInsets.only(left: kPadding.w, top: 10.h),
                       child: CustomText(
-                        text: "Latest Need Requests",
+                        text: translation(context).latestNeeds,
                         fontSize: 15.sp,
                         fontColor: textColor,
                         fontWeight: FontWeight.w800,
                       ),
                     ),
-
                     SizedBox(
                         height: 300.h,
                         child: ListView.builder(
@@ -84,53 +88,6 @@ class NeedsHome extends StatelessWidget {
                             ),
                           ),
                         )),
-                    // Container(
-                    //   margin: EdgeInsets.only(
-                    //       left: 10.w, top: kPadding.h, bottom: kPadding.h),
-                    //   child: Heading(
-                    //     header: "Needs",
-                    //   ),
-                    // ),
-                    // SizedBox(
-                    //   height: 400.h,
-                    //   child: GridView.count(
-                    //     padding: EdgeInsets.all(10.w),
-                    //     childAspectRatio: 0.98.w,
-                    //     crossAxisSpacing: 8.w,
-                    //     mainAxisSpacing: 12.w,
-                    //     crossAxisCount: 2,
-                    //     children: [
-                    //       NeedCategories(
-                    //         colorP: secondaryBlue,
-                    //         colorS: whiteColor,
-                    //         icon: Icons.food_bank,
-                    //         numb: "798",
-                    //         title: "Food",
-                    //       ),
-                    //       NeedCategories(
-                    //         colorP: tertiaryBlue,
-                    //         colorS: whiteColor,
-                    //         icon: Icons.person,
-                    //         numb: "566",
-                    //         title: "Clothes",
-                    //       ),
-                    //       NeedCategories(
-                    //         colorP: Colors.lightBlue,
-                    //         colorS: whiteColor,
-                    //         icon: Icons.toys,
-                    //         numb: "300",
-                    //         title: "Toys",
-                    //       ),
-                    //       NeedCategories(
-                    //         colorP: darkBlue,
-                    //         colorS: whiteColor,
-                    //         icon: Icons.library_books,
-                    //         numb: "490",
-                    //         title: "Books",
-                    //       )
-                    //     ],
-                    //   ),
-                    // )
                   ]))
         ]));
   }

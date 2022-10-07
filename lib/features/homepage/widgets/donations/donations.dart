@@ -4,6 +4,7 @@ import 'package:donationapp/constant/common/Text/custom-text.dart';
 import 'package:donationapp/helpers/route.utils.dart';
 import 'package:donationapp/routes/app.router.gr.dart';
 import 'package:donationapp/store/homepage/homepage.store.dart';
+import 'package:donationapp/utils/store-service/language.store.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -51,15 +52,19 @@ class DonationsHome extends ConsumerWidget {
                     gridDelegate:
                         const SliverGridDelegateWithMaxCrossAxisExtent(
                             maxCrossAxisExtent: 120),
-                    children: const [
+                    children: [
                       DonationsCategory(
-                          text: "Foods",
+                          text: translation(context).food,
                           icon: Icons.food_bank,
                           url: "/donations/:category"),
-                      DonationsCategory(text: "Toys", icon: Icons.toys),
                       DonationsCategory(
-                          text: "Books", icon: Icons.library_books),
-                      DonationsCategory(text: "Clothes", icon: Icons.person),
+                          text: translation(context).toys, icon: Icons.toys),
+                      DonationsCategory(
+                          text: translation(context).books,
+                          icon: Icons.library_books),
+                      DonationsCategory(
+                          text: translation(context).clothes,
+                          icon: Icons.person),
                       //  DonationsCategory(text: "Others", icon: Icons.more_horiz)
                     ],
                   ),
@@ -67,7 +72,7 @@ class DonationsHome extends ConsumerWidget {
                 Padding(
                   padding: EdgeInsets.only(left: kPadding.w, top: 10.h),
                   child: CustomText(
-                    text: "Latest Dontations",
+                    text: translation(context).latestDonations,
                     fontSize: 15.sp,
                     fontColor: textColor,
                     fontWeight: FontWeight.w800,

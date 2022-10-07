@@ -27,6 +27,8 @@ class NavBar extends StatelessWidget {
   void onSelected(BuildContext ctx, int item) {}
   @override
   Widget build(BuildContext context) {
+    final userType = StorageService.getuserType();
+    print(userType);
     final route = AutoRouter.of(context).current.name;
     return AppBar(
       automaticallyImplyLeading:
@@ -42,7 +44,7 @@ class NavBar extends StatelessWidget {
       leading: route == HomePageRoute.name ||
               route == MessageRoute.name ||
               route == NotificationsRoute.name ||
-              route == UserProfileDataRoute.name
+              route == UserProfileRoute.name
           ? Container(
               margin: EdgeInsets.only(left: 10),
               child: Badge(
@@ -54,26 +56,6 @@ class NavBar extends StatelessWidget {
                 ),
               ),
             )
-          //  Container(
-          //     width: 5,
-          //     height: 5,
-          //     child: Image.asset(
-          //       "assets/images/logo.png",
-          //       height: 5,
-          //       width: 5,
-          //     ),
-          //     decoration: BoxDecoration(
-          //       shape: BoxShape.circle,
-          //       // image: DecorationImage(
-          //       //     fit: BoxFit.fitWidth,
-
-          //       //     image: AssetImage("assets/images/logo.png",))
-          //     ),
-          //   )
-          // ? CircleAvatar(
-          //     child: Image.asset("assets/images/logo.png", fit: BoxFit.cover),
-          //     // radius: 5,
-          //   )
           : IconButton(
               icon: Icon(Icons.arrow_back),
               onPressed: () {

@@ -7,6 +7,7 @@ import 'package:donationapp/features/homepage/widgets/donations/donations.data.d
 import 'package:donationapp/features/homepage/widgets/heading.dart';
 import 'package:donationapp/features/homepage/widgets/needs/needs.dart';
 import 'package:donationapp/store/homepage/homepage.store.dart';
+import 'package:donationapp/utils/store-service/language.store.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -34,7 +35,7 @@ class CategoriesTab extends ConsumerWidget {
                     child: Column(
                       children: [
                         Heading(
-                          header: "Donations",
+                          header: translation(context).donation,
                           color: showDonation ? blackColor : textColor,
                         ),
                         Container(
@@ -56,7 +57,7 @@ class CategoriesTab extends ConsumerWidget {
                   child: Column(
                     children: [
                       Heading(
-                        header: "Needs",
+                        header: translation(context).need,
                         color: showDonation ? textColor : blackColor,
                       ),
                       Container(
