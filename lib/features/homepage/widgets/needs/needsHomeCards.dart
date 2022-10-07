@@ -18,7 +18,7 @@ class NeedsHomeCards extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // log("this is for homepage${singleInfo}");
+    // log("this is for homepage${singleInfo.length}");
     return GestureDetector(
       onTap: () {
         //route to needs details page

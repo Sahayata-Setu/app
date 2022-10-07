@@ -38,6 +38,7 @@ class CustomTextField extends StatelessWidget {
         bottom: kPadding.h,
       ),
       child: TextFormField(
+        // obscureText: obsecure ? true : false,
         initialValue: value,
         maxLines: lines == null ? null : lines,
         style: TextStyle(

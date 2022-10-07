@@ -86,17 +86,60 @@ class Login extends ConsumerWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               LogoArea(),
+
+              //Email field
               CustomTextField(
                 refs: ref.read(loginDetailsProvider.notifier),
                 label: "Email",
                 name: "email",
+                // obsecure: false,
                 // refT: ref,
               ),
-              CustomTextField(
-                refs: ref.read(loginDetailsProvider.notifier),
-                label: "Password",
-                name: "password",
+
+              //Password Field
+              Container(
+                padding: EdgeInsets.only(
+                  bottom: kPadding.h,
+                ),
+                child: TextFormField(
+                  obscureText: true,
+                  initialValue: "",
+                  // maxLines: lines == null ? null : lines,
+                  style: const TextStyle(
+                    color: blackColor,
+                  ),
+                  // obscureText: obText,
+                  decoration: const InputDecoration(
+                    hintText: "label",
+                    hintStyle: TextStyle(
+                      color: Colors.grey,
+                    ),
+                    fillColor: whiteColor,
+                    // border: InputBorder.none,
+                    enabledBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(
+                        color: blackColor,
+                      ),
+                    ),
+                    focusedBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(
+                        color: blackColor,
+                      ),
+                    ),
+                    // fillColor: whiteColor,
+                  ),
+                  onChanged: (value) {
+                    ref.read(loginDetailsProvider.notifier).state["password"] =
+                        value;
+                  },
+                ),
               ),
+              // CustomTextField(
+              //   refs: ref.read(loginDetailsProvider.notifier),
+              //   label: "Password",
+              //   name: "password",
+              //   obsecure: true,
+              // ),
 
               //
               state

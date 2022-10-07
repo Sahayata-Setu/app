@@ -18,7 +18,8 @@ class NoticationItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
         onTap: () {
-          // route to target
+          print("hit");
+          routeTo("/certificatePreview", context); // route to target
           //  routeTo("/donations/:id", context);
         },
         child: Column(

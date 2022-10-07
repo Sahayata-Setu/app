@@ -17,8 +17,8 @@ class NeedsHome extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    log("this is from needs page ${data['body']}");
     final needDetails = data['body'].toList();
+    log("this is from needs page ${needDetails.length}");
     return Container(
         margin: EdgeInsets.all(kPadding.w),
         alignment: Alignment.topLeft,
@@ -62,35 +62,45 @@ class NeedsHome extends StatelessWidget {
                         fontWeight: FontWeight.w800,
                       ),
                     ),
+                    needDetails.length > 0
+                        ? SizedBox(
+                            height: 300.h,
+                            child: ListView.builder(
+                              padding: EdgeInsets.only(left: kPadding),
+                              scrollDirection: Axis.horizontal,
+                              itemCount: 5, //donationsDetails.length,
+                              itemBuilder: (context, index) => Container(
+                                margin: EdgeInsets.all(10.w),
 
-                    SizedBox(
-                        height: 300.h,
-                        child: ListView.builder(
-                          padding: EdgeInsets.only(left: kPadding),
-                          scrollDirection: Axis.horizontal,
-                          itemCount: 5, //donationsDetails.length,
-                          itemBuilder: (context, index) => Container(
-                            margin: EdgeInsets.all(10.w),
-
-                            // height: 200.0,
-                            // width: 150,
-                            child: Container(
-                              decoration: BoxDecoration(
-                                  color: backgroundColor,
-                                  borderRadius: BorderRadius.circular(15),
-                                  boxShadow: [
-                                    BoxShadow(
-                                        color: Colors.grey.withOpacity(0.3),
-                                        offset: const Offset(0, 6),
-                                        blurRadius: 11.0,
-                                        spreadRadius: 0)
-                                  ]),
-                              child: NeedsHomeCards(
-                                singleInfo: needDetails[index],
+                                // height: 200.0,
+                                // width: 150,
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                      color: backgroundColor,
+                                      borderRadius: BorderRadius.circular(15),
+                                      boxShadow: [
+                                        BoxShadow(
+                                            color: Colors.grey.withOpacity(0.3),
+                                            offset: const Offset(0, 6),
+                                            blurRadius: 11.0,
+                                            spreadRadius: 0)
+                                      ]),
+                                  child: NeedsHomeCards(
+                                    singleInfo: needDetails[index],
+                                  ),
+                                ),
                               ),
+                            ))
+                        : Container(
+                            padding: EdgeInsets.only(
+                              left: kPadding.w,
+                              top: kPadding.h,
+                            ),
+                            child: CustomText(
+                              text: "No needs request yet",
+                              fontSize: 18.sp,
                             ),
                           ),
-                        )),
                     // Container(
                     //   margin: EdgeInsets.only(
                     //       left: 10.w, top: kPadding.h, bottom: kPadding.h),

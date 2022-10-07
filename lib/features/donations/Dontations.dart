@@ -19,7 +19,7 @@ class Dontaions extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return App(
-      appbar: NavBar(showBadge: true, title: "Donations", isAdmin: false),
+      appbar: NavBar(showBadge: true, title: "Donations", isAdmin: false,isMainPage: false,),
       component: Container(
         alignment: Alignment.topLeft,
         height: ScreenUtil().screenHeight.h + kPadding.h,

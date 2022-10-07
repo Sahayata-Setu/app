@@ -4,10 +4,12 @@ import 'package:donationapp/constant/common/Text/custom-text.dart';
 import 'package:donationapp/constant/kconstant.dart';
 import 'package:donationapp/helpers/route.utils.dart';
 import 'package:donationapp/routes/app.router.gr.dart';
+import 'package:donationapp/utils/store-service/store.service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class NavBar extends StatelessWidget {
+  //final isVolunter = StorageService.getUserType
   const NavBar(
       {super.key,
       this.title,
@@ -19,6 +21,7 @@ class NavBar extends StatelessWidget {
   final route;
   final isAdmin;
   final isMainPage;
+  // final isVolunter;
 
   final bool showBadge;
   void onSelected(BuildContext ctx, int item) {}
@@ -130,7 +133,7 @@ class NavBar extends StatelessWidget {
                                   routeTo("/createNeed", context);
                                   // go to create request button
                                 },
-                              )
+                              ),
                             ]),
                   )
                   // Container(
