@@ -13,10 +13,12 @@ class NavBar extends StatelessWidget {
       this.title,
       this.route,
       required this.showBadge,
-      this.isAdmin});
+      this.isAdmin,
+      this.isMainPage});
   final title;
   final route;
   final isAdmin;
+  final isMainPage;
 
   final bool showBadge;
   void onSelected(BuildContext ctx, int item) {}
@@ -34,7 +36,47 @@ class NavBar extends StatelessWidget {
         text: title,
         fontSize: 17.sp,
       ),
+      leading: route == HomePageRoute.name ||
+              route == MessageRoute.name ||
+              route == NotificationsRoute.name ||
+              route == UserProfileDataRoute.name
+          ? Container(
+              margin: EdgeInsets.only(left: 10),
+              child: Badge(
+                badgeColor: blueColor,
+                badgeContent: Image.asset(
+                  "assets/images/logo.png",
+                  height: 2,
+                  width: 2,
+                ),
+              ),
+            )
+          //  Container(
+          //     width: 5,
+          //     height: 5,
+          //     child: Image.asset(
+          //       "assets/images/logo.png",
+          //       height: 5,
+          //       width: 5,
+          //     ),
+          //     decoration: BoxDecoration(
+          //       shape: BoxShape.circle,
+          //       // image: DecorationImage(
+          //       //     fit: BoxFit.fitWidth,
 
+          //       //     image: AssetImage("assets/images/logo.png",))
+          //     ),
+          //   )
+          // ? CircleAvatar(
+          //     child: Image.asset("assets/images/logo.png", fit: BoxFit.cover),
+          //     // radius: 5,
+          //   )
+          : IconButton(
+              icon: Icon(Icons.arrow_back),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
       //leading: isAdmin == null ? const SizedBox.shrink() : Icon(Icons.menu),
       actions: [
         isAdmin != null

@@ -1,3 +1,4 @@
+import 'package:badges/badges.dart';
 import 'package:donationapp/constant/common/Icon/custom-icon.dart';
 import 'package:donationapp/constant/common/Text/custom-text.dart';
 import 'package:donationapp/constant/kconstant.dart';
@@ -23,12 +24,20 @@ class DonationsCategory extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Container(
-              width: 50.w,
-              height: 50.h,
-              child: CustomIcon(icon: icon, color: whiteColor),
-              decoration:
-                  BoxDecoration(shape: BoxShape.circle, color: secondaryBlue),
+            Badge(
+              badgeColor: blueColor,
+              badgeContent: const Text(
+                // add the number of donations here
+                '99',
+                style: TextStyle(color: Colors.white),
+              ),
+              child: Container(
+                width: 50.w,
+                height: 50.h,
+                child: CustomIcon(icon: icon, color: whiteColor),
+                decoration:
+                    BoxDecoration(shape: BoxShape.circle, color: secondaryBlue),
+              ),
             ),
             CustomText(
               text: text,

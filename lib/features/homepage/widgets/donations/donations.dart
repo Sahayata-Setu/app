@@ -1,5 +1,6 @@
 import 'dart:developer';
 
+import 'package:donationapp/constant/common/Text/custom-text.dart';
 import 'package:donationapp/helpers/route.utils.dart';
 import 'package:donationapp/routes/app.router.gr.dart';
 import 'package:donationapp/store/homepage/homepage.store.dart';
@@ -61,6 +62,15 @@ class DonationsHome extends ConsumerWidget {
                       DonationsCategory(text: "Clothes", icon: Icons.person),
                       //  DonationsCategory(text: "Others", icon: Icons.more_horiz)
                     ],
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.only(left: kPadding.w, top: 10.h),
+                  child: CustomText(
+                    text: "Latest Dontations",
+                    fontSize: 15.sp,
+                    fontColor: textColor,
+                    fontWeight: FontWeight.w800,
                   ),
                 ),
                 //Donations cards
