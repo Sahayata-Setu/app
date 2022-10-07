@@ -64,96 +64,96 @@ class AddImage extends ConsumerWidget {
 
       ref.read(idImageProvider.notifier).state = [...imageProv, req[0]];
       // log("this is req${req}");
-      pop(context);
+      // pop(context);
     }
 
-    bottomSheet() {
-      log("this is from modal");
-      return showModalBottomSheet(
-        context: context,
-        builder: ((builder) {
-          return Container(
-            height: 120.h,
-            color: blueColor,
-            child: Column(
-              children: [
-                SizedBox(
-                  height: 8.h,
-                ),
-                CustomText(
-                  fontColor: whiteColor,
-                  text: "Add images",
-                  fontSize: 18.sp,
-                ),
-                SizedBox(
-                  height: 10.h,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    Column(
-                      children: [
-                        CustomText(
-                          fontColor: whiteColor,
-                          text: "Camera",
-                          fontSize: 18.sp,
-                        ),
-                        GestureDetector(
-                          onTap: () {
-                            selectImage();
-                          },
-                          child: Container(
-                            // backgroundColor: Colors.grey,
-                            height: 30.h,
-                            width: 30.w,
-                            decoration: BoxDecoration(
-                              color: Colors.grey,
-                              borderRadius: BorderRadius.circular(30.r),
-                            ),
-                            child: Icon(
-                              Icons.camera,
-                              color: blackColor,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                    Column(
-                      children: [
-                        CustomText(
-                          fontColor: whiteColor,
-                          text: "Gallery",
-                          fontSize: 18.sp,
-                        ),
-                        GestureDetector(
-                          onTap: () {
-                            selectImage();
-                          },
-                          child: Container(
-                            // backgroundColor: Colors.grey,
-                            height: 30.h,
-                            width: 30.w,
-                            decoration: BoxDecoration(
-                              color: Colors.grey,
-                              borderRadius: BorderRadius.circular(30.r),
-                            ),
+    // bottomSheet() {
+    //   log("this is from modal");
+    //   return showModalBottomSheet(
+    //     context: context,
+    //     builder: ((builder) {
+    //       return Container(
+    //         height: 120.h,
+    //         color: blueColor,
+    //         child: Column(
+    //           children: [
+    //             SizedBox(
+    //               height: 8.h,
+    //             ),
+    //             CustomText(
+    //               fontColor: whiteColor,
+    //               text: "Add images",
+    //               fontSize: 18.sp,
+    //             ),
+    //             SizedBox(
+    //               height: 10.h,
+    //             ),
+    //             Row(
+    //               mainAxisAlignment: MainAxisAlignment.spaceAround,
+    //               children: [
+    //                 Column(
+    //                   children: [
+    //                     CustomText(
+    //                       fontColor: whiteColor,
+    //                       text: "Camera",
+    //                       fontSize: 18.sp,
+    //                     ),
+    //                     GestureDetector(
+    //                       onTap: () {
+    //                         selectImage();
+    //                       },
+    //                       child: Container(
+    //                         // backgroundColor: Colors.grey,
+    //                         height: 30.h,
+    //                         width: 30.w,
+    //                         decoration: BoxDecoration(
+    //                           color: Colors.grey,
+    //                           borderRadius: BorderRadius.circular(30.r),
+    //                         ),
+    //                         child: Icon(
+    //                           Icons.camera,
+    //                           color: blackColor,
+    //                         ),
+    //                       ),
+    //                     ),
+    //                   ],
+    //                 ),
+    //                 Column(
+    //                   children: [
+    //                     CustomText(
+    //                       fontColor: whiteColor,
+    //                       text: "Gallery",
+    //                       fontSize: 18.sp,
+    //                     ),
+    //                     GestureDetector(
+    //                       onTap: () {
+    //                         selectImage();
+    //                       },
+    //                       child: Container(
+    //                         // backgroundColor: Colors.grey,
+    //                         height: 30.h,
+    //                         width: 30.w,
+    //                         decoration: BoxDecoration(
+    //                           color: Colors.grey,
+    //                           borderRadius: BorderRadius.circular(30.r),
+    //                         ),
 
-                            child: Icon(
-                              Icons.add,
-                              color: blackColor,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
-                )
-              ],
-            ),
-          );
-        }),
-      );
-    }
+    //                         child: Icon(
+    //                           Icons.add,
+    //                           color: blackColor,
+    //                         ),
+    //                       ),
+    //                     ),
+    //                   ],
+    //                 ),
+    //               ],
+    //             )
+    //           ],
+    //         ),
+    //       );
+    //     }),
+    //   );
+    // }
 
     return Stack(
       children: [
@@ -180,7 +180,7 @@ class AddImage extends ConsumerWidget {
             // margin: EdgeInsetsGeometry,
             child: InkWell(
               onTap: () {
-                bottomSheet();
+                selectImage();
               },
               child: Icon(
                 Icons.add,

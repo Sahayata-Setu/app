@@ -16,7 +16,12 @@ class CampiagnDetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return App(
-      appbar: NavBar(showBadge: true, isAdmin: false, title: "Campaign Detail"),
+      appbar: NavBar(
+        showBadge: true,
+        isAdmin: false,
+        title: "Campaign Detail",
+        isMainPage: false,
+      ),
       component: Container(
         constraints: BoxConstraints(
             minHeight: ScreenUtil().screenHeight + kPadding.h,

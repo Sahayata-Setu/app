@@ -66,6 +66,7 @@ class AdminDashboard extends StatelessWidget {
         title: "Dashboard",
         showBadge: false,
         isAdmin: true,
+        isMainPage: false,
       ),
       isAdmin: true,
       // drawer: Drawer(),

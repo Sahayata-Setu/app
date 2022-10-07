@@ -17,13 +17,14 @@ class Certificates extends StatelessWidget {
           padding: const EdgeInsets.all(kPadding),
           decoration: const BoxDecoration(color: darkBlue),
           child: ListView.builder(
-            itemBuilder: (context, index) => Certificate(
+            itemBuilder: (context, index) => CertificateCard(
               title: "Food",
               date: "2022-07-09",
             ),
             itemCount: 5,
           )),
       appbar: const NavBar(
+        isMainPage: false,
         title: "Your Certificates",
         showBadge: true,
       ),

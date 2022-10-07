@@ -30,13 +30,15 @@ class UpdateProfileServiceClass {
           headers: {"Authorization": "Bearer ${token}"},
         ),
       );
-      if (response != null) {
-        log("this is up ${response}");
-        return response;
-      } else {
-        log("this is 30 ${response}");
-        // throw Exception("${response.message}");
-      }
+      // if (response != null) {
+      //   // log("this is up ${response}");
+      //   return response;
+      // } else {
+      //   // log("this is 30 ${response}");
+      //   // throw Exception("${response.message}");
+      // }
+      log("this is response for update profile ${response}");
+      return response;
     } catch (err) {
       log("this is  34 ${err}");
       // throw Exception("${response["message"]}");

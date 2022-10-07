@@ -37,12 +37,7 @@ class ImageOverlay extends StatelessWidget {
                       topRight: Radius.circular(kPadding1.sp))
                   : BorderRadius.zero,
           color: Colors.transparent,
-          image: DecorationImage(
-            fit: BoxFit.cover,
-            image: AssetImage(
-              image.toString(),
-            ),
-          ),
+          image: DecorationImage(fit: BoxFit.cover, image: NetworkImage(image)),
         ),
         height: height, // 250.0,
         width: width, //double.infinity,

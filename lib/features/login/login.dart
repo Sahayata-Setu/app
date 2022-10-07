@@ -11,7 +11,6 @@ import 'package:donationapp/features/login/widgets/logo-area.dart';
 import 'package:donationapp/helpers/custom.toast.dart';
 import 'package:donationapp/helpers/route.utils.dart';
 import 'package:donationapp/store/login/login.store.dart';
-import 'package:donationapp/store/signup/signup.store.dart';
 import 'package:donationapp/utils/store-service/store.service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -27,7 +26,8 @@ class Login extends ConsumerWidget {
     // log("$signUpDetails");
     final state = ref.watch(stateProvider);
     final getUserType = StorageService.getuserType();
-
+    final obText = ref.watch(obscureTextProvider);
+    // log("this is from ob text ${loginDetails}");
     // StorageService.getuserType();
 
     handleSumbit() async {
@@ -58,8 +58,12 @@ class Login extends ConsumerWidget {
 
       } catch (e) {
         log('$e the success');
-        CustomScaffoldMessenger.error(
-            "Please enter correct email or password", context);
+        const snackBar = SnackBar(
+          content: Text('Please enter correct email or password'),
+        );
+        ScaffoldMessenger.of(context).showSnackBar(snackBar);
+        // CustomScaffoldMessenger.error(
+        //     "Please enter correct email or password", context);
       }
     }
 
@@ -82,16 +86,60 @@ class Login extends ConsumerWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               LogoArea(),
+
+              //Email field
               CustomTextField(
-                ref: ref.read(loginDetailsProvider.notifier),
+                refs: ref.read(loginDetailsProvider.notifier),
                 label: "Email",
                 name: "email",
+                // obsecure: false,
+                // refT: ref,
               ),
-              CustomTextField(
-                ref: ref.read(loginDetailsProvider.notifier),
-                label: "Password",
-                name: "password",
+
+              //Password Field
+              Container(
+                padding: EdgeInsets.only(
+                  bottom: kPadding.h,
+                ),
+                child: TextFormField(
+                  obscureText: true,
+                  initialValue: "",
+                  // maxLines: lines == null ? null : lines,
+                  style: const TextStyle(
+                    color: blackColor,
+                  ),
+                  // obscureText: obText,
+                  decoration: const InputDecoration(
+                    hintText: "label",
+                    hintStyle: TextStyle(
+                      color: Colors.grey,
+                    ),
+                    fillColor: whiteColor,
+                    // border: InputBorder.none,
+                    enabledBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(
+                        color: blackColor,
+                      ),
+                    ),
+                    focusedBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(
+                        color: blackColor,
+                      ),
+                    ),
+                    // fillColor: whiteColor,
+                  ),
+                  onChanged: (value) {
+                    ref.read(loginDetailsProvider.notifier).state["password"] =
+                        value;
+                  },
+                ),
               ),
+              // CustomTextField(
+              //   refs: ref.read(loginDetailsProvider.notifier),
+              //   label: "Password",
+              //   name: "password",
+              //   obsecure: true,
+              // ),
 
               //
               state

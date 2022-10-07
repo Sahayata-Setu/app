@@ -55,6 +55,7 @@ dependencies:
   flutter_statusbarcolor_ns: ^0.4.0
   badges: ^2.0.3
   file_picker: ^5.0.1
+  intl: ^0.17.0
 
 dev_dependencies:
   flutter_test:
@@ -73,6 +74,8 @@ dev_dependencies:
   json_serializable: ^6.4.1
   flutter_speed_dial: ^6.0.0
   carousel_slider: ^4.1.1
+  pdf: ^3.8.3
+  printing: ^5.9.3
 
 
 

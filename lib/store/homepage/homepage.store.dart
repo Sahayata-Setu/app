@@ -4,9 +4,11 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 final categoriesProvider = StateProvider((ref) => true);
 
 final donationsOrRequestProvider =
-    FutureProvider.family<Map<String, dynamic>, String>((ref, type) {
-  return ref.watch(homePageService).getDonationsOrRequest(type);
-});
+    FutureProvider.family<Map<String, dynamic>, String>(
+  (ref, type) {
+    return ref.watch(homePageService).getDonationsOrRequest(type);
+  },
+);
 
 final singleDonationsDataProvider =
     FutureProvider.family<Map<String, dynamic>, String>(
@@ -14,3 +16,10 @@ final singleDonationsDataProvider =
     return ref.watch(homePageService).getDontaionsById(id);
   },
 );
+
+// final agentsSearchProvider =
+//     StateNotifierProvider.autoDispose<Map<String, dynamic>, String>(
+//   (ref, type) {
+//     return ref.watch(homePageService).getDonationsOrRequest(type);
+//   },
+// );

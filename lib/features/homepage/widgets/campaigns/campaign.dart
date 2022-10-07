@@ -52,7 +52,8 @@ class Campaigns extends StatelessWidget {
                   items: [
                     ImageOverlay(
                       border_radius: true,
-                      image: "assets/images/needy/childrenSitting.png",
+                      image:
+                          "https://sahayog-setu.s3.ap-south-1.amazonaws.com/1665142561919-image",
                       title: "Help children from rajkot city to go to school.",
                       location: "RK University",
                       height: 250.h,
@@ -63,7 +64,8 @@ class Campaigns extends StatelessWidget {
                       border_radius: true,
                       width: double.infinity,
                       height: 250.h,
-                      image: "assets/images/needy/childrenSitting.png",
+                      image:
+                          "https://sahayog-setu.s3.ap-south-1.amazonaws.com/1665142561919-image",
                       title: "Help one child monthly",
                       location: "Rajkot city",
                       showShareBtn: true,
@@ -72,7 +74,8 @@ class Campaigns extends StatelessWidget {
                       border_radius: true,
                       width: double.infinity,
                       height: 250.h,
-                      image: "assets/images/needy/childrenSitting.png",
+                      image:
+                          "https://sahayog-setu.s3.ap-south-1.amazonaws.com/1665142561919-image",
                       title: "Let's dress India",
                       location: "Gujarat",
                       showShareBtn: true,

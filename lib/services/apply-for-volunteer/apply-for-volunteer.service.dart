@@ -16,9 +16,11 @@ class VolunteerServiceClass {
     dynamic response;
     try {
       final token = StorageService.getToken();
-      log("message ${token}");
-      final imageArr = [];
+      // log("message ${token}");
+      // log("this is formadDar${image}");
 
+      final imageArr = [];
+      log("hello");
       //For uploading multiple images
       for (int i = 0; i < image.length; i++) {
         // final img = image
@@ -29,9 +31,13 @@ class VolunteerServiceClass {
         );
         // log("message${await MultipartFile.fromFile(image[1]['filePath'], filename: image[1]['name'])}");
       }
-
-      var formData =
-          FormData.fromMap({'reason': data['reason'], 'images': imageArr});
+      log("This is imageArr${imageArr}");
+      var formData = FormData.fromMap(
+        {
+          'reason': data['reason'],
+          'images': imageArr,
+        },
+      );
       response = await _client.post(
         "/user/volunteer/apply",
         data: formData,
@@ -39,10 +45,10 @@ class VolunteerServiceClass {
           headers: {"Authorization": "Bearer ${token}"},
         ),
       );
-      // log("${response}");
+      // log("this is response ${response}");
       return response;
     } catch (e) {
-      // log("this is error$e['message]");
+      log("this is error$e");
       throw e;
     }
   }

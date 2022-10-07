@@ -64,43 +64,43 @@ class Signup extends ConsumerWidget {
                   fontColor: blackColor,
                 ),
                 CustomTextField(
-                  ref: ref.read(signUpDetailsProvider.notifier),
+                  refs: ref.read(signUpDetailsProvider.notifier),
                   label: "First Name",
                   name: "firstName",
                 ),
                 CustomTextField(
-                  ref: ref.read(signUpDetailsProvider.notifier),
+                  refs: ref.read(signUpDetailsProvider.notifier),
                   label: "Last Name",
                   name: "lastName",
                 ),
                 CustomTextField(
-                  ref: ref.read(signUpDetailsProvider.notifier),
+                  refs: ref.read(signUpDetailsProvider.notifier),
                   label: "Email",
                   name: "email",
                 ),
                 CustomTextField(
-                  ref: ref.read(signUpDetailsProvider.notifier),
+                  refs: ref.read(signUpDetailsProvider.notifier),
                   label: "Phone Number",
                   name: "phoneNo",
                 ),
                 CustomTextField(
-                  ref: ref.read(signUpDetailsProvider.notifier),
+                  refs: ref.read(signUpDetailsProvider.notifier),
                   label: "Address",
                   name: "address",
                 ),
 
                 CustomTextField(
-                  ref: ref.read(signUpDetailsProvider.notifier),
+                  refs: ref.read(signUpDetailsProvider.notifier),
                   label: "Gender",
                   name: "gender",
                 ),
                 CustomTextField(
-                  ref: ref.read(signUpDetailsProvider.notifier),
+                  refs: ref.read(signUpDetailsProvider.notifier),
                   label: "Language",
                   name: "language",
                 ),
                 CustomTextField(
-                  ref: ref.read(signUpDetailsProvider.notifier),
+                  refs: ref.read(signUpDetailsProvider.notifier),
                   label: "Password",
                   name: "password",
                 ),

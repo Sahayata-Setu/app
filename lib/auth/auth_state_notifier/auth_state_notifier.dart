@@ -16,7 +16,7 @@ class AuthStateNotifier extends StateNotifier<AuthState> {
 
   final LoginServiceClass authRepository;
   void init() {
-    log("jhdhfh");
+    // log("jhdhfh");
     authRepository.checkAuth.listen((event) {
       // log("this is event${event}");
       if (event == null) {

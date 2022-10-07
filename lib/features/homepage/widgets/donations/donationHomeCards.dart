@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:donationapp/features/donations/widgets/donationDetails.data.dart';
 import 'package:donationapp/helpers/route.utils.dart';
 import 'package:donationapp/routes/app.router.gr.dart';
@@ -27,9 +28,9 @@ class DonationHomeCards extends StatelessWidget {
         children: [
           ImageOverlay(
               border_radius: false,
-              image: "assets/images/veg.png",
+              image: singleInfo['images'][0],
               location: "${singleInfo['city']}",
-              title: "Canned Foods",
+              title: "${singleInfo['title']}",
               height: 200.h,
               width: 250.w,
               showShareBtn: false),

@@ -99,6 +99,7 @@ class ApiHelper {
       return res.data;
     } on DioError catch (e) {
       // log("this is fdrom cli ${e.response}");
+      // throw e.toNetworkException();
       throw e.response ?? e.toNetworkException();
     }
   }

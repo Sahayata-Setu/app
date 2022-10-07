@@ -35,14 +35,14 @@ class _BottomNavBarState extends State<BottomNavBar> {
           case 1:
             // replaceRouteTo('/messages', context);
             if (_selectedIndex == index) {
-              replaceRouteTo("/messages", context);
+              routeTo("/messages", context);
             }
             break;
           case 2:
-            replaceRouteTo('/search', context);
+            routeTo('/search', context);
             break;
           case 3:
-            replaceRouteTo('/notifications', context);
+            routeTo('/notifications', context);
             break;
           case 4:
             routeTo('/user-profile', context);
@@ -87,14 +87,9 @@ class _BottomNavBarState extends State<BottomNavBar> {
                     ),
                     label: "Notifications"),
                 BottomNavigationBarItem(
-                    icon: GestureDetector(
-                      onTap: () {
-                        routeTo("/user-profile", context);
-                      },
-                      child: CustomIcon(
-                        icon: Icons.person,
-                        size: 25.sp,
-                      ),
+                    icon: CustomIcon(
+                      icon: Icons.person,
+                      size: 25.sp,
                     ),
                     label: "Profile")
               ])
