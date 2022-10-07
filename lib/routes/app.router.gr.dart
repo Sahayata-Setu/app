@@ -32,7 +32,7 @@ import '../features/needs/Needs.dart' as _i16;
 import '../features/needs/widgets/addNeed.dart' as _i17;
 import '../features/needs/widgets/needDetail.dart' as _i18;
 import '../features/notifications/notifications.dart' as _i10;
-import '../features/profile/user-profile.data.dart' as _i19;
+import '../features/profile/user-profile.dart' as _i19;
 import '../features/search-page/search-page.dart' as _i8;
 import '../features/signup/SignUp.dart' as _i2;
 
@@ -118,9 +118,9 @@ class AppRouter extends _i22.RootStackRouter {
       return _i22.MaterialPageX<dynamic>(
           routeData: routeData, child: const _i18.NeedDetail());
     },
-    UserProfileDataRoute.name: (routeData) {
+    UserProfileRoute.name: (routeData) {
       return _i22.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i19.UserProfileData());
+          routeData: routeData, child: const _i19.UserProfile());
     },
     ApplyForVolunteerRoute.name: (routeData) {
       return _i22.MaterialPageX<dynamic>(
@@ -153,7 +153,7 @@ class AppRouter extends _i22.RootStackRouter {
         _i22.RouteConfig(NeedsRoute.name, path: '/needs/:category'),
         _i22.RouteConfig(AddRequestRoute.name, path: '/createNeed'),
         _i22.RouteConfig(NeedDetailRoute.name, path: '/needs/details/:id'),
-        _i22.RouteConfig(UserProfileDataRoute.name, path: '/user-profile'),
+        _i22.RouteConfig(UserProfileRoute.name, path: '/user-profile'),
         _i22.RouteConfig(ApplyForVolunteerRoute.name, path: '/apply-volunteer'),
         _i22.RouteConfig(AdminDashboardRoute.name, path: '/admin-dashboard')
       ];
@@ -331,12 +331,12 @@ class NeedDetailRoute extends _i22.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i19.UserProfileData]
-class UserProfileDataRoute extends _i22.PageRouteInfo<void> {
-  const UserProfileDataRoute()
-      : super(UserProfileDataRoute.name, path: '/user-profile');
+/// [_i19.UserProfile]
+class UserProfileRoute extends _i22.PageRouteInfo<void> {
+  const UserProfileRoute()
+      : super(UserProfileRoute.name, path: '/user-profile');
 
-  static const String name = 'UserProfileDataRoute';
+  static const String name = 'UserProfileRoute';
 }
 
 /// generated route for

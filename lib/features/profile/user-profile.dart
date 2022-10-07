@@ -14,16 +14,24 @@ import 'package:donationapp/helpers/custom.toast.dart';
 import 'package:donationapp/helpers/route.utils.dart';
 import 'package:donationapp/routes/app.router.gr.dart';
 import 'package:donationapp/services/login/login.service.dart';
+import 'package:donationapp/store/account-setting/account.setting.store.dart';
 import 'package:donationapp/store/login/login.store.dart';
+import 'package:donationapp/store/single-user/single-user.store.dart';
+import 'package:donationapp/utils/store-service/store.service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class UserProfile extends ConsumerWidget {
-  const UserProfile(this.data, {super.key});
-  final data;
+  const UserProfile({super.key});
+  // final data;
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final userId = StorageService.getId();
+    ref.watch(initUserDetailsForUpdate);
+    // final userDetails = ref.watch(singleUserDataProvider(userId));
+    // final userData = data['body'];
+    // log("this is from user profile ${userData}");
     handleLogout() {
       ref.read(loginProvider).logout();
       final router = AutoRouter.of(context);
@@ -58,7 +66,7 @@ class UserProfile extends ConsumerWidget {
               SizedBox(
                 height: 10.h,
               ),
-              const UserProfileInformation(),
+              UserProfileInformation(),
               SizedBox(
                 height: 20.h,
               ),

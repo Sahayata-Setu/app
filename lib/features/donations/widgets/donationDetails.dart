@@ -1,10 +1,10 @@
 import 'dart:developer';
 
+import 'package:donationapp/constant/common/Icon/custom-icon.dart';
 import 'package:donationapp/constant/common/horizontal-line/horizontal-line.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'package:auto_route/annotations.dart';
 import 'package:donationapp/constant/common/ImageCarousel/image_carousel.dart';
 import 'package:donationapp/constant/common/Text/custom-text.dart';
 import 'package:donationapp/constant/kconstant.dart';
@@ -27,7 +27,8 @@ class DonationDetail extends StatelessWidget {
     return App(
       component: Container(
           alignment: Alignment.topLeft,
-          height: ScreenUtil().screenHeight,
+          // height: ScreenUtil().screenHeight,
+          margin: EdgeInsets.only(bottom: kMargin.h),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -38,12 +39,43 @@ class DonationDetail extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     ListTile(
+                      leading: CustomText(text: "Donor Name", fontSize: 16.sp),
+                      subtitle: Container(
+                        alignment: Alignment.topLeft,
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: const [
+                            Padding(
+                              padding: EdgeInsets.only(right: 8),
+                              child: CustomIcon(icon: Icons.location_on),
+                            ),
+                            CustomText(
+                              text: "location",
+                              fontColor: textColor,
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+                    ListTile(
                       title: CustomText(
                         text: "Name",
                         fontColor: Colors.grey.shade600,
                       ),
                       trailing: CustomText(
-                        text: "Vegetables",
+                        text: "Placeholder",
+                        fontWeight: FontWeight.w500,
+                        fontSize: 15.sp,
+                      ),
+                    ),
+                    ListTile(
+                      title: CustomText(
+                        text: "Category",
+                        fontColor: Colors.grey.shade600,
+                      ),
+                      trailing: CustomText(
+                        text: "Placeholder",
                         fontWeight: FontWeight.w500,
                         fontSize: 15.sp,
                       ),
@@ -71,16 +103,23 @@ class DonationDetail extends StatelessWidget {
                       ),
                     ),
                     ListTile(
-                      title: CustomText(
-                        text: "Contact Donor",
-                        fontColor: Colors.grey.shade600,
-                      ),
-                      trailing: CustomText(
-                        text: "Vegetables",
-                        fontWeight: FontWeight.w500,
-                        fontSize: 15.sp,
-                      ),
-                    ),
+                        title: CustomText(
+                          text: "Contact Donor",
+                          fontColor: Colors.grey.shade600,
+                        ),
+                        trailing: CustomIcon(
+                          icon: Icons.message,
+                          color: blueColor,
+                        )),
+                    ListTile(
+                        title: CustomText(
+                          text: "Helpline",
+                          fontColor: Colors.grey.shade600,
+                        ),
+                        trailing: CustomIcon(
+                          icon: Icons.message,
+                          color: blueColor,
+                        )),
                     HorizontalLine(),
                     SizedBox(
                       height: 10.h,
@@ -92,12 +131,15 @@ class DonationDetail extends StatelessWidget {
                         text: "Description",
                       ),
                     ),
-                    SizedBox(
-                      height: 10.h,
-                    ),
-                    CustomText(
-                      fontSize: 14.sp,
-                      text: "${singleData['description']}",
+                    // SizedBox(
+                    //   height: 10.h,
+                    // ),
+                    Padding(
+                      padding: EdgeInsets.all(kPadding1),
+                      child: CustomText(
+                        fontSize: 14.sp,
+                        text: "${singleData['description']}",
+                      ),
                     )
                   ],
                 ),
@@ -105,7 +147,7 @@ class DonationDetail extends StatelessWidget {
             ],
           )),
       appbar: const NavBar(
-        title: "Donations Detatil",
+        title: "Donation Detatil",
         showBadge: false,
       ),
       isAdmin: false,

@@ -16,7 +16,7 @@ class SingleUserServiceClass {
       final token = StorageService.getToken();
       // log("this is from$token");
       final response = await _client.get(
-        "/user/profile/633ac7c777b5e8fd0f92c6ba",
+        "/user/profile/${userId}",
         options: Options(
           headers: {"Authorization": "Bearer ${token}"},
         ),

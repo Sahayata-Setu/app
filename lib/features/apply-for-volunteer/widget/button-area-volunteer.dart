@@ -4,6 +4,7 @@ import 'dart:developer';
 import 'package:donationapp/constant/common/Text/custom-text.dart';
 import 'package:donationapp/constant/kconstant.dart';
 import 'package:donationapp/helpers/custom.toast.dart';
+import 'package:donationapp/helpers/route.utils.dart';
 import 'package:donationapp/services/apply-for-volunteer/apply-for-volunteer.service.dart';
 import 'package:donationapp/store/apply-for-volunteer/apply-for-volunteer.store.dart';
 import 'package:flutter/material.dart';
@@ -30,6 +31,7 @@ class ButtonAreaVolunteer extends ConsumerWidget {
 
         final snackBar = SnackBar(content: Text(val['message']));
         ScaffoldMessenger.of(context).showSnackBar(snackBar);
+        pop(context);
         log("errror $e");
       }
     }

@@ -15,7 +15,7 @@ class Notifications extends StatelessWidget {
   Widget build(BuildContext context) {
     return App(
       component: Container(
-          height: ScreenUtil().screenHeight,
+          // height: ScreenUtil().screenHeight,
           padding: EdgeInsets.all(kPadding.w),
           child: ListView.builder(
             itemBuilder: (ctx, index) => NoticationItem(

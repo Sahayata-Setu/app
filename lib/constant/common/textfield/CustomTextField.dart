@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:donationapp/constant/common/Text/custom-text.dart';
 import 'package:donationapp/constant/kconstant.dart';
 import 'package:flutter/material.dart';
@@ -11,21 +13,25 @@ class CustomTextField extends StatelessWidget {
       required this.name,
       this.borderColor,
       this.lines,
-      this.focusBorder});
+      this.focusBorder,
+      this.value});
   final ref;
   final String label;
   final String name;
   final borderColor;
   final focusBorder;
   final lines;
+  final value;
 
   @override
   Widget build(BuildContext context) {
+    // log(message)
     return Container(
       padding: EdgeInsets.only(
         bottom: kPadding.h,
       ),
-      child: TextField(
+      child: TextFormField(
+        initialValue: value,
         maxLines: lines == null ? null : lines,
         style: TextStyle(
           color: borderColor == null ? blackColor : borderColor,
@@ -35,6 +41,7 @@ class CustomTextField extends StatelessWidget {
           //   text: label,
           //   fontColor: borderColor == null ? blackColor : borderColor,
           // ),
+
           hintText: label,
           hintStyle: TextStyle(
             color: Colors.grey,
