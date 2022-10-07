@@ -17,8 +17,9 @@ class AdminDashboard extends StatelessWidget {
     return App(
       component: Container(
           padding: EdgeInsets.only(top: kPadding1),
-          height: ScreenUtil().screenHeight,
-          color: blackColor,
+          constraints:BoxConstraints(minHeight:ScreenUtil().screenHeight,maxHeight:700)
+         // height: ,
+          color: backgroundColor,
           child: Column(
             children: [
               Container(
@@ -39,22 +40,22 @@ class AdminDashboard extends StatelessWidget {
                     DashboardCards(
                       title: "Users",
                       number: "9555",
-                      color: secondaryBlue,
+                      color: blueColor,
                     ),
                     DashboardCards(
                       title: "Volunters",
                       number: "45",
-                      color: secondaryBlue,
+                      color: blueColor,
                     ),
                     DashboardCards(
                       title: "Donation Completed",
                       number: "5555",
-                      color: secondaryBlue,
+                      color: blueColor,
                     ),
                     DashboardCards(
                       title: "Total Beneficery",
                       number: "358",
-                      color: secondaryBlue,
+                      color: blueColor,
                     ),
                   ],
                 ),
