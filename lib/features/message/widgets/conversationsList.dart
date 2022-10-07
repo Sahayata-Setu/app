@@ -1,4 +1,5 @@
 import 'package:donationapp/constant/common/horizontal-line/horizontal-line.dart';
+import 'package:donationapp/helpers/route.utils.dart';
 import 'package:flutter/material.dart';
 
 class ConversationList extends StatefulWidget {
@@ -21,7 +22,9 @@ class _ConversationListState extends State<ConversationList> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: () {
+        routeTo("/messages-details", context);
+      },
       child: Container(
         padding: EdgeInsets.only(left: 16, right: 16, top: 10, bottom: 10),
         child: Row(

@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:donationapp/constant/common/Text/custom-text.dart';
+import 'package:donationapp/constant/common/loading/loadingPage.dart';
 import 'package:donationapp/constant/kconstant.dart';
 import 'package:donationapp/domain/donations/donations.model.dart';
 import 'package:donationapp/features/homepage/homepage.dart';
@@ -33,9 +34,7 @@ class DonationsData extends ConsumerWidget {
             child: CustomText(text: "Error occured, Please try later"),
           );
         },
-        loading: () => const Center(
-          child: CircularProgressIndicator(),
-        ),
+        loading: () => LoadingPage(),
       ),
     );
   }

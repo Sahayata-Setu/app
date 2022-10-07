@@ -16,6 +16,10 @@ class StorageService {
     return box.read('userType') == null ? '' : box.read('userType');
   }
 
+  // static String getUser() {
+  //   return box.read('userType') == null ? '' : box.read('userType');
+  // }
+
   static void setId(String userId) async {
     box.write("userId", userId);
   }

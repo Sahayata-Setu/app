@@ -4,6 +4,7 @@ import 'package:donationapp/constant/common/NavBar/navbar.dart';
 import 'package:donationapp/constant/kconstant.dart';
 import 'package:donationapp/features/message/widgets/conversationsList.dart';
 import 'package:donationapp/features/message/widgets/messageCards.dart';
+import 'package:donationapp/helpers/route.utils.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -76,12 +77,15 @@ class Message extends StatelessWidget {
             padding: EdgeInsets.only(top: 16),
             physics: NeverScrollableScrollPhysics(),
             itemBuilder: (context, index) {
-              return ConversationList(
-                name: chatUsers[index].name,
-                messageText: chatUsers[index].messageText,
-                imageUrl: chatUsers[index].image,
-                time: chatUsers[index].time,
-                isMessageRead: (index == 0 || index == 3) ? true : false,
+              return GestureDetector(
+                onTap: () {},
+                child: ConversationList(
+                  name: chatUsers[index].name,
+                  messageText: chatUsers[index].messageText,
+                  imageUrl: chatUsers[index].image,
+                  time: chatUsers[index].time,
+                  isMessageRead: (index == 0 || index == 3) ? true : false,
+                ),
               );
             },
           )),
