@@ -14,6 +14,8 @@ final loginDetailsProvider = StateProvider(
   }),
 );
 
+final obscureTextProvider = StateProvider<bool>((ref) => (false));
+
 final stateProvider = StateProvider((ref) => (false));
 
 class SignUpNotifier extends ChangeNotifier {

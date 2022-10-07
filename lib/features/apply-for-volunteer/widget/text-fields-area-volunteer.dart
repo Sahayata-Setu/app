@@ -29,7 +29,7 @@ class TextFieldAreaVolunteer extends ConsumerWidget {
           fontSize: 18.sp,
         ),
         CustomTextField(
-          ref: ref.read(volunteerDetailsProvider.notifier),
+          refs: ref.read(volunteerDetailsProvider.notifier),
           // ref: ref,
           label: "Reason",
           name: "reason",

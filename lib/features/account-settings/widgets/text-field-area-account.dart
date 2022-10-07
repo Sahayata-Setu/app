@@ -30,7 +30,7 @@ class TextFieldAreaAccount extends ConsumerWidget {
           fontSize: 20.sp,
         ),
         CustomTextField(
-          ref: ref.read(userDetailsProvider.notifier),
+          refs: ref.read(userDetailsProvider.notifier),
           label: "First Name",
           name: "firstName",
           borderColor: whiteColor,
@@ -43,7 +43,7 @@ class TextFieldAreaAccount extends ConsumerWidget {
           fontSize: 20.sp,
         ),
         CustomTextField(
-          ref: ref.read(userDetailsProvider.notifier),
+          refs: ref.read(userDetailsProvider.notifier),
           label: "Last Name",
           name: "firstName",
           borderColor: whiteColor,
@@ -57,7 +57,7 @@ class TextFieldAreaAccount extends ConsumerWidget {
         ),
         CustomTextField(
           // ref: ref,
-          ref: ref.read(userDetailsProvider.notifier),
+          refs: ref.read(userDetailsProvider.notifier),
           label: "Phone",
           name: "phoneNo",
           borderColor: whiteColor,
@@ -69,7 +69,7 @@ class TextFieldAreaAccount extends ConsumerWidget {
           fontSize: 20.sp,
         ),
         CustomTextField(
-          ref: ref.read(userDetailsProvider.notifier),
+          refs: ref.read(userDetailsProvider.notifier),
           // ref: ref,
           label: "Email",
           name: "email",

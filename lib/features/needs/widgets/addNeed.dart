@@ -21,7 +21,10 @@ class AddRequest extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const CustomTextField(label: "Category", name: "category"),
+              const CustomTextField(
+                label: "Category",
+                name: "category",
+              ),
               const CustomTextField(label: "Items", name: "items"),
               const CustomTextField(label: "Quantity", name: "quantity"),
               const CustomTextField(

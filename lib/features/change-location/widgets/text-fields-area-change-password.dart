@@ -27,7 +27,7 @@ class TextFieldAreaChangeLocation extends ConsumerWidget {
         ),
         CustomTextField(
           // ref: ref,
-          ref: ref.read(locationDetailsProvider.notifier),
+          refs: ref.read(locationDetailsProvider.notifier),
           label: "Location",
           name: "location",
           borderColor: whiteColor,

@@ -27,7 +27,7 @@ class TextFieldAreaChangePassword extends ConsumerWidget {
         ),
         CustomTextField(
           // ref: ref,
-          ref: ref.read(passwordDetailsProvider.notifier),
+          refs: ref.read(passwordDetailsProvider.notifier),
           label: "Password",
           name: "password",
           borderColor: whiteColor,

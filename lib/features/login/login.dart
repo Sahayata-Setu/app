@@ -11,7 +11,6 @@ import 'package:donationapp/features/login/widgets/logo-area.dart';
 import 'package:donationapp/helpers/custom.toast.dart';
 import 'package:donationapp/helpers/route.utils.dart';
 import 'package:donationapp/store/login/login.store.dart';
-import 'package:donationapp/store/signup/signup.store.dart';
 import 'package:donationapp/utils/store-service/store.service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -27,7 +26,8 @@ class Login extends ConsumerWidget {
     // log("$signUpDetails");
     final state = ref.watch(stateProvider);
     final getUserType = StorageService.getuserType();
-
+    final obText = ref.watch(obscureTextProvider);
+    // log("this is from ob text ${loginDetails}");
     // StorageService.getuserType();
 
     handleSumbit() async {
@@ -83,12 +83,13 @@ class Login extends ConsumerWidget {
             children: [
               LogoArea(),
               CustomTextField(
-                ref: ref.read(loginDetailsProvider.notifier),
+                refs: ref.read(loginDetailsProvider.notifier),
                 label: "Email",
                 name: "email",
+                // refT: ref,
               ),
               CustomTextField(
-                ref: ref.read(loginDetailsProvider.notifier),
+                refs: ref.read(loginDetailsProvider.notifier),
                 label: "Password",
                 name: "password",
               ),
