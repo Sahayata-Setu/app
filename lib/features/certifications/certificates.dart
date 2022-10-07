@@ -24,6 +24,7 @@ class Certificates extends StatelessWidget {
             itemCount: 5,
           )),
       appbar: const NavBar(
+        isMainPage: false,
         title: "Your Certificates",
         showBadge: true,
       ),

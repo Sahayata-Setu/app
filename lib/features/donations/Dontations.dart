@@ -31,10 +31,13 @@ class Dontaions extends StatelessWidget {
           margin: EdgeInsets.symmetric(vertical: kPadding1.h),
           child:
               Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-            CustomText(
-              text: "Category name",
-              fontSize: 18.sp,
-              fontWeight: FontWeight.w700,
+            Container(
+              margin: EdgeInsets.only(bottom: kPadding1.h),
+              child: CustomText(
+                text: "Category name",
+                fontSize: 18.sp,
+                fontWeight: FontWeight.w700,
+              ),
             ),
             Expanded(
               child: GridView.builder(
@@ -45,6 +48,7 @@ class Dontaions extends StatelessWidget {
                     mainAxisSpacing: 10),
                 itemBuilder: (context, index) => ItemCard(
                   image: "assets/images/veg.png",
+                  btnName: "CLAIM",
                 ),
                 itemCount: 4,
               ),

@@ -11,13 +11,13 @@ import 'package:donationapp/constant/kconstant.dart';
 import 'package:flutter/material.dart';
 
 class ItemCard extends StatelessWidget {
-  const ItemCard({super.key, this.image});
+  const ItemCard({super.key, this.image, required this.btnName});
   final image;
   // final url;
   // final title;
   // final createdAt;
   // final location;
-  // final btnName;
+  final btnName;
   // final btnFn;
   @override
   Widget build(BuildContext context) {
@@ -49,9 +49,24 @@ class ItemCard extends StatelessWidget {
                 // width: 250.w, //double.infinity,
               ),
               Container(
-                alignment: Alignment.bottomLeft,
-                padding: EdgeInsets.all(kPadding1),
+                alignment: Alignment.bottomRight,
+                // padding: EdgeInsets.all(kPadding1),
                 height: 150, //350.0,
+                child: Container(
+                  child: CustomText(
+                    text: "1h ago ",
+                    fontColor: whiteColor,
+                  ),
+                  decoration: BoxDecoration(
+                    color: secondaryBlue,
+                    borderRadius: BorderRadius.circular(5),
+                    // border: Border.all(
+                    //   color: blueColor,
+                    //   width: 2,
+                    // )
+                  ),
+                ),
+
                 // width: 250.w, //double.infinity,
                 decoration: BoxDecoration(
                     color: Colors.white,
@@ -77,15 +92,19 @@ class ItemCard extends StatelessWidget {
             Padding(
               padding: EdgeInsets.only(left: 8.w),
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: const [
-                  CustomIcon(
-                    icon: Icons.location_on,
-                    color: textColor,
-                  ),
-                  CustomText(
-                    text: "location",
-                    fontColor: textColor,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: const [
+                      CustomIcon(
+                        icon: Icons.location_on,
+                        color: textColor,
+                      ),
+                      CustomText(
+                        text: "location",
+                        fontColor: textColor,
+                      ),
+                    ],
                   ),
                 ],
               ),
@@ -96,7 +115,7 @@ class ItemCard extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   CustomElevatedButton(
-                    child: const Text("CLAIM"),
+                    child: Text(btnName),
                     //width: 80.w,
                     fn: () {},
                   ),
