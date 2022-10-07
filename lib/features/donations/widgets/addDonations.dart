@@ -61,7 +61,7 @@ class AddDontaion extends ConsumerWidget {
     }
 
     handleSumbit() async {
-      log("message");
+      // log("message");
       try {
         final resp = await donationProv.createDonation(donationDetails,
             imageProv, DateFormat('yyyy-MM-dd').format(selectedDate));
