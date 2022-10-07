@@ -19,7 +19,8 @@ class TextFieldAreaAccount extends ConsumerWidget {
     final userDetails = ref.watch(userDetailsProvider);
 
     final singleUserDetails = ref.watch(singleUserDataProvider(id));
-    log("this is acount detials${singleUserDetails}");
+
+    log("this is acount detials${userDetails}");
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -33,6 +34,7 @@ class TextFieldAreaAccount extends ConsumerWidget {
           label: "First Name",
           name: "firstName",
           borderColor: whiteColor,
+          value: userDetails['firstName'],
           // ref: ref,
         ),
         CustomText(
@@ -45,6 +47,7 @@ class TextFieldAreaAccount extends ConsumerWidget {
           label: "Last Name",
           name: "firstName",
           borderColor: whiteColor,
+          value: userDetails['lastName'],
           // ref: ref,
         ),
         CustomText(
@@ -56,8 +59,9 @@ class TextFieldAreaAccount extends ConsumerWidget {
           // ref: ref,
           ref: ref.read(userDetailsProvider.notifier),
           label: "Phone",
-          name: "phone",
+          name: "phoneNo",
           borderColor: whiteColor,
+          value: userDetails['phoneNo'],
         ),
         CustomText(
           text: "Email",
@@ -70,6 +74,7 @@ class TextFieldAreaAccount extends ConsumerWidget {
           label: "Email",
           name: "email",
           borderColor: whiteColor,
+          value: userDetails['email'],
         ),
         SizedBox(
           height: 10.h,

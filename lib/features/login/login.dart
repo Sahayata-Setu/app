@@ -32,16 +32,27 @@ class Login extends ConsumerWidget {
 
     handleSumbit() async {
       try {
-        await loginref.signup(loginDetails);
-        // if (getUserType == "user") {
-        // ignore: use_build_context_synchronously
-        // log("this is message");
-        replaceRouteTo('/homepage', context);
-        // CustomScaffoldMessenger.info("Sucessfully logged In", context);
-        // } else if (getUserType == "admin") {
-        // replaceRouteTo("/admin-dashboard", context);
-        // CustomScaffoldMessenger.info("Sucessfully logged In", context);
-        // }
+        final resp = await loginref.signup(loginDetails);
+        log("this is resp${resp['userRole']}");
+        // log("user type ${getUserType}");
+        if (resp['userRole'] == "user") {
+          // ignore: use_build_context_synchronously
+          // log("this is message");
+          replaceRouteTo('/homepage', context);
+          const snackBar = SnackBar(
+            content: Text('Logged In'),
+          );
+          ScaffoldMessenger.of(context).showSnackBar(snackBar);
+          pop(context);
+          // CustomScaffoldMessenger.info("Sucessfully logged In", context);
+        } else if (resp['userRole'] == "admin") {
+          replaceRouteTo("/admin-dashboard", context);
+          const snackBar = SnackBar(
+            content: Text('Logged in'),
+          );
+          ScaffoldMessenger.of(context).showSnackBar(snackBar);
+          // CustomScaffoldMessenger.info("Sucessfully logged In", context);
+        }
 
         // ignore: use_build_context_synchronously
 

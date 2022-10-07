@@ -50,7 +50,7 @@ import 'package:donationapp/features/signup/SignUp.dart';
   MaterialRoute(page: AddRequest, path: "/createNeed"),
   MaterialRoute(page: NeedDetail, path: "/needs/details/:id"),
 
-  MaterialRoute(page: UserProfileData, path: "/user-profile"),
+  MaterialRoute(page: UserProfile, path: "/user-profile"),
 
   // MaterialRoute(page: ApplyForVolunteer, path: "/apply-volunteer"),
   MaterialRoute(page: ApplyForVolunteer, path: "/apply-volunteer"),

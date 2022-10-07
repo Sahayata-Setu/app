@@ -1,14 +1,13 @@
+import 'dart:developer';
+
+import 'package:donationapp/services/account-settings/account-settings.services.dart';
+import 'package:donationapp/services/single-user/single-user.service.dart';
 import 'package:donationapp/utils/store-service/store.service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 final userDetailsProvider = StateProvider(
   (ref) => ({
-    "firstName": "",
-    "lastName": "",
-    "phone": "",
-    "email": "",
-    "location": "",
     // "address": "",
     // "gender": "",
     // "language": "",
@@ -35,44 +34,64 @@ class AddNotifier extends ChangeNotifier {
   // updateProfile(Map<String, dynamic> data) async {
   //   final updateProfile = read(updateProfileService);
   //   final id = StorageService.getId();
-  //   final image = read(imagesProvider);
+  //   // final image = read(imagesProvider);
   //   try {
-  //     final resp = await updateProfile.updateProfile(id, data, image);
-  //     if (resp != null) {
-  //       final userDetails = StorageService.getUser();
-  //       StorageService.setUser({...?userDetails, ...data});
-  //     }
+  //     final resp = await updateProfile.updateProfile(id, data);
+  //     // if (resp != null) {
+  //     //   // final userDetails = StorageService.getUser();
+  //     //   // StorageService.setUser({...?userDetails, ...data});
+  //     // }
   //     return resp;
   //   } catch (e) {
   //     rethrow;
   //   }
   // }
+  updateProfile(id, data) async {
+    // log("${data}");
+    final updateService = read(updateProfileService);
+    // read(stateProvider.notifier).state = true;
+
+    try {
+      final resp = await updateService.updateProfile(id, data);
+      // if (resp != null) {
+      // read(stateProvider.notifier).state = false;
+      // }
+      notifyListeners();
+      return resp;
+    } catch (e) {
+      // read(stateProvider.notifier).state = false;
+      log('$e');
+      rethrow;
+    }
+  }
 }
 
-final updateProfileProvider = ChangeNotifierProvider.autoDispose<AddNotifier>(
-    (ref) => AddNotifier(ref.read));
+final updateDetailsProfileProvider =
+    ChangeNotifierProvider.autoDispose<AddNotifier>(
+        (ref) => AddNotifier(ref.read));
 
 // initialize the user details on user update
 
 final initUserDetailsForUpdate = FutureProvider.autoDispose<dynamic>(
   (ref) {
-    // final userId = StorageService
-    // return ref.read(singleProfileServiceProvider).getDetailsById(userId).then(
-    //   (resp) {
-    //     log('resp $resp');
-    //     ref.read(newProfileDetailsProvider.notifier).state = {
-    //       "firstName": resp.firstName,
-    //       "lastName": resp.lastName,
-    //       "email": resp.email,
-    //       "profilePic": resp.profilePic,
-    //       "brn": resp.brn,
-    //       "phoneNumber": resp.phoneNumber,
-    //       "website": resp.Website,
-    //       "RealEstateName": resp.RealEstateName,
-    //       "LicenseEndDate": resp.LicenseEndDate.toString(),
-    //     };
-    //     return resp;
-    //   },
-    // );
+    final userId = StorageService.getId();
+    return ref.read(singleUserService).getSingleUser(userId).then(
+      (resp) {
+        log('resp ${resp['body']}');
+        ref.read(userDetailsProvider.notifier).state = {
+          "firstName": resp['body']['firstName'],
+          "lastName": resp['body']['lastName'],
+          "email": resp['body']['email'],
+          // // "profilePic": resp.profilePic,
+          // // "brn": resp.brn,
+          "phoneNo": resp['body']['phoneNo'],
+          // "name": "name"
+          // "website": resp.Website,
+          // "RealEstateName": resp.RealEstateName,
+          // "LicenseEndDate": resp.LicenseEndDate.toString(),
+        };
+        return resp;
+      },
+    );
   },
 );
