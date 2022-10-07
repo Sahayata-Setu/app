@@ -74,6 +74,7 @@ dev_dependencies:
   flutter_speed_dial: ^6.0.0
   carousel_slider: ^4.1.1
   pdf: ^3.8.3
+  printing: ^5.9.3
 
 
 

@@ -6,6 +6,8 @@ import 'package:donationapp/features/account-settings/account-settings.dart';
 import 'package:donationapp/features/apply-for-volunteer/apply-for-volunteer.dart';
 import 'package:donationapp/features/campaigns/campaignDetails.dart';
 import 'package:donationapp/features/campaigns/campaignsList.dart';
+import 'package:donationapp/features/campaigns/widgets/createCampaign.dart';
+import 'package:donationapp/features/certifications/widgets/certificatePrint.dart';
 import 'package:donationapp/features/change-location/change-location.dart';
 import 'package:donationapp/features/change-password/change-password.dart';
 import 'package:donationapp/features/donations/widgets/donationDetails.data.dart';
@@ -39,6 +41,8 @@ import 'package:donationapp/features/signup/SignUp.dart';
   MaterialRoute(page: Notifications, path: "/notifications"),
 
   MaterialRoute(page: CampaignsList, path: "/campaigns"),
+  MaterialRoute(page: CreateCampaign, path: "/createCampaign"),
+
   MaterialRoute(page: CampiagnDetails, path: "/campaigns/:id"),
 
   MaterialRoute(page: Dontaions, path: "/donations/:category"),
@@ -51,7 +55,7 @@ import 'package:donationapp/features/signup/SignUp.dart';
   MaterialRoute(page: NeedDetail, path: "/needs/details/:id"),
 
   MaterialRoute(page: UserProfileData, path: "/user-profile"),
-
+  MaterialRoute(page: CertificatePrint, path: "/certificatePreview"),
   // MaterialRoute(page: ApplyForVolunteer, path: "/apply-volunteer"),
   MaterialRoute(page: ApplyForVolunteer, path: "/apply-volunteer"),
   MaterialRoute(page: AdminDashboard, path: "/admin-dashboard"),

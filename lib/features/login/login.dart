@@ -80,6 +80,7 @@ class Login extends ConsumerWidget {
                 ref: ref.read(loginDetailsProvider.notifier),
                 label: "Password",
                 name: "password",
+                obsecure: true,
               ),
 
               //

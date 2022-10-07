@@ -4,20 +4,23 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomTextField extends StatelessWidget {
-  const CustomTextField(
-      {super.key,
-      this.ref,
-      required this.label,
-      required this.name,
-      this.borderColor,
-      this.lines,
-      this.focusBorder});
+  const CustomTextField({
+    super.key,
+    this.ref,
+    required this.label,
+    required this.name,
+    this.borderColor,
+    this.lines,
+    this.obsecure,
+    this.focusBorder,
+  });
   final ref;
   final String label;
   final String name;
   final borderColor;
   final focusBorder;
   final lines;
+  final obsecure;
 
   @override
   Widget build(BuildContext context) {
@@ -26,6 +29,7 @@ class CustomTextField extends StatelessWidget {
         bottom: kPadding.h,
       ),
       child: TextField(
+        obscureText: obsecure ? true : false,
         maxLines: lines == null ? null : lines,
         style: TextStyle(
           color: borderColor == null ? blackColor : borderColor,
