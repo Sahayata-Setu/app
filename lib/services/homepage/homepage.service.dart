@@ -16,7 +16,7 @@ class HomepageServiceClass {
       final token = StorageService.getToken();
       // log("ths is for tojen ${token}");
       final response = await _client.get(
-        "/user/donation/all",
+        "/user/${type}/all",
         options: Options(
           headers: {"Authorization": "Bearer ${token}"},
         ),

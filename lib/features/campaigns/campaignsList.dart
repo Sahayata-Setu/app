@@ -23,7 +23,8 @@ class CampaignsList extends StatelessWidget {
         child: ListView.builder(
             itemCount: 5,
             itemBuilder: (context, index) => CampaignCards(
-                  image: "assets/images/veg.png",
+                  image:
+                      "https://sahayog-setu.s3.ap-south-1.amazonaws.com/1665142561919-image",
                   location: "Rajkot",
                   title: "Save the children",
                 )),

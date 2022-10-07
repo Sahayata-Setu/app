@@ -3,8 +3,8 @@ import 'package:donationapp/constant/kconstant.dart';
 import 'package:flutter/material.dart';
 
 class ImageCarousel extends StatelessWidget {
-  const ImageCarousel({super.key});
-
+  const ImageCarousel({super.key, this.data});
+  final data;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -14,28 +14,29 @@ class ImageCarousel extends StatelessWidget {
         CarouselSlider(
           items: [
             //1st Image of Slider
+
             Container(
               margin: const EdgeInsets.all(6.0),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(8.0),
-                image: const DecorationImage(
-                  image: AssetImage("assets/images/veg.png"),
+                image: DecorationImage(
+                  image: NetworkImage("${data['images'][0]}"),
                   fit: BoxFit.cover,
                 ),
               ),
             ),
 
             //2nd Image of Slider
-            Container(
-              margin: const EdgeInsets.all(6.0),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(8.0),
-                image: const DecorationImage(
-                  image: AssetImage("assets/images/veg.png"),
-                  fit: BoxFit.cover,
-                ),
-              ),
-            ),
+            // Container(
+            //   margin: const EdgeInsets.all(6.0),
+            //   decoration: BoxDecoration(
+            //     borderRadius: BorderRadius.circular(8.0),
+            //     image: const DecorationImage(
+            //       image: AssetImage("assets/images/veg.png"),
+            //       fit: BoxFit.cover,
+            //     ),
+            //   ),
+            // ),
           ],
           options: CarouselOptions(
             height: 200.0,

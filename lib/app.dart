@@ -31,39 +31,6 @@ class App extends StatefulWidget {
 }
 
 class _AppState extends State<App> {
-  // this variable determnines whether the back-to-top button is shown or not
-  bool _showBackToTopButton = false;
-  // scroll controller
-  late ScrollController _scrollController;
-
-  @override
-  void initState() {
-    _scrollController = ScrollController()
-      ..addListener(() {
-        setState(() {
-          if (_scrollController.offset >= 400) {
-            _showBackToTopButton = true; // show the back-to-top button
-          } else {
-            _showBackToTopButton = false; // hide the back-to-top button
-          }
-        });
-      });
-
-    super.initState();
-  }
-
-  @override
-  void dispose() {
-    _scrollController.dispose(); // dispose the controller
-    super.dispose();
-  }
-
-  // This function is triggered when the user presses the back-to-top button
-  void _scrollToTop() {
-    _scrollController.animateTo(0,
-        duration: const Duration(seconds: 3), curve: Curves.linear);
-  }
-
   @override
   Widget build(BuildContext context) {
     final val = AutoRouter.of(context).current.name;
@@ -109,29 +76,13 @@ class _AppState extends State<App> {
       //       )
       //     : null,
       body: SingleChildScrollView(
-        controller: _scrollController,
+        // controller: _scrollController,
         child: Column(
           children: [widget.component],
         ),
       ),
       // drawer: Drawer(),
-      floatingActionButton:
-          //  _showBackToTopButton == false
-          //     ? null
-          //:
-          [
-        // HomePageDataRoute.name,
-        AuthCheckWidgetRoute.name,
-        // AdminDashboardRoute.name,
-      ].contains(val)
-              ? FloatingActionButton(
-                  backgroundColor: blueColor,
-                  onPressed: _scrollToTop,
-                  child: const Icon(
-                    Icons.add,
-                    color: whiteColor,
-                  ))
-              : Container(),
+
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: widget.bottomNavBar,
     );

@@ -6,6 +6,7 @@ import 'package:donationapp/features/homepage/widgets/donations/donations.dart';
 import 'package:donationapp/features/homepage/widgets/donations/donations.data.dart';
 import 'package:donationapp/features/homepage/widgets/heading.dart';
 import 'package:donationapp/features/homepage/widgets/needs/needs.dart';
+import 'package:donationapp/features/homepage/widgets/needs/needs.data.dart';
 import 'package:donationapp/store/homepage/homepage.store.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -75,7 +76,7 @@ class CategoriesTab extends ConsumerWidget {
               ],
             ),
           ),
-          showDonation ? DonationsData() : NeedsHome()
+          showDonation ? DonationsData() : NeedsData()
         ],
       ),
     );

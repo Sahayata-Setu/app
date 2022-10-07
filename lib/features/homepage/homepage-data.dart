@@ -11,7 +11,7 @@ class HomePageData extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final data = ref.watch(donationsOrRequestProvider("donations"));
+    final data = ref.watch(donationsOrRequestProvider("donation"));
 
     return Container(
       color: Colors.black,

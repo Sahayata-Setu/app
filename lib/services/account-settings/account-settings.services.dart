@@ -37,6 +37,8 @@ class UpdateProfileServiceClass {
       //   // log("this is 30 ${response}");
       //   // throw Exception("${response.message}");
       // }
+      log("this is response for update profile ${response}");
+      return response;
     } catch (err) {
       log("this is  34 ${err}");
       // throw Exception("${response["message"]}");

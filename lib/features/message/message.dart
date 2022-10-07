@@ -26,42 +26,50 @@ class Message extends StatelessWidget {
     ChatUsers(
         name: "Jane Russel",
         messageText: "Awesome Setup",
-        image: "assets/images/needy/childrenSitting.png",
+        image:
+            "https://sahayog-setu.s3.ap-south-1.amazonaws.com/1665142561919-image",
         time: "Now"),
     ChatUsers(
         name: "Glady's Murphy",
         messageText: "That's Great",
-        image: "assets/images/needy/childrenSitting.png",
+        image:
+            "https://sahayog-setu.s3.ap-south-1.amazonaws.com/1665142561919-image",
         time: "Yesterday"),
     ChatUsers(
         name: "Jorge Henry",
         messageText: "Hey where are you?",
-        image: "assets/images/needy/childrenSitting.png",
+        image:
+            "https://sahayog-setu.s3.ap-south-1.amazonaws.com/1665142561919-image",
         time: "31 Mar"),
     ChatUsers(
         name: "Philip Fox",
         messageText: "Busy! Call me in 20 mins",
-        image: "assets/images/needy/childrenSitting.png",
+        image:
+            "https://sahayog-setu.s3.ap-south-1.amazonaws.com/1665142561919-image",
         time: "28 Mar"),
     ChatUsers(
         name: "Debra Hawkins",
         messageText: "Thankyou, It's awesome",
-        image: "assets/images/needy/childrenSitting.png",
+        image:
+            "https://sahayog-setu.s3.ap-south-1.amazonaws.com/1665142561919-image",
         time: "23 Mar"),
     ChatUsers(
         name: "Jacob Pena",
         messageText: "will update you in evening",
-        image: "assets/images/needy/childrenSitting.png",
+        image:
+            "https://sahayog-setu.s3.ap-south-1.amazonaws.com/1665142561919-image",
         time: "17 Mar"),
     ChatUsers(
         name: "Andrey Jones",
         messageText: "Can you please share the file?",
-        image: "assets/images/needy/childrenSitting.png",
+        image:
+            "https://sahayog-setu.s3.ap-south-1.amazonaws.com/1665142561919-image",
         time: "24 Feb"),
     ChatUsers(
         name: "John Wick",
         messageText: "How are you?",
-        image: "assets/images/needy/childrenSitting.png",
+        image:
+            "https://sahayog-setu.s3.ap-south-1.amazonaws.com/1665142561919-image",
         time: "18 Feb"),
   ];
   @override

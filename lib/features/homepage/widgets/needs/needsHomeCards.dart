@@ -12,12 +12,9 @@ import 'package:donationapp/constant/common/button/cusotm-button.dart';
 import 'package:donationapp/constant/kconstant.dart';
 
 class NeedsHomeCards extends StatelessWidget {
-  const NeedsHomeCards({
-    super.key,
-    // this.singleInfo
-  });
+  const NeedsHomeCards({super.key, this.singleInfo});
 
-  //final singleInfo;
+  final singleInfo;
 
   @override
   Widget build(BuildContext context) {
@@ -32,9 +29,9 @@ class NeedsHomeCards extends StatelessWidget {
         children: [
           ImageOverlay(
               border_radius: false,
-              image: "assets/images/veg.png",
-              location: "locations", // "${singleInfo['city']}",
-              title: "Name",
+              image: "${singleInfo['images']}",
+              location: "${singleInfo['city']}", // "${singleInfo['city']}",
+              title: "${singleInfo['name']}",
               height: 200.h,
               width: 250.w,
               showShareBtn: false),

@@ -58,8 +58,12 @@ class Login extends ConsumerWidget {
 
       } catch (e) {
         log('$e the success');
-        CustomScaffoldMessenger.error(
-            "Please enter correct email or password", context);
+        const snackBar = SnackBar(
+          content: Text('Please enter correct email or password'),
+        );
+        ScaffoldMessenger.of(context).showSnackBar(snackBar);
+        // CustomScaffoldMessenger.error(
+        //     "Please enter correct email or password", context);
       }
     }
 

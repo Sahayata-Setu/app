@@ -38,8 +38,7 @@ class NavBar extends StatelessWidget {
       ),
       leading: route == HomePageRoute.name ||
               route == MessageRoute.name ||
-              route == NotificationsRoute.name ||
-              route == UserProfileDataRoute.name
+              route == NotificationsRoute.name
           ? Container(
               margin: EdgeInsets.only(left: 10),
               child: Badge(

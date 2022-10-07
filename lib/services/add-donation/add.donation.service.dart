@@ -32,12 +32,19 @@ class DonationServiceClass {
       log("This is imageArr${imageArr}");
       var formData = FormData.fromMap(
         {
+          'title': data['title'],
+          'category': data['category'],
+          'description': data['description'],
+          'quantity': data['quantity'],
+          // 'city': data['city'],
+          'pickupDetails': data['pickupDetails'],
+          'pickupDate': date,
           'images': imageArr,
         },
       );
       response = await _client.post(
         "/user/donation/create",
-        data: data,
+        data: formData,
         options: Options(
           headers: {"Authorization": "Bearer ${token}"},
         ),

@@ -9,6 +9,7 @@ import 'package:donationapp/constant/common/textfield/CustomTextField.dart';
 import 'package:donationapp/constant/kconstant.dart';
 import 'package:donationapp/helpers/route.utils.dart';
 import 'package:donationapp/store/add-donation/add.donation.store.dart';
+import 'package:donationapp/store/homepage/homepage.store.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -66,6 +67,7 @@ class AddDontaion extends ConsumerWidget {
         final resp = await donationProv.createDonation(donationDetails,
             imageProv, DateFormat('yyyy-MM-dd').format(selectedDate));
         final snackBar = SnackBar(content: Text(resp['message']));
+        ref.refresh(donationsOrRequestProvider('donation'));
         ScaffoldMessenger.of(context).showSnackBar(snackBar);
         pop(context);
       } catch (e) {
@@ -85,15 +87,30 @@ class AddDontaion extends ConsumerWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              CustomText(
+                text: "Title",
+                fontColor: blackColor,
+                fontSize: 16.sp,
+              ),
               CustomTextField(
                 refs: ref.read(donationDetailsProvider.notifier),
                 label: "Name/Title",
                 name: "title",
               ),
+              CustomText(
+                text: "Category",
+                fontColor: blackColor,
+                fontSize: 16.sp,
+              ),
               CustomTextField(
                 refs: ref.read(donationDetailsProvider.notifier),
                 label: "Category",
                 name: "category",
+              ),
+              CustomText(
+                text: "Quantity",
+                fontColor: blackColor,
+                fontSize: 16.sp,
               ),
               CustomTextField(
                 refs: ref.read(donationDetailsProvider.notifier),
@@ -105,6 +122,11 @@ class AddDontaion extends ConsumerWidget {
               //   label: "Pickup Location",
               //   name: "pickUpLocation",
               // ),
+              CustomText(
+                text: "Pickup Details",
+                fontColor: blackColor,
+                fontSize: 16.sp,
+              ),
               CustomTextField(
                 refs: ref.read(donationDetailsProvider.notifier),
                 label: "Preferred Details",
@@ -116,6 +138,39 @@ class AddDontaion extends ConsumerWidget {
               //   name: "pickupDay",
               // ),
               // Container(child: ,)
+
+              CustomText(
+                text: "Select Date",
+                fontColor: blackColor,
+                fontSize: 16.sp,
+              ),
+              GestureDetector(
+                onTap: () {
+                  _selectDate(context);
+                },
+                child: Icon(Icons.date_range),
+              ),
+              CustomText(text: DateFormat('yyyy-MM-dd').format(selectedDate)),
+              // DatePickerDialog(
+              //   initialDate: selectedDate,
+              //   firstDate: DateTime(2015, 8),
+              //   lastDate: DateTime(2101),
+              // ),
+              SizedBox(
+                height: 8.h,
+              ),
+              CustomText(
+                text: "Description",
+                fontColor: blackColor,
+                fontSize: 16.sp,
+              ),
+              CustomTextField(
+                refs: ref.read(donationDetailsProvider.notifier),
+                label: "Descritpion",
+                name: "description",
+                lines: 2,
+                //focusBorder: secondaryBlue,
+              ),
               imageProv.isEmpty
                   ? Container()
                   : SizedBox(
@@ -136,25 +191,6 @@ class AddDontaion extends ConsumerWidget {
                         },
                       ),
                     ),
-              GestureDetector(
-                onTap: () {
-                  _selectDate(context);
-                },
-                child: Icon(Icons.date_range),
-              ),
-              CustomText(text: DateFormat('yyyy-MM-dd').format(selectedDate)),
-              // DatePickerDialog(
-              //   initialDate: selectedDate,
-              //   firstDate: DateTime(2015, 8),
-              //   lastDate: DateTime(2101),
-              // ),
-              CustomTextField(
-                refs: ref.read(donationDetailsProvider.notifier),
-                label: "Descritpion",
-                name: "description",
-                lines: 3,
-                //focusBorder: secondaryBlue,
-              ),
               CustomText(
                 text: "Photos",
                 fontSize: 14.sp,

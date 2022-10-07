@@ -67,8 +67,7 @@ class AddNotifier extends ChangeNotifier {
 }
 
 final updateDetailsProfileProvider =
-    ChangeNotifierProvider.autoDispose<AddNotifier>(
-        (ref) => AddNotifier(ref.read));
+    ChangeNotifierProvider<AddNotifier>((ref) => AddNotifier(ref.read));
 
 // initialize the user details on user update
 

@@ -32,26 +32,29 @@ class DonationDetail extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const ImageCarousel(),
+              ImageCarousel(
+                data: singleData,
+              ),
               Padding(
                 padding: EdgeInsets.all(kPadding1.w),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     ListTile(
-                      leading: CustomText(text: "Donor Name", fontSize: 16.sp),
+                      leading: CustomText(
+                          text: "${singleData['title']}", fontSize: 16.sp),
                       subtitle: Container(
                         alignment: Alignment.topLeft,
                         child: Row(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           mainAxisAlignment: MainAxisAlignment.start,
-                          children: const [
+                          children: [
                             Padding(
                               padding: EdgeInsets.only(right: 8),
                               child: CustomIcon(icon: Icons.location_on),
                             ),
                             CustomText(
-                              text: "location",
+                              text: "${singleData['city']}",
                               fontColor: textColor,
                             )
                           ],
@@ -64,7 +67,7 @@ class DonationDetail extends StatelessWidget {
                         fontColor: Colors.grey.shade600,
                       ),
                       trailing: CustomText(
-                        text: "Placeholder",
+                        text: "${singleData['donor_name']}",
                         fontWeight: FontWeight.w500,
                         fontSize: 15.sp,
                       ),
@@ -75,7 +78,7 @@ class DonationDetail extends StatelessWidget {
                         fontColor: Colors.grey.shade600,
                       ),
                       trailing: CustomText(
-                        text: "Placeholder",
+                        text: "${singleData['category']}",
                         fontWeight: FontWeight.w500,
                         fontSize: 15.sp,
                       ),
@@ -127,8 +130,9 @@ class DonationDetail extends StatelessWidget {
                     Container(
                       alignment: Alignment.center,
                       child: CustomText(
-                        fontSize: 16.sp,
+                        fontSize: 18.sp,
                         text: "Description",
+                        fontWeight: FontWeight.bold,
                       ),
                     ),
                     // SizedBox(
@@ -147,7 +151,7 @@ class DonationDetail extends StatelessWidget {
             ],
           )),
       appbar: const NavBar(
-        title: "Donation Detatil",
+        title: "Donation Details",
         showBadge: false,
       ),
       isAdmin: false,

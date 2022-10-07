@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:donationapp/constant/common/Text/custom-text.dart';
 import 'package:donationapp/features/homepage/widgets/donations/donationCategoty.dart';
 import 'package:flutter/material.dart';
@@ -10,8 +12,13 @@ import 'package:donationapp/features/homepage/widgets/needs/needsHomeCards.dart'
 import 'package:donationapp/constant/kconstant.dart';
 
 class NeedsHome extends StatelessWidget {
+  const NeedsHome({super.key, required this.data});
+  final data;
+
   @override
   Widget build(BuildContext context) {
+    log("this is from needs page ${data['body']}");
+    final needDetails = data['body'].toList();
     return Container(
         margin: EdgeInsets.all(kPadding.w),
         alignment: Alignment.topLeft,
@@ -79,8 +86,8 @@ class NeedsHome extends StatelessWidget {
                                         spreadRadius: 0)
                                   ]),
                               child: NeedsHomeCards(
-                                  // singleInfo: donationsDetails[index],
-                                  ),
+                                singleInfo: needDetails[index],
+                              ),
                             ),
                           ),
                         )),
