@@ -33,7 +33,7 @@ import '../features/needs/Needs.dart' as _i16;
 import '../features/needs/widgets/addNeed.dart' as _i17;
 import '../features/needs/widgets/needDetail.dart' as _i18;
 import '../features/notifications/notifications.dart' as _i10;
-import '../features/profile/user-profile.data.dart' as _i19;
+import '../features/profile/user-profile.dart' as _i19;
 import '../features/search-page/search-page.dart' as _i8;
 import '../features/signup/SignUp.dart' as _i2;
 
@@ -357,15 +357,8 @@ class NeedDetailRoute extends _i23.PageRouteInfo<void> {
 class UserProfileDataRoute extends _i23.PageRouteInfo<void> {
   const UserProfileDataRoute()
       : super(UserProfileDataRoute.name, path: '/user-profile');
-
-  static const String name = 'UserProfileDataRoute';
+  static const String name = 'UserProfileRoute';
 }
-
-/// generated route for
-/// [_i20.CertificatePrint]
-class CertificatePrintRoute extends _i23.PageRouteInfo<void> {
-  const CertificatePrintRoute()
-      : super(CertificatePrintRoute.name, path: '/certificatePreview');
 
   static const String name = 'CertificatePrintRoute';
 }

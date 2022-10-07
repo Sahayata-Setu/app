@@ -36,10 +36,7 @@ class VolunteerServiceClass {
         "/user/volunteer/apply",
         data: formData,
         options: Options(
-          headers: {
-            "Authorization":
-                "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzNhZWU5MmUyYmY5Yjk2ZWI4Y2I2M2EiLCJyb2xlIjoidXNlciIsImlhdCI6MTY2NTA1NDA1OCwiZXhwIjoxNjY1MTQwNDU4fQ.TY_LxcnM47wgsWGkCdNYfFlsU958PBbf5FXkMxYTkeA"
-          },
+          headers: {"Authorization": "Bearer ${token}"},
         ),
       );
       // log("${response}");

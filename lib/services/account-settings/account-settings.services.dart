@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'dart:developer';
 import 'package:dio/dio.dart';
 import 'package:donationapp/utils/base-client/base_client.dart';
+import 'package:donationapp/utils/store-service/store.service.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 // abstract class AuthBase {
@@ -13,58 +14,34 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 //   Future<void> logOut();
 // }
 
-// class UpdateProfileServiceClass {
-//   final _client = ApiHelper.instance;
+class UpdateProfileServiceClass {
+  final _client = ApiHelper.instance;
 
-//   Future<dynamic> updateProfile(id, data) async {
-//     dynamic response;
-//     // 624ae542f401a978126a5d8e
-//     // log('$image imageimageimage');
-//     try {
-//       var formData = FormData.fromMap({
-//         'data': jsonEncode(
-//           {
-//             "firstName": "${data['firstName']}",
-//             "lastName": "${data['lastName']}",
-//             "role": "${data['role']}",
-//             "email": "${data['email']}",
-//             "city": "${data['city']}",
-//             "points": "${data['points']}",
-//             "language": "${data['points']}",
-//             "phoneNo": "${data['phoneNo']}",
-//             "address": "${data['address']}",
-//             "gender": "${data['gender']}",
-//             "certificates": "${data['certificates']}",
-//             "isVolunteer": "${data['isVolunteer']}",
-//             "isBlocked": "${data['isBlocked']}",
-//             "isVerified": "${data['isVerified']}",
-
-//             // "website": "${req['website']}",
-//             // "RealEstateName": "${req['RealEstateName']}",
-//             // "LicenseEndDate": "${req['LicenseEndDate']}",
-//           },
-//         ),
-//         // 'images': [
-//         //   await MultipartFile.fromFile(image['filePath'],
-//         //       filename: image['name']),
-//         // ]
-//       });
-//       // log("${formData.toString()}");
-//       // log("${req['firstName']}");
-//       response =
-//           await _client.post("/auth/update-details/${id}", data: formData);
-//       if (response != null) {
-//         log("this is up ${response}");
-//         return response;
-//       } else {
-//         log("this is 30 ${response}");
-//         // throw Exception("${response.message}");
-//       }
-//     } catch (err) {
-//       log("this is  34 ${err}");
-//       // throw Exception("${response["message"]}");
-//     }
-//   }
+  Future<dynamic> updateProfile(id, data) async {
+    dynamic response;
+    // 624ae542f401a978126a5d8e
+    log('this sis data$data');
+    try {
+      final token = StorageService.getToken();
+      response = await _client.put(
+        "/user/profile/633ac7c777b5e8fd0f92c6ba",
+        data: data,
+        options: Options(
+          headers: {"Authorization": "Bearer ${token}"},
+        ),
+      );
+      if (response != null) {
+        log("this is up ${response}");
+        return response;
+      } else {
+        log("this is 30 ${response}");
+        // throw Exception("${response.message}");
+      }
+    } catch (err) {
+      log("this is  34 ${err}");
+      // throw Exception("${response["message"]}");
+    }
+  }
   // final verifyCodeService = read(signupServiceProvider);
   //   try {
   //     final resp = await verifyCodeService.getAreaSepecilist();
@@ -93,7 +70,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
   //     rethrow;
   //   }
   // }
-// }
+}
 
-// final updateProfileService = Provider.autoDispose<UpdateProfileServiceClass>(
-//     (ref) => UpdateProfileServiceClass());
+final updateProfileService =
+    Provider<UpdateProfileServiceClass>((ref) => UpdateProfileServiceClass());
