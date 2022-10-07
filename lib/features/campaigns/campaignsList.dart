@@ -11,7 +11,12 @@ class CampaignsList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return App(
-      appbar: NavBar(showBadge: false, isAdmin: false, title: "Campaigns"),
+      appbar: NavBar(
+        showBadge: false,
+        isAdmin: false,
+        title: "Campaigns",
+        isMainPage: false,
+      ),
       component: Container(
         padding: EdgeInsets.all(kPadding.h),
         height: ScreenUtil().screenHeight + kPadding.h,
