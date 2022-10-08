@@ -1,0 +1,74 @@
+// /admin/numbers
+
+import 'dart:developer';
+
+import 'package:dio/dio.dart';
+import 'package:donationapp/domain/user/user.model.dart';
+import 'package:donationapp/utils/base-client/base_client.dart';
+import 'package:donationapp/utils/store-service/store.service.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+class AdminDashboardServiceClass {
+  final _client = ApiHelper.instance;
+
+  //
+  Future<Map<String, dynamic>> getDashboardDetails() async {
+    // final singUpService
+    try {
+      final token = StorageService.getToken();
+      // log("this is from$token");
+      final response = await _client.get(
+        "/admin/numbers",
+        options: Options(
+          headers: {"Authorization": "Bearer ${token}"},
+        ),
+      );
+      // log("${response.statusCode()}");
+      // if(response.statusCode(400) )
+      // StorageService.setToken(response['token']);
+
+      return response;
+    } catch (e) {
+      // log("this is error$e");
+      throw Exception("Invalid Request $e");
+    }
+  }
+
+  Future<Map<String, dynamic>> getPendingVolunteers() async {
+    // final singUpService
+    try {
+      final token = StorageService.getToken();
+      // log("this is from$token");
+      final response = await _client.get(
+        "/admin/volunteer/pending",
+        options: Options(
+          headers: {"Authorization": "Bearer ${token}"},
+        ),
+      );
+      return response;
+    } catch (e) {
+      // log("this is error$e");
+      throw Exception("Invalid Request $e");
+    }
+  }
+
+  Future<String> approveVolunteer(userId, type) async {
+    try {
+      final token = StorageService.getToken();
+      final response = await _client.post(
+        "/admin/volunteer/${type}/${userId}",
+        options: Options(
+          headers: {"Authorization": "Bearer ${token}"},
+        ),
+      );
+
+      return response;
+    } catch (e) {
+      // log("this is error$e");
+      throw Exception("Invalid Request $e");
+    }
+  }
+}
+
+final adminDashboardService =
+    Provider<AdminDashboardServiceClass>((ref) => AdminDashboardServiceClass());

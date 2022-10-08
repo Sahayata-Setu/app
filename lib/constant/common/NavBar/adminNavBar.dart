@@ -22,7 +22,7 @@ class AdminNavBar extends StatelessWidget {
     final route = AutoRouter.of(context).current.name;
     return AppBar(
       automaticallyImplyLeading:
-          route == LoginRoute.name || route == AdminDashboardRoute.name
+          route == LoginRoute.name || route == AdminDashBoardDataRoute.name
               ? false
               : true,
       elevation: 0,

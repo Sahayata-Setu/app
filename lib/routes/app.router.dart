@@ -2,6 +2,7 @@ import 'package:auto_route/annotations.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:donationapp/auth/auth_check/auth_check.dart';
 import 'package:donationapp/constant/common/splashScreen/splashScreen.dart';
+import 'package:donationapp/features/Admin/Dashboard/admin-dashboard.data.dart';
 import 'package:donationapp/features/Admin/Dashboard/adminDashboard.dart';
 import 'package:donationapp/features/account-settings/account-settings.dart';
 import 'package:donationapp/features/apply-for-volunteer/apply-for-volunteer.dart';
@@ -31,9 +32,8 @@ import 'package:donationapp/features/search-page/search-page.dart';
 import 'package:donationapp/features/signup/SignUp.dart';
 
 @MaterialAutoRouter(routes: [
-  MaterialRoute(page: SplashScreen, path: "/splash"),
-
   MaterialRoute(page: AuthCheckWidget, initial: true, path: "/"),
+  MaterialRoute(page: SplashScreen, path: "/splash"),
   MaterialRoute(page: Signup, path: "/signup"),
   // MaterialRoute(page: Signup, path: "/signup"),
   MaterialRoute(page: HomePage, path: "/homepage"),
@@ -63,7 +63,7 @@ import 'package:donationapp/features/signup/SignUp.dart';
   MaterialRoute(page: CertificatePrint, path: "/certificatePreview"),
   // MaterialRoute(page: ApplyForVolunteer, path: "/apply-volunteer"),
   MaterialRoute(page: ApplyForVolunteer, path: "/apply-volunteer"),
-  MaterialRoute(page: AdminDashboard, path: "/admin-dashboard"),
+  MaterialRoute(page: AdminDashBoardData, path: "/admin-dashboard"),
   MaterialRoute(
       page: MessageDetails, path: "/message/:receiverName/:receiverId"),
 ])
