@@ -19,8 +19,8 @@ class DashboardCards extends StatelessWidget {
     return Container(
       // width: 20,
       // height: 20,
-      decoration:
-          BoxDecoration(color: color, borderRadius: BorderRadius.circular(20)),
+      decoration: BoxDecoration(
+          color: blueColor, borderRadius: BorderRadius.circular(20)),
 
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -33,7 +33,9 @@ class DashboardCards extends StatelessWidget {
           ),
           CustomText(
             text: title.toString(),
-            fontSize: 13.sp,
+            fontSize: 15.sp,
+            fontColor: whiteColor,
+            fontWeight: FontWeight.bold,
           )
         ],
       ),

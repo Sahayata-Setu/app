@@ -68,7 +68,8 @@ class _LoginState extends ConsumerState<Login> {
           pop(context);
           // CustomScaffoldMessenger.info("Sucessfully logged In", context);
         } else if (resp['userRole'] == "admin") {
-          replaceAllRouteTo("/admin-dashboard", context);
+          log("Hello");
+          replaceRouteTo("/admin-dashboard", context);
           const snackBar = SnackBar(
             content: Text('Logged in'),
           );

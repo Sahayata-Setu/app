@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:donationapp/constant/common/NavBar/adminNavBar.dart';
 import 'package:donationapp/features/Admin/Dashboard/widgets/drawer.dart';
 import 'package:donationapp/features/Admin/Dashboard/widgets/optionsTab.dart';
@@ -12,10 +14,12 @@ import 'package:donationapp/constant/common/NavBar/navbar.dart';
 import 'package:flutter/cupertino.dart';
 
 class AdminDashboard extends StatelessWidget {
-  const AdminDashboard({super.key});
-
+  const AdminDashboard({super.key, this.data});
+  final data;
   @override
   Widget build(BuildContext context) {
+    final dashData = data['body'];
+    log("this is from admin dashboard${dashData}");
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(60),
@@ -56,7 +60,7 @@ class AdminDashboard extends StatelessWidget {
       body: Container(
           padding: EdgeInsets.only(top: kPadding1),
           height: ScreenUtil().screenHeight,
-          color: blackColor,
+          color: backgroundColor,
           child: Column(
             children: [
               Container(
@@ -73,25 +77,25 @@ class AdminDashboard extends StatelessWidget {
                   // crossAxisSpacing: 4,
                   // mainAxisSpacing: 3,
                   // shrinkWrap: false,
-                  children: const [
+                  children: [
                     DashboardCards(
                       title: "Users",
-                      number: "9555",
+                      number: "${dashData['users']['total'].toInt()}",
                       color: secondaryBlue,
                     ),
                     DashboardCards(
                       title: "Volunters",
-                      number: "45",
+                      number: "${dashData['volunteers']['total']}",
                       color: secondaryBlue,
                     ),
                     DashboardCards(
-                      title: "Donation Completed",
-                      number: "5555",
+                      title: "Approved Donations",
+                      number: "${dashData['donations']['total']}",
                       color: secondaryBlue,
                     ),
                     DashboardCards(
                       title: "Total Beneficery",
-                      number: "358",
+                      number: "${dashData['requests']['total']}",
                       color: secondaryBlue,
                     ),
                   ],

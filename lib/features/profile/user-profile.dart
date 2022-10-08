@@ -52,7 +52,7 @@ class UserProfile extends ConsumerWidget {
       ),
       component: Container(
         color: blueBackgroundColor,
-        // height: MediaQuery.of(context).size.height,
+        height: MediaQuery.of(context).size.height,
         width: double.infinity,
         child: Container(
           padding: EdgeInsets.only(
@@ -105,6 +105,15 @@ class UserProfile extends ConsumerWidget {
                 },
                 child: UserProfileOptions(
                   text: translation(context).applyVolunter,
+                  imageName: "volunteer",
+                ),
+              ),
+              GestureDetector(
+                onTap: () {
+                  routeTo("/admin-dashboard", context);
+                },
+                child: UserProfileOptions(
+                  text: "Admin Dashboard",
                   imageName: "volunteer",
                 ),
               ),

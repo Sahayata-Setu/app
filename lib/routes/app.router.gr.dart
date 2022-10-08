@@ -14,10 +14,10 @@
 import 'package:auto_route/auto_route.dart' as _i26;
 import 'package:flutter/material.dart' as _i27;
 
-import '../auth/auth_check/auth_check.dart' as _i2;
-import '../constant/common/splashScreen/splashScreen.dart' as _i1;
+import '../auth/auth_check/auth_check.dart' as _i1;
+import '../constant/common/splashScreen/splashScreen.dart' as _i2;
 import '../features/account-settings/account-settings.dart' as _i7;
-import '../features/Admin/Dashboard/adminDashboard.dart' as _i24;
+import '../features/Admin/Dashboard/admin-dashboard.data.dart' as _i24;
 import '../features/apply-for-volunteer/apply-for-volunteer.dart' as _i23;
 import '../features/campaigns/campaignDetails.dart' as _i14;
 import '../features/campaigns/campaignsList.dart' as _i12;
@@ -46,13 +46,13 @@ class AppRouter extends _i26.RootStackRouter {
 
   @override
   final Map<String, _i26.PageFactory> pagesMap = {
-    SplashScreenRoute.name: (routeData) {
-      return _i26.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i1.SplashScreen());
-    },
     AuthCheckWidgetRoute.name: (routeData) {
       return _i26.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i2.AuthCheckWidget());
+          routeData: routeData, child: const _i1.AuthCheckWidget());
+    },
+    SplashScreenRoute.name: (routeData) {
+      return _i26.MaterialPageX<dynamic>(
+          routeData: routeData, child: const _i2.SplashScreen());
     },
     SignupRoute.name: (routeData) {
       return _i26.MaterialPageX<dynamic>(
@@ -148,9 +148,9 @@ class AppRouter extends _i26.RootStackRouter {
       return _i26.MaterialPageX<dynamic>(
           routeData: routeData, child: const _i23.ApplyForVolunteer());
     },
-    AdminDashboardRoute.name: (routeData) {
+    AdminDashBoardDataRoute.name: (routeData) {
       return _i26.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i24.AdminDashboard());
+          routeData: routeData, child: const _i24.AdminDashBoardData());
     },
     MessageDetailsRoute.name: (routeData) {
       final pathParams = routeData.inheritedPathParams;
@@ -169,8 +169,8 @@ class AppRouter extends _i26.RootStackRouter {
 
   @override
   List<_i26.RouteConfig> get routes => [
-        _i26.RouteConfig(SplashScreenRoute.name, path: '/splash'),
         _i26.RouteConfig(AuthCheckWidgetRoute.name, path: '/'),
+        _i26.RouteConfig(SplashScreenRoute.name, path: '/splash'),
         _i26.RouteConfig(SignupRoute.name, path: '/signup'),
         _i26.RouteConfig(HomePageRoute.name, path: '/homepage'),
         _i26.RouteConfig(ChangePasswordRoute.name, path: '/change-password'),
@@ -194,26 +194,27 @@ class AppRouter extends _i26.RootStackRouter {
         _i26.RouteConfig(CertificatePrintRoute.name,
             path: '/certificatePreview'),
         _i26.RouteConfig(ApplyForVolunteerRoute.name, path: '/apply-volunteer'),
-        _i26.RouteConfig(AdminDashboardRoute.name, path: '/admin-dashboard'),
+        _i26.RouteConfig(AdminDashBoardDataRoute.name,
+            path: '/admin-dashboard'),
         _i26.RouteConfig(MessageDetailsRoute.name,
             path: '/message/:receiverName/:receiverId')
       ];
 }
 
 /// generated route for
-/// [_i1.SplashScreen]
-class SplashScreenRoute extends _i26.PageRouteInfo<void> {
-  const SplashScreenRoute() : super(SplashScreenRoute.name, path: '/splash');
-
-  static const String name = 'SplashScreenRoute';
-}
-
-/// generated route for
-/// [_i2.AuthCheckWidget]
+/// [_i1.AuthCheckWidget]
 class AuthCheckWidgetRoute extends _i26.PageRouteInfo<void> {
   const AuthCheckWidgetRoute() : super(AuthCheckWidgetRoute.name, path: '/');
 
   static const String name = 'AuthCheckWidgetRoute';
+}
+
+/// generated route for
+/// [_i2.SplashScreen]
+class SplashScreenRoute extends _i26.PageRouteInfo<void> {
+  const SplashScreenRoute() : super(SplashScreenRoute.name, path: '/splash');
+
+  static const String name = 'SplashScreenRoute';
 }
 
 /// generated route for
@@ -445,12 +446,12 @@ class ApplyForVolunteerRoute extends _i26.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i24.AdminDashboard]
-class AdminDashboardRoute extends _i26.PageRouteInfo<void> {
-  const AdminDashboardRoute()
-      : super(AdminDashboardRoute.name, path: '/admin-dashboard');
+/// [_i24.AdminDashBoardData]
+class AdminDashBoardDataRoute extends _i26.PageRouteInfo<void> {
+  const AdminDashBoardDataRoute()
+      : super(AdminDashBoardDataRoute.name, path: '/admin-dashboard');
 
-  static const String name = 'AdminDashboardRoute';
+  static const String name = 'AdminDashBoardDataRoute';
 }
 
 /// generated route for
