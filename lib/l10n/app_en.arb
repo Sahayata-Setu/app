@@ -19,5 +19,15 @@
 "donations_claim":"Donations/Claims",
 "changeLanguage":"Change Languag",
 "applyVolunter":"Apply Volunter",
-"logout":"Logout"
+"logout":"Logout",
+"profile":"Profile",
+"accountSettings":"Account Settings",
+"certificates":"Certificates",
+"donations_claim":"Donations/Claim",
+"changeLanguage":"Change Language",
+"applyVolunter":"Apply Volunteer",
+"logout":"Logout",
+"message": "Message",
+"notifications": "Notifications",
+"search": "Search"
 }
