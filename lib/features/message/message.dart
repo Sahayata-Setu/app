@@ -118,7 +118,7 @@ class Message extends ConsumerWidget {
       ),
       appbar: NavBar(
         title: "Messages",
-        showBadge: false,
+        showBadge: true,
       ),
       isAdmin: false,
       bottomNavBar: BottomNavBar(showBottomNavBar: true),

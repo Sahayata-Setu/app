@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:auto_route/auto_route.dart';
 import 'package:donationapp/app.dart';
+import 'package:donationapp/classes/language.dart';
 import 'package:donationapp/constant/common/BottomNavBar/BottomNavBar.dart';
 import 'package:donationapp/constant/common/NavBar/navbar.dart';
 import 'package:donationapp/constant/common/Text/custom-text.dart';
@@ -10,6 +11,8 @@ import 'package:donationapp/features/donations/widgets/categoriesTab.dart';
 import 'package:donationapp/features/homepage/widgets/campaigns/campaign.dart';
 import 'package:donationapp/features/homepage/widgets/tabBar.dart';
 import 'package:donationapp/features/homepage/widgets/needs/needs.dart';
+import 'package:donationapp/main.dart';
+import 'package:donationapp/utils/store-service/language.store.dart';
 import 'package:donationapp/utils/store-service/store.service.dart';
 
 import 'package:flutter/material.dart';
@@ -17,6 +20,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../../main.dart';
 
@@ -80,15 +84,15 @@ class _HomePageState extends ConsumerState<HomePage> {
         child: Column(
           children: [
             Campaigns(),
-            CategoriesTab()
+            CategoriesTab(),
             //CustomTabBar()
             // DonationsHome(), NeedsHome()
           ],
         ),
       ),
       //),
-      appbar: const NavBar(
-        title: "HOME",
+      appbar: NavBar(
+        title: translation(context).home, //"HOME",
         showBadge: true,
       ),
       isAdmin: false,

@@ -36,7 +36,7 @@ class SearchPage extends StatelessWidget {
         ),
       ),
       appbar: const NavBar(
-        showBadge: false,
+        showBadge: true,
         title: "Search",
         // route: "/homepage",
       ),

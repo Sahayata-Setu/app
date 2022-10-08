@@ -1,9 +1,12 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:badges/badges.dart';
+import 'package:donationapp/classes/language.dart';
 import 'package:donationapp/constant/common/Text/custom-text.dart';
 import 'package:donationapp/constant/kconstant.dart';
 import 'package:donationapp/helpers/route.utils.dart';
+import 'package:donationapp/main.dart';
 import 'package:donationapp/routes/app.router.gr.dart';
+import 'package:donationapp/utils/store-service/language.store.dart';
 import 'package:donationapp/utils/store-service/store.service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -35,53 +38,77 @@ class NavBar extends StatelessWidget {
               : true,
       elevation: 0,
       backgroundColor: blueColor,
+
       title: CustomText(
         text: title,
         fontSize: 17.sp,
       ),
 
-      // leading: route == HomePageRoute.name ||
-      //         route == MessageRoute.name ||
-      //         route == NotificationsRoute.name
-      //     ? Container(
-      //         margin: EdgeInsets.only(left: 10),
-      //         child: Badge(
-      //           badgeColor: blueColor,
-      //           badgeContent: Image.asset(
-      //             "assets/images/logo.png",
-      //             height: 2,
-      //             width: 2,
-      //           ),
-      //         ),
-      //       )
-      //  Container(
-      //     width: 5,
-      //     height: 5,
-      //     child: Image.asset(
-      //       "assets/images/logo.png",
-      //       height: 5,
-      //       width: 5,
-      //     ),
-      //     decoration: BoxDecoration(
-      //       shape: BoxShape.circle,
-      //       // image: DecorationImage(
-      //       //     fit: BoxFit.fitWidth,
+      leading: route == HomePageRoute.name ||
+              route == MessageRoute.name ||
+              route == NotificationsRoute.name ||
+              route == SearchPageRoute.name ||
+              route == UserProfileRoute.name
+          ? Container(
+              margin: EdgeInsets.only(left: 10),
+              child: Badge(
+                badgeColor: blueColor,
+                badgeContent: Image.asset(
+                  "assets/images/logo.png",
+                  height: 2,
+                  width: 2,
+                ),
+              ),
+            )
+          //  Container(
+          //     width: 5,
+          //     height: 5,
+          //     child: Image.asset(
+          //       "assets/images/logo.png",
+          //       height: 5,
+          //       width: 5,
+          //     ),
+          //     decoration: BoxDecoration(
+          //       shape: BoxShape.circle,
+          //       // image: DecorationImage(
+          //       //     fit: BoxFit.fitWidth,
 
-      //       //     image: AssetImage("assets/images/logo.png",))
-      //     ),
-      //   )
-      // ? CircleAvatar(
-      //     child: Image.asset("assets/images/logo.png", fit: BoxFit.cover),
-      //     // radius: 5,
-      //   )
-      // : IconButton(
-      //     icon: Icon(Icons.arrow_back),
-      //     onPressed: () {
-      //       Navigator.of(context).pop();
-      //     },
-      //   ),
+          //       //     image: AssetImage("assets/images/logo.png",))
+          //     ),
+          //   )
+          // ? CircleAvatar(
+          //     child: Image.asset("assets/images/logo.png", fit: BoxFit.cover),
+          //     // radius: 5,
+          //   )
+          :
+          // route == HomePageRoute.name ||
+          route == LoginRoute.name || route == SignupRoute.name
+              // route == MessageRoute.name
+              ? SizedBox()
+              : IconButton(
+                  icon: Icon(Icons.arrow_back),
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                ),
       //leading: isAdmin == null ? const SizedBox.shrink() : Icon(Icons.menu),
       actions: [
+        route == HomePageRoute.name || route == LoginRoute.name
+            ? DropdownButton<Language>(
+                icon: Icon(Icons.language),
+                items: Language.languageList()
+                    .map((e) => DropdownMenuItem<Language>(
+                        value: e, child: Text(e.name)))
+                    .toList(),
+                // value: ,
+                onChanged: (Language? language) async {
+                  if (language != null) {
+                    Locale _locale =
+                        await setLanguagePref(language.languageCode);
+                    MyApp.setLocale(context, Locale(language.languageCode, ''));
+                  }
+                })
+            : SizedBox(),
         isAdmin != null
             ? Container(
                 margin: EdgeInsets.symmetric(horizontal: 10.w),

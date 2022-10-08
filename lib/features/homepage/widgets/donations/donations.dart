@@ -4,6 +4,7 @@ import 'package:donationapp/constant/common/Text/custom-text.dart';
 import 'package:donationapp/helpers/route.utils.dart';
 import 'package:donationapp/routes/app.router.gr.dart';
 import 'package:donationapp/store/homepage/homepage.store.dart';
+import 'package:donationapp/utils/store-service/language.store.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -46,27 +47,30 @@ class DonationsHome extends ConsumerWidget {
                 SizedBox(
                   // padding: EdgeInsets.only(right: kPadding.w),
                   height: 100.h,
-                  child: GridView(
-                    physics: const NeverScrollableScrollPhysics(),
-                    gridDelegate:
-                        const SliverGridDelegateWithMaxCrossAxisExtent(
-                            maxCrossAxisExtent: 120),
-                    children: const [
+                  child: Row(
+                    // physics: const NeverScrollableScrollPhysics(),
+                    // gridDelegate:
+                    //     const SliverGridDelegateWithMaxCrossAxisExtent(
+                    //         maxCrossAxisExtent: 120),
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
                       DonationsCategory(
-                          text: "Foods",
+                          text: translation(context).food,
                           icon: Icons.food_bank,
                           url: "/donations/:category"),
                       DonationsCategory(
-                        text: "Toys",
+                        text: translation(context).toys,
                         icon: Icons.toys,
                         url: "/donations/:category",
                       ),
+                      // DonationsCategory(
+                      //     text: translation(context).toys, icon: Icons.toys),
                       DonationsCategory(
-                          text: "Books",
+                          text: translation(context).books,
                           icon: Icons.library_books,
                           url: "/donations/:category"),
                       DonationsCategory(
-                          text: "Clothes",
+                          text: translation(context).clothes,
                           icon: Icons.person,
                           url: "/donations/:category"),
                       //  DonationsCategory(text: "Others", icon: Icons.more_horiz)
@@ -76,7 +80,7 @@ class DonationsHome extends ConsumerWidget {
                 Padding(
                   padding: EdgeInsets.only(left: kPadding.w, top: 10.h),
                   child: CustomText(
-                    text: "Latest Dontations",
+                    text: translation(context).latestDonations,
                     fontSize: 15.sp,
                     fontColor: textColor,
                     fontWeight: FontWeight.w800,

@@ -17,6 +17,7 @@ import 'package:donationapp/services/login/login.service.dart';
 import 'package:donationapp/store/account-setting/account.setting.store.dart';
 import 'package:donationapp/store/login/login.store.dart';
 import 'package:donationapp/store/single-user/single-user.store.dart';
+import 'package:donationapp/utils/store-service/language.store.dart';
 import 'package:donationapp/utils/store-service/store.service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -45,13 +46,13 @@ class UserProfile extends ConsumerWidget {
 
     return App(
       appbar: NavBar(
-        title: "Profile",
+        title: translation(context).profile,
         // route: "/homepage",
-        showBadge: false,
+        showBadge: true,
       ),
       component: Container(
         color: blueBackgroundColor,
-        height: MediaQuery.of(context).size.height,
+        // height: MediaQuery.of(context).size.height,
         width: double.infinity,
         child: Container(
           padding: EdgeInsets.only(
@@ -76,29 +77,34 @@ class UserProfile extends ConsumerWidget {
                 onTap: () {
                   routeTo("/account-settings", context);
                 },
-                child: const UserProfileOptions(
-                  text: "Account Settings",
+                child: UserProfileOptions(
+                  text: translation(context).accountSettings,
                   imageName: "profile-setting",
                 ),
               ),
-              const UserProfileOptions(
-                text: "Certificates",
-                imageName: "certificate",
+              GestureDetector(
+                onTap: () {
+                  routeTo("/certificatePreview", context);
+                },
+                child: UserProfileOptions(
+                  text: translation(context).certificates,
+                  imageName: "certificate",
+                ),
               ),
-              const UserProfileOptions(
-                text: "Donations/Claim",
+              UserProfileOptions(
+                text: translation(context).donations_claim,
                 imageName: "claim",
               ),
-              const UserProfileOptions(
-                text: "Change Language",
+              UserProfileOptions(
+                text: translation(context).changeLanguage,
                 imageName: "i-icon",
               ),
               GestureDetector(
                 onTap: () {
                   routeTo("/apply-volunteer", context);
                 },
-                child: const UserProfileOptions(
-                  text: "Apply for volunteer",
+                child: UserProfileOptions(
+                  text: translation(context).applyVolunter,
                   imageName: "volunteer",
                 ),
               ),
@@ -106,17 +112,20 @@ class UserProfile extends ConsumerWidget {
                 onTap: () {
                   handleLogout();
                 },
-                child: const UserProfileOptions(
-                  text: "Logout",
+                child: UserProfileOptions(
+                  text: translation(context).logout,
                   imageName: "logout",
                 ),
               ),
+              SizedBox(
+                height: 20.h,
+              )
             ],
           ),
         ),
       ),
       isAdmin: false,
-      bottomNavBar: BottomNavBar(showBottomNavBar: false),
+      bottomNavBar: BottomNavBar(showBottomNavBar: true),
     );
   }
 }

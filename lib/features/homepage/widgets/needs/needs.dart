@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:donationapp/constant/common/Text/custom-text.dart';
 import 'package:donationapp/features/homepage/widgets/donations/donationCategoty.dart';
+import 'package:donationapp/utils/store-service/language.store.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -34,29 +35,34 @@ class NeedsHome extends StatelessWidget {
                     SizedBox(
                       // padding: EdgeInsets.only(right: kPadding.w),
                       height: 100.h,
-                      child: GridView(
-                        physics: const NeverScrollableScrollPhysics(),
-                        gridDelegate:
-                            const SliverGridDelegateWithMaxCrossAxisExtent(
-                                maxCrossAxisExtent: 120),
-                        children: const [
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        // physics: const NeverScrollableScrollPhysics(),
+                        // gridDelegate:
+                        //     const SliverGridDelegateWithMaxCrossAxisExtent(
+                        //         maxCrossAxisExtent: 120),
+                        children: [
                           DonationsCategory(
-                              text: "Foods",
+                              text: translation(context).food,
                               icon: Icons.food_bank,
                               url: "/needs/:category"),
-                          DonationsCategory(text: "Toys", icon: Icons.toys),
                           DonationsCategory(
-                              text: "Books", icon: Icons.library_books),
+                              text: translation(context).toys,
+                              icon: Icons.toys),
                           DonationsCategory(
-                              text: "Clothes", icon: Icons.person),
-                          //  DonationsCategory(text: "Others", icon: Icons.more_horiz)
+                              text: translation(context).books,
+                              icon: Icons.library_books),
+                          DonationsCategory(
+                              text: translation(context).clothes,
+                              icon: Icons.person),
+                          // DonationsCategory(text: "Others", icon: Icons.more_horiz)
                         ],
                       ),
                     ),
                     Padding(
                       padding: EdgeInsets.only(left: kPadding.w, top: 10.h),
                       child: CustomText(
-                        text: "Latest Need Requests",
+                        text: translation(context).latestNeeds,
                         fontSize: 15.sp,
                         fontColor: textColor,
                         fontWeight: FontWeight.w800,

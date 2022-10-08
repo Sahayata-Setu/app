@@ -1,7 +1,7 @@
 import 'package:donationapp/constant/common/Text/custom-text.dart';
 import 'package:donationapp/constant/kconstant.dart';
-import 'package:donationapp/features/Admin/Dashboard/widgets/userTab.dart';
-import 'package:donationapp/features/Admin/Dashboard/widgets/userTabLists.dart';
+import 'package:donationapp/features/Admin/Dashboard/widgets/users/userTab.dart';
+import 'package:donationapp/features/Admin/Dashboard/widgets/users/userTabLists.dart';
 import 'package:flutter/material.dart';
 
 class OptionsTab extends StatefulWidget {
@@ -20,7 +20,7 @@ class _OptionsTabState extends State<OptionsTab> with TickerProviderStateMixin {
         child: Column(children: [
       Container(
           //height: 30,
-          color: secondaryBlue,
+          color: blueColor,
           margin: const EdgeInsets.symmetric(vertical: 15),
           child: TabBar(
               padding: EdgeInsets.only(
@@ -29,7 +29,7 @@ class _OptionsTabState extends State<OptionsTab> with TickerProviderStateMixin {
               labelColor: whiteColor,
               labelStyle: const TextStyle(),
               indicator: const BoxDecoration(
-                color: blackColor,
+                color: secondaryBlue,
                 borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(kPadding),
                     topRight: Radius.circular(kPadding)),

@@ -15,7 +15,7 @@ class CustomTextField extends StatelessWidget {
     this.lines,
     this.focusBorder,
     this.value,
-    this.showObText,
+    // this.showObText,
     this.refs,
   });
   final refs;
@@ -26,7 +26,6 @@ class CustomTextField extends StatelessWidget {
   final focusBorder;
   final lines;
   final value;
-  final showObText;
 
   @override
   Widget build(BuildContext context) {
