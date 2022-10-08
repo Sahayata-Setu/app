@@ -35,8 +35,8 @@ class UserProfile extends ConsumerWidget {
     handleLogout() {
       ref.read(loginProvider).logout();
       final router = AutoRouter.of(context);
-      // router.replaceAll([LoginRoute()]);
-      replaceRouteTo("/login", context);
+      router.replaceAll([LoginRoute()]);
+      // replaceRouteTo("/login", context);
       const snackBar = SnackBar(
         content: Text('Logged Out'),
       );

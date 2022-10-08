@@ -39,46 +39,47 @@ class NavBar extends StatelessWidget {
         text: title,
         fontSize: 17.sp,
       ),
-      leading: route == HomePageRoute.name ||
-              route == MessageRoute.name ||
-              route == NotificationsRoute.name
-          ? Container(
-              margin: EdgeInsets.only(left: 10),
-              child: Badge(
-                badgeColor: blueColor,
-                badgeContent: Image.asset(
-                  "assets/images/logo.png",
-                  height: 2,
-                  width: 2,
-                ),
-              ),
-            )
-          //  Container(
-          //     width: 5,
-          //     height: 5,
-          //     child: Image.asset(
-          //       "assets/images/logo.png",
-          //       height: 5,
-          //       width: 5,
-          //     ),
-          //     decoration: BoxDecoration(
-          //       shape: BoxShape.circle,
-          //       // image: DecorationImage(
-          //       //     fit: BoxFit.fitWidth,
 
-          //       //     image: AssetImage("assets/images/logo.png",))
-          //     ),
-          //   )
-          // ? CircleAvatar(
-          //     child: Image.asset("assets/images/logo.png", fit: BoxFit.cover),
-          //     // radius: 5,
-          //   )
-          : IconButton(
-              icon: Icon(Icons.arrow_back),
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-            ),
+      // leading: route == HomePageRoute.name ||
+      //         route == MessageRoute.name ||
+      //         route == NotificationsRoute.name
+      //     ? Container(
+      //         margin: EdgeInsets.only(left: 10),
+      //         child: Badge(
+      //           badgeColor: blueColor,
+      //           badgeContent: Image.asset(
+      //             "assets/images/logo.png",
+      //             height: 2,
+      //             width: 2,
+      //           ),
+      //         ),
+      //       )
+      //  Container(
+      //     width: 5,
+      //     height: 5,
+      //     child: Image.asset(
+      //       "assets/images/logo.png",
+      //       height: 5,
+      //       width: 5,
+      //     ),
+      //     decoration: BoxDecoration(
+      //       shape: BoxShape.circle,
+      //       // image: DecorationImage(
+      //       //     fit: BoxFit.fitWidth,
+
+      //       //     image: AssetImage("assets/images/logo.png",))
+      //     ),
+      //   )
+      // ? CircleAvatar(
+      //     child: Image.asset("assets/images/logo.png", fit: BoxFit.cover),
+      //     // radius: 5,
+      //   )
+      // : IconButton(
+      //     icon: Icon(Icons.arrow_back),
+      //     onPressed: () {
+      //       Navigator.of(context).pop();
+      //     },
+      //   ),
       //leading: isAdmin == null ? const SizedBox.shrink() : Icon(Icons.menu),
       actions: [
         isAdmin != null
@@ -90,63 +91,61 @@ class NavBar extends StatelessWidget {
                   },
                   icon: Icon(Icons.search, size: KiconSize.h),
                 ))
-            :
-            // : showBadge
-            //     ?
-            Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Badge(
-                    badgeColor: Colors.orange,
-                    badgeContent: const Text(
-                      '9',
-                      style: TextStyle(color: Colors.white),
-                    ),
-                    child: Container(
-                      margin: EdgeInsets.only(top: 6.h),
-                      child: Icon(
-                        Icons.star,
-                        size: kiconSize2,
-                      ),
-                    ),
-                    // showBadge: showBadge ? true : false,
-                  ),
-                  Padding(
-                    padding: EdgeInsets.all(kPadding1),
-                    child: PopupMenuButton(
-                        color: backgroundColor,
-                        child: Icon(
-                          Icons.add,
-                          size: KiconSize,
+            : showBadge
+                ? Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Badge(
+                        badgeColor: Colors.orange,
+                        badgeContent: const Text(
+                          '9',
+                          style: TextStyle(color: Colors.white),
                         ),
-                        // onSelected: (item)=>onSelected(context,item),
-                        itemBuilder: (context) => [
-                              PopupMenuItem<int>(
-                                  child: Text("Create donation"),
-                                  onTap: () {
-                                    // go to create post item
-                                    routeTo("/createDonation", context);
-                                  }),
-                              PopupMenuItem<int>(
-                                child: Text("Create need"),
-                                onTap: () {
-                                  routeTo("/createNeed", context);
-                                  // go to create request button
-                                },
-                              ),
-                            ]),
+                        child: Container(
+                          margin: EdgeInsets.only(top: 6.h),
+                          child: Icon(
+                            Icons.star,
+                            size: kiconSize2,
+                          ),
+                        ),
+                        // showBadge: showBadge ? true : false,
+                      ),
+                      Padding(
+                        padding: EdgeInsets.all(kPadding1),
+                        child: PopupMenuButton(
+                            color: backgroundColor,
+                            child: Icon(
+                              Icons.add,
+                              size: KiconSize,
+                            ),
+                            // onSelected: (item)=>onSelected(context,item),
+                            itemBuilder: (context) => [
+                                  PopupMenuItem<int>(
+                                      child: Text("Create donation"),
+                                      onTap: () {
+                                        // go to create post item
+                                        routeTo("/createDonation", context);
+                                      }),
+                                  PopupMenuItem<int>(
+                                    child: Text("Create need"),
+                                    onTap: () {
+                                      routeTo("/createNeed", context);
+                                      // go to create request button
+                                    },
+                                  ),
+                                ]),
+                      )
+                      // Container(
+                      //     margin: EdgeInsets.symmetric(horizontal: 10.w),
+                      //     child: IconButton(
+                      //       onPressed: () {
+                      //         // routeTo("/search", context);
+                      //       },
+                      //       icon: const Icon(Icons.search, size: KiconSize),
+                      //     ))
+                    ],
                   )
-                  // Container(
-                  //     margin: EdgeInsets.symmetric(horizontal: 10.w),
-                  //     child: IconButton(
-                  //       onPressed: () {
-                  //         // routeTo("/search", context);
-                  //       },
-                  //       icon: const Icon(Icons.search, size: KiconSize),
-                  //     ))
-                ],
-              )
-        // : const SizedBox.shrink()
+                : const SizedBox.shrink()
       ],
     );
   }

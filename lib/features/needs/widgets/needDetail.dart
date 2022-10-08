@@ -8,25 +8,24 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:donationapp/constant/common/ImageCarousel/image_carousel.dart';
 import 'package:donationapp/constant/common/Text/custom-text.dart';
 import 'package:donationapp/constant/kconstant.dart';
+import 'package:intl/intl.dart';
 
 import '../../../../app.dart';
 import '../../../../constant/common/BottomNavBar/BottomNavBar.dart';
 import '../../../../constant/common/NavBar/navbar.dart';
 
 class NeedDetail extends StatelessWidget {
-  const NeedDetail({
-    super.key,
-    //this.data
-  });
-  // final data;
+  const NeedDetail({super.key, this.data});
+  final data;
 
   @override
   Widget build(BuildContext context) {
-    // final singleData = data['body'];
+    final singleData = data['body'];
     // log("this is from data ${data['quantity']}");
-    // log("this is id$data}");
+    // log("this is id$singleData[]}");
 
-    // log("rgtf${singleData}");
+    // DateFormat('yyyy-MM-dd').format(selectedDate)
+    final date = singleData['pickupDate'].split("T");
     return App(
       component: Container(
           alignment: Alignment.topLeft,
@@ -35,7 +34,9 @@ class NeedDetail extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const ImageCarousel(),
+              ImageCarousel(
+                data: data,
+              ),
               Padding(
                 padding: EdgeInsets.all(kPadding1.w),
                 child: Column(
@@ -47,7 +48,7 @@ class NeedDetail extends StatelessWidget {
                         fontColor: Colors.grey.shade600,
                       ),
                       trailing: CustomText(
-                        text: "Vegetables",
+                        text: "${singleData['beneficiary_name']}",
                         fontWeight: FontWeight.w500,
                         fontSize: 15.sp,
                       ),
@@ -58,7 +59,7 @@ class NeedDetail extends StatelessWidget {
                         fontColor: Colors.grey.shade600,
                       ),
                       trailing: CustomText(
-                        text: "Food",
+                        text: "${singleData['category']}",
                         fontWeight: FontWeight.w500,
                         fontSize: 15.sp,
                       ),
@@ -69,7 +70,8 @@ class NeedDetail extends StatelessWidget {
                         fontColor: Colors.grey.shade600,
                       ),
                       trailing: CustomText(
-                        text: "4", //"${singleData['quantity']}",
+                        text:
+                            "${singleData['quantity']}", //"${singleData['quantity']}",
                         fontWeight: FontWeight.w500,
                         fontSize: 15.sp,
                       ),
@@ -80,9 +82,19 @@ class NeedDetail extends StatelessWidget {
                         fontColor: Colors.grey.shade600,
                       ),
                       trailing: CustomText(
-                        text: "10/09/22", //"${singleData['pickupDetails']}",
+                        text: "${date[0]}", //"${singleData['pickupDetails']}",
+                        // singleData['pickupDate']
                         fontWeight: FontWeight.w500,
                         fontSize: 15.sp,
+                      ),
+                    ),
+                    ListTile(
+                      title: CustomText(
+                        text: "Pickup Details",
+                        fontColor: Colors.grey.shade600,
+                      ),
+                      trailing: CustomText(
+                        text: "${singleData['pickupDetails']}",
                       ),
                     ),
                     ListTile(

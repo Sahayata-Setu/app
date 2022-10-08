@@ -56,10 +56,19 @@ class DonationsHome extends ConsumerWidget {
                           text: "Foods",
                           icon: Icons.food_bank,
                           url: "/donations/:category"),
-                      DonationsCategory(text: "Toys", icon: Icons.toys),
                       DonationsCategory(
-                          text: "Books", icon: Icons.library_books),
-                      DonationsCategory(text: "Clothes", icon: Icons.person),
+                        text: "Toys",
+                        icon: Icons.toys,
+                        url: "/donations/:category",
+                      ),
+                      DonationsCategory(
+                          text: "Books",
+                          icon: Icons.library_books,
+                          url: "/donations/:category"),
+                      DonationsCategory(
+                          text: "Clothes",
+                          icon: Icons.person,
+                          url: "/donations/:category"),
                       //  DonationsCategory(text: "Others", icon: Icons.more_horiz)
                     ],
                   ),

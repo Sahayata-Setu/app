@@ -23,11 +23,11 @@ class CustomElevatedButton extends StatelessWidget {
         onPressed: fn,
         child: child,
         style: ElevatedButton.styleFrom(
-            backgroundColor: blueColor,
-            foregroundColor: whiteColor,
+            // backgroundColor: blueColor,
+            // foregroundColor: whiteColor,
             shape: const RoundedRectangleBorder(
-              borderRadius: BorderRadius.all(Radius.circular(kPadding1)),
-            )),
+          borderRadius: BorderRadius.all(Radius.circular(kPadding1)),
+        )),
       ),
     );
   }

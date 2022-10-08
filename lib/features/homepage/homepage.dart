@@ -15,22 +15,61 @@ import 'package:donationapp/utils/store-service/store.service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 
-class HomePage extends ConsumerWidget {
+import '../../main.dart';
+
+class HomePage extends ConsumerStatefulWidget {
   const HomePage({super.key});
-  // final data;
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    // final token = StorageService.getToken();
-    // log("this id from${StorageService.getToken()}");
-    // log("this is token${ref.watch(categoriesProvider)}");
-    // final val = AutoRouter.of(context).current.name;
-    // log("this is from home page${data['body']}");
-    // final post = data['body'];
-    // // var choosenValue;
-    // final getUserId = StorageService.getId();
-    // log("this id from${getUserId}");
+  _HomePageState createState() => _HomePageState();
+}
 
+class _HomePageState extends ConsumerState<HomePage> {
+  String appToken = "";
+  @override
+  void initState() {
+    super.initState();
+    FirebaseMessaging _firebase = FirebaseMessaging.instance;
+    _firebase.getToken().then((value) {
+      setState(() {
+        appToken = value.toString();
+      });
+    });
+    FirebaseMessaging.onMessage.listen((RemoteMessage message) {
+      _firebase.getToken().then((value) {});
+
+      RemoteNotification? notification = message.notification;
+      AndroidNotification? android = message.notification?.android;
+      if (notification != null && android != null) {
+        flutterLocalNotificationsPlugin.show(
+            notification.hashCode,
+            notification.title,
+            notification.body,
+            NotificationDetails(
+              android: AndroidNotificationDetails(
+                channel.id,
+                channel.name,
+                color: Colors.blue,
+                playSound: true,
+                icon: '@mipmap/ic_launcher',
+              ),
+            ));
+      }
+    });
+
+    FirebaseMessaging.onMessageOpenedApp.listen((RemoteMessage message) {
+      RemoteNotification? notification = message.notification;
+      AndroidNotification? android = message.notification?.android;
+      if (notification != null && android != null) {
+        if (notification.title == "WINNER ANNOUNCEMNT") {}
+      }
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
     return App(
       component: Container(
         //height: ,

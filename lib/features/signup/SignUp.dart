@@ -104,6 +104,11 @@ class Signup extends ConsumerWidget {
                   label: "Password",
                   name: "password",
                 ),
+                CustomTextField(
+                  refs: ref.read(signUpDetailsProvider.notifier),
+                  label: "City",
+                  name: "city",
+                ),
 
                 //
                 ElevatedButton(

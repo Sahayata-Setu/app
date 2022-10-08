@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:donationapp/services/add-donation/add.donation.service.dart';
+import 'package:donationapp/services/add-need/add.need.service.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -14,19 +15,20 @@ final needDetailsProvider = StateProvider(
   }),
 );
 
-final datePickerDetails = StateProvider<DateTime>((ref) => (DateTime.now()));
+final datePickerNeedDetails =
+    StateProvider<DateTime>((ref) => (DateTime.now()));
 
-final idImageDonationProvider = StateProvider((ref) => ([]));
+final idImageNeedProvider = StateProvider((ref) => ([]));
 
-class DonationNotifier extends ChangeNotifier {
-  DonationNotifier(this.read) : super();
+class NeedNotifier extends ChangeNotifier {
+  NeedNotifier(this.read) : super();
   final Reader read;
 
   // @override
-  createDonation(data, image, date) async {
-    final donationSer = read(donationService);
+  createNeed(data, image, date) async {
+    final donationSer = read(needService);
     try {
-      final resp = await donationSer.createDonation(data, image, date);
+      final resp = await donationSer.createNeed(data, image, date);
       log("this si from resp ${resp}");
       notifyListeners();
       return resp;
@@ -37,5 +39,5 @@ class DonationNotifier extends ChangeNotifier {
   }
 }
 
-final donationProvider = ChangeNotifierProvider.autoDispose<DonationNotifier>(
-    (ref) => DonationNotifier(ref.read));
+final needProvider = ChangeNotifierProvider.autoDispose<NeedNotifier>(
+    (ref) => NeedNotifier(ref.read));

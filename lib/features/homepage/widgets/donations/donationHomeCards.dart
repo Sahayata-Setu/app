@@ -28,7 +28,9 @@ class DonationHomeCards extends StatelessWidget {
         children: [
           ImageOverlay(
               border_radius: false,
-              image: singleInfo['images'][0],
+              image: singleInfo['images'].length == 0
+                  ? "https://www.ncenet.com/wp-content/uploads/2020/04/No-image-found.jpg"
+                  : singleInfo['images'][0],
               location: "${singleInfo['city']}",
               title: "${singleInfo['title']}",
               height: 200.h,

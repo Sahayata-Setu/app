@@ -16,6 +16,12 @@ final singleDonationsDataProvider =
     return ref.watch(homePageService).getDontaionsById(id);
   },
 );
+final singleNeedDataProvider =
+    FutureProvider.family<Map<String, dynamic>, String>(
+  (ref, id) {
+    return ref.watch(homePageService).getRequestById(id);
+  },
+);
 
 // final agentsSearchProvider =
 //     StateNotifierProvider.autoDispose<Map<String, dynamic>, String>(

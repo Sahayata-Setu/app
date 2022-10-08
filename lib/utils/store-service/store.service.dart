@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:donationapp/constant/config/config.dart';
+import 'package:donationapp/helpers/time.dart';
 import 'package:get_storage/get_storage.dart';
 
 class StorageService {
@@ -45,7 +46,7 @@ class StorageService {
   }
 
   static getUser() {
-    return box.read("user");
+    return parseJwt(box.read("token"));
   }
 
   static void setErrorMessage(message) {

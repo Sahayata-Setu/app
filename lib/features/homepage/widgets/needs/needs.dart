@@ -18,7 +18,7 @@ class NeedsHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final needDetails = data['body'].toList();
-    log("this is from needs page ${needDetails.length}");
+    // log("this is from needs page ${needDetails}");
     return Container(
         margin: EdgeInsets.all(kPadding.w),
         alignment: Alignment.topLeft,
@@ -68,7 +68,8 @@ class NeedsHome extends StatelessWidget {
                             child: ListView.builder(
                               padding: EdgeInsets.only(left: kPadding),
                               scrollDirection: Axis.horizontal,
-                              itemCount: 5, //donationsDetails.length,
+                              itemCount: needDetails.length,
+                              //donationsDetails.length,
                               itemBuilder: (context, index) => Container(
                                 margin: EdgeInsets.all(10.w),
 
