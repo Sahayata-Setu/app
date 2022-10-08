@@ -19,7 +19,7 @@ class DonationHomeCards extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // log("this is for homepage${singleInfo}");
+    // log("this is for homepage${singleInfo['_id']}");
     return GestureDetector(
       onTap: () {
         routePush(DonationDetailDataRoute(id: singleInfo['_id']), context);
@@ -47,7 +47,11 @@ class DonationHomeCards extends StatelessWidget {
                 CustomElevatedButton(
                   child: Text(translation(context).claim),
                   width: 80.w,
-                  fn: () {},
+                  fn: () {
+                    routeTo(
+                        "/message/${singleInfo['donor_name']}/${singleInfo['_id']}",
+                        context);
+                  },
                 ),
                 IconButton(
                     onPressed: () {},

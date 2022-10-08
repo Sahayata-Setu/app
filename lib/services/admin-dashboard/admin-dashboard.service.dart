@@ -52,11 +52,88 @@ class AdminDashboardServiceClass {
     }
   }
 
-  Future<String> approveVolunteer(userId, type) async {
+  Future<Map<String, dynamic>> approveVolunteer(
+    userId,
+    type,
+  ) async {
     try {
       final token = StorageService.getToken();
       final response = await _client.post(
         "/admin/volunteer/${type}/${userId}",
+        options: Options(
+          headers: {"Authorization": "Bearer ${token}"},
+        ),
+      );
+
+      return response;
+    } catch (e) {
+      // log("this is error$e");
+      throw Exception("Invalid Request $e");
+    }
+  }
+
+  Future<Map<String, dynamic>> approveDonation(
+    userId,
+    type,
+  ) async {
+    try {
+      final token = StorageService.getToken();
+      final response = await _client.post(
+        "/admin/donation/${type}/${userId}",
+        options: Options(
+          headers: {"Authorization": "Bearer ${token}"},
+        ),
+      );
+
+      return response;
+    } catch (e) {
+      // log("this is error$e");
+      throw Exception("Invalid Request $e");
+    }
+  }
+
+  Future<Map<String, dynamic>> approveRequest(
+    userId,
+    type,
+  ) async {
+    try {
+      final token = StorageService.getToken();
+      final response = await _client.post(
+        "/admin/request/${type}/${userId}",
+        options: Options(
+          headers: {"Authorization": "Bearer ${token}"},
+        ),
+      );
+
+      return response;
+    } catch (e) {
+      // log("this is error$e");
+      throw Exception("Invalid Request $e");
+    }
+  }
+
+  Future<Map<String, dynamic>> getPendingDonations() async {
+    try {
+      final token = StorageService.getToken();
+      final response = await _client.get(
+        "/admin/donations/pending",
+        options: Options(
+          headers: {"Authorization": "Bearer ${token}"},
+        ),
+      );
+
+      return response;
+    } catch (e) {
+      // log("this is error$e");
+      throw Exception("Invalid Request $e");
+    }
+  }
+
+  Future<Map<String, dynamic>> getPendingRequest() async {
+    try {
+      final token = StorageService.getToken();
+      final response = await _client.get(
+        "/admin/requests/pending",
         options: Options(
           headers: {"Authorization": "Bearer ${token}"},
         ),

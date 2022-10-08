@@ -55,24 +55,32 @@ class DonationsHome extends ConsumerWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
                       DonationsCategory(
-                          text: translation(context).food,
-                          icon: Icons.food_bank,
-                          url: "/donations/:category"),
+                        text: translation(context).food,
+                        icon: Icons.food_bank,
+                        url: "/donations/:category",
+                        badge: 23,
+                      ),
+
                       DonationsCategory(
                         text: translation(context).toys,
                         icon: Icons.toys,
                         url: "/donations/:category",
+                        badge: 2,
                       ),
                       // DonationsCategory(
                       //     text: translation(context).toys, icon: Icons.toys),
                       DonationsCategory(
-                          text: translation(context).books,
-                          icon: Icons.library_books,
-                          url: "/donations/:category"),
+                        text: translation(context).books,
+                        icon: Icons.library_books,
+                        badge: 3,
+                        url: "/donations/:category",
+                      ),
                       DonationsCategory(
-                          text: translation(context).clothes,
-                          icon: Icons.person,
-                          url: "/donations/:category"),
+                        text: translation(context).clothes,
+                        icon: Icons.person,
+                        badge: 10,
+                        url: "/donations/:category",
+                      ),
                       //  DonationsCategory(text: "Others", icon: Icons.more_horiz)
                     ],
                   ),

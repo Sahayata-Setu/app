@@ -8,10 +8,15 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class DonationsCategory extends StatelessWidget {
   const DonationsCategory(
-      {super.key, required this.text, this.url, required this.icon});
+      {super.key,
+      required this.text,
+      this.url,
+      required this.icon,
+      this.badge});
   final text;
   final icon;
   final url;
+  final badge;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -26,9 +31,9 @@ class DonationsCategory extends StatelessWidget {
           children: [
             Badge(
               badgeColor: blueColor,
-              badgeContent: const Text(
+              badgeContent: Text(
                 // add the number of donations here
-                '99',
+                '${badge}',
                 style: TextStyle(color: Colors.white),
               ),
               child: Container(

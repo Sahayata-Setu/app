@@ -43,17 +43,22 @@ class NeedsHome extends StatelessWidget {
                         //         maxCrossAxisExtent: 120),
                         children: [
                           DonationsCategory(
-                              text: translation(context).food,
-                              icon: Icons.food_bank,
-                              url: "/needs/:category"),
+                            text: translation(context).food,
+                            icon: Icons.food_bank,
+                            badge: 33,
+                            url: "/needs/:category",
+                          ),
                           DonationsCategory(
                               text: translation(context).toys,
+                              badge: 9,
                               icon: Icons.toys),
                           DonationsCategory(
                               text: translation(context).books,
+                              badge: 8,
                               icon: Icons.library_books),
                           DonationsCategory(
                               text: translation(context).clothes,
+                              badge: 10,
                               icon: Icons.person),
                           // DonationsCategory(text: "Others", icon: Icons.more_horiz)
                         ],

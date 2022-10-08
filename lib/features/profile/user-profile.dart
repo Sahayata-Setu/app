@@ -29,10 +29,11 @@ class UserProfile extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final userId = StorageService.getId();
+    final userType = StorageService.getuserType();
     ref.watch(initUserDetailsForUpdate);
     // final userDetails = ref.watch(singleUserDataProvider(userId));
     // final userData = data['body'];
-    // log("this is from user profile ${userData}");
+    log("this is from user profile ${userType}");
     handleLogout() {
       ref.read(loginProvider).logout();
       final router = AutoRouter.of(context);
@@ -108,15 +109,17 @@ class UserProfile extends ConsumerWidget {
                   imageName: "volunteer",
                 ),
               ),
-              GestureDetector(
-                onTap: () {
-                  routeTo("/admin-dashboard", context);
-                },
-                child: UserProfileOptions(
-                  text: "Admin Dashboard",
-                  imageName: "volunteer",
-                ),
-              ),
+              userType == "admin"
+                  ? GestureDetector(
+                      onTap: () {
+                        routeTo("/admin-dashboard", context);
+                      },
+                      child: UserProfileOptions(
+                        text: "Admin Dashboard",
+                        imageName: "volunteer",
+                      ),
+                    )
+                  : Container(),
               GestureDetector(
                 onTap: () {
                   handleLogout();

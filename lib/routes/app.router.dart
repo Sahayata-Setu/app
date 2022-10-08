@@ -4,6 +4,7 @@ import 'package:donationapp/auth/auth_check/auth_check.dart';
 import 'package:donationapp/constant/common/splashScreen/splashScreen.dart';
 import 'package:donationapp/features/Admin/Dashboard/admin-dashboard.data.dart';
 import 'package:donationapp/features/Admin/Dashboard/adminDashboard.dart';
+import 'package:donationapp/features/Admin/widgets/approveVolunter.dart';
 import 'package:donationapp/features/account-settings/account-settings.dart';
 import 'package:donationapp/features/apply-for-volunteer/apply-for-volunteer.dart';
 import 'package:donationapp/features/campaigns/campaignDetails.dart';
@@ -63,6 +64,8 @@ import 'package:donationapp/features/signup/SignUp.dart';
   MaterialRoute(page: CertificatePrint, path: "/certificatePreview"),
   // MaterialRoute(page: ApplyForVolunteer, path: "/apply-volunteer"),
   MaterialRoute(page: ApplyForVolunteer, path: "/apply-volunteer"),
+  MaterialRoute(page: ApproveVolunter, path: "/approveVolunter"),
+
   MaterialRoute(page: AdminDashBoardData, path: "/admin-dashboard"),
   MaterialRoute(
       page: MessageDetails, path: "/message/:receiverName/:receiverId"),

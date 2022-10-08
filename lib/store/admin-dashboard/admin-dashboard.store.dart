@@ -19,6 +19,16 @@ final pendingVolunteerProvider = FutureProvider<Map<String, dynamic>>(
     return ref.watch(adminDashboardService).getPendingVolunteers();
   },
 );
+final pendingDonationsProvider = FutureProvider<Map<String, dynamic>>(
+  (ref) {
+    return ref.watch(adminDashboardService).getPendingDonations();
+  },
+);
+final pendingRequestProvider = FutureProvider<Map<String, dynamic>>(
+  (ref) {
+    return ref.watch(adminDashboardService).getPendingRequest();
+  },
+);
 
 class ApproveNotifier extends ChangeNotifier {
   ApproveNotifier(this.read) : super();
@@ -29,6 +39,32 @@ class ApproveNotifier extends ChangeNotifier {
     final approveVolunteerService = read(adminDashboardService);
     try {
       final resp = await approveVolunteerService.approveVolunteer(userId, type);
+
+      notifyListeners();
+      return resp;
+    } catch (e) {
+      log('$e');
+      rethrow;
+    }
+  }
+
+  approveDonations(userId, type) async {
+    final approveVolunteerService = read(adminDashboardService);
+    try {
+      final resp = await approveVolunteerService.approveDonation(userId, type);
+
+      notifyListeners();
+      return resp;
+    } catch (e) {
+      log('$e');
+      rethrow;
+    }
+  }
+
+  approveRequest(userId, type) async {
+    final approveVolunteerService = read(adminDashboardService);
+    try {
+      final resp = await approveVolunteerService.approveRequest(userId, type);
 
       notifyListeners();
       return resp;

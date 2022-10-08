@@ -12,8 +12,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class UserList extends ConsumerWidget {
-  const UserList(
+class RequestList extends ConsumerWidget {
+  const RequestList(
       {super.key,
       required this.title,
       this.createdAt,
@@ -31,13 +31,13 @@ class UserList extends ConsumerWidget {
     final userId = StorageService.getId();
     handleApprove() {
       try {
-        final resp = approveProv.approveVolunteer(id, "approve");
-        ref.refresh(pendingVolunteerProvider);
+        final resp = approveProv.approveRequest(id, "approve");
+        ref.refresh(pendingRequestProvider);
         const snackBar = SnackBar(
           content: Text('Sucessfully Approved.'),
         );
         ScaffoldMessenger.of(context).showSnackBar(snackBar);
-        log(resp);
+        // log(resp);
       } catch (e) {
         log("this is error from resp ${e}");
       }
@@ -45,8 +45,8 @@ class UserList extends ConsumerWidget {
 
     handleReject() {
       try {
-        final resp = approveProv.approveVolunteer(id, "reject");
-        ref.refresh(pendingVolunteerProvider);
+        final resp = approveProv.approveRequest(id, "reject");
+        ref.refresh(pendingRequestProvider);
         const snackBar = SnackBar(
           content: Text('Request sucessfully rejected'),
         );
