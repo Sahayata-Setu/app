@@ -1,3 +1,5 @@
+import 'package:donationapp/constant/common/NavBar/adminNavBar.dart';
+import 'package:donationapp/features/Admin/Dashboard/widgets/drawer.dart';
 import 'package:donationapp/features/Admin/Dashboard/widgets/optionsTab.dart';
 import 'package:donationapp/features/Admin/Dashboard/widgets/dashbordCards.dart';
 import 'package:flutter/material.dart';
@@ -14,8 +16,44 @@ class AdminDashboard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return App(
-      component: Container(
+    return Scaffold(
+      appBar: PreferredSize(
+        preferredSize: const Size.fromHeight(60),
+        child: AdminNavBar(title: "Dashboard"),
+      ),
+      drawer: Drawer(
+        backgroundColor: blueColor,
+        child: ListView(
+            // Important: Remove any padding from the ListView.
+            padding: EdgeInsets.zero,
+            children: [
+              DrawerHeader(
+                decoration: BoxDecoration(
+                    //color: Colors.blue,
+                    ),
+                child: IconButton(
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    icon: Icon(Icons.close)),
+              ),
+              ListTile(
+                title: const Text(
+                  'Item 1',
+                  style: TextStyle(color: blackColor),
+                ),
+                onTap: () {
+                  Navigator.pop(context);
+                },
+              ),
+              ListTile(
+                  title: const Text('Item 2'),
+                  onTap: () {
+                    Navigator.pop(context);
+                  })
+            ]),
+      ),
+      body: Container(
           padding: EdgeInsets.only(top: kPadding1),
           height: ScreenUtil().screenHeight,
           color: blackColor,
@@ -62,15 +100,6 @@ class AdminDashboard extends StatelessWidget {
               const OptionsTab()
             ],
           )),
-      appbar: const NavBar(
-        title: "Dashboard",
-        showBadge: false,
-        isAdmin: true,
-        isMainPage: false,
-      ),
-      isAdmin: true,
-      // drawer: Drawer(),
-      bottomNavBar: const BottomNavBar(showBottomNavBar: true),
     );
   }
 }

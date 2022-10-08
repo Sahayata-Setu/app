@@ -2,7 +2,9 @@ import 'dart:developer';
 
 import 'package:donationapp/constant/common/Icon/custom-icon.dart';
 import 'package:donationapp/constant/common/horizontal-line/horizontal-line.dart';
+import 'package:donationapp/store/message/message.store.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:donationapp/constant/common/ImageCarousel/image_carousel.dart';
@@ -13,17 +15,18 @@ import '../../../../app.dart';
 import '../../../../constant/common/BottomNavBar/BottomNavBar.dart';
 import '../../../../constant/common/NavBar/navbar.dart';
 
-class DonationDetail extends StatelessWidget {
+class DonationDetail extends ConsumerWidget {
   const DonationDetail({super.key, this.data});
   final data;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final singleData = data['body'];
+    final messages = ref.watch(allConnectedUsersProvider);
     // log("this is from data ${data['quantity']}");
-    // log("this is id$data}");
+    log("this is id$messages}");
 
-    // log("rgtf${singleData}");
+    // log("rgtf donation${singleData}");
     return App(
       component: Container(
           alignment: Alignment.topLeft,
@@ -105,15 +108,18 @@ class DonationDetail extends StatelessWidget {
                         fontSize: 15.sp,
                       ),
                     ),
-                    ListTile(
-                        title: CustomText(
-                          text: "Contact Donor",
-                          fontColor: Colors.grey.shade600,
-                        ),
-                        trailing: CustomIcon(
-                          icon: Icons.message,
-                          color: blueColor,
-                        )),
+                    GestureDetector(
+                      onTap: () {},
+                      child: ListTile(
+                          title: CustomText(
+                            text: "Contact Donor",
+                            fontColor: Colors.grey.shade600,
+                          ),
+                          trailing: CustomIcon(
+                            icon: Icons.message,
+                            color: blueColor,
+                          )),
+                    ),
                     ListTile(
                         title: CustomText(
                           text: "Helpline",

@@ -57,6 +57,31 @@ class HomepageServiceClass {
       throw Exception("Invalid Request $e");
     }
   }
+
+  Future<Map<String, dynamic>> getRequestById(id) async {
+    // final singUpService
+    try {
+      // log("message");
+      final token = StorageService.getToken();
+      final response = await _client.get(
+        "/user/request/${id}",
+        options: Options(
+          headers: {"Authorization": "Bearer ${token}"},
+        ),
+      );
+
+      log("this is from app ${response}");
+      // log("this is from $response['body']");
+      // log("${response.statusCode}");
+      // if(response.statusCode(400) )
+      // StorageService.setToken(response['token']);
+
+      return response;
+    } catch (e) {
+      log("this is error$e");
+      throw Exception("Invalid Request $e");
+    }
+  }
 }
 
 final homePageService =

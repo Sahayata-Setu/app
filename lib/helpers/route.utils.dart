@@ -2,7 +2,7 @@ import 'package:auto_route/auto_route.dart';
 
 routeTo(path, context) {
   final router = AutoRouter.of(context);
-  router.pushNamed(path);
+  router.navigateNamed(path);
 }
 
 goBack(context) {

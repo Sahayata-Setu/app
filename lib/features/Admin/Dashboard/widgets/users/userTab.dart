@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:donationapp/constant/kconstant.dart';
-import 'package:donationapp/features/Admin/Dashboard/widgets/userTabLists.dart';
+import 'package:donationapp/features/Admin/Dashboard/widgets/users/userTabLists.dart';
 
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 

@@ -1,7 +1,10 @@
+import 'package:donationapp/constant/common/Text/custom-text.dart';
 import 'package:donationapp/features/donations/widgets/donationDetails.data.dart';
 import 'package:donationapp/features/homepage/widgets/heading.dart';
+import 'package:donationapp/features/needs/widgets/needDetail.data.dart';
 import 'package:donationapp/helpers/route.utils.dart';
 import 'package:donationapp/routes/app.router.gr.dart';
+import 'package:donationapp/utils/store-service/language.store.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'dart:developer';
@@ -22,16 +25,18 @@ class NeedsHomeCards extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         //route to needs details page
-        // routePush(DonationDetailDataRoute(id: singleInfo['_id']), context);
+        routePush(NeedDetailDataRoute(id: singleInfo['_id']), context);
       },
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           ImageOverlay(
               border_radius: false,
-              image: "${singleInfo['images']}",
+              image: singleInfo['images'].length == 0
+                  ? "https://www.ncenet.com/wp-content/uploads/2020/04/No-image-found.jpg"
+                  : singleInfo['images'][0],
               location: "${singleInfo['city']}", // "${singleInfo['city']}",
-              title: "${singleInfo['name']}",
+              title: "${singleInfo['title']}",
               height: 200.h,
               width: 250.w,
               showShareBtn: false),
@@ -43,7 +48,7 @@ class NeedsHomeCards extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 CustomElevatedButton(
-                  child: Text("Donate"),
+                  child: CustomText(text: translation(context).donate),
                   width: 80.w,
                   fn: () {},
                 ),

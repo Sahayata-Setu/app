@@ -1,17 +1,25 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:donationapp/constant/common/horizontal-line/horizontal-line.dart';
+import 'package:donationapp/helpers/route.utils.dart';
+import 'package:donationapp/helpers/time.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ConversationList extends StatefulWidget {
   String name;
   String messageText;
   String imageUrl;
   String time;
+  String createdAt;
+  String receiverId;
   bool isMessageRead;
   ConversationList(
       {required this.name,
       required this.messageText,
       required this.imageUrl,
       required this.time,
+      required this.receiverId,
+      required this.createdAt,
       required this.isMessageRead});
   @override
   _ConversationListState createState() => _ConversationListState();
@@ -21,7 +29,9 @@ class _ConversationListState extends State<ConversationList> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: () {
+        routeTo("/message/${widget.name}/${widget.receiverId}", context);
+      },
       child: Container(
         padding: EdgeInsets.only(left: 16, right: 16, top: 10, bottom: 10),
         child: Row(
@@ -30,8 +40,21 @@ class _ConversationListState extends State<ConversationList> {
               child: Row(
                 children: <Widget>[
                   CircleAvatar(
-                    backgroundImage: AssetImage(widget.imageUrl),
-                    maxRadius: 30,
+                    backgroundColor: Colors.grey,
+                    child: widget.imageUrl != ""
+                        ? ClipRRect(
+                            borderRadius: BorderRadius.circular(20),
+                            child: CachedNetworkImage(
+                              placeholder: ((context, url) =>
+                                  const CircularProgressIndicator()),
+                              fit: BoxFit.cover,
+                              imageUrl: widget.imageUrl,
+                            ))
+                        : Text(
+                            widget.name[0],
+                            style:
+                                TextStyle(color: Colors.white, fontSize: 20.sp),
+                          ),
                   ),
                   SizedBox(
                     width: 16,
@@ -67,7 +90,7 @@ class _ConversationListState extends State<ConversationList> {
               ),
             ),
             Text(
-              widget.time,
+              convertToAgo(widget.createdAt),
               style: TextStyle(
                   fontSize: 12,
                   fontWeight: widget.isMessageRead

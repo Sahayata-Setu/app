@@ -20,6 +20,7 @@ User _$UserFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$User {
+  @JsonKey(name: "_id")
   String? get id => throw _privateConstructorUsedError;
   String? get firstName => throw _privateConstructorUsedError;
   String? get lastName => throw _privateConstructorUsedError;
@@ -27,7 +28,7 @@ mixin _$User {
   String? get address => throw _privateConstructorUsedError;
   String? get password =>
       throw _privateConstructorUsedError; // List<Null>? posts,
-  int? get phoneNo => throw _privateConstructorUsedError;
+  String? get phoneNo => throw _privateConstructorUsedError;
   String? get gender => throw _privateConstructorUsedError;
   String? get language => throw _privateConstructorUsedError;
   String? get profilePic => throw _privateConstructorUsedError;
@@ -44,13 +45,13 @@ abstract class $UserCopyWith<$Res> {
   factory $UserCopyWith(User value, $Res Function(User) then) =
       _$UserCopyWithImpl<$Res>;
   $Res call(
-      {String? id,
+      {@JsonKey(name: "_id") String? id,
       String? firstName,
       String? lastName,
       String? email,
       String? address,
       String? password,
-      int? phoneNo,
+      String? phoneNo,
       String? gender,
       String? language,
       String? profilePic,
@@ -109,7 +110,7 @@ class _$UserCopyWithImpl<$Res> implements $UserCopyWith<$Res> {
       phoneNo: phoneNo == freezed
           ? _value.phoneNo
           : phoneNo // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as String?,
       gender: gender == freezed
           ? _value.gender
           : gender // ignore: cast_nullable_to_non_nullable
@@ -140,13 +141,13 @@ abstract class _$$_UserCopyWith<$Res> implements $UserCopyWith<$Res> {
       __$$_UserCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String? id,
+      {@JsonKey(name: "_id") String? id,
       String? firstName,
       String? lastName,
       String? email,
       String? address,
       String? password,
-      int? phoneNo,
+      String? phoneNo,
       String? gender,
       String? language,
       String? profilePic,
@@ -206,7 +207,7 @@ class __$$_UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res>
       phoneNo: phoneNo == freezed
           ? _value.phoneNo
           : phoneNo // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as String?,
       gender: gender == freezed
           ? _value.gender
           : gender // ignore: cast_nullable_to_non_nullable
@@ -235,7 +236,7 @@ class __$$_UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_User implements _User {
   const _$_User(
-      {this.id,
+      {@JsonKey(name: "_id") this.id,
       this.firstName,
       this.lastName,
       this.email,
@@ -251,6 +252,7 @@ class _$_User implements _User {
   factory _$_User.fromJson(Map<String, dynamic> json) => _$$_UserFromJson(json);
 
   @override
+  @JsonKey(name: "_id")
   final String? id;
   @override
   final String? firstName;
@@ -264,7 +266,7 @@ class _$_User implements _User {
   final String? password;
 // List<Null>? posts,
   @override
-  final int? phoneNo;
+  final String? phoneNo;
   @override
   final String? gender;
   @override
@@ -333,13 +335,13 @@ class _$_User implements _User {
 
 abstract class _User implements User {
   const factory _User(
-      {final String? id,
+      {@JsonKey(name: "_id") final String? id,
       final String? firstName,
       final String? lastName,
       final String? email,
       final String? address,
       final String? password,
-      final int? phoneNo,
+      final String? phoneNo,
       final String? gender,
       final String? language,
       final String? profilePic,
@@ -349,6 +351,7 @@ abstract class _User implements User {
   factory _User.fromJson(Map<String, dynamic> json) = _$_User.fromJson;
 
   @override
+  @JsonKey(name: "_id")
   String? get id;
   @override
   String? get firstName;
@@ -361,7 +364,7 @@ abstract class _User implements User {
   @override
   String? get password;
   @override // List<Null>? posts,
-  int? get phoneNo;
+  String? get phoneNo;
   @override
   String? get gender;
   @override

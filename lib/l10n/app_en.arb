@@ -1,0 +1,23 @@
+{
+    "home":"Home",
+    "ongoingCampaigns":"Ongoing Campaigns",
+    "donation":"Donations",
+    "donate":"Donate",
+    "claim":"Claim",
+    "need":"Needs",
+    "food":"Food",
+    "clothes":"Clothes",
+    "books":"Books",
+    "toys":"Toys",
+    "createDonation":"Create a donation",
+    "createNeed":"Create a need",
+    "seeAll":"See all",
+    "latestDonations":"Latest Donations",
+    "latestNeeds":"Latest Need Requests",
+    "accountSettings":"Account Settings",
+"certificates":"Certificates",
+"donations_claim":"Donations/Claims",
+"changeLanguage":"Change Languag",
+"applyVolunter":"Apply Volunter",
+"logout":"Logout"
+}

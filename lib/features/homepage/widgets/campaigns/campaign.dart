@@ -3,6 +3,7 @@ import 'package:donationapp/constant/kconstant.dart';
 import 'package:donationapp/constant/common/ImageCarousel/ImageOverlay.dart';
 import 'package:donationapp/features/homepage/widgets/heading.dart';
 import 'package:donationapp/helpers/route.utils.dart';
+import 'package:donationapp/utils/store-service/language.store.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
@@ -23,8 +24,8 @@ class Campaigns extends StatelessWidget {
               children: [
                 Container(
                     margin: EdgeInsets.only(left: 25.w, top: kPadding.h),
-                    child: const Heading(
-                      header: "Ongoing Campaigns",
+                    child: Heading(
+                      header: translation(context).ongoingCampaigns,
                     )),
                 Container(
                   margin: EdgeInsets.only(
@@ -36,7 +37,7 @@ class Campaigns extends StatelessWidget {
                         routeTo("/campaigns", context);
                       }, // go to campaigns page
                       child: CustomText(
-                        text: "See all",
+                        text: translation(context).seeAll,
                         fontColor: secondaryBlue,
                         fontSize: 14.sp,
                         fontWeight: FontWeight.bold,
@@ -53,7 +54,7 @@ class Campaigns extends StatelessWidget {
                     ImageOverlay(
                       border_radius: true,
                       image:
-                          "https://sahayog-setu.s3.ap-south-1.amazonaws.com/1665142561919-image",
+                          "https://images.unsplash.com/photo-1542810634-71277d95dcbb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80",
                       title: "Help children from rajkot city to go to school.",
                       location: "RK University",
                       height: 250.h,
@@ -65,7 +66,7 @@ class Campaigns extends StatelessWidget {
                       width: double.infinity,
                       height: 250.h,
                       image:
-                          "https://sahayog-setu.s3.ap-south-1.amazonaws.com/1665142561919-image",
+                          "https://images.unsplash.com/photo-1635929114944-8bab23b98e74?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1534&q=80",
                       title: "Help one child monthly",
                       location: "Rajkot city",
                       showShareBtn: true,
@@ -75,7 +76,7 @@ class Campaigns extends StatelessWidget {
                       width: double.infinity,
                       height: 250.h,
                       image:
-                          "https://sahayog-setu.s3.ap-south-1.amazonaws.com/1665142561919-image",
+                          "https://images.unsplash.com/photo-1517596301415-0e77e9e18eaf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
                       title: "Let's dress India",
                       location: "Gujarat",
                       showShareBtn: true,

@@ -19,7 +19,12 @@ class Dontaions extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return App(
-      appbar: NavBar(showBadge: true, title: "Donations", isAdmin: false,isMainPage: false,),
+      appbar: NavBar(
+        showBadge: true,
+        title: "Donations",
+        isAdmin: false,
+        isMainPage: false,
+      ),
       component: Container(
         alignment: Alignment.topLeft,
         height: ScreenUtil().screenHeight.h + kPadding.h,
@@ -34,7 +39,7 @@ class Dontaions extends StatelessWidget {
             Container(
               margin: EdgeInsets.only(bottom: kPadding1.h),
               child: CustomText(
-                text: "Category name",
+                text: "Foods",
                 fontSize: 18.sp,
                 fontWeight: FontWeight.w700,
               ),
