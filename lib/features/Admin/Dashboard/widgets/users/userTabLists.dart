@@ -21,7 +21,7 @@ class UserList extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        routeTo("/users/:id", context);
+        routeTo("/approveVolunter", context);
       },
       child: Container(
         //padding: EdgeInsets.all(10),

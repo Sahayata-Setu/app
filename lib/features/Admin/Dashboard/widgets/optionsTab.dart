@@ -2,6 +2,8 @@ import 'package:donationapp/constant/common/Text/custom-text.dart';
 import 'package:donationapp/constant/kconstant.dart';
 import 'package:donationapp/features/Admin/Dashboard/widgets/users/userTab.dart';
 import 'package:donationapp/features/Admin/Dashboard/widgets/users/userTabLists.dart';
+import 'package:donationapp/features/Admin/Dashboard/widgets/users/usersPageCard.dart';
+import 'package:donationapp/helpers/route.utils.dart';
 import 'package:flutter/material.dart';
 
 class OptionsTab extends StatefulWidget {
@@ -54,8 +56,18 @@ class _OptionsTabState extends State<OptionsTab> with TickerProviderStateMixin {
       Expanded(
         child: TabBarView(controller: tabController, children: [
           UsersTab(),
-          CustomText(text: "Donations".toUpperCase()),
-          CustomText(text: "Requests".toUpperCase()),
+          UserPageCard(
+              city: "Rajkot",
+              icons: Icons.account_circle_rounded,
+              name: "Frehiwot Haile"),
+          ElevatedButton(
+              onPressed: () {
+                routeTo("/approveVolunter", context);
+              },
+              child: Text("Hi"))
+
+          // CustomText(text: "Donations".toUpperCase()),
+          // CustomText(text: "Requests".toUpperCase()),
         ]),
       )
     ]));

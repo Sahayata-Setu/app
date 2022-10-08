@@ -1,3 +1,4 @@
+import 'package:donationapp/helpers/route.utils.dart';
 import 'package:flutter/material.dart';
 
 import 'package:donationapp/constant/kconstant.dart';
@@ -10,16 +11,21 @@ class UsersTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-        height: ScreenUtil().screenHeight,
-        padding: EdgeInsets.all(kPadding.w),
-        child: ListView.builder(
-          itemBuilder: (ctx, index) => const UserList(
-              title: "Susan Khadka",
-              createdAt: "1h ago ",
-              city: "Rajkot",
-              icons: Icons.account_circle_rounded),
-          itemCount: 6,
-        ));
+    return GestureDetector(
+      onTap: () {
+        routeTo("/approveVolunter", context);
+      },
+      child: Container(
+          height: ScreenUtil().screenHeight,
+          padding: EdgeInsets.all(kPadding.w),
+          child: ListView.builder(
+            itemBuilder: (ctx, index) => const UserList(
+                title: "Susan Khadka",
+                createdAt: "1h ago ",
+                city: "Rajkot",
+                icons: Icons.account_circle_rounded),
+            itemCount: 6,
+          )),
+    );
   }
 }

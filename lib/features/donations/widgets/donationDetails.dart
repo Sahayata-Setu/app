@@ -1,8 +1,10 @@
 import 'dart:developer';
 
 import 'package:donationapp/constant/common/Icon/custom-icon.dart';
+import 'package:donationapp/constant/common/button/cusotm-button.dart';
 import 'package:donationapp/constant/common/horizontal-line/horizontal-line.dart';
 import 'package:donationapp/store/message/message.store.dart';
+import 'package:donationapp/utils/store-service/language.store.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -153,6 +155,13 @@ class DonationDetail extends ConsumerWidget {
                     )
                   ],
                 ),
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  CustomElevatedButton(child: Text("ACCEPT"), fn: () {}),
+                  CustomElevatedButton(child: Text("REJECT"), fn: () {}),
+                ],
               )
             ],
           )),
