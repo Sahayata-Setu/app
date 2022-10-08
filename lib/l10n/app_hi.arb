@@ -1,14 +1,26 @@
 {
-    "home":"Home",
-    "campaign":"Campaign",
-    "donation":"Donation",
-    "donate":"Donate",
-    "claim":"Claim",
-    "need":"Need",
-    "food":"Food",
-    "clothes":"Clothes",
-    "books":"Books",
-    "toys":"Toys",
-    "createDonation":"Create a donation",
-    "createNeed":"Create a need"
+    "home":"घर",
+    "campaign":"अभियान",
+    "donation":"दान",
+    "donate":"दान करना",
+    "claim":"दावा",
+    "need":"ज़रूरत",
+    "food":"भोजन",
+    "clothes":"कपड़े",
+    "books":"पुस्तकें",
+    "toys":"खिलौने",
+    "createDonation":"एक दान बनाएँ",
+    "createNeed":"एक आवश्यकता बनाएँ",
+    "seeAll":"सभी देखें",
+    "latestDonations":"नवीनतम दान",
+    "latestNeeds":"नवीनतम आवश्यकता अनुरोध",
+"profile":"प्रोफ़ाइल",
+"accountSettings":"अकाउंट सेटिंग",
+"certificates":"प्रमाण पत्र",
+"donations_claim":"दान/दावा",
+"changeLanguage":"भाषा बदलो",
+"applyVolunter":"स्वयंसेवक के लिए आवेदन करें",
+"logout":"लॉग आउट "
+
+
 }

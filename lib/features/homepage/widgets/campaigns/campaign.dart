@@ -25,7 +25,7 @@ class Campaigns extends StatelessWidget {
                 Container(
                     margin: EdgeInsets.only(left: 25.w, top: kPadding.h),
                     child: Heading(
-                      header: translation(context).campaign,
+                      header: translation(context).ongoingCampaigns,
                     )),
                 Container(
                   margin: EdgeInsets.only(

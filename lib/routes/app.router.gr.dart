@@ -15,7 +15,7 @@ import 'package:auto_route/auto_route.dart' as _i25;
 import 'package:flutter/material.dart' as _i26;
 
 import '../auth/auth_check/auth_check.dart' as _i2;
-import '../constant/common/splashScreen.dart/splashScreen.dart' as _i1;
+import '../constant/common/splashScreen/splashScreen.dart' as _i1;
 import '../features/account-settings/account-settings.dart' as _i7;
 import '../features/Admin/Dashboard/adminDashboard.dart' as _i24;
 import '../features/apply-for-volunteer/apply-for-volunteer.dart' as _i23;
@@ -45,9 +45,9 @@ class AppRouter extends _i25.RootStackRouter {
 
   @override
   final Map<String, _i25.PageFactory> pagesMap = {
-    SplashRoute.name: (routeData) {
+    SplashScreenRoute.name: (routeData) {
       return _i25.MaterialPageX<dynamic>(
-          routeData: routeData, child: _i1.Splash());
+          routeData: routeData, child: const _i1.SplashScreen());
     },
     AuthCheckWidgetRoute.name: (routeData) {
       return _i25.MaterialPageX<dynamic>(
@@ -151,7 +151,7 @@ class AppRouter extends _i25.RootStackRouter {
 
   @override
   List<_i25.RouteConfig> get routes => [
-        _i25.RouteConfig(SplashRoute.name, path: '/splash'),
+        _i25.RouteConfig(SplashScreenRoute.name, path: '/splash'),
         _i25.RouteConfig(AuthCheckWidgetRoute.name, path: '/'),
         _i25.RouteConfig(SignupRoute.name, path: '/signup'),
         _i25.RouteConfig(HomePageRoute.name, path: '/homepage'),
@@ -181,11 +181,11 @@ class AppRouter extends _i25.RootStackRouter {
 }
 
 /// generated route for
-/// [_i1.Splash]
-class SplashRoute extends _i25.PageRouteInfo<void> {
-  const SplashRoute() : super(SplashRoute.name, path: '/splash');
+/// [_i1.SplashScreen]
+class SplashScreenRoute extends _i25.PageRouteInfo<void> {
+  const SplashScreenRoute() : super(SplashScreenRoute.name, path: '/splash');
 
-  static const String name = 'SplashRoute';
+  static const String name = 'SplashScreenRoute';
 }
 
 /// generated route for

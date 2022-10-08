@@ -5,6 +5,8 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 const String English = 'en';
 const String Gujarati = 'gu';
+const String Hindi = 'hi';
+
 Future<Locale> setLanguagePref(String langPref) async {
   SharedPreferences _prefs = await SharedPreferences.getInstance();
   await _prefs.setString("LANG_PREF", langPref);
@@ -26,6 +28,8 @@ Locale _locale(String lang) {
     // break;
     case Gujarati:
       return Locale(Gujarati, "IN");
+    case Hindi:
+      return Locale(Hindi, "IN");
     // _temp = Locale(lang, 'IN');
     // break;
     default:

@@ -1,7 +1,7 @@
 import 'package:auto_route/annotations.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:donationapp/auth/auth_check/auth_check.dart';
-import 'package:donationapp/constant/common/splashScreen.dart/splashScreen.dart';
+import 'package:donationapp/constant/common/splashScreen/splashScreen.dart';
 import 'package:donationapp/features/Admin/Dashboard/adminDashboard.dart';
 import 'package:donationapp/features/account-settings/account-settings.dart';
 import 'package:donationapp/features/apply-for-volunteer/apply-for-volunteer.dart';
@@ -29,7 +29,7 @@ import 'package:donationapp/features/search-page/search-page.dart';
 import 'package:donationapp/features/signup/SignUp.dart';
 
 @MaterialAutoRouter(routes: [
-  MaterialRoute(page: Splash, initial: true, path: "/splash"),
+  MaterialRoute(page: SplashScreen, initial: true, path: "/splash"),
 
   MaterialRoute(page: AuthCheckWidget, path: "/"),
   MaterialRoute(page: Signup, path: "/signup"),
