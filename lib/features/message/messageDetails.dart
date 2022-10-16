@@ -8,6 +8,7 @@ import 'package:donationapp/constant/common/NavBar/navbar.dart';
 import 'package:donationapp/constant/common/Text/custom-text.dart';
 import 'package:donationapp/constant/kconstant.dart';
 import 'package:donationapp/domain/message/message.model.dart';
+import 'package:donationapp/domain/message/sub-modules/single.message.model.dart';
 import 'package:donationapp/helpers/time.dart';
 import 'package:donationapp/store/homepage/homepage.store.dart';
 import 'package:donationapp/store/message/message.store.dart';
@@ -30,6 +31,7 @@ class MessageDetails extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    // log()
     ref.watch(initializeMessage(receiverId));
     final messages = ref.watch(allMessageProvider);
     final messageService = ref.watch(messageProvider);
@@ -96,7 +98,8 @@ class MessageDetails extends ConsumerWidget {
                     )
                   ],
                 )),
-            appbar: NavBar(title: receiverName, showBadge: false),
+            appbar: NavBar(
+                title: receiverName.split("%20").join(" "), showBadge: false),
             bottomNavBar: BottomNavBar(showBottomNavBar: false),
             isAdmin: false));
   }
@@ -104,7 +107,7 @@ class MessageDetails extends ConsumerWidget {
 
 class SenderMessageWidget extends StatelessWidget {
   const SenderMessageWidget({Key? key, required this.data}) : super(key: key);
-  final Messages data;
+  final SingleMessage data;
 
   @override
   Widget build(BuildContext context) {
@@ -151,7 +154,7 @@ class SenderMessageWidget extends StatelessWidget {
 
 class ReceiverMessageWIdget extends StatelessWidget {
   const ReceiverMessageWIdget({Key? key, required this.data}) : super(key: key);
-  final Messages data;
+  final SingleMessage data;
   @override
   Widget build(BuildContext context) {
     return Container(

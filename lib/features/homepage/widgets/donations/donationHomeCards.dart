@@ -19,7 +19,7 @@ class DonationHomeCards extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // log("this is for homepage${singleInfo['_id']}");
+    // log("this is for homepage${singleInfo}");
     return GestureDetector(
       onTap: () {
         routePush(DonationDetailDataRoute(id: singleInfo['_id']), context);
@@ -49,7 +49,7 @@ class DonationHomeCards extends StatelessWidget {
                   width: 80.w,
                   fn: () {
                     routeTo(
-                        "/message/${singleInfo['donor_name']}/${singleInfo['_id']}",
+                        "/message/${singleInfo['donor_name']}/${singleInfo['donor_id']}",
                         context);
                   },
                 ),

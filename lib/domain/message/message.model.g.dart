@@ -8,23 +8,27 @@ part of 'message.model.dart';
 
 _$_Messages _$$_MessagesFromJson(Map<String, dynamic> json) => _$_Messages(
       id: json['_id'] as String?,
-      sender: json['sender'] == null
-          ? null
-          : User.fromJson(json['sender'] as Map<String, dynamic>),
-      receiver: json['receiver'] == null
-          ? null
-          : User.fromJson(json['receiver'] as Map<String, dynamic>),
-      message: json['message'] as String?,
+      firstName: json['firstName'] as String?,
+      lastName: json['lastName'] as String?,
+      role: json['role'] as String?,
+      email: json['email'] as String?,
+      address: json['address'] as String?,
+      gender: json['gender'] as String?,
       createdAt: json['createdAt'] as String?,
       updatedAt: json['updatedAt'] as String?,
+      message: json['message'] as String?,
     );
 
 Map<String, dynamic> _$$_MessagesToJson(_$_Messages instance) =>
     <String, dynamic>{
       '_id': instance.id,
-      'sender': instance.sender,
-      'receiver': instance.receiver,
-      'message': instance.message,
+      'firstName': instance.firstName,
+      'lastName': instance.lastName,
+      'role': instance.role,
+      'email': instance.email,
+      'address': instance.address,
+      'gender': instance.gender,
       'createdAt': instance.createdAt,
       'updatedAt': instance.updatedAt,
+      'message': instance.message,
     };

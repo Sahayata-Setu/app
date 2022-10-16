@@ -30,11 +30,11 @@ class AuthCheckWidget extends ConsumerWidget {
             // log("this is from auth${userRole}");
             log("24");
             // log("${user}");
-            replaceRouteTo("/homepage", context);
-            // if (userRole == 'user') {
-            // } else if (userRole == 'admin') {
-            //   context.router.replace(const AdminDashboardRoute());
-            // }
+            if (userRole == 'user') {
+              replaceRouteTo("/homepage", context);
+            } else if (userRole == 'admin') {
+              replaceRouteTo("/admin-dashboard", context);
+            }
           },
           unAuthenticated: (user) {
             log("28");
@@ -47,6 +47,6 @@ class AuthCheckWidget extends ConsumerWidget {
         );
       },
     );
-    return Container();
+    return SplashScreen();
   }
 }

@@ -22,11 +22,15 @@ Messages _$MessagesFromJson(Map<String, dynamic> json) {
 mixin _$Messages {
   @JsonKey(name: "_id")
   String? get id => throw _privateConstructorUsedError;
-  User? get sender => throw _privateConstructorUsedError;
-  User? get receiver => throw _privateConstructorUsedError;
-  String? get message => throw _privateConstructorUsedError;
+  String? get firstName => throw _privateConstructorUsedError;
+  String? get lastName => throw _privateConstructorUsedError;
+  String? get role => throw _privateConstructorUsedError;
+  String? get email => throw _privateConstructorUsedError; // String? phoneNo,
+  String? get address => throw _privateConstructorUsedError;
+  String? get gender => throw _privateConstructorUsedError;
   String? get createdAt => throw _privateConstructorUsedError;
-  String? get updatedAt => throw _privateConstructorUsedError;
+  String? get updatedAt => throw _privateConstructorUsedError; // int? iV,
+  String? get message => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -40,14 +44,15 @@ abstract class $MessagesCopyWith<$Res> {
       _$MessagesCopyWithImpl<$Res>;
   $Res call(
       {@JsonKey(name: "_id") String? id,
-      User? sender,
-      User? receiver,
-      String? message,
+      String? firstName,
+      String? lastName,
+      String? role,
+      String? email,
+      String? address,
+      String? gender,
       String? createdAt,
-      String? updatedAt});
-
-  $UserCopyWith<$Res>? get sender;
-  $UserCopyWith<$Res>? get receiver;
+      String? updatedAt,
+      String? message});
 }
 
 /// @nodoc
@@ -61,28 +66,44 @@ class _$MessagesCopyWithImpl<$Res> implements $MessagesCopyWith<$Res> {
   @override
   $Res call({
     Object? id = freezed,
-    Object? sender = freezed,
-    Object? receiver = freezed,
-    Object? message = freezed,
+    Object? firstName = freezed,
+    Object? lastName = freezed,
+    Object? role = freezed,
+    Object? email = freezed,
+    Object? address = freezed,
+    Object? gender = freezed,
     Object? createdAt = freezed,
     Object? updatedAt = freezed,
+    Object? message = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String?,
-      sender: sender == freezed
-          ? _value.sender
-          : sender // ignore: cast_nullable_to_non_nullable
-              as User?,
-      receiver: receiver == freezed
-          ? _value.receiver
-          : receiver // ignore: cast_nullable_to_non_nullable
-              as User?,
-      message: message == freezed
-          ? _value.message
-          : message // ignore: cast_nullable_to_non_nullable
+      firstName: firstName == freezed
+          ? _value.firstName
+          : firstName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      lastName: lastName == freezed
+          ? _value.lastName
+          : lastName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      role: role == freezed
+          ? _value.role
+          : role // ignore: cast_nullable_to_non_nullable
+              as String?,
+      email: email == freezed
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as String?,
+      address: address == freezed
+          ? _value.address
+          : address // ignore: cast_nullable_to_non_nullable
+              as String?,
+      gender: gender == freezed
+          ? _value.gender
+          : gender // ignore: cast_nullable_to_non_nullable
               as String?,
       createdAt: createdAt == freezed
           ? _value.createdAt
@@ -92,29 +113,11 @@ class _$MessagesCopyWithImpl<$Res> implements $MessagesCopyWith<$Res> {
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
               as String?,
+      message: message == freezed
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
-  }
-
-  @override
-  $UserCopyWith<$Res>? get sender {
-    if (_value.sender == null) {
-      return null;
-    }
-
-    return $UserCopyWith<$Res>(_value.sender!, (value) {
-      return _then(_value.copyWith(sender: value));
-    });
-  }
-
-  @override
-  $UserCopyWith<$Res>? get receiver {
-    if (_value.receiver == null) {
-      return null;
-    }
-
-    return $UserCopyWith<$Res>(_value.receiver!, (value) {
-      return _then(_value.copyWith(receiver: value));
-    });
   }
 }
 
@@ -126,16 +129,15 @@ abstract class _$$_MessagesCopyWith<$Res> implements $MessagesCopyWith<$Res> {
   @override
   $Res call(
       {@JsonKey(name: "_id") String? id,
-      User? sender,
-      User? receiver,
-      String? message,
+      String? firstName,
+      String? lastName,
+      String? role,
+      String? email,
+      String? address,
+      String? gender,
       String? createdAt,
-      String? updatedAt});
-
-  @override
-  $UserCopyWith<$Res>? get sender;
-  @override
-  $UserCopyWith<$Res>? get receiver;
+      String? updatedAt,
+      String? message});
 }
 
 /// @nodoc
@@ -151,28 +153,44 @@ class __$$_MessagesCopyWithImpl<$Res> extends _$MessagesCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = freezed,
-    Object? sender = freezed,
-    Object? receiver = freezed,
-    Object? message = freezed,
+    Object? firstName = freezed,
+    Object? lastName = freezed,
+    Object? role = freezed,
+    Object? email = freezed,
+    Object? address = freezed,
+    Object? gender = freezed,
     Object? createdAt = freezed,
     Object? updatedAt = freezed,
+    Object? message = freezed,
   }) {
     return _then(_$_Messages(
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String?,
-      sender: sender == freezed
-          ? _value.sender
-          : sender // ignore: cast_nullable_to_non_nullable
-              as User?,
-      receiver: receiver == freezed
-          ? _value.receiver
-          : receiver // ignore: cast_nullable_to_non_nullable
-              as User?,
-      message: message == freezed
-          ? _value.message
-          : message // ignore: cast_nullable_to_non_nullable
+      firstName: firstName == freezed
+          ? _value.firstName
+          : firstName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      lastName: lastName == freezed
+          ? _value.lastName
+          : lastName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      role: role == freezed
+          ? _value.role
+          : role // ignore: cast_nullable_to_non_nullable
+              as String?,
+      email: email == freezed
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as String?,
+      address: address == freezed
+          ? _value.address
+          : address // ignore: cast_nullable_to_non_nullable
+              as String?,
+      gender: gender == freezed
+          ? _value.gender
+          : gender // ignore: cast_nullable_to_non_nullable
               as String?,
       createdAt: createdAt == freezed
           ? _value.createdAt
@@ -181,6 +199,10 @@ class __$$_MessagesCopyWithImpl<$Res> extends _$MessagesCopyWithImpl<$Res>
       updatedAt: updatedAt == freezed
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
+              as String?,
+      message: message == freezed
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -191,11 +213,15 @@ class __$$_MessagesCopyWithImpl<$Res> extends _$MessagesCopyWithImpl<$Res>
 class _$_Messages implements _Messages {
   const _$_Messages(
       {@JsonKey(name: "_id") this.id,
-      this.sender,
-      this.receiver,
-      this.message,
+      this.firstName,
+      this.lastName,
+      this.role,
+      this.email,
+      this.address,
+      this.gender,
       this.createdAt,
-      this.updatedAt});
+      this.updatedAt,
+      this.message});
 
   factory _$_Messages.fromJson(Map<String, dynamic> json) =>
       _$$_MessagesFromJson(json);
@@ -204,19 +230,29 @@ class _$_Messages implements _Messages {
   @JsonKey(name: "_id")
   final String? id;
   @override
-  final User? sender;
+  final String? firstName;
   @override
-  final User? receiver;
+  final String? lastName;
   @override
-  final String? message;
+  final String? role;
+  @override
+  final String? email;
+// String? phoneNo,
+  @override
+  final String? address;
+  @override
+  final String? gender;
   @override
   final String? createdAt;
   @override
   final String? updatedAt;
+// int? iV,
+  @override
+  final String? message;
 
   @override
   String toString() {
-    return 'Messages(id: $id, sender: $sender, receiver: $receiver, message: $message, createdAt: $createdAt, updatedAt: $updatedAt)';
+    return 'Messages(id: $id, firstName: $firstName, lastName: $lastName, role: $role, email: $email, address: $address, gender: $gender, createdAt: $createdAt, updatedAt: $updatedAt, message: $message)';
   }
 
   @override
@@ -225,11 +261,15 @@ class _$_Messages implements _Messages {
         (other.runtimeType == runtimeType &&
             other is _$_Messages &&
             const DeepCollectionEquality().equals(other.id, id) &&
-            const DeepCollectionEquality().equals(other.sender, sender) &&
-            const DeepCollectionEquality().equals(other.receiver, receiver) &&
-            const DeepCollectionEquality().equals(other.message, message) &&
+            const DeepCollectionEquality().equals(other.firstName, firstName) &&
+            const DeepCollectionEquality().equals(other.lastName, lastName) &&
+            const DeepCollectionEquality().equals(other.role, role) &&
+            const DeepCollectionEquality().equals(other.email, email) &&
+            const DeepCollectionEquality().equals(other.address, address) &&
+            const DeepCollectionEquality().equals(other.gender, gender) &&
             const DeepCollectionEquality().equals(other.createdAt, createdAt) &&
-            const DeepCollectionEquality().equals(other.updatedAt, updatedAt));
+            const DeepCollectionEquality().equals(other.updatedAt, updatedAt) &&
+            const DeepCollectionEquality().equals(other.message, message));
   }
 
   @JsonKey(ignore: true)
@@ -237,11 +277,15 @@ class _$_Messages implements _Messages {
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(id),
-      const DeepCollectionEquality().hash(sender),
-      const DeepCollectionEquality().hash(receiver),
-      const DeepCollectionEquality().hash(message),
+      const DeepCollectionEquality().hash(firstName),
+      const DeepCollectionEquality().hash(lastName),
+      const DeepCollectionEquality().hash(role),
+      const DeepCollectionEquality().hash(email),
+      const DeepCollectionEquality().hash(address),
+      const DeepCollectionEquality().hash(gender),
       const DeepCollectionEquality().hash(createdAt),
-      const DeepCollectionEquality().hash(updatedAt));
+      const DeepCollectionEquality().hash(updatedAt),
+      const DeepCollectionEquality().hash(message));
 
   @JsonKey(ignore: true)
   @override
@@ -259,11 +303,15 @@ class _$_Messages implements _Messages {
 abstract class _Messages implements Messages {
   const factory _Messages(
       {@JsonKey(name: "_id") final String? id,
-      final User? sender,
-      final User? receiver,
-      final String? message,
+      final String? firstName,
+      final String? lastName,
+      final String? role,
+      final String? email,
+      final String? address,
+      final String? gender,
       final String? createdAt,
-      final String? updatedAt}) = _$_Messages;
+      final String? updatedAt,
+      final String? message}) = _$_Messages;
 
   factory _Messages.fromJson(Map<String, dynamic> json) = _$_Messages.fromJson;
 
@@ -271,15 +319,23 @@ abstract class _Messages implements Messages {
   @JsonKey(name: "_id")
   String? get id;
   @override
-  User? get sender;
+  String? get firstName;
   @override
-  User? get receiver;
+  String? get lastName;
   @override
-  String? get message;
+  String? get role;
+  @override
+  String? get email;
+  @override // String? phoneNo,
+  String? get address;
+  @override
+  String? get gender;
   @override
   String? get createdAt;
   @override
   String? get updatedAt;
+  @override // int? iV,
+  String? get message;
   @override
   @JsonKey(ignore: true)
   _$$_MessagesCopyWith<_$_Messages> get copyWith =>

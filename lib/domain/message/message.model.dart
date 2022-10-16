@@ -9,11 +9,17 @@ part 'message.model.g.dart';
 class Messages with _$Messages {
   const factory Messages({
     @JsonKey(name: "_id") String? id,
-    User? sender,
-    User? receiver,
-    String? message,
+    String? firstName,
+    String? lastName,
+    String? role,
+    String? email,
+    // String? phoneNo,
+    String? address,
+    String? gender,
     String? createdAt,
     String? updatedAt,
+    // int? iV,
+    String? message,
     // int? iV;
   }) = _Messages;
 

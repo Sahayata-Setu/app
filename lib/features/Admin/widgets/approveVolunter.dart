@@ -1,3 +1,6 @@
+import 'dart:developer';
+
+import 'package:auto_route/auto_route.dart';
 import 'package:donationapp/constant/common/ImageCarousel/itemCard.dart';
 import 'package:donationapp/constant/common/button/cusotm-button.dart';
 import 'package:flutter/material.dart';
@@ -11,14 +14,14 @@ import '../../../../constant/common/BottomNavBar/BottomNavBar.dart';
 import '../../../../constant/common/NavBar/navbar.dart';
 
 class ApproveVolunter extends StatelessWidget {
-  const ApproveVolunter({
-    super.key,
-    //this.data
-  });
-  //final data;
+  const ApproveVolunter({super.key, @PathParam('id') this.id
+      //this.data
+      });
+  final id;
 
   @override
   Widget build(BuildContext context) {
+    log("${id}");
     //  final singleData = data['body'];
     // log("this is from data ${data['quantity']}");
     // log("this is id$singleData[]}");

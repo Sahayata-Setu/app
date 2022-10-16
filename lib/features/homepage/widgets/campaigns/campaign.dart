@@ -51,36 +51,36 @@ class Campaigns extends StatelessWidget {
               child: ListView(children: [
                 CarouselSlider(
                   items: [
-                    ImageOverlay(
-                      border_radius: true,
-                      image:
-                          "https://images.unsplash.com/photo-1542810634-71277d95dcbb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80",
-                      title: "Help children from rajkot city to go to school.",
-                      location: "RK University",
-                      height: 250.h,
-                      width: double.infinity,
-                      showShareBtn: true,
-                    ),
-                    ImageOverlay(
-                      border_radius: true,
-                      width: double.infinity,
-                      height: 250.h,
-                      image:
-                          "https://images.unsplash.com/photo-1635929114944-8bab23b98e74?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1534&q=80",
-                      title: "Help one child monthly",
-                      location: "Rajkot city",
-                      showShareBtn: true,
-                    ),
-                    ImageOverlay(
-                      border_radius: true,
-                      width: double.infinity,
-                      height: 250.h,
-                      image:
-                          "https://images.unsplash.com/photo-1517596301415-0e77e9e18eaf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
-                      title: "Let's dress India",
-                      location: "Gujarat",
-                      showShareBtn: true,
-                    ),
+                    // ImageOverlay(
+                    //   border_radius: true,
+                    //   image:
+                    //       "https://images.unsplash.com/photo-1453728013993-6d66e9c9123a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bGVuc3xlbnwwfHwwfHw%3D&w=1000&q=80",
+                    //   title: "Help children from rajkot city to go to school.",
+                    //   location: "RK University",
+                    //   height: 250.h,
+                    //   width: double.infinity,
+                    //   showShareBtn: true,
+                    // ),
+                    // ImageOverlay(
+                    //   border_radius: true,
+                    //   width: double.infinity,
+                    //   height: 250.h,
+                    //   image:
+                    //       "https://images.unsplash.com/photo-1453728013993-6d66e9c9123a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bGVuc3xlbnwwfHwwfHw%3D&w=1000&q=80",
+                    //   title: "Help one child monthly",
+                    //   location: "Rajkot city",
+                    //   showShareBtn: true,
+                    // ),
+                    // ImageOverlay(
+                    //   border_radius: true,
+                    //   width: double.infinity,
+                    //   height: 250.h,
+                    //   image:
+                    //       "https://images.unsplash.com/photo-1453728013993-6d66e9c9123a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bGVuc3xlbnwwfHwwfHw%3D&w=1000&q=80",
+                    //   title: "Let's dress India",
+                    //   location: "Gujarat",
+                    //   showShareBtn: true,
+                    // ),
                     // ImageOverlay(image: "assets/images/needy/poor1.jpg"),
                     // ImageOverlay(image: "assets/images/needy/needy3.jpg"),
                     //ImageOverlay(image: "assets/images/needy/poor2.jpg"),

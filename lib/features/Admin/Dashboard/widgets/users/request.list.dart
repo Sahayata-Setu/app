@@ -6,6 +6,7 @@ import 'package:donationapp/constant/common/button/cusotm-button.dart';
 import 'package:donationapp/constant/common/horizontal-line/horizontal-line.dart';
 import 'package:donationapp/constant/kconstant.dart';
 import 'package:donationapp/helpers/route.utils.dart';
+import 'package:donationapp/routes/app.router.gr.dart';
 import 'package:donationapp/store/admin-dashboard/admin-dashboard.store.dart';
 import 'package:donationapp/utils/store-service/store.service.dart';
 import 'package:flutter/material.dart';
@@ -59,7 +60,7 @@ class RequestList extends ConsumerWidget {
 
     return GestureDetector(
       onTap: () {
-        routeTo("/approveVolunter", context);
+        routePush(ApproveVolunterRoute(id: id), context);
       },
       child: Container(
         //padding: EdgeInsets.all(10),

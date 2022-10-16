@@ -12,6 +12,7 @@ import 'package:donationapp/features/homepage/widgets/campaigns/campaign.dart';
 import 'package:donationapp/features/homepage/widgets/tabBar.dart';
 import 'package:donationapp/features/homepage/widgets/needs/needs.dart';
 import 'package:donationapp/main.dart';
+import 'package:donationapp/store/message/message.store.dart';
 import 'package:donationapp/utils/store-service/language.store.dart';
 import 'package:donationapp/utils/store-service/store.service.dart';
 
@@ -32,6 +33,7 @@ class HomePage extends ConsumerStatefulWidget {
 
 class _HomePageState extends ConsumerState<HomePage> {
   String appToken = "";
+
   @override
   void initState() {
     super.initState();
@@ -43,8 +45,15 @@ class _HomePageState extends ConsumerState<HomePage> {
     });
     FirebaseMessaging.onMessage.listen((RemoteMessage message) {
       _firebase.getToken().then((value) {});
+      print("This is from homepage");
 
+// 634070288ec90f310b587234
       RemoteNotification? notification = message.notification;
+      final recieverId = ref.watch(recieverIdProvider);
+      if (notification?.title == "New Message") {
+        ref.refresh(initializeMessage(recieverId));
+      }
+
       AndroidNotification? android = message.notification?.android;
       if (notification != null && android != null) {
         flutterLocalNotificationsPlugin.show(

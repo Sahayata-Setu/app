@@ -64,7 +64,7 @@ import 'package:donationapp/features/signup/SignUp.dart';
   MaterialRoute(page: CertificatePrint, path: "/certificatePreview"),
   // MaterialRoute(page: ApplyForVolunteer, path: "/apply-volunteer"),
   MaterialRoute(page: ApplyForVolunteer, path: "/apply-volunteer"),
-  MaterialRoute(page: ApproveVolunter, path: "/approveVolunter"),
+  MaterialRoute(page: ApproveVolunter, path: "/approveVolunter/:id"),
 
   MaterialRoute(page: AdminDashBoardData, path: "/admin-dashboard"),
   MaterialRoute(

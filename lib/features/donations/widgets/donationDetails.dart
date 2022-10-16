@@ -5,6 +5,7 @@ import 'package:donationapp/constant/common/button/cusotm-button.dart';
 import 'package:donationapp/constant/common/horizontal-line/horizontal-line.dart';
 import 'package:donationapp/store/message/message.store.dart';
 import 'package:donationapp/utils/store-service/language.store.dart';
+import 'package:donationapp/utils/store-service/store.service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -26,8 +27,8 @@ class DonationDetail extends ConsumerWidget {
     final singleData = data['body'];
     final messages = ref.watch(allConnectedUsersProvider);
     // log("this is from data ${data['quantity']}");
-    log("this is id$messages}");
-
+    final getUserType = StorageService.getuserType();
+    log("this is id${getUserType}");
     // log("rgtf donation${singleData}");
     return App(
       component: Container(
@@ -156,13 +157,15 @@ class DonationDetail extends ConsumerWidget {
                   ],
                 ),
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  CustomElevatedButton(child: Text("ACCEPT"), fn: () {}),
-                  CustomElevatedButton(child: Text("REJECT"), fn: () {}),
-                ],
-              )
+              getUserType == 'admin'
+                  ? Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        CustomElevatedButton(child: Text("ACCEPT"), fn: () {}),
+                        CustomElevatedButton(child: Text("REJECT"), fn: () {}),
+                      ],
+                    )
+                  : SizedBox()
             ],
           )),
       appbar: const NavBar(

@@ -150,8 +150,12 @@ class AppRouter extends _i27.RootStackRouter {
           routeData: routeData, child: const _i23.ApplyForVolunteer());
     },
     ApproveVolunterRoute.name: (routeData) {
+      final pathParams = routeData.inheritedPathParams;
+      final args = routeData.argsAs<ApproveVolunterRouteArgs>(
+          orElse: () => ApproveVolunterRouteArgs(id: pathParams.get('id')));
       return _i27.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i24.ApproveVolunter());
+          routeData: routeData,
+          child: _i24.ApproveVolunter(key: args.key, id: args.id));
     },
     AdminDashBoardDataRoute.name: (routeData) {
       return _i27.MaterialPageX<dynamic>(
@@ -199,7 +203,8 @@ class AppRouter extends _i27.RootStackRouter {
         _i27.RouteConfig(CertificatePrintRoute.name,
             path: '/certificatePreview'),
         _i27.RouteConfig(ApplyForVolunteerRoute.name, path: '/apply-volunteer'),
-        _i27.RouteConfig(ApproveVolunterRoute.name, path: '/approveVolunter'),
+        _i27.RouteConfig(ApproveVolunterRoute.name,
+            path: '/approveVolunter/:id'),
         _i27.RouteConfig(AdminDashBoardDataRoute.name,
             path: '/admin-dashboard'),
         _i27.RouteConfig(MessageDetailsRoute.name,
@@ -453,11 +458,28 @@ class ApplyForVolunteerRoute extends _i27.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i24.ApproveVolunter]
-class ApproveVolunterRoute extends _i27.PageRouteInfo<void> {
-  const ApproveVolunterRoute()
-      : super(ApproveVolunterRoute.name, path: '/approveVolunter');
+class ApproveVolunterRoute
+    extends _i27.PageRouteInfo<ApproveVolunterRouteArgs> {
+  ApproveVolunterRoute({_i28.Key? key, dynamic id})
+      : super(ApproveVolunterRoute.name,
+            path: '/approveVolunter/:id',
+            args: ApproveVolunterRouteArgs(key: key, id: id),
+            rawPathParams: {'id': id});
 
   static const String name = 'ApproveVolunterRoute';
+}
+
+class ApproveVolunterRouteArgs {
+  const ApproveVolunterRouteArgs({this.key, this.id});
+
+  final _i28.Key? key;
+
+  final dynamic id;
+
+  @override
+  String toString() {
+    return 'ApproveVolunterRouteArgs{key: $key, id: $id}';
+  }
 }
 
 /// generated route for
