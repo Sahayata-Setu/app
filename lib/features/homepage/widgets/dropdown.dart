@@ -1,20 +1,23 @@
 import 'package:donationapp/constant/common/Text/custom-text.dart';
 import 'package:donationapp/constant/kconstant.dart';
+import 'package:donationapp/store/add-donation/add.donation.store.dart';
 import 'package:donationapp/store/homepage/homepage.store.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CategoriesDropDown extends StatelessWidget {
-  const CategoriesDropDown({super.key, this.ref});
-  final ref;
+  const CategoriesDropDown({super.key, this.refs});
+  final refs;
   @override
   Widget build(BuildContext context) {
+    List<String> items = ['A', 'B', 'C', 'D'];
+    // final value =
     return DropdownButton<String>(
       dropdownColor: Colors.grey,
-      value: ref.watch(categoriesProvider).isEmpty
+      value: refs.watch(donationCategoryProvider).isEmpty
           ? null
-          : ref.watch(categoriesProvider),
-      items: <String>['A', 'B', 'C', 'D'].map((String value) {
+          : refs.watch(donationCategoryProvider),
+      items: items.map((String value) {
         return DropdownMenuItem<String>(
           value: value,
           child: CustomText(
@@ -31,7 +34,7 @@ class CategoriesDropDown extends StatelessWidget {
         fontSize: 16.sp,
       ),
       onChanged: (value) {
-        ref.read(categoriesProvider.notifier).state = value!;
+        refs.read(categoriesProvider.notifier).state = value!;
 
         // choosenValue = value;
         // log("$choosenValue}");

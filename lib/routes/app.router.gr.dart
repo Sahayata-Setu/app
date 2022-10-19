@@ -53,7 +53,7 @@ class AppRouter extends _i27.RootStackRouter {
     },
     SplashScreenRoute.name: (routeData) {
       return _i27.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i2.SplashScreen());
+          routeData: routeData, child: _i2.SplashScreen());
     },
     SignupRoute.name: (routeData) {
       return _i27.MaterialPageX<dynamic>(
@@ -106,8 +106,13 @@ class AppRouter extends _i27.RootStackRouter {
           routeData: routeData, child: const _i14.CampiagnDetails());
     },
     DontaionsRoute.name: (routeData) {
+      final pathParams = routeData.inheritedPathParams;
+      final args = routeData.argsAs<DontaionsRouteArgs>(
+          orElse: () =>
+              DontaionsRouteArgs(category: pathParams.get('category')));
       return _i27.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i15.Dontaions());
+          routeData: routeData,
+          child: _i15.Dontaions(key: args.key, category: args.category));
     },
     AddDontaionRoute.name: (routeData) {
       return _i27.MaterialPageX<dynamic>(
@@ -346,11 +351,27 @@ class CampiagnDetailsRoute extends _i27.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i15.Dontaions]
-class DontaionsRoute extends _i27.PageRouteInfo<void> {
-  const DontaionsRoute()
-      : super(DontaionsRoute.name, path: '/donations/:category');
+class DontaionsRoute extends _i27.PageRouteInfo<DontaionsRouteArgs> {
+  DontaionsRoute({_i28.Key? key, dynamic category})
+      : super(DontaionsRoute.name,
+            path: '/donations/:category',
+            args: DontaionsRouteArgs(key: key, category: category),
+            rawPathParams: {'category': category});
 
   static const String name = 'DontaionsRoute';
+}
+
+class DontaionsRouteArgs {
+  const DontaionsRouteArgs({this.key, this.category});
+
+  final _i28.Key? key;
+
+  final dynamic category;
+
+  @override
+  String toString() {
+    return 'DontaionsRouteArgs{key: $key, category: $category}';
+  }
 }
 
 /// generated route for

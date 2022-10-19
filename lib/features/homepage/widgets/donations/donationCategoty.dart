@@ -1,3 +1,6 @@
+import 'dart:developer';
+
+import 'package:auto_route/auto_route.dart';
 import 'package:badges/badges.dart';
 import 'package:donationapp/constant/common/Icon/custom-icon.dart';
 import 'package:donationapp/constant/common/Text/custom-text.dart';
@@ -11,14 +14,17 @@ class DonationsCategory extends StatelessWidget {
       {super.key,
       required this.text,
       this.url,
+      // @PathParam('category') this.category,
       required this.icon,
       this.badge});
   final text;
   final icon;
+  // final category;
   final url;
   final badge;
   @override
   Widget build(BuildContext context) {
+    // log("THis is category ${category}");
     return GestureDetector(
       onTap: () {
         routeTo(url, context);

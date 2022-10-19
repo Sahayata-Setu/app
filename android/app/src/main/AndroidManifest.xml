@@ -2,7 +2,7 @@
     package="com.donation.app">
      <uses-permission android:name="android.permission.INTERNET"/>
    <application
-        android:label="donationapp"
+        android:label="Shahayata Setu"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

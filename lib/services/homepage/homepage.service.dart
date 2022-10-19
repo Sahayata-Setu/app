@@ -8,23 +8,16 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 class HomepageServiceClass {
   final _client = ApiHelper.instance;
 
-  //
+  //Get all donations or requests
   Future<Map<String, dynamic>> getDonationsOrRequest(type) async {
-    // final singUpService
     try {
-      // log("message");
       final token = StorageService.getToken();
-      // log("ths is for tojen ${token}");
       final response = await _client.get(
         "/user/${type}/all",
         options: Options(
           headers: {"Authorization": "Bearer ${token}"},
         ),
       );
-      // log("this is from $response['body']");
-      // log("${response.statusCode}");
-      // if(response.statusCode(400) )
-      // StorageService.setToken(response['token']);
 
       return response;
     } catch (e) {
@@ -33,8 +26,8 @@ class HomepageServiceClass {
     }
   }
 
+  //Get donations by Id
   Future<Map<String, dynamic>> getDontaionsById(id) async {
-    // final singUpService
     try {
       // log("message");
       final token = StorageService.getToken();
@@ -45,12 +38,6 @@ class HomepageServiceClass {
         ),
       );
 
-      log("this is from app ${response}");
-      // log("this is from $response['body']");
-      // log("${response.statusCode}");
-      // if(response.statusCode(400) )
-      // StorageService.setToken(response['token']);
-
       return response;
     } catch (e) {
       log("this is error$e");
@@ -58,10 +45,9 @@ class HomepageServiceClass {
     }
   }
 
+  //Fetch Requests by ID
   Future<Map<String, dynamic>> getRequestById(id) async {
-    // final singUpService
     try {
-      // log("message");
       final token = StorageService.getToken();
       final response = await _client.get(
         "/user/request/${id}",
@@ -70,11 +56,27 @@ class HomepageServiceClass {
         ),
       );
 
-      log("this is from app ${response}");
-      // log("this is from $response['body']");
-      // log("${response.statusCode}");
-      // if(response.statusCode(400) )
-      // StorageService.setToken(response['token']);
+      // log("this is from app ${response}");
+      return response;
+    } catch (e) {
+      log("this is error$e");
+      throw Exception("Invalid Request $e");
+    }
+  }
+
+  //Get donations by category
+  Future<Map<String, dynamic>> getDonationsByCategory(category) async {
+    try {
+      final token = StorageService.getToken();
+      log("Hello ${category}");
+      final response = await _client.get(
+        "/user/donation/category/${category}",
+        options: Options(
+          headers: {"Authorization": "Bearer ${token}"},
+        ),
+      );
+
+      // log("this is from app ${response}");
 
       return response;
     } catch (e) {

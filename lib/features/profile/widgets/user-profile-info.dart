@@ -20,7 +20,7 @@ class UserProfileInformation extends ConsumerWidget {
         CustomText(
           text: "${data['firstName']} ${data['lastName'] ?? "Doe"} ",
           fontSize: 20.sp,
-          fontColor: whiteColor,
+          fontColor: blackColor,
         ),
         SizedBox(
           height: 8.h,
@@ -28,7 +28,7 @@ class UserProfileInformation extends ConsumerWidget {
         CustomText(
           text: "${data['email'] ?? "john@gm.com"}",
           fontSize: 16.sp,
-          fontColor: whiteColor,
+          fontColor: blackColor,
         ),
         SizedBox(
           height: 8.h,
@@ -36,7 +36,7 @@ class UserProfileInformation extends ConsumerWidget {
         CustomText(
           text: "${data['phoneNo'] ?? "000000000"}",
           fontSize: 16.sp,
-          fontColor: whiteColor,
+          fontColor: blackColor,
         ),
       ],
     );

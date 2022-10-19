@@ -15,22 +15,15 @@ import 'package:page_transition/page_transition.dart';
 
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class SplashScreen extends StatefulWidget {
-  const SplashScreen({super.key});
-
-  @override
-  State<SplashScreen> createState() => _SplashScreenState();
-}
-
-class _SplashScreenState extends State<SplashScreen> {
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    Future.delayed(Duration(seconds: 3), () {
-      replaceRouteTo("/", context);
-    });
-  }
+class SplashScreen extends StatelessWidget {
+  // @override
+  // void initState() {
+  //   // TODO: implement initState
+  //   super.initState();
+  //   Future.delayed(Duration(seconds: 3), () {
+  //     replaceRouteTo("/", context);
+  //   });
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -39,17 +32,13 @@ class _SplashScreenState extends State<SplashScreen> {
         color: blueColor,
         height: ScreenUtil().scaleHeight,
         child: Column(
-          //mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Column(
-              children: [
-                Center(
-                    child: CircleAvatar(
-                  radius: 50,
-                  child: Image.asset("assets/images/logo.png"),
-                ))
-              ],
-            )
+            Center(
+              child: Container(
+                height: 100.h,
+                child: Image.asset("assets/images/logo.png"),
+              ),
+            ),
           ],
         ),
       ),

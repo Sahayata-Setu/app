@@ -27,6 +27,8 @@ final locationDetailsProvider = StateProvider(
   }),
 );
 
+final loading = StateProvider((ref) => (false));
+
 class AddNotifier extends ChangeNotifier {
   AddNotifier(this.read) : super();
   final Reader read;
@@ -47,19 +49,19 @@ class AddNotifier extends ChangeNotifier {
   //   }
   // }
   updateProfile(id, data) async {
-    // log("${data}");
+    // log("this is of data ${data}");
     final updateService = read(updateProfileService);
-    // read(stateProvider.notifier).state = true;
+    read(loading.notifier).state = true;
 
     try {
       final resp = await updateService.updateProfile(id, data);
-      // if (resp != null) {
-      // read(stateProvider.notifier).state = false;
-      // }
+      if (resp != null) {
+        read(loading.notifier).state = false;
+      }
       notifyListeners();
       return resp;
     } catch (e) {
-      // read(stateProvider.notifier).state = false;
+      read(loading.notifier).state = false;
       log('$e');
       rethrow;
     }
@@ -80,10 +82,10 @@ final initUserDetailsForUpdate = FutureProvider.autoDispose<dynamic>(
         ref.read(userDetailsProvider.notifier).state = {
           "firstName": resp['body']['firstName'],
           "lastName": resp['body']['lastName'],
-          "email": resp['body']['email'],
           // // "profilePic": resp.profilePic,
           // // "brn": resp.brn,
           "phoneNo": resp['body']['phoneNo'],
+          "email": resp['body']['email'],
           // "name": "name"
           // "website": resp.Website,
           // "RealEstateName": resp.RealEstateName,

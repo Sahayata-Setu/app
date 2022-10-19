@@ -1,6 +1,8 @@
 import 'dart:developer';
 
 import 'package:donationapp/constant/common/horizontal-line/horizontal-line.dart';
+import 'package:donationapp/constant/common/loading/loadingPage.dart';
+import 'package:donationapp/constant/kconstant.dart';
 import 'package:donationapp/features/donations/widgets/donationDetails.dart';
 import 'package:donationapp/store/homepage/homepage.store.dart';
 import 'package:flutter/material.dart';
@@ -18,25 +20,22 @@ class DonationDetailData extends ConsumerWidget {
     // log("this is id$id}");
     final data = ref.watch(singleDonationsDataProvider(id));
 
-    return Container(
-      color: Colors.black,
-      child: data.when(
-        data: (data) {
-          // log("ffg");
-          return DonationDetail(
-            data: data,
-          );
-        },
-        error: (h, e) {
-          // log('$h');
-          // log('$e');
-          return Text("Error occures!");
-        },
-        loading: () => const Center(
-          child: CircularProgressIndicator(
-            color: Colors.amber,
-          ),
-        ),
+    return Scaffold(
+      body: Container(
+        color: backgroundColor,
+        child: data.when(
+            data: (data) {
+              // log("ffg");
+              return DonationDetail(
+                data: data,
+              );
+            },
+            error: (h, e) {
+              // log('$h');
+              // log('$e');
+              return Text("Error occures!");
+            },
+            loading: () => const LoadingPage()),
       ),
     );
   }

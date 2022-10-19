@@ -23,8 +23,9 @@ class UpdateProfileServiceClass {
     log('this sis data$data');
     try {
       final token = StorageService.getToken();
+      final userId = StorageService.getId();
       response = await _client.put(
-        "/user/profile/633ac7c777b5e8fd0f92c6ba",
+        "/user/profile/${userId}",
         data: data,
         options: Options(
           headers: {"Authorization": "Bearer ${token}"},

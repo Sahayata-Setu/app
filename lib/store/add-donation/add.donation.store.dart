@@ -14,6 +14,8 @@ final donationDetailsProvider = StateProvider(
   }),
 );
 
+final donationCategoryProvider = StateProvider((ref) => "");
+
 final datePickerDetails = StateProvider<DateTime>((ref) => (DateTime.now()));
 
 final idImageDonationProvider = StateProvider((ref) => ([]));

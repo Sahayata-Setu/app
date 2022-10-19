@@ -28,7 +28,7 @@ class DonationDetail extends ConsumerWidget {
     final messages = ref.watch(allConnectedUsersProvider);
     // log("this is from data ${data['quantity']}");
     final getUserType = StorageService.getuserType();
-    log("this is id${getUserType}");
+    // log("this is id${getUserType}");
     // log("rgtf donation${singleData}");
     return App(
       component: Container(

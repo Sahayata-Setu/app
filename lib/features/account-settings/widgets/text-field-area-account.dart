@@ -45,7 +45,7 @@ class TextFieldAreaAccount extends ConsumerWidget {
         CustomTextField(
           refs: ref.read(userDetailsProvider.notifier),
           label: "Last Name",
-          name: "firstName",
+          name: "lastName",
           borderColor: whiteColor,
           value: userDetails['lastName'],
           // ref: ref,

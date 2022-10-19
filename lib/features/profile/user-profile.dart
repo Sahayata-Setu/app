@@ -52,7 +52,7 @@ class UserProfile extends ConsumerWidget {
         showBadge: true,
       ),
       component: Container(
-        color: blueBackgroundColor,
+        color: backgroundColor,
         height: MediaQuery.of(context).size.height,
         width: double.infinity,
         child: Container(

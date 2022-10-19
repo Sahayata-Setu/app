@@ -17,16 +17,23 @@ class ButtonAreaAccount extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final updateDetailsProv = ref.watch(updateDetailsProfileProvider);
     final updateDetails = ref.watch(userDetailsProvider);
-    // log("this is from button ${updateDetails}");
+    final state = ref.watch(loading);
+    // log("this is from button ${state}");
     final userId = StorageService.getId();
     handleSumbit() async {
       try {
-        updateDetailsProv.updateProfile(userId, updateDetails);
+        final resp =
+            await updateDetailsProv.updateProfile(userId, updateDetails);
+        log("this is from account ${resp}");
+        // if (resp != null) {
         const snackBar = SnackBar(
-          content: Text('User Updated'),
+          content: Text('Profile Updated'),
         );
         ScaffoldMessenger.of(context).showSnackBar(snackBar);
-        pop(context);
+        replaceRouteTo("/user-profile", context);
+        // }
+
+        // pop(context);
         // if (getUserType == "user") {
         // ignore: use_build_context_synchronously
         // log("this is message");
@@ -46,26 +53,23 @@ class ButtonAreaAccount extends ConsumerWidget {
       }
     }
 
-    return Center(
-      child: GestureDetector(
-        onTap: () {
-          handleSumbit();
-        },
-        child: Container(
-          height: 30.h,
-          width: 100.w,
-          decoration: BoxDecoration(
-            color: lightBlueColor,
-            borderRadius: BorderRadius.circular(18.r),
-          ),
-          child: Center(
-            child: CustomText(
-              text: "Sumbit",
-              fontWeight: FontWeight.bold,
+    return state
+        ? CircularProgressIndicator()
+        : ElevatedButton(
+            onPressed: () {
+              // replaceRouteTo("/homepage", context);
+              // handleSumbit();
+              // log("${loginDetails}");
+              handleSumbit();
+            },
+            style: ButtonStyle(
+              backgroundColor: MaterialStateProperty.all(lightBlueColor),
             ),
-          ),
-        ),
-      ),
-    );
+            child: CustomText(
+              text: "Update",
+              fontSize: 16.sp,
+              fontColor: blackColor,
+            ),
+          );
   }
 }

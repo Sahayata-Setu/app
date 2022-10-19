@@ -1,3 +1,4 @@
+import 'dart:developer';
 import 'dart:ui';
 
 import 'package:badges/badges.dart';
@@ -11,8 +12,9 @@ import 'package:donationapp/constant/kconstant.dart';
 import 'package:flutter/material.dart';
 
 class ItemCard extends StatelessWidget {
-  const ItemCard({super.key, this.image, required this.btnName});
+  const ItemCard({super.key, this.image, required this.btnName, this.data});
   final image;
+  final data;
   // final url;
   // final title;
   // final createdAt;
@@ -21,6 +23,8 @@ class ItemCard extends StatelessWidget {
   // final btnFn;
   @override
   Widget build(BuildContext context) {
+    // final bData = data['body'];
+    // log("this is from single category ${data}");
     return GestureDetector(
       onTap: () {
         routeTo("/donations/:id", context);
@@ -37,6 +41,7 @@ class ItemCard extends StatelessWidget {
                   spreadRadius: 0)
             ]),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Stack(children: <Widget>[
               Container(
@@ -84,7 +89,7 @@ class ItemCard extends StatelessWidget {
             Padding(
               padding: EdgeInsets.only(top: 8.w, left: 8.w),
               child: CustomText(
-                text: "Foods/Vegetables",
+                text: "${data['title']}",
                 fontSize: 14.sp,
                 fontWeight: FontWeight.w600,
               ),
@@ -95,13 +100,13 @@ class ItemCard extends StatelessWidget {
                 children: [
                   Row(
                     mainAxisAlignment: MainAxisAlignment.start,
-                    children: const [
+                    children: [
                       CustomIcon(
                         icon: Icons.location_on,
                         color: textColor,
                       ),
                       CustomText(
-                        text: "location",
+                        text: "${data['city']}",
                         fontColor: textColor,
                       ),
                     ],

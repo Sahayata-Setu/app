@@ -23,6 +23,7 @@ class UserProfileOptions extends StatelessWidget {
             children: [
               Image.asset(
                 "assets/images/${imageName}.png",
+                color: blackColor,
                 height: 25.h,
               ),
               SizedBox(
@@ -30,7 +31,7 @@ class UserProfileOptions extends StatelessWidget {
               ),
               CustomText(
                 text: "${text}",
-                fontColor: whiteColor,
+                fontColor: blackColor,
                 fontSize: 18.sp,
               )
             ],

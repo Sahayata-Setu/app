@@ -17,6 +17,7 @@ class AccountSettings extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    // final state = ref.watch(stateProvider);
     return App(
       component: Container(
         color: blueBackgroundColor,
