@@ -14,7 +14,7 @@ class DonationServiceClass {
   Future<Map<String, dynamic>> createDonation(data, image, date) async {
     // final singUpService
     dynamic response;
-    log("this is from service ${date}");
+    log("this is from service ${data['city']}");
     try {
       final token = StorageService.getToken();
       final imageArr = [];

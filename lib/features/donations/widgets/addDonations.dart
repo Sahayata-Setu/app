@@ -32,7 +32,7 @@ class AddDontaion extends ConsumerWidget {
     final selectedDate = ref.watch(datePickerDetails);
     // log("this is selected ${selectedDate}");
     final imageProv = ref.watch(idImageDonationProvider);
-    log("this is fdrom ${imageProv}");
+    log("this is fdrom ${donationDetails}");
 
     Future<void> _selectDate(BuildContext context) async {
       final DateTime? picked = await showDatePicker(
@@ -121,6 +121,7 @@ class AddDontaion extends ConsumerWidget {
                 label: "Quantity",
                 name: "quantity",
               ),
+
               // CustomTextField(
               //   refs: ref.read(donationDetailsProvider.notifier),
               //   label: "Pickup Location",

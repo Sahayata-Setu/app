@@ -9,6 +9,7 @@ final donationDetailsProvider = StateProvider(
     "title": "",
     "category": "",
     "quantity": "",
+    // "city": "",
     "pickupDetails": "",
     "description": "",
   }),
