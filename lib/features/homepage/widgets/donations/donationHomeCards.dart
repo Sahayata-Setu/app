@@ -1,4 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:donationapp/constant/common/Text/custom-text.dart';
 import 'package:donationapp/helpers/route.utils.dart';
 import 'package:donationapp/routes/app.router.gr.dart';
 import 'package:donationapp/utils/store-service/language.store.dart';
@@ -10,6 +11,7 @@ import 'package:donationapp/constant/common/Icon/custom-icon.dart';
 import 'package:donationapp/constant/common/ImageCarousel/ImageOverlay.dart';
 import 'package:donationapp/constant/common/button/cusotm-button.dart';
 import 'package:donationapp/constant/kconstant.dart';
+import 'package:line_icons/line_icon.dart';
 
 class DonationHomeCards extends StatelessWidget {
   const DonationHomeCards({super.key, this.singleInfo});
@@ -25,40 +27,122 @@ class DonationHomeCards extends StatelessWidget {
         // /donations-details/:id
       },
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisSize: MainAxisSize.max,
+        mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          ImageOverlay(
-              border_radius: false,
-              image: singleInfo['images'].length == 0
-                  ? "https://www.ncenet.com/wp-content/uploads/2020/04/No-image-found.jpg"
-                  : singleInfo['images'][0],
-              location: "${singleInfo['city']}",
-              title: "${singleInfo['title']}",
+          // Container(
+          //   height: 100.h,
+          //   width: 300.w,
+          //   decoration: BoxDecoration(
+          //     image: DecorationImage(
+          //       image: NetworkImage(singleInfo['images'][0]),
+          //     ),
+          //   ),
+          // ),
+          ClipRRect(
+            borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(12.r),
+                topRight: Radius.circular(12.r)),
+            child: Container(
               height: 200.h,
               width: 250.w,
-              showShareBtn: false),
-          Container(
-            padding: EdgeInsets.symmetric(horizontal: 10.w),
-            width: 250.w,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(12.r),
+                image: DecorationImage(
+                  fit: BoxFit.fill,
+                  image: NetworkImage(
+                    singleInfo['images'].length == 0
+                        ? "https://www.ncenet.com/wp-content/uploads/2020/04/No-image-found.jpg"
+                        : singleInfo['images'][0],
+                  ),
+                ),
+              ),
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.only(
+              right: 10.w,
+              left: 10.w,
+              top: 10.h,
+            ),
+            child: Container(
+              width: 230.w,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Flexible(
+                    child: CustomText(
+                      text: "${singleInfo['title']}",
+                      fontWeight: FontWeight.bold,
+                      fontColor: blackColor,
+                      fontSize: 18.sp,
+                    ),
+                  ),
+                  Card(
+                    color: backgroundColor,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12.r),
+                    ),
+                    elevation: 0,
+                    shadowColor: Colors.transparent,
+                    child: Padding(
+                      padding: EdgeInsets.symmetric(
+                        vertical: 5.h,
+                        horizontal: 5.h,
+                      ),
+                      child: CustomText(
+                        text: "1 hr",
+                        fontSize: 16.sp,
+                      ),
+                    ),
+                  )
+                ],
+              ),
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.only(
+              right: 10.w,
+              left: 10.w,
+              top: 5.h,
+            ),
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                LineIcon.mapMarker(),
+                SizedBox(
+                  width: 5.w,
+                ),
+                CustomText(
+                  text: "${singleInfo['city']}",
+                  fontSize: 16.h,
+                  fontWeight: FontWeight.normal,
+                ),
+              ],
+            ),
+          ),
+
+          Padding(
+            padding: EdgeInsets.only(left: 10.w, top: 10.h),
+            child: Row(
               children: [
                 CustomElevatedButton(
-                  child: Text(translation(context).claim),
+                  color: const Color(0xff000C66),
                   width: 80.w,
+                  height: 40.h,
                   fn: () {
                     routeTo(
                         "/message/${singleInfo['donor_name']}/${singleInfo['donor_id']}",
                         context);
                   },
+                  child: Text(
+                    translation(context).claim,
+                    style: TextStyle(
+                      fontSize: 16.sp,
+                    ),
+                  ),
                 ),
-                IconButton(
-                    onPressed: () {},
-                    icon: CustomIcon(
-                      icon: Icons.share,
-                      color: blueColor,
-                    ))
               ],
             ),
           )
@@ -67,3 +151,43 @@ class DonationHomeCards extends StatelessWidget {
     );
   }
 }
+
+
+
+
+          // ImageOverlay(
+          //   border_radius: false,
+          //   image: singleInfo['images'].length == 0
+          //       ? "https://www.ncenet.com/wp-content/uploads/2020/04/No-image-found.jpg"
+          //       : singleInfo['images'][0],
+          //   location: "${singleInfo['city']}",
+          //   title: "${singleInfo['title']}",
+          //   height: 200.h,
+          //   width: 250.w,
+          //   showShareBtn: false,
+          // ),
+          // Container(
+          //   padding: EdgeInsets.symmetric(horizontal: 10.w),
+          //   width: 250.w,
+          //   child: Row(
+          //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          //     crossAxisAlignment: CrossAxisAlignment.start,
+          //     children: [
+          //       CustomElevatedButton(
+          //         child: Text(translation(context).claim),
+          //         width: 80.w,
+          //         fn: () {
+          //           routeTo(
+          //               "/message/${singleInfo['donor_name']}/${singleInfo['donor_id']}",
+          //               context);
+          //         },
+          //       ),
+          //       IconButton(
+          //           onPressed: () {},
+          //           icon: CustomIcon(
+          //             icon: Icons.share,
+          //             color: blueColor,
+          //           ))
+          //     ],
+          //   ),
+          // )

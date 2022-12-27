@@ -60,6 +60,7 @@ dependencies:
   firebase_messaging: ^13.1.0
   firebase_core: ^1.24.0
   loading_animation_widget: ^1.2.0+3
+  line_icons: ^2.0.1
   
 
 dev_dependencies:
