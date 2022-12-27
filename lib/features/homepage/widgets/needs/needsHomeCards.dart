@@ -1,5 +1,4 @@
 import 'package:donationapp/constant/common/Text/custom-text.dart';
-import 'package:donationapp/features/donations/widgets/donationDetails.data.dart';
 import 'package:donationapp/features/homepage/widgets/heading.dart';
 import 'package:donationapp/features/needs/widgets/needDetail.data.dart';
 import 'package:donationapp/helpers/route.utils.dart';
@@ -21,11 +20,11 @@ class NeedsHomeCards extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // log("this is for homepage${singleInfo.length}");
+    log("this is for homepage${singleInfo}");
     return GestureDetector(
       onTap: () {
         //route to needs details page
-        routePush(NeedDetailDataRoute(id: singleInfo['_id']), context);
+        routePush(NeedDetailRoute(id: singleInfo['_id']), context);
       },
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -50,7 +49,11 @@ class NeedsHomeCards extends StatelessWidget {
                 CustomElevatedButton(
                   child: CustomText(text: translation(context).donate),
                   width: 80.w,
-                  fn: () {},
+                  fn: () {
+                    routeTo(
+                        "/message/${singleInfo['beneficiary_name']}/${singleInfo['beneficiary_id']}",
+                        context);
+                  },
                 ),
                 IconButton(
                     onPressed: () {},

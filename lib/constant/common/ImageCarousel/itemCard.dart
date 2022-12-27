@@ -5,6 +5,7 @@ import 'package:badges/badges.dart';
 import 'package:donationapp/constant/common/Icon/custom-icon.dart';
 import 'package:donationapp/constant/common/button/cusotm-button.dart';
 import 'package:donationapp/helpers/route.utils.dart';
+import 'package:donationapp/routes/app.router.gr.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:donationapp/constant/common/Text/custom-text.dart';
@@ -12,10 +13,12 @@ import 'package:donationapp/constant/kconstant.dart';
 import 'package:flutter/material.dart';
 
 class ItemCard extends StatelessWidget {
-  const ItemCard({super.key, this.image, required this.btnName, this.data});
+  const ItemCard(
+      {super.key, this.image, required this.btnName, this.data, this.id});
   final image;
   final data;
   // final url;
+  final id;
   // final title;
   // final createdAt;
   // final location;
@@ -24,10 +27,11 @@ class ItemCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // final bData = data['body'];
-    // log("this is from single category ${data}");
+    log("this is from single category ${id}");
     return GestureDetector(
       onTap: () {
-        routeTo("/donations/:id", context);
+        // routeTo("/donations/:id", context);
+        routePush(DonationDetailRoute(id: id), context);
       },
       child: Container(
         decoration: BoxDecoration(
@@ -48,7 +52,7 @@ class ItemCard extends StatelessWidget {
                 decoration: BoxDecoration(
                     color: Colors.transparent,
                     image: DecorationImage(
-                        image: AssetImage(image), fit: BoxFit.cover)),
+                        image: NetworkImage(image), fit: BoxFit.cover)),
                 // child: Image(image: AssetImage(image)),
                 height: 150, // 250.0,
                 // width: 250.w, //double.infinity,
@@ -122,7 +126,11 @@ class ItemCard extends StatelessWidget {
                   CustomElevatedButton(
                     child: Text(btnName),
                     //width: 80.w,
-                    fn: () {},
+                    fn: () {
+                      routeTo(
+                          "/message/${data['donor_name']}/${data['donor_id']}",
+                          context);
+                    },
                   ),
                   IconButton(
                       onPressed: () {},

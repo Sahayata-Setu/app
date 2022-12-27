@@ -1,5 +1,4 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:donationapp/features/donations/widgets/donationDetails.data.dart';
 import 'package:donationapp/helpers/route.utils.dart';
 import 'package:donationapp/routes/app.router.gr.dart';
 import 'package:donationapp/utils/store-service/language.store.dart';
@@ -22,7 +21,8 @@ class DonationHomeCards extends StatelessWidget {
     // log("this is for homepage${singleInfo}");
     return GestureDetector(
       onTap: () {
-        routePush(DonationDetailDataRoute(id: singleInfo['_id']), context);
+        routePush(DonationDetailRoute(id: singleInfo['_id']), context);
+        // /donations-details/:id
       },
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,

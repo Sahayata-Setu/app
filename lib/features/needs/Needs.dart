@@ -1,3 +1,6 @@
+import 'dart:developer';
+
+import 'package:auto_route/auto_route.dart';
 import 'package:donationapp/app.dart';
 import 'package:donationapp/constant/common/BottomNavBar/BottomNavBar.dart';
 import 'package:donationapp/constant/common/ImageCarousel/customImageOverlay.dart';
@@ -7,17 +10,19 @@ import 'package:donationapp/constant/common/Text/custom-text.dart';
 import 'package:donationapp/constant/kconstant.dart';
 import 'package:donationapp/features/donations/widgets/dontaionCard.dart';
 import 'package:donationapp/features/donations/widgets/dontaionItemCard.dart';
+import 'package:donationapp/store/homepage/homepage.store.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class Needs extends StatelessWidget {
-  const Needs({
-    super.key,
-  });
+class Needs extends ConsumerWidget {
+  const Needs({super.key, @PathParam('category') this.category});
   // pass the category name in the arguments
-  //final name;
+  final category;
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final data = ref.watch(needsByCategoryProvider(category));
+    log("This is from category: ${data}");
     return App(
       appbar: NavBar(showBadge: true, title: "Needs", isAdmin: false),
       component: Container(
@@ -34,7 +39,7 @@ class Needs extends StatelessWidget {
             Padding(
               padding: EdgeInsets.only(bottom: kPadding1.h),
               child: CustomText(
-                text: "Category name",
+                text: "${category}",
                 fontSize: 18.sp,
                 fontWeight: FontWeight.w700,
               ),
@@ -50,7 +55,7 @@ class Needs extends StatelessWidget {
                   image: "assets/images/veg.png",
                   btnName: "DONATE",
                 ),
-                itemCount: 4,
+                itemCount: 1,
               ),
             ),
           ]),

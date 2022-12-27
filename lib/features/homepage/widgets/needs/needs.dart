@@ -46,20 +46,26 @@ class NeedsHome extends StatelessWidget {
                             text: translation(context).food,
                             icon: Icons.food_bank,
                             badge: 33,
-                            url: "/needs/:category",
+                            url: "/needs/Food",
                           ),
                           DonationsCategory(
-                              text: translation(context).toys,
-                              badge: 9,
-                              icon: Icons.toys),
+                            text: translation(context).toys,
+                            badge: 9,
+                            icon: Icons.toys,
+                            url: "/needs/Toys",
+                          ),
                           DonationsCategory(
-                              text: translation(context).books,
-                              badge: 8,
-                              icon: Icons.library_books),
+                            text: translation(context).books,
+                            badge: 8,
+                            icon: Icons.library_books,
+                            url: "/needs/Books",
+                          ),
                           DonationsCategory(
-                              text: translation(context).clothes,
-                              badge: 10,
-                              icon: Icons.person),
+                            text: translation(context).clothes,
+                            badge: 10,
+                            url: "/needs/Clothes",
+                            icon: Icons.person,
+                          ),
                           // DonationsCategory(text: "Others", icon: Icons.more_horiz)
                         ],
                       ),
@@ -103,14 +109,16 @@ class NeedsHome extends StatelessWidget {
                                 ),
                               ),
                             ))
-                        : Container(
-                            padding: EdgeInsets.only(
-                              left: kPadding.w,
-                              top: kPadding.h,
-                            ),
-                            child: CustomText(
-                              text: "No needs request yet",
-                              fontSize: 18.sp,
+                        : Center(
+                            child: Container(
+                              padding: EdgeInsets.only(
+                                left: kPadding.w,
+                                top: kPadding.h + 20.h,
+                              ),
+                              child: CustomText(
+                                text: "No needs request yet",
+                                fontSize: 18.sp,
+                              ),
                             ),
                           ),
                     // Container(
