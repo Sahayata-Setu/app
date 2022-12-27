@@ -1,5 +1,4 @@
 import 'dart:developer';
-
 import 'package:donationapp/app.dart';
 import 'package:donationapp/constant/common/NavBar/navbar.dart';
 import 'package:donationapp/constant/common/Text/custom-text.dart';
@@ -50,7 +49,7 @@ class Signup extends ConsumerWidget {
           padding: EdgeInsets.only(
             left: kPadding.w,
             right: kPadding.w,
-            top: kPadding.h + 30,
+            top: kPadding.h + 10,
           ),
           child: SingleChildScrollView(
             scrollDirection: Axis.vertical,
@@ -62,6 +61,9 @@ class Signup extends ConsumerWidget {
                   fontWeight: FontWeight.bold,
                   fontSize: 24.sp,
                   fontColor: blackColor,
+                ),
+                const SizedBox(
+                  height: kMargin,
                 ),
                 CustomTextField(
                   refs: ref.read(signUpDetailsProvider.notifier),
@@ -88,26 +90,59 @@ class Signup extends ConsumerWidget {
                   label: "Address",
                   name: "address",
                 ),
-
-                CustomTextField(
-                  refs: ref.read(signUpDetailsProvider.notifier),
-                  label: "Gender",
-                  name: "gender",
-                ),
-                CustomTextField(
-                  refs: ref.read(signUpDetailsProvider.notifier),
-                  label: "Language",
-                  name: "language",
-                ),
-                CustomTextField(
-                  refs: ref.read(signUpDetailsProvider.notifier),
-                  label: "Password",
-                  name: "password",
-                ),
                 CustomTextField(
                   refs: ref.read(signUpDetailsProvider.notifier),
                   label: "City",
                   name: "city",
+                ),
+                DropdownButtonFormField(
+                  items: const [
+                    DropdownMenuItem(
+                      value: "Male",
+                      child: Text("Male"),
+                    ),
+                    DropdownMenuItem(
+                      value: "Female",
+                      child: Text("Female"),
+                    ),
+                  ],
+                  decoration: const InputDecoration(
+                    label: Text("Gender"),
+                  ),
+                  onChanged: (_) {},
+                ),
+
+                DropdownButtonFormField(
+                  items: const [
+                    DropdownMenuItem(
+                      value: "English",
+                      child: Text("English"),
+                    ),
+                    DropdownMenuItem(
+                      value: "Gujarati",
+                      child: Text("Gujarati"),
+                    ),
+                    DropdownMenuItem(
+                      value: "Hindi",
+                      child: Text("Hindi"),
+                    ),
+                  ],
+                  decoration: const InputDecoration(
+                    label: Text("Language"),
+                  ),
+                  onChanged: (_) {},
+                ),
+
+                // CustomTextField(
+                //   refs: ref.read(signUpDetailsProvider.notifier),
+                //   label: "Language",
+                //   name: "language",
+                // ),
+
+                CustomTextField(
+                  refs: ref.read(signUpDetailsProvider.notifier),
+                  label: "Password",
+                  name: "password",
                 ),
 
                 //

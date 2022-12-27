@@ -32,7 +32,7 @@ class Dontaions extends ConsumerWidget {
       ),
       component: data.when(
           data: (data) {
-            // log("THis is food category ${data}");
+            // log("This is food category ${data}");
 
             return Container(
               alignment: Alignment.topLeft,
