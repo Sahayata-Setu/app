@@ -14,7 +14,7 @@ class UserProfileInformation extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     // log("this is user data from fkjdgfd ${data}");
     final data = ref.watch(userDetailsProvider);
-    log("this is from profilesec${data}");
+    // log("this is from profilesec${data}");
     return Column(
       children: [
         CustomText(

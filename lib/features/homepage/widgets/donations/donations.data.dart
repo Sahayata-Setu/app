@@ -23,7 +23,7 @@ class DonationsData extends ConsumerWidget {
       child: data.when(
         data: (data) {
           // log("ffg");
-          return DonationsHome(data);
+          return DonationsHome();
         },
         error: (h, e) {
           log('$h');
