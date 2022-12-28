@@ -86,7 +86,7 @@ class _HomePageState extends ConsumerState<HomePage> {
     return App(
       component: Container(
         //height: ,
-        margin: EdgeInsets.symmetric(vertical: kPadding),
+        // margin: EdgeInsets.symmetric(vertical: kPadding),
         // padding: EdgeInsets.all(kPadding),
         color: backgroundColor,
         //  height: ScreenUtil().screenHeight + kPadding,

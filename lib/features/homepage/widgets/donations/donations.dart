@@ -102,7 +102,7 @@ class DonationsHome extends ConsumerWidget {
                 SizedBox(
                     height: 360.h,
                     child: ListView.builder(
-                      padding: EdgeInsets.only(left: kPadding),
+                      padding: EdgeInsets.only(left: 10.w),
                       scrollDirection: Axis.horizontal,
                       itemCount: donationsDetails.length,
                       itemBuilder: (context, index) => Container(

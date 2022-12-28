@@ -2,6 +2,7 @@ import 'package:donationapp/constant/kconstant.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomElevatedButton extends StatelessWidget {
   CustomElevatedButton(
@@ -27,9 +28,10 @@ class CustomElevatedButton extends StatelessWidget {
         style: ElevatedButton.styleFrom(
             // backgroundColor: blueColor,
             // foregroundColor: whiteColor,
+
             backgroundColor: color ?? blueColor,
-            shape: const RoundedRectangleBorder(
-              borderRadius: BorderRadius.all(Radius.circular(kPadding1)),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.all(Radius.circular(60.r)),
             )),
       ),
     );

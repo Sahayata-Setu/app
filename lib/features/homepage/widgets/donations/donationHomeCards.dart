@@ -31,38 +31,27 @@ class DonationHomeCards extends StatelessWidget {
         mainAxisSize: MainAxisSize.max,
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          Container(
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                image: NetworkImage(singleInfo['images'][0]),
+          ClipRRect(
+            borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(24.r),
+                topRight: Radius.circular(24.r)),
+            child: Container(
+              height: 210.h,
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: NetworkImage(singleInfo['images'][0]),
+                ),
               ),
             ),
           ),
-          // ClipRReect(
-          //   borderRadius: BorderRadius.only(
-          //       topLeft: Radius.circular(12.r),
-          //       topRight: Radius.circular(12.r)),
-          //   child: Container(
-          //     height: 200.h,
-          //     width: 250.w,
-          //     child: NetworkImage(singleInfo['images'].length == 0
-          //         ? "https://www.ncenet.com/wp-content/uploads/2020/04/No-image-found.jpg"
-          //         : singleInfo['images'][0]),
-          //     // child: Image.network(
-          //     //   "assets/images/donationt/image1.png",
-          //     //   fit: BoxFit.cover,
-          //     //   alignment: Alignment.topLeft,
-          //     // ),
-          //   ),
-          // ),
           Padding(
             padding: EdgeInsets.only(
               right: 10.w,
               left: 10.w,
               top: 10.h,
             ),
-            child: Container(
-              width: 230.w,
+            child: SizedBox(
+              width: 240.w,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -84,7 +73,7 @@ class DonationHomeCards extends StatelessWidget {
                     child: Padding(
                       padding: EdgeInsets.symmetric(
                         vertical: 5.h,
-                        horizontal: 5.h,
+                        horizontal: 10.w,
                       ),
                       child: CustomText(
                         text: "1 hr",
@@ -111,11 +100,14 @@ class DonationHomeCards extends StatelessWidget {
                 ),
                 CustomText(
                   text: "${singleInfo['city']}",
-                  fontSize: 16.h,
+                  fontSize: 16.sp,
                   fontWeight: FontWeight.normal,
                 ),
               ],
             ),
+          ),
+          SizedBox(
+            height: 5.h,
           ),
 
           Padding(
@@ -125,7 +117,7 @@ class DonationHomeCards extends StatelessWidget {
                 CustomElevatedButton(
                   color: const Color(0xff000C66),
                   width: 80.w,
-                  height: 40.h,
+                  height: 35.h,
                   fn: () {
                     routeTo(
                         "/message/${singleInfo['donor_name']}/${singleInfo['donor_id']}",
