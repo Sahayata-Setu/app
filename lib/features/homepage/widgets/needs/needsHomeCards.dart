@@ -22,7 +22,7 @@ class NeedsHomeCards extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // routePush(NeedDetailRoute(id: singleInfo['_id']), context);
-    log("this is for homepage${singleInfo}");
+    // log("this is for homepage${singleInfo}");
     return GestureDetector(
       onTap: () {
         routePush(NeedDetailRoute(id: singleInfo['_id']), context);

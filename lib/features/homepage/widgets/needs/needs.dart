@@ -2,7 +2,6 @@ import 'dart:developer';
 
 import 'package:donationapp/constant/common/Text/custom-text.dart';
 import 'package:donationapp/features/homepage/widgets/donations/donationCategoty.dart';
-import 'package:donationapp/features/homepage/widgets/donations/donationHomeCards.dart';
 import 'package:donationapp/features/homepage/widgets/donations/donations-homecard-shimmer.dart';
 import 'package:donationapp/store/homepage/homepage.store.dart';
 import 'package:donationapp/utils/store-service/language.store.dart';
@@ -10,8 +9,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'package:donationapp/features/homepage/widgets/heading.dart';
-import 'package:donationapp/features/homepage/widgets/needs/NeedCatergories.dart';
 import 'package:donationapp/features/homepage/widgets/needs/needsHomeCards.dart';
 
 import 'package:donationapp/constant/kconstant.dart';
@@ -25,7 +22,7 @@ class NeedsHome extends ConsumerWidget {
     // final needDetails = data['body'].toList();
     // log("this is from needs page ${needDetails}");
 
-    final data = ref.watch(donationsOrRequestProvider("request"));
+    final data = ref.watch(getAllNeedsProvider(""));
     // log("This is data from needs section: ${data}");
 
     return Container(
@@ -93,6 +90,7 @@ class NeedsHome extends ConsumerWidget {
 
                     data.when(
                       data: (data) {
+                        // log("This is needs data: ${data}");
                         final needDetails = data['body'];
                         return SizedBox(
                             height: 360.h,

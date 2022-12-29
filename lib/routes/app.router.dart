@@ -11,8 +11,10 @@ import 'package:donationapp/features/campaigns/campaignDetails.dart';
 import 'package:donationapp/features/campaigns/campaignsList.dart';
 import 'package:donationapp/features/campaigns/widgets/createCampaign.dart';
 import 'package:donationapp/features/certifications/widgets/certificatePrint.dart';
+import 'package:donationapp/features/change-language/change-lang.dart';
 import 'package:donationapp/features/change-location/change-location.dart';
 import 'package:donationapp/features/change-password/change-password.dart';
+import 'package:donationapp/features/donations_claim/donations_claim.dart';
 import 'package:donationapp/features/homepage/homepage-data.dart';
 import 'package:donationapp/features/donations/Dontations.dart';
 import 'package:donationapp/features/donations/widgets/addDonations.dart';
@@ -37,8 +39,10 @@ import 'package:donationapp/features/signup/SignUp.dart';
   MaterialRoute(page: Signup, path: "/signup"),
   // MaterialRoute(page: Signup, path: "/signup"),
   MaterialRoute(page: HomePage, path: "/homepage"),
+  MaterialRoute(page: DonationsClaim, path: "/donations_claim"),
   MaterialRoute(page: ChangePassword, path: "/change-password"),
   MaterialRoute(page: ChangeLocation, path: "/change-location"),
+  MaterialRoute(page: ChangeLanguage, path: "/change-language"),
   MaterialRoute(page: AccountSettings, path: "/account-settings"),
   MaterialRoute(page: Login, path: "/login"),
   MaterialRoute(page: SearchPage, path: "/search"),

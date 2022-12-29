@@ -37,7 +37,9 @@ class UserProfile extends ConsumerWidget {
     handleLogout() {
       ref.read(loginProvider).logout();
       final router = AutoRouter.of(context);
-      router.replaceAll([LoginRoute()]);
+      router.replaceAll(
+        [LoginRoute()],
+      );
       // replaceRouteTo("/login", context);
       const snackBar = SnackBar(
         content: Text('Logged Out'),
@@ -92,13 +94,23 @@ class UserProfile extends ConsumerWidget {
                   imageName: "certificate",
                 ),
               ),
-              UserProfileOptions(
-                text: translation(context).donations_claim,
-                imageName: "claim",
+              GestureDetector(
+                onTap: () {
+                  routeTo("/donations_claim", context)
+                },
+                child: UserProfileOptions(
+                  text: translation(context).donations_claim,
+                  imageName: "claim",
+                ),
               ),
-              UserProfileOptions(
-                text: translation(context).changeLanguage,
-                imageName: "i-icon",
+              GestureDetector(
+                onTap: () {
+                  routeTo("/change-language", context);
+                },
+                child: UserProfileOptions(
+                  text: translation(context).changeLanguage,
+                  imageName: "i-icon",
+                ),
               ),
               GestureDetector(
                 onTap: () {
