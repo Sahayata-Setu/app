@@ -1,6 +1,7 @@
 import 'dart:developer';
 import 'dart:ui';
 
+import 'package:auto_route/auto_route.dart';
 import 'package:badges/badges.dart';
 import 'package:donationapp/constant/common/Icon/custom-icon.dart';
 import 'package:donationapp/constant/common/button/cusotm-button.dart';
@@ -14,11 +15,17 @@ import 'package:flutter/material.dart';
 
 class ItemCard extends StatelessWidget {
   const ItemCard(
-      {super.key, this.image, required this.btnName, this.data, this.id});
+      {super.key,
+      this.image,
+      required this.btnName,
+      this.data,
+      this.id,
+      this.cardType});
   final image;
   final data;
   // final url;
   final id;
+  final cardType;
   // final title;
   // final createdAt;
   // final location;
@@ -27,11 +34,15 @@ class ItemCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // final bData = data['body'];
-    log("this is from single category ${id}");
+    final route = AutoRouter.of(context).current.name;
+    log("this is from single categoryfff ${id}");
     return GestureDetector(
       onTap: () {
         // routeTo("/donations/:id", context);
-        routePush(DonationDetailRoute(id: id), context);
+        // routePush(DonationDetailRoute(id: id), context);
+        cardType == "need"
+            ? routePush(NeedDetailRoute(id: "${id}"), context)
+            : routePush(DonationDetailRoute(id: id), context);
       },
       child: Container(
         decoration: BoxDecoration(
