@@ -21,6 +21,10 @@ class Signup extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final signUpDetails = ref.watch(signUpDetailsProvider);
     final signUpRef = ref.watch(signUpProvider);
+    log("this is sgnup details: ${signUpDetails}");
+
+    const languages = ["english", "hindi", "gujarati"];
+    const gender = ["male", "female", "other"];
     // log("$signUpRef");
 
     handleSumbit() async {
@@ -96,41 +100,41 @@ class Signup extends ConsumerWidget {
                   name: "city",
                 ),
                 DropdownButtonFormField(
-                  items: const [
-                    DropdownMenuItem(
-                      value: "Male",
-                      child: Text("Male"),
-                    ),
-                    DropdownMenuItem(
-                      value: "Female",
-                      child: Text("Female"),
-                    ),
-                  ],
+                  items: gender.map((String category) {
+                    return new DropdownMenuItem(
+                        value: category, child: Text(category));
+                  }).toList(),
                   decoration: const InputDecoration(
                     label: Text("Gender"),
                   ),
-                  onChanged: (_) {},
-                ),
+                  onChanged: (val) {
+                    ref.read(signUpDetailsProvider.notifier).state['gender'] =
+                        val.toString();
 
+                    // log("This is dropdown val ${val}");
+                  },
+                ),
+                // Spacer(),
+                SizedBox(
+                  height: 10.h,
+                ),
                 DropdownButtonFormField(
-                  items: const [
-                    DropdownMenuItem(
-                      value: "English",
-                      child: Text("English"),
-                    ),
-                    DropdownMenuItem(
-                      value: "Gujarati",
-                      child: Text("Gujarati"),
-                    ),
-                    DropdownMenuItem(
-                      value: "Hindi",
-                      child: Text("Hindi"),
-                    ),
-                  ],
+                  items: languages.map((String category) {
+                    return new DropdownMenuItem(
+                        value: category, child: Text(category));
+                  }).toList(),
                   decoration: const InputDecoration(
                     label: Text("Language"),
                   ),
-                  onChanged: (_) {},
+                  onChanged: (val) {
+                    ref.read(signUpDetailsProvider.notifier).state['language'] =
+                        val.toString();
+
+                    // log("This is dropdown val ${val}");
+                  },
+                ),
+                SizedBox(
+                  height: 10.h,
                 ),
 
                 // CustomTextField(

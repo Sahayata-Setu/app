@@ -1,5 +1,4 @@
 import 'package:donationapp/constant/common/Text/custom-text.dart';
-import 'package:donationapp/features/donations/widgets/donationDetails.data.dart';
 import 'package:donationapp/features/homepage/widgets/heading.dart';
 import 'package:donationapp/features/needs/widgets/needDetail.data.dart';
 import 'package:donationapp/helpers/route.utils.dart';
@@ -13,6 +12,7 @@ import 'package:donationapp/constant/common/Icon/custom-icon.dart';
 import 'package:donationapp/constant/common/ImageCarousel/ImageOverlay.dart';
 import 'package:donationapp/constant/common/button/cusotm-button.dart';
 import 'package:donationapp/constant/kconstant.dart';
+import 'package:line_icons/line_icon.dart';
 
 class NeedsHomeCards extends StatelessWidget {
   const NeedsHomeCards({super.key, this.singleInfo});
@@ -21,43 +21,130 @@ class NeedsHomeCards extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // log("this is for homepage${singleInfo.length}");
+    // routePush(NeedDetailRoute(id: singleInfo['_id']), context);
+    log("this is for homepage${singleInfo}");
     return GestureDetector(
       onTap: () {
-        //route to needs details page
-        routePush(NeedDetailDataRoute(id: singleInfo['_id']), context);
+        routePush(NeedDetailRoute(id: singleInfo['_id']), context);
+        // /donations-details/:id
       },
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisSize: MainAxisSize.max,
+        mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          ImageOverlay(
-              border_radius: false,
-              image: singleInfo['images'].length == 0
-                  ? "https://www.ncenet.com/wp-content/uploads/2020/04/No-image-found.jpg"
-                  : singleInfo['images'][0],
-              location: "${singleInfo['city']}", // "${singleInfo['city']}",
-              title: "${singleInfo['title']}",
+          // Container(
+          //   height: 100.h,
+          //   width: 300.w,
+          //   decoration: BoxDecoration(
+          //     image: DecorationImage(
+          //       image: NetworkImage(singleInfo['images'][0]),
+          //     ),
+          //   ),
+          // ),
+          ClipRRect(
+            borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(12.r),
+                topRight: Radius.circular(12.r)),
+            child: Container(
               height: 200.h,
               width: 250.w,
-              showShareBtn: false),
-          Container(
-            padding: EdgeInsets.symmetric(horizontal: 10.w),
-            width: 250.w,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(12.r),
+                image: DecorationImage(
+                  fit: BoxFit.fill,
+                  image: NetworkImage(
+                    singleInfo['images'].length == 0
+                        ? "https://www.ncenet.com/wp-content/uploads/2020/04/No-image-found.jpg"
+                        : singleInfo['images'][0],
+                  ),
+                ),
+              ),
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.only(
+              right: 10.w,
+              left: 10.w,
+              top: 10.h,
+            ),
+            child: Container(
+              width: 230.w,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Flexible(
+                    child: CustomText(
+                      text: "${singleInfo['title']}",
+                      fontWeight: FontWeight.bold,
+                      fontColor: blackColor,
+                      fontSize: 18.sp,
+                    ),
+                  ),
+                  Card(
+                    color: backgroundColor,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12.r),
+                    ),
+                    elevation: 0,
+                    shadowColor: Colors.transparent,
+                    child: Padding(
+                      padding: EdgeInsets.symmetric(
+                        vertical: 5.h,
+                        horizontal: 5.h,
+                      ),
+                      child: CustomText(
+                        text: "1 hr",
+                        fontSize: 16.sp,
+                      ),
+                    ),
+                  )
+                ],
+              ),
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.only(
+              right: 10.w,
+              left: 10.w,
+              top: 5.h,
+            ),
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                LineIcon.mapMarker(),
+                SizedBox(
+                  width: 5.w,
+                ),
+                CustomText(
+                  text: "${singleInfo['city']}",
+                  fontSize: 16.h,
+                  fontWeight: FontWeight.normal,
+                ),
+              ],
+            ),
+          ),
+
+          Padding(
+            padding: EdgeInsets.only(left: 10.w, top: 10.h),
+            child: Row(
               children: [
                 CustomElevatedButton(
-                  child: CustomText(text: translation(context).donate),
+                  color: const Color(0xff000C66),
                   width: 80.w,
-                  fn: () {},
+                  height: 40.h,
+                  fn: () {
+                    routeTo(
+                        "/message/${singleInfo['donor_name']}/${singleInfo['donor_id']}",
+                        context);
+                  },
+                  child: Text(
+                    translation(context).claim,
+                    style: TextStyle(
+                      fontSize: 16.sp,
+                    ),
+                  ),
                 ),
-                IconButton(
-                    onPressed: () {},
-                    icon: CustomIcon(
-                      icon: Icons.share,
-                      color: blueColor,
-                    ))
               ],
             ),
           )

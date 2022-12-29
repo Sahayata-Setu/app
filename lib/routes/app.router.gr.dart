@@ -28,14 +28,14 @@ import '../features/change-location/change-location.dart' as _i6;
 import '../features/change-password/change-password.dart' as _i5;
 import '../features/donations/Dontations.dart' as _i15;
 import '../features/donations/widgets/addDonations.dart' as _i16;
-import '../features/donations/widgets/donationDetails.data.dart' as _i17;
+import '../features/donations/widgets/donationDetails.dart' as _i17;
 import '../features/homepage/homepage.dart' as _i4;
 import '../features/login/login.dart' as _i8;
 import '../features/message/message.dart' as _i10;
 import '../features/message/messageDetails.dart' as _i26;
 import '../features/needs/Needs.dart' as _i18;
 import '../features/needs/widgets/addNeed.dart' as _i19;
-import '../features/needs/widgets/needDetail.data.dart' as _i20;
+import '../features/needs/widgets/needDetail.dart' as _i20;
 import '../features/notifications/notifications.dart' as _i11;
 import '../features/profile/user-profile.dart' as _i21;
 import '../features/search-page/search-page.dart' as _i9;
@@ -118,29 +118,34 @@ class AppRouter extends _i27.RootStackRouter {
       return _i27.MaterialPageX<dynamic>(
           routeData: routeData, child: const _i16.AddDontaion());
     },
-    DonationDetailDataRoute.name: (routeData) {
+    DonationDetailRoute.name: (routeData) {
       final pathParams = routeData.inheritedPathParams;
-      final args = routeData.argsAs<DonationDetailDataRouteArgs>(
-          orElse: () => DonationDetailDataRouteArgs(id: pathParams.get('id')));
+      final args = routeData.argsAs<DonationDetailRouteArgs>(
+          orElse: () => DonationDetailRouteArgs(id: pathParams.get('id')));
       return _i27.MaterialPageX<dynamic>(
           routeData: routeData,
-          child: _i17.DonationDetailData(key: args.key, id: args.id));
+          child:
+              _i17.DonationDetail(key: args.key, data: args.data, id: args.id));
     },
     NeedsRoute.name: (routeData) {
+      final pathParams = routeData.inheritedPathParams;
+      final args = routeData.argsAs<NeedsRouteArgs>(
+          orElse: () => NeedsRouteArgs(category: pathParams.get('category')));
       return _i27.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i18.Needs());
+          routeData: routeData,
+          child: _i18.Needs(key: args.key, category: args.category));
     },
     AddRequestRoute.name: (routeData) {
       return _i27.MaterialPageX<dynamic>(
           routeData: routeData, child: const _i19.AddRequest());
     },
-    NeedDetailDataRoute.name: (routeData) {
+    NeedDetailRoute.name: (routeData) {
       final pathParams = routeData.inheritedPathParams;
-      final args = routeData.argsAs<NeedDetailDataRouteArgs>(
-          orElse: () => NeedDetailDataRouteArgs(id: pathParams.get('id')));
+      final args = routeData.argsAs<NeedDetailRouteArgs>(
+          orElse: () => NeedDetailRouteArgs(id: pathParams.get('id')));
       return _i27.MaterialPageX<dynamic>(
           routeData: routeData,
-          child: _i20.NeedDetailData(key: args.key, id: args.id));
+          child: _i20.NeedDetail(key: args.key, data: args.data, id: args.id));
     },
     UserProfileRoute.name: (routeData) {
       return _i27.MaterialPageX<dynamic>(
@@ -199,11 +204,11 @@ class AppRouter extends _i27.RootStackRouter {
         _i27.RouteConfig(CampiagnDetailsRoute.name, path: '/campaigns/:id'),
         _i27.RouteConfig(DontaionsRoute.name, path: '/donations/:category'),
         _i27.RouteConfig(AddDontaionRoute.name, path: '/createDonation'),
-        _i27.RouteConfig(DonationDetailDataRoute.name,
+        _i27.RouteConfig(DonationDetailRoute.name,
             path: '/donations-details/:id'),
         _i27.RouteConfig(NeedsRoute.name, path: '/needs/:category'),
         _i27.RouteConfig(AddRequestRoute.name, path: '/createNeed'),
-        _i27.RouteConfig(NeedDetailDataRoute.name, path: '/needs/details/:id'),
+        _i27.RouteConfig(NeedDetailRoute.name, path: '/needs/details/:id'),
         _i27.RouteConfig(UserProfileRoute.name, path: '/user-profile'),
         _i27.RouteConfig(CertificatePrintRoute.name,
             path: '/certificatePreview'),
@@ -384,37 +389,55 @@ class AddDontaionRoute extends _i27.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i17.DonationDetailData]
-class DonationDetailDataRoute
-    extends _i27.PageRouteInfo<DonationDetailDataRouteArgs> {
-  DonationDetailDataRoute({_i28.Key? key, dynamic id})
-      : super(DonationDetailDataRoute.name,
+/// [_i17.DonationDetail]
+class DonationDetailRoute extends _i27.PageRouteInfo<DonationDetailRouteArgs> {
+  DonationDetailRoute({_i28.Key? key, dynamic data, dynamic id})
+      : super(DonationDetailRoute.name,
             path: '/donations-details/:id',
-            args: DonationDetailDataRouteArgs(key: key, id: id),
+            args: DonationDetailRouteArgs(key: key, data: data, id: id),
             rawPathParams: {'id': id});
 
-  static const String name = 'DonationDetailDataRoute';
+  static const String name = 'DonationDetailRoute';
 }
 
-class DonationDetailDataRouteArgs {
-  const DonationDetailDataRouteArgs({this.key, this.id});
+class DonationDetailRouteArgs {
+  const DonationDetailRouteArgs({this.key, this.data, this.id});
 
   final _i28.Key? key;
+
+  final dynamic data;
 
   final dynamic id;
 
   @override
   String toString() {
-    return 'DonationDetailDataRouteArgs{key: $key, id: $id}';
+    return 'DonationDetailRouteArgs{key: $key, data: $data, id: $id}';
   }
 }
 
 /// generated route for
 /// [_i18.Needs]
-class NeedsRoute extends _i27.PageRouteInfo<void> {
-  const NeedsRoute() : super(NeedsRoute.name, path: '/needs/:category');
+class NeedsRoute extends _i27.PageRouteInfo<NeedsRouteArgs> {
+  NeedsRoute({_i28.Key? key, dynamic category})
+      : super(NeedsRoute.name,
+            path: '/needs/:category',
+            args: NeedsRouteArgs(key: key, category: category),
+            rawPathParams: {'category': category});
 
   static const String name = 'NeedsRoute';
+}
+
+class NeedsRouteArgs {
+  const NeedsRouteArgs({this.key, this.category});
+
+  final _i28.Key? key;
+
+  final dynamic category;
+
+  @override
+  String toString() {
+    return 'NeedsRouteArgs{key: $key, category: $category}';
+  }
 }
 
 /// generated route for
@@ -426,27 +449,29 @@ class AddRequestRoute extends _i27.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i20.NeedDetailData]
-class NeedDetailDataRoute extends _i27.PageRouteInfo<NeedDetailDataRouteArgs> {
-  NeedDetailDataRoute({_i28.Key? key, dynamic id})
-      : super(NeedDetailDataRoute.name,
+/// [_i20.NeedDetail]
+class NeedDetailRoute extends _i27.PageRouteInfo<NeedDetailRouteArgs> {
+  NeedDetailRoute({_i28.Key? key, dynamic data, dynamic id})
+      : super(NeedDetailRoute.name,
             path: '/needs/details/:id',
-            args: NeedDetailDataRouteArgs(key: key, id: id),
+            args: NeedDetailRouteArgs(key: key, data: data, id: id),
             rawPathParams: {'id': id});
 
-  static const String name = 'NeedDetailDataRoute';
+  static const String name = 'NeedDetailRoute';
 }
 
-class NeedDetailDataRouteArgs {
-  const NeedDetailDataRouteArgs({this.key, this.id});
+class NeedDetailRouteArgs {
+  const NeedDetailRouteArgs({this.key, this.data, this.id});
 
   final _i28.Key? key;
+
+  final dynamic data;
 
   final dynamic id;
 
   @override
   String toString() {
-    return 'NeedDetailDataRouteArgs{key: $key, id: $id}';
+    return 'NeedDetailRouteArgs{key: $key, data: $data, id: $id}';
   }
 }
 

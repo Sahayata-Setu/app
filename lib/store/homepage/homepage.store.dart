@@ -35,6 +35,14 @@ final donationsByCategoryProvider =
   },
 );
 
+//Get donations by category
+final needsByCategoryProvider =
+    FutureProvider.family<Map<String, dynamic>, String>(
+  (ref, category) {
+    return ref.watch(homePageService).getNeedsByCategory(category);
+  },
+);
+
 
 // final agentsSearchProvider =
 //     StateNotifierProvider.autoDispose<Map<String, dynamic>, String>(

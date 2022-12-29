@@ -210,9 +210,11 @@ class ReceiverMessageWIdget extends StatelessWidget {
           SizedBox(
             width: 5.h,
           ),
-          Text(
-            data.message!,
-            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18.sp),
+          Flexible(
+            child: Text(
+              data.message!,
+              style: TextStyle(fontWeight: FontWeight.w500, fontSize: 18.sp),
+            ),
           ),
         ]),
         SizedBox(

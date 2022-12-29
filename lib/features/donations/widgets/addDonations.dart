@@ -69,6 +69,7 @@ class AddDontaion extends ConsumerWidget {
             imageProv, DateFormat('yyyy-MM-dd').format(selectedDate));
         final snackBar = SnackBar(content: Text(resp['message']));
         ref.refresh(donationsOrRequestProvider('donation'));
+        ref.refresh(idImageDonationProvider);
         ScaffoldMessenger.of(context).showSnackBar(snackBar);
         pop(context);
       } catch (e) {

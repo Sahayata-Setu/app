@@ -23,6 +23,7 @@ class Dontaions extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final data = ref.watch(donationsByCategoryProvider(category));
+    // log("THis is data from single category: ${data['body']}");
     return App(
       appbar: NavBar(
         showBadge: true,
@@ -32,7 +33,7 @@ class Dontaions extends ConsumerWidget {
       ),
       component: data.when(
           data: (data) {
-            // log("This is food category ${data}");
+            log("THis is food category ${data}");
 
             return Container(
               alignment: Alignment.topLeft,
@@ -67,6 +68,7 @@ class Dontaions extends ConsumerWidget {
                             data: data['body'][index],
                             image: data['body'][index]['images'][0] ??
                                 "assets/images/veg.png",
+                            id: data['body'][index]['_id'],
                             btnName: "CLAIM",
                           ),
                           itemCount: data['body'].length,
