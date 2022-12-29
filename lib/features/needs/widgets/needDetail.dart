@@ -27,7 +27,6 @@ class NeedDetail extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     // final singleData = data['body'];
     // log("this is from data ${data['quantity']}");
-    // log("this is id$singleData[]}");
 
     // DateFormat('yyyy-MM-dd').format(selectedDate)
     // final date = singleData['pickupDate'].split("T");
@@ -36,6 +35,7 @@ class NeedDetail extends ConsumerWidget {
     return App(
       component: data1.when(
         data: (data) {
+          // log("this is id -------------------------- ${id}");
           final singleData = data['body'];
           final date = singleData['pickupDate'].split("T");
 

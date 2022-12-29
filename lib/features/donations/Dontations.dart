@@ -33,7 +33,7 @@ class Dontaions extends ConsumerWidget {
       ),
       component: data.when(
           data: (data) {
-            log("THis is food category ${data}");
+            // log("THis is food category ${data}");
 
             return Container(
               alignment: Alignment.topLeft,
@@ -65,6 +65,7 @@ class Dontaions extends ConsumerWidget {
                                   crossAxisSpacing: 10,
                                   mainAxisSpacing: 10),
                           itemBuilder: (context, index) => ItemCard(
+                            cardType: "donations",
                             data: data['body'][index],
                             image: data['body'][index]['images'][0] ??
                                 "assets/images/veg.png",

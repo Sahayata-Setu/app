@@ -11,6 +11,13 @@ final donationsOrRequestProvider =
   },
 );
 
+//get all neeeds
+final getAllNeedsProvider = FutureProvider.family<Map<String, dynamic>, String>(
+  (ref, type) {
+    return ref.watch(homePageService).getAllRequests();
+  },
+);
+
 //get single donations
 final singleDonationsDataProvider =
     FutureProvider.family<Map<String, dynamic>, String>(

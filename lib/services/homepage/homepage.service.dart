@@ -26,6 +26,24 @@ class HomepageServiceClass {
     }
   }
 
+  //Get all requests only
+  Future<Map<String, dynamic>> getAllRequests() async {
+    try {
+      final token = StorageService.getToken();
+      final response = await _client.get(
+        "/user/request/category/all",
+        options: Options(
+          headers: {"Authorization": "Bearer ${token}"},
+        ),
+      );
+
+      return response;
+    } catch (e) {
+      log("this is error$e");
+      throw Exception("Invalid Request $e");
+    }
+  }
+
   //Get donations by Id
   Future<Map<String, dynamic>> getDontaionsById(id) async {
     try {
@@ -92,7 +110,7 @@ class HomepageServiceClass {
       final token = StorageService.getToken();
       // log("Hello ${category}");
       final response = await _client.get(
-        "/user/needs/category/${category}",
+        "/user/request/category/${category}",
         options: Options(
           headers: {"Authorization": "Bearer ${token}"},
         ),

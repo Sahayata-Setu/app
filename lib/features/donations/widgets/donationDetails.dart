@@ -40,7 +40,7 @@ class DonationDetail extends ConsumerWidget {
       component: data1.when(
           data: (data) {
             final singleData = data['body'];
-            // log("this is single data from single details page: ${singleData}");
+            log("this is single data from single details page: ${singleData}");
             return Container(
               alignment: Alignment.topLeft,
               // height: ScreenUtil().screenHeight,
