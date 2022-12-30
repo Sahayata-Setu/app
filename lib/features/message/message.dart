@@ -14,6 +14,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../constant/common/GoogleButtomNavBar/GoogleButtomNavBar.dart';
+
 class ChatUsers {
   String name;
   String messageText;
@@ -77,7 +79,7 @@ class Message extends ConsumerWidget {
           showBadge: true,
         ),
         isAdmin: false,
-        bottomNavBar: BottomNavBar(showBottomNavBar: true),
+        bottomNavBar: GoogleButtomNavBar(showBottomNavBar: true),
       ),
     );
   }
