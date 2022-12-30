@@ -23,6 +23,7 @@ class Dontaions extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final data = ref.watch(donationsByCategoryProvider(category));
+    // log("THis is data from single category: ${data['body']}");
     return App(
       appbar: NavBar(
         showBadge: true,
@@ -64,9 +65,11 @@ class Dontaions extends ConsumerWidget {
                                   crossAxisSpacing: 10,
                                   mainAxisSpacing: 10),
                           itemBuilder: (context, index) => ItemCard(
+                            cardType: "donations",
                             data: data['body'][index],
                             image: data['body'][index]['images'][0] ??
                                 "assets/images/veg.png",
+                            id: data['body'][index]['_id'],
                             btnName: "CLAIM",
                           ),
                           itemCount: data['body'].length,

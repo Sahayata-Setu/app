@@ -4,6 +4,7 @@ import 'package:donationapp/constant/common/Icon/custom-icon.dart';
 import 'package:donationapp/helpers/route.utils.dart';
 // import 'package:donationapp/routes/app.router.gr.dart';
 import 'package:flutter/material.dart';
+// import 'package:line_icons/line_icons.dart';
 
 import 'package:donationapp/constant/kconstant.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -63,11 +64,12 @@ class _BottomNavBarState extends State<BottomNavBar> {
             onTap: onTabTapped,
             items: [
                 BottomNavigationBarItem(
-                    icon: CustomIcon(
-                      icon: Icons.home,
-                      size: 25.sp,
-                    ),
-                    label: "Home"),
+                  icon: CustomIcon(
+                    icon: Icons.home,
+                    size: 25.sp,
+                  ),
+                  label: "Home",
+                ),
                 BottomNavigationBarItem(
                     icon: CustomIcon(
                       icon: Icons.message,

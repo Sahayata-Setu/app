@@ -13,7 +13,6 @@ import 'package:donationapp/features/campaigns/widgets/createCampaign.dart';
 import 'package:donationapp/features/certifications/widgets/certificatePrint.dart';
 import 'package:donationapp/features/change-location/change-location.dart';
 import 'package:donationapp/features/change-password/change-password.dart';
-import 'package:donationapp/features/donations/widgets/donationDetails.data.dart';
 import 'package:donationapp/features/homepage/homepage-data.dart';
 import 'package:donationapp/features/donations/Dontations.dart';
 import 'package:donationapp/features/donations/widgets/addDonations.dart';
@@ -54,11 +53,11 @@ import 'package:donationapp/features/signup/SignUp.dart';
   MaterialRoute(page: Dontaions, path: "/donations/:category"),
   MaterialRoute(page: AddDontaion, path: "/createDonation"),
   // MaterialRoute(page: DonationDetail, path: "/donations"),
-  MaterialRoute(page: DonationDetailData, path: "/donations-details/:id"),
+  MaterialRoute(page: DonationDetail, path: "/donations-details/:id"),
 
   MaterialRoute(page: Needs, path: "/needs/:category"),
   MaterialRoute(page: AddRequest, path: "/createNeed"),
-  MaterialRoute(page: NeedDetailData, path: "/needs/details/:id"),
+  MaterialRoute(page: NeedDetail, path: "/needs/details/:id"),
 
   MaterialRoute(page: UserProfile, path: "/user-profile"),
   MaterialRoute(page: CertificatePrint, path: "/certificatePreview"),

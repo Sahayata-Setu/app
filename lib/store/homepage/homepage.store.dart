@@ -11,6 +11,13 @@ final donationsOrRequestProvider =
   },
 );
 
+//get all neeeds
+final getAllNeedsProvider = FutureProvider.family<Map<String, dynamic>, String>(
+  (ref, type) {
+    return ref.watch(homePageService).getAllRequests();
+  },
+);
+
 //get single donations
 final singleDonationsDataProvider =
     FutureProvider.family<Map<String, dynamic>, String>(
@@ -32,6 +39,14 @@ final donationsByCategoryProvider =
     FutureProvider.family<Map<String, dynamic>, String>(
   (ref, category) {
     return ref.watch(homePageService).getDonationsByCategory(category);
+  },
+);
+
+//Get donations by category
+final needsByCategoryProvider =
+    FutureProvider.family<Map<String, dynamic>, String>(
+  (ref, category) {
+    return ref.watch(homePageService).getNeedsByCategory(category);
   },
 );
 

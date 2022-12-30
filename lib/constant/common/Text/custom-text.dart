@@ -18,10 +18,11 @@ class CustomText extends StatelessWidget {
     return Text(
       text,
       style: TextStyle(
-          color: fontColor,
-          fontSize: fontSize,
-          fontWeight: fontWeight,
-          overflow: textOverFlow),
+        color: fontColor,
+        fontSize: fontSize,
+        fontWeight: fontWeight,
+        overflow: textOverFlow,
+      ),
     );
   }
 }

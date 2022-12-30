@@ -2,24 +2,29 @@ import 'dart:developer';
 
 import 'package:donationapp/constant/common/Text/custom-text.dart';
 import 'package:donationapp/features/homepage/widgets/donations/donationCategoty.dart';
+import 'package:donationapp/features/homepage/widgets/donations/donations-homecard-shimmer.dart';
+import 'package:donationapp/store/homepage/homepage.store.dart';
 import 'package:donationapp/utils/store-service/language.store.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'package:donationapp/features/homepage/widgets/heading.dart';
-import 'package:donationapp/features/homepage/widgets/needs/NeedCatergories.dart';
 import 'package:donationapp/features/homepage/widgets/needs/needsHomeCards.dart';
 
 import 'package:donationapp/constant/kconstant.dart';
 
-class NeedsHome extends StatelessWidget {
-  const NeedsHome({super.key, required this.data});
-  final data;
+class NeedsHome extends ConsumerWidget {
+  const NeedsHome({super.key});
+  // final data;
 
   @override
-  Widget build(BuildContext context) {
-    final needDetails = data['body'].toList();
+  Widget build(BuildContext context, WidgetRef ref) {
+    // final needDetails = data['body'].toList();
     // log("this is from needs page ${needDetails}");
+
+    final data = ref.watch(getAllNeedsProvider(""));
+    // log("This is data from needs section: ${data}");
+
     return Container(
         margin: EdgeInsets.all(kPadding.w),
         alignment: Alignment.topLeft,
@@ -46,20 +51,26 @@ class NeedsHome extends StatelessWidget {
                             text: translation(context).food,
                             icon: Icons.food_bank,
                             badge: 33,
-                            url: "/needs/:category",
+                            url: "/needs/Food",
                           ),
                           DonationsCategory(
-                              text: translation(context).toys,
-                              badge: 9,
-                              icon: Icons.toys),
+                            text: translation(context).toys,
+                            badge: 9,
+                            icon: Icons.toys,
+                            url: "/needs/Toys",
+                          ),
                           DonationsCategory(
-                              text: translation(context).books,
-                              badge: 8,
-                              icon: Icons.library_books),
+                            text: translation(context).books,
+                            badge: 8,
+                            icon: Icons.library_books,
+                            url: "/needs/Books",
+                          ),
                           DonationsCategory(
-                              text: translation(context).clothes,
-                              badge: 10,
-                              icon: Icons.person),
+                            text: translation(context).clothes,
+                            badge: 10,
+                            url: "/needs/Clothes",
+                            icon: Icons.person,
+                          ),
                           // DonationsCategory(text: "Others", icon: Icons.more_horiz)
                         ],
                       ),
@@ -73,46 +84,83 @@ class NeedsHome extends StatelessWidget {
                         fontWeight: FontWeight.w800,
                       ),
                     ),
-                    needDetails.length > 0
-                        ? SizedBox(
-                            height: 300.h,
+                    // needDetails.length > 0
+                    //     ?
+//Donations cards
+
+                    data.when(
+                      data: (data) {
+                        // log("This is needs data: ${data}");
+                        final needDetails = data['body'];
+                        return SizedBox(
+                            height: 360.h,
                             child: ListView.builder(
                               padding: EdgeInsets.only(left: kPadding),
                               scrollDirection: Axis.horizontal,
                               itemCount: needDetails.length,
-                              //donationsDetails.length,
                               itemBuilder: (context, index) => Container(
                                 margin: EdgeInsets.all(10.w),
-
-                                // height: 200.0,
-                                // width: 150,
-                                child: Container(
-                                  decoration: BoxDecoration(
-                                      color: backgroundColor,
-                                      borderRadius: BorderRadius.circular(15),
-                                      boxShadow: [
-                                        BoxShadow(
-                                            color: Colors.grey.withOpacity(0.3),
-                                            offset: const Offset(0, 6),
-                                            blurRadius: 11.0,
-                                            spreadRadius: 0)
-                                      ]),
+                                child: Card(
+                                  margin: EdgeInsets.zero,
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(12.r),
+                                  ),
+                                  elevation: 0,
+                                  shadowColor: Colors.transparent,
                                   child: NeedsHomeCards(
                                     singleInfo: needDetails[index],
                                   ),
                                 ),
                               ),
-                            ))
-                        : Container(
-                            padding: EdgeInsets.only(
-                              left: kPadding.w,
-                              top: kPadding.h,
-                            ),
-                            child: CustomText(
-                              text: "No needs request yet",
-                              fontSize: 18.sp,
-                            ),
-                          ),
+                            ));
+                      },
+                      error: (e, st) => Center(
+                        child: CustomText(text: "Something went wrong!!"),
+                      ),
+                      loading: () => HomeCardShimmerLoading(),
+                    )
+
+                    // SizedBox(
+                    //     height: 300.h,
+                    //     child: ListView.builder(
+                    //       padding: EdgeInsets.only(left: kPadding),
+                    //       scrollDirection: Axis.horizontal,
+                    //       itemCount: needDetails.length,
+                    //       //donationsDetails.length,
+                    //       itemBuilder: (context, index) => Container(
+                    //         margin: EdgeInsets.all(10.w),
+
+                    //         // height: 200.0,
+                    //         // width: 150,
+                    //         child: Container(
+                    //           decoration: BoxDecoration(
+                    //               color: backgroundColor,
+                    //               borderRadius: BorderRadius.circular(15),
+                    //               boxShadow: [
+                    //                 BoxShadow(
+                    //                     color: Colors.grey.withOpacity(0.3),
+                    //                     offset: const Offset(0, 6),
+                    //                     blurRadius: 11.0,
+                    //                     spreadRadius: 0)
+                    //               ]),
+                    //           child: NeedsHomeCards(
+                    //             singleInfo: needDetails[index],
+                    //           ),
+                    //         ),
+                    //       ),
+                    //     ))
+                    // : Center(
+                    //     child: Container(
+                    //       padding: EdgeInsets.only(
+                    //         left: kPadding.w,
+                    //         top: kPadding.h + 20.h,
+                    //       ),
+                    //       child: CustomText(
+                    //         text: "No needs request yet",
+                    //         fontSize: 18.sp,
+                    //       ),
+                    //     ),
+                    //   ),
                     // Container(
                     //   margin: EdgeInsets.only(
                     //       left: 10.w, top: kPadding.h, bottom: kPadding.h),
