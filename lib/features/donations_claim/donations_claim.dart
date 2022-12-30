@@ -4,6 +4,7 @@ import 'package:donationapp/app.dart';
 import 'package:donationapp/constant/common/BottomNavBar/BottomNavBar.dart';
 import 'package:donationapp/constant/common/NavBar/navbar.dart';
 import 'package:donationapp/constant/common/Text/custom-text.dart';
+import 'package:donationapp/constant/common/horizontal-line/horizontal-line.dart';
 import 'package:donationapp/constant/kconstant.dart';
 import 'package:donationapp/utils/store-service/language.store.dart';
 import 'package:flutter/material.dart';
@@ -41,82 +42,36 @@ class DonationsClaim extends StatelessWidget {
                         // Category of donation
                         Flexible(
                           child: CustomText(
-                            text: "Food",
-                            fontSize: 18.sp,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        InkWell(
-                          child: LineIcon.verticalEllipsis(),
-                          onTap: () {
-                            log("Detail option");
-                          },
-                        )
-                      ],
-                    ),
-                    SizedBox(
-                      height: 10.h,
-                    ),
-                    Row(
-                      children: [
-                        Flexible(
-                          child: CustomText(
-                            text: "Pending",
-                            fontSize: 14.sp,
-                            fontWeight: FontWeight.normal,
-                          ),
-                        )
-                      ],
-                    ),
-                    SizedBox(
-                      height: 10.h,
-                    ),
-                    Row(
-                      children: [
-                        Flexible(
-                          child: CustomText(
-                            text: "2022-12-22",
-                            fontSize: 14.sp,
-                            fontWeight: FontWeight.normal,
-                          ),
-                        )
-                      ],
-                    )
-                  ],
-                ),
-              ),
-            ),
-            Card(
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(12.r),
-              ),
-              margin: EdgeInsets.only(
-                bottom: 10.h,
-              ),
-              elevation: 0,
-              shadowColor: Colors.transparent,
-              child: Container(
-                padding: EdgeInsets.all(
-                  kPadding.w,
-                ),
-                child: Column(
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        // Category of donation
-                        Flexible(
-                          child: CustomText(
                             text: "Toys",
                             fontSize: 18.sp,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
-                        InkWell(
+                        PopupMenuButton(
+                          itemBuilder: (context) => [
+                            PopupMenuItem(
+                              child: CustomText(
+                                text: "Edit",
+                              ),
+                              onTap: () {},
+                            ),
+                            PopupMenuItem(
+                              child: CustomText(
+                                text: "Claimed",
+                              ),
+                              onTap: () {},
+                            ),
+                            PopupMenuItem(
+                              child: CustomText(
+                                text: "Delete",
+                              ),
+                              onTap: () {},
+                            ),
+                          ],
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(12.r),
+                          ),
                           child: LineIcon.verticalEllipsis(),
-                          onTap: () {
-                            log("Detail option");
-                          },
                         )
                       ],
                     ),
