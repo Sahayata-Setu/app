@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:auto_route/auto_route.dart';
 import 'package:badges/badges.dart';
 import 'package:donationapp/constant/common/Icon/custom-icon.dart';
+import 'package:donationapp/constant/common/Image/custom-image.dart';
 import 'package:donationapp/constant/common/Text/custom-text.dart';
 import 'package:donationapp/constant/kconstant.dart';
 import 'package:donationapp/helpers/route.utils.dart';
@@ -14,11 +15,16 @@ class DonationsCategory extends StatelessWidget {
       {super.key,
       required this.text,
       this.url,
+      this.forPadding,
       // @PathParam('category') this.category,
-      required this.icon,
+      // this.icon,
+      this.imageName,
       this.badge});
+
   final text;
-  final icon;
+  final forPadding;
+  // final icon;
+  final imageName;
   // final category;
   final url;
   final badge;
@@ -37,23 +43,51 @@ class DonationsCategory extends StatelessWidget {
           children: [
             Badge(
               badgeColor: blueColor,
-              badgeContent: Text(
-                // add the number of donations here
-                '${badge}',
-                style: TextStyle(color: Colors.white),
-              ),
+              toAnimate: false,
+              // borderRadius: BorderRadius.circular(8),
+              badgeContent: badge > 9
+                  ? Text(
+                      // add the number of donations here
+                      '9+',
+                      style: TextStyle(color: Colors.white),
+                    )
+                  : Padding(
+                      padding: const EdgeInsets.all(3.0),
+                      child: Text(
+                        // add the number of donations here
+                        '${badge}',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 14.sp,
+                        ),
+                      ),
+                    ),
               child: Container(
-                width: 50.w,
-                height: 50.h,
-                child: CustomIcon(icon: icon, color: whiteColor),
-                decoration:
-                    BoxDecoration(shape: BoxShape.circle, color: secondaryBlue),
+                width: 60.w,
+                height: 60.h,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: secondaryBlue,
+                ),
+                // child: CustomIcon(icon: icon, color: whiteColor),
+                child: Container(
+                  padding: EdgeInsets.all(forPadding),
+                  child: CustomImage(
+                    imageName: imageName,
+                  ),
+                ),
               ),
             ),
-            CustomText(
-              text: text,
-              fontSize: 12.sp,
-              fontColor: textColor,
+            Padding(
+              padding: EdgeInsets.only(
+                top: 10.h,
+              ),
+              child: CustomText(
+                text: text,
+                fontSize: 16.sp,
+                fontColor: blackColor,
+                fontWeight: FontWeight.normal,
+              ),
             )
           ],
         ),

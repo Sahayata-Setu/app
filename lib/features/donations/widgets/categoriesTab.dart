@@ -32,7 +32,7 @@ class CategoriesTab extends ConsumerWidget {
               children: [
                 GestureDetector(
                   child: Container(
-                    margin: EdgeInsets.only(right: 40.w, left: kPadding1.w),
+                    margin: EdgeInsets.only(right: 50.w, left: kPadding1.w),
                     child: Column(
                       children: [
                         Heading(
