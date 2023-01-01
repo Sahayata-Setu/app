@@ -41,7 +41,7 @@ import '../features/donations/Dontations.dart';
   MaterialRoute(page: DonationsClaim, path: "/donations_claim"),
   MaterialRoute(page: ChangePassword, path: "/change-password"),
   MaterialRoute(page: ChangeLocation, path: "/change-location"),
-  MaterialRoute(page: ChangeLocation, path: "/change-location"),
+  // MaterialRoute(page: ChangeLocation, path: "/change-location"),
   MaterialRoute(page: AccountSettings, path: "/account-settings"),
   MaterialRoute(page: Login, path: "/login"),
   MaterialRoute(page: SearchPage, path: "/search"),

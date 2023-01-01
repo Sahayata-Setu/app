@@ -200,7 +200,6 @@ class AppRouter extends _i28.RootStackRouter {
         _i28.RouteConfig(DonationsClaimRoute.name, path: '/donations_claim'),
         _i28.RouteConfig(ChangePasswordRoute.name, path: '/change-password'),
         _i28.RouteConfig(ChangeLocationRoute.name, path: '/change-location'),
-        _i28.RouteConfig(ChangeLocationRoute.name, path: '/change-location'),
         _i28.RouteConfig(AccountSettingsRoute.name, path: '/account-settings'),
         _i28.RouteConfig(LoginRoute.name, path: '/login'),
         _i28.RouteConfig(SearchPageRoute.name, path: '/search'),
