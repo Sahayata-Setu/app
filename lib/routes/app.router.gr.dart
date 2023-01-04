@@ -31,11 +31,11 @@ import '../features/donations/widgets/addDonations.dart' as _i16;
 import '../features/donations/widgets/donationDetails.dart' as _i17;
 import '../features/homepage/homepage.dart' as _i4;
 import '../features/login/login.dart' as _i8;
-import '../features/message/message.dart' as _i10;
 import '../features/message/messageDetails.dart' as _i26;
 import '../features/needs/Needs.dart' as _i18;
 import '../features/needs/widgets/addNeed.dart' as _i19;
 import '../features/needs/widgets/needDetail.dart' as _i20;
+import '../features/new-message/all-messages.dart' as _i10;
 import '../features/notifications/notifications.dart' as _i11;
 import '../features/profile/user-profile.dart' as _i21;
 import '../features/search-page/search-page.dart' as _i9;
@@ -83,11 +83,9 @@ class AppRouter extends _i27.RootStackRouter {
       return _i27.MaterialPageX<dynamic>(
           routeData: routeData, child: const _i9.SearchPage());
     },
-    MessageRoute.name: (routeData) {
-      final args = routeData.argsAs<MessageRouteArgs>(
-          orElse: () => const MessageRouteArgs());
+    NewMessageRoute.name: (routeData) {
       return _i27.MaterialPageX<dynamic>(
-          routeData: routeData, child: _i10.Message(key: args.key));
+          routeData: routeData, child: _i10.NewMessage());
     },
     NotificationsRoute.name: (routeData) {
       return _i27.MaterialPageX<dynamic>(
@@ -197,7 +195,7 @@ class AppRouter extends _i27.RootStackRouter {
         _i27.RouteConfig(AccountSettingsRoute.name, path: '/account-settings'),
         _i27.RouteConfig(LoginRoute.name, path: '/login'),
         _i27.RouteConfig(SearchPageRoute.name, path: '/search'),
-        _i27.RouteConfig(MessageRoute.name, path: '/messages'),
+        _i27.RouteConfig(NewMessageRoute.name, path: '/messages'),
         _i27.RouteConfig(NotificationsRoute.name, path: '/notifications'),
         _i27.RouteConfig(CampaignsListRoute.name, path: '/campaigns'),
         _i27.RouteConfig(CreateCampaignRoute.name, path: '/createCampaign'),
@@ -298,24 +296,11 @@ class SearchPageRoute extends _i27.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i10.Message]
-class MessageRoute extends _i27.PageRouteInfo<MessageRouteArgs> {
-  MessageRoute({_i28.Key? key})
-      : super(MessageRoute.name,
-            path: '/messages', args: MessageRouteArgs(key: key));
+/// [_i10.NewMessage]
+class NewMessageRoute extends _i27.PageRouteInfo<void> {
+  const NewMessageRoute() : super(NewMessageRoute.name, path: '/messages');
 
-  static const String name = 'MessageRoute';
-}
-
-class MessageRouteArgs {
-  const MessageRouteArgs({this.key});
-
-  final _i28.Key? key;
-
-  @override
-  String toString() {
-    return 'MessageRouteArgs{key: $key}';
-  }
+  static const String name = 'NewMessageRoute';
 }
 
 /// generated route for

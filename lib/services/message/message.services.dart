@@ -50,18 +50,26 @@ class MessageServiceClass {
         ),
       );
 
-      log("$response");
+      // log("$response");
 
       List<SingleMessage> message = [];
       response['body'].forEach((resp) {
-        message.add(SingleMessage.fromJson(resp));
+        // log("fbfdgbh ${resp["sender"]["_id"]}");
+        message.add(SingleMessage.fromJson({
+          "id": resp["_id"],
+          "sender": resp["sender"]["_id"],
+          "receiver": resp["receiver"]["_id"],
+          "message": resp["message"],
+          "createdAt": resp["createdAt"],
+        }));
+        // message.add(SingleMessage.fromJson(resp));
       });
 
-      log("this is response for update profile ${response}");
+      log("this is response for update profile ${message}");
       return message;
     } catch (err) {
-      log("this is  34 ${err}");
-      throw Exception("${response["message"]}");
+      // log("this is  70 ${err}");
+      throw Exception(err);
     }
   }
 
@@ -76,9 +84,17 @@ class MessageServiceClass {
           headers: {"Authorization": "Bearer ${token}"},
         ),
       );
-      return SingleMessage.fromJson(response['body']);
+      // log("mess: ${response['_id']}");
+
+      return SingleMessage.fromJson({
+        "id": response['body']["_id"],
+        "sender": response['body']["sender"]["_id"],
+        "receiver": response['body']["receiver"]["_id"],
+        "message": response['body']["message"],
+        "createdAt": response['body']["createdAt"],
+      });
     } catch (err) {
-      throw Exception("${response["message"]}");
+      throw Exception("fgvdfghdf${err}}");
     }
   }
 }

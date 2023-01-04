@@ -43,9 +43,9 @@ class CategoriesTab extends ConsumerWidget {
                           width: 10.w,
                           height: 10.h,
                           decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              color:
-                                  showDonation ? blackColor : backgroundColor),
+                            shape: BoxShape.circle,
+                            color: showDonation ? blackColor : backgroundColor,
+                          ),
                         )
                       ],
                     ),

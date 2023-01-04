@@ -64,6 +64,8 @@ class DonationsHome extends ConsumerWidget {
                         icon: Icons.food_bank,
                         url: "/donations/Food",
                         badge: 23,
+                        category: "Food",
+                        type: "donations",
                       ),
 
                       DonationsCategory(
@@ -71,6 +73,8 @@ class DonationsHome extends ConsumerWidget {
                         icon: Icons.toys,
                         url: "/donations/Toys",
                         badge: 2,
+                        type: "donations",
+                        category: "Toys",
                       ),
                       // DonationsCategory(
                       //     text: translation(context).toys, icon: Icons.toys),
@@ -79,12 +83,16 @@ class DonationsHome extends ConsumerWidget {
                         icon: Icons.library_books,
                         badge: 3,
                         url: "/donations/Book",
+                        category: "Book",
+                        type: "donations",
                       ),
                       DonationsCategory(
                         text: translation(context).clothes,
                         icon: Icons.person,
                         badge: 10,
                         url: "/donations/Clothes",
+                        type: "donations",
+                        category: "Clothes",
                       ),
                       //  DonationsCategory(text: "Others", icon: Icons.more_horiz)
                     ],

@@ -3,6 +3,7 @@ import 'package:badges/badges.dart';
 import 'package:donationapp/classes/language.dart';
 import 'package:donationapp/constant/common/Text/custom-text.dart';
 import 'package:donationapp/constant/kconstant.dart';
+import 'package:donationapp/features/new-message/all-messages.dart';
 import 'package:donationapp/helpers/route.utils.dart';
 import 'package:donationapp/main.dart';
 import 'package:donationapp/routes/app.router.gr.dart';
@@ -45,7 +46,7 @@ class NavBar extends StatelessWidget {
       ),
 
       leading: route == HomePageRoute.name ||
-              route == MessageRoute.name ||
+              route == NewMessageRoute.name ||
               route == NotificationsRoute.name ||
               route == SearchPageRoute.name ||
               route == UserProfileRoute.name

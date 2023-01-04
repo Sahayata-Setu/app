@@ -15,8 +15,8 @@ class TextFieldAreaChangeLocation extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final passwordDetails = ref.watch(locationDetailsProvider);
-    log("this is from change location ${passwordDetails}");
+    final locationDetails = ref.watch(locationDetailsProvider);
+    // log("this is from change location ${locationDetails}");
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -27,9 +27,10 @@ class TextFieldAreaChangeLocation extends ConsumerWidget {
         ),
         CustomTextField(
           // ref: ref,
+
           refs: ref.read(locationDetailsProvider.notifier),
           label: "Location",
-          name: "location",
+          name: "city",
           borderColor: whiteColor,
         ),
       ],

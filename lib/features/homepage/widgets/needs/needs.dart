@@ -24,6 +24,7 @@ class NeedsHome extends ConsumerWidget {
 
     final data = ref.watch(getAllNeedsProvider(""));
     // log("This is data from needs section: ${data}");
+    // final badge1 = ref.watch(needsByCategoryProvider(category));
 
     return Container(
         margin: EdgeInsets.all(kPadding.w),
@@ -51,25 +52,33 @@ class NeedsHome extends ConsumerWidget {
                             text: translation(context).food,
                             icon: Icons.food_bank,
                             badge: 33,
+                            category: "Food",
                             url: "/needs/Food",
+                            type: "need",
                           ),
                           DonationsCategory(
                             text: translation(context).toys,
                             badge: 9,
                             icon: Icons.toys,
+                            category: "Toys",
                             url: "/needs/Toys",
+                            type: "need",
                           ),
                           DonationsCategory(
                             text: translation(context).books,
                             badge: 8,
                             icon: Icons.library_books,
                             url: "/needs/Books",
+                            category: "Books",
+                            type: "need",
                           ),
                           DonationsCategory(
                             text: translation(context).clothes,
                             badge: 10,
                             url: "/needs/Clothes",
                             icon: Icons.person,
+                            category: "Clothes",
+                            type: "need",
                           ),
                           // DonationsCategory(text: "Others", icon: Icons.more_horiz)
                         ],
