@@ -41,8 +41,9 @@ class _HomePageState extends ConsumerState<HomePage> {
 // 634070288ec90f310b587234
       RemoteNotification? notification = message.notification;
       final recieverId = ref.watch(recieverIdProvider);
+      // log("recieverid: ${recieverId}");
       if (notification?.title == "New Message") {
-        ref.refresh(initializeMessage(recieverId));
+        // ref.refresh(initializeMessage(recieverId));
       }
 
       AndroidNotification? android = message.notification?.android;
@@ -77,7 +78,7 @@ class _HomePageState extends ConsumerState<HomePage> {
     return App(
       component: Container(
         //height: ,
-        margin: EdgeInsets.symmetric(vertical: kPadding),
+        // margin: EdgeInsets.symmetric(vertical: kPadding),
         // padding: EdgeInsets.all(kPadding),
         color: backgroundColor,
         //  height: ScreenUtil().screenHeight + kPadding,

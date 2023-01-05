@@ -62,6 +62,7 @@ dependencies:
   loading_animation_widget: ^1.2.0+3
   google_nav_bar: ^5.0.6
   line_icons: ^2.0.1
+  socket_io_client: ^2.0.0
   
 
 dev_dependencies:

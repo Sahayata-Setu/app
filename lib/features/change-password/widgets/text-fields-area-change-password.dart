@@ -21,7 +21,7 @@ class TextFieldAreaChangePassword extends ConsumerWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         CustomText(
-          text: "Password",
+          text: "Current Password",
           fontColor: whiteColor,
           fontSize: 20.sp,
         ),
@@ -29,7 +29,7 @@ class TextFieldAreaChangePassword extends ConsumerWidget {
           // ref: ref,
           refs: ref.read(passwordDetailsProvider.notifier),
           label: "Password",
-          name: "password",
+          name: "old_password",
           borderColor: whiteColor,
         ),
         CustomText(
@@ -38,10 +38,10 @@ class TextFieldAreaChangePassword extends ConsumerWidget {
           fontSize: 20.sp,
         ),
         CustomTextField(
-          // ref: ref.read(volunteerDetailsProvider.notifier),
+          refs: ref.read(passwordDetailsProvider.notifier),
           // ref: ref,
           label: "Confirm Password",
-          name: "confirmPassword",
+          name: "new_password",
           borderColor: whiteColor,
         ),
       ],

@@ -14,7 +14,7 @@ class Campaigns extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        margin: EdgeInsets.only(bottom: 30.h),
+        margin: EdgeInsets.only(bottom: kMargin.h),
         // height: 250,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -83,7 +83,7 @@ class Campaigns extends StatelessWidget {
                     ),
                     // ImageOverlay(image: "assets/images/needy/poor1.jpg"),
                     // ImageOverlay(image: "assets/images/needy/needy3.jpg"),
-                    //ImageOverlay(image: "assets/images/needy/poor2.jpg"),
+                    // ImageOverlay(image: "assets/images/needy/poor2.jpg"),
                   ],
                   options: CarouselOptions(
                     height: 250.h,

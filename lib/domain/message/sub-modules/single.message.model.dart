@@ -8,12 +8,12 @@ part 'single.message.model.g.dart';
 @freezed
 class SingleMessage with _$SingleMessage {
   const factory SingleMessage({
-    @JsonKey(name: "_id") String? id,
-    User? sender,
-    User? receiver,
+    String? id,
+    String? sender,
+    String? reciever,
     String? message,
     String? createdAt,
-    String? updatedAt,
+    // String? updatedAt,
     // int? iV;
   }) = _SingleMessage;
 
