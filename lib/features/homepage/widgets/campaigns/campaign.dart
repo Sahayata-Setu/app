@@ -14,8 +14,7 @@ class Campaigns extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        margin: EdgeInsets.only(bottom: 30.h),
-        // height: 250,
+        margin: EdgeInsets.only(bottom: kMargin.h),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -23,13 +22,14 @@ class Campaigns extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Container(
-                    margin: EdgeInsets.only(left: 25.w, top: kPadding.h),
-                    child: Heading(
-                      header: translation(context).ongoingCampaigns,
-                    )),
+                  margin: EdgeInsets.only(left: 25.w, top: 10.h),
+                  child: Heading(
+                    header: translation(context).ongoingCampaigns,
+                  ),
+                ),
                 Container(
                   margin: EdgeInsets.only(
-                    top: kPadding.h,
+                    top: 10.h,
                     right: 25.w,
                   ),
                   child: TextButton(
@@ -47,7 +47,7 @@ class Campaigns extends StatelessWidget {
             ),
             Container(
               height: 250.h,
-              margin: EdgeInsets.only(top: kMargin.h),
+              margin: EdgeInsets.only(top: 5.h),
               child: ListView(children: [
                 CarouselSlider(
                   items: [
@@ -83,7 +83,7 @@ class Campaigns extends StatelessWidget {
                     ),
                     // ImageOverlay(image: "assets/images/needy/poor1.jpg"),
                     // ImageOverlay(image: "assets/images/needy/needy3.jpg"),
-                    //ImageOverlay(image: "assets/images/needy/poor2.jpg"),
+                    // ImageOverlay(image: "assets/images/needy/poor2.jpg"),
                   ],
                   options: CarouselOptions(
                     height: 250.h,

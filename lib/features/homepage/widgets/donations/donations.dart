@@ -61,30 +61,40 @@ class DonationsHome extends ConsumerWidget {
                     children: [
                       DonationsCategory(
                         text: translation(context).food,
-                        icon: Icons.food_bank,
+                        imageName: "foods",
                         url: "/donations/Food",
                         badge: 23,
+                        forPadding: 15.0,
                       ),
+                      // DonationsCategory(
+                      //   text: translation(context).food,
+                      //   imageName: "foods",
+                      //   url: "/donations/Food",
+                      //   badge: 23,
+                      // ),
 
                       DonationsCategory(
                         text: translation(context).toys,
-                        icon: Icons.toys,
+                        // icon: Icons.toys,
+                        imageName: "toys",
                         url: "/donations/Toys",
                         badge: 2,
+                        forPadding: 10.0,
                       ),
-                      // DonationsCategory(
-                      //     text: translation(context).toys, icon: Icons.toys),
                       DonationsCategory(
                         text: translation(context).books,
-                        icon: Icons.library_books,
+                        // icon: Icons.library_books,
+                        imageName: "books",
                         badge: 3,
                         url: "/donations/Book",
+                        forPadding: 15.0,
                       ),
                       DonationsCategory(
                         text: translation(context).clothes,
-                        icon: Icons.person,
+                        imageName: "clothes",
                         badge: 10,
                         url: "/donations/Clothes",
+                        forPadding: 15.0,
                       ),
                       //  DonationsCategory(text: "Others", icon: Icons.more_horiz)
                     ],
