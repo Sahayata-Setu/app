@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:developer';
 
+import 'package:donationapp/constant/common/Text/custom-text.dart';
 import 'package:donationapp/constant/common/loading/loadingPage.dart';
 import 'package:donationapp/domain/message/sub-modules/single.message.model.dart';
 import 'package:donationapp/domain/new-message/message.dart';
@@ -10,6 +11,7 @@ import 'package:donationapp/store/message/message.store.dart';
 import 'package:donationapp/utils/store-service/store.service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:socket_io_client/socket_io_client.dart' as IO;
 import 'package:socket_io_client/socket_io_client.dart';
 
@@ -28,54 +30,14 @@ class ChatDetailPage extends ConsumerStatefulWidget {
 }
 
 class _ChatDetailPageState extends ConsumerState<ChatDetailPage> {
-  // ChatDetailPage(this.sender, this.reciever, this.name);
-  // ChatDetailPage({super.key, this.sender, this.reciever, this.name});
-  // var allM;
-  // final name;
-  // final allM;
-
-  // @override
-  // void initState() {
-  //   // didChangeDependencies();
-  //   SocketService().initConnection();
-  //   final allM = ref.watch(allMessages);
-
-  //   SocketService().socket.on("message", (data) {
-  //     log("This is cd: $data");
-  //     ref.read(allMessages.notifier).state = [
-  //       ...allM,
-  //       SingleMessage.fromJson(data)
-  //       // {"id": data['id']}
-  //     ];
-  //   });
-  //   // final value = ref.read(helloWorldProvider);
-  //   super.initState();
-
-  //   // print(value); // Hello world
-  // }
   late IO.Socket socket;
   var _initState = true;
   @override
   void didChangeDependencies() {
-    // TODO: implement didChangeDependencies
-    // SocketService().initConnection();
-
     if (_initState) {
       ref.watch(initializeMessage(widget.reciever));
-      // log("Hello form init${widget.reciever}");
-
-      // SocketService().initConnection();
       connectToServer();
       scrollToBottom();
-      // final allM = ref.watch(allMessages);
-      // SocketService().socket.on("message", (data) {
-      // log("This is cd: $allM");
-      //   ref.read(allMessages.notifier).state = [
-      //     ...allM,
-      //     SingleMessage.fromJson(data)
-      //     // {"id": data['id']}
-      //   ];
-      // });
     }
     _initState = false;
     super.didChangeDependencies();
@@ -83,16 +45,18 @@ class _ChatDetailPageState extends ConsumerState<ChatDetailPage> {
 
   void connectToServer() {
     try {
-      // final allMess = ref.watch(allMessages);
-      // log("message: ${allMess.length}");
       socket = IO.io(
           // 'http://192.168.15.130:5000',
-          'http://157.245.108.215:5000',
+          'http://146.190.8.65:5000',
           OptionBuilder().setTransports(['websocket']) // for Flutter or Dart VM
               .setQuery({"token": StorageService.getToken()}).build());
       socket.connect();
+      //Sends new user info to the server
       socket.emit("connect-new-user", StorageService.getId());
+
       socket.on('send-message-to-specific-user', handleData);
+
+      socket.on("connect-new-user", handleUser);
     } catch (e) {
       print(e.toString());
     }
@@ -110,20 +74,31 @@ class _ChatDetailPageState extends ConsumerState<ChatDetailPage> {
     _messageController.clear();
   }
 
-  // handleUser(data) {
-  //   final allMess = ref.watch(allMessages);
-  //   // log("THis is all reciever 1 : ${allMess}");
+  handleUser(data) {
+    // for (int i = 0; i < data.length; i++) {
+    //   // if (widget.reciever.toString() == data[i].toString()) {
+    //   //   ref.read(onlineStatusProvider.notifier).state = "Online";
+    //   // } else {
+    //   //   log("User is not online");
+    //   //   ref.read(onlineStatusProvider.notifier).state = "Offline";
+    //   // }
+    //   log("User is online: ${widget.reciever.toString() == data[i].toString()}");
+    // }
+    if (data.contains(widget.reciever)) {
+      log("Online");
 
-  //   log("MEssage: ${SingleMessage.fromJson(data)}");
-  //   ref.read(allMessages.notifier).state = [
-  //     ...allMess,
-  //     SingleMessage.fromJson(data)
-  //     // {"id": data['id']}
-  //   ];
-  //   // log("THis is all reciever 2: ${allMess}");
+      ref.read(onlineStatusProvider.notifier).state = "Online";
+    } else {
+      log("Offline");
 
-  //   _messageController.clear();
-  // }
+      ref.read(onlineStatusProvider.notifier).state = "Offline";
+    }
+
+    // log("Data: ${data.contains(widget.reciever)}");
+    // log("Reciever: ${widget.reciever}");
+
+    // data.contains(widget.reciever).then((e) => log("Hello"));
+  }
 
   void scrollToBottom() {
     if (scrollController.hasClients) {
@@ -141,7 +116,7 @@ class _ChatDetailPageState extends ConsumerState<ChatDetailPage> {
     _messageController.clear();
     // socket.off('connect-new-user');
     socket.off('send-message-to-specific-user');
-    // socket.off('whispher');
+    socket.off('connect-new-user');
   }
 
   ScrollController scrollController = ScrollController();
@@ -151,8 +126,9 @@ class _ChatDetailPageState extends ConsumerState<ChatDetailPage> {
   Widget build(BuildContext context) {
     // final messages = ref.watch(providerOfSocket);
     final messageService = ref.watch(messageProvider);
+    final onlineStatus = ref.watch(onlineStatusProvider);
     // final allM = ref.watch(allMessages);
-    // log("message: $allM");
+    // log("Online status: $onlineStatus");
 
     handleMessage() async {
       try {
@@ -163,7 +139,7 @@ class _ChatDetailPageState extends ConsumerState<ChatDetailPage> {
           socket.emit("send-message-to-specific-user", {
             "id": resp.id,
             "message": "${_messageController.text}",
-            "sender": widget.sender,
+            "sender": StorageService.getId(),
             "reciever": widget.reciever,
             "createdAt": resp.createdAt.toString(),
           });
@@ -203,6 +179,12 @@ class _ChatDetailPageState extends ConsumerState<ChatDetailPage> {
                   width: 2,
                 ),
                 CircleAvatar(
+                  child: CustomText(
+                    text: "${widget.name[0]}",
+                    fontSize: 20.sp,
+                    fontWeight: FontWeight.bold,
+                  ),
+
                   // backgroundImage: NetworkImage(
                   //     "<https://randomuser.me/api/portraits/men/5.jpg>"),
                   maxRadius: 20,
@@ -223,10 +205,26 @@ class _ChatDetailPageState extends ConsumerState<ChatDetailPage> {
                       SizedBox(
                         height: 6,
                       ),
-                      Text(
-                        "Online",
-                        style: TextStyle(
-                            color: Colors.grey.shade600, fontSize: 13),
+                      Row(
+                        children: [
+                          onlineStatus == 'Online'
+                              ? CircleAvatar(
+                                  radius: 4.r,
+                                  backgroundColor: Colors.green,
+                                )
+                              : CircleAvatar(
+                                  radius: 4.r,
+                                  backgroundColor: Colors.red,
+                                ),
+                          SizedBox(
+                            width: 4.w,
+                          ),
+                          Text(
+                            "${onlineStatus}",
+                            style: TextStyle(
+                                color: Colors.grey.shade600, fontSize: 13),
+                          ),
+                        ],
                       ),
                     ],
                   ),

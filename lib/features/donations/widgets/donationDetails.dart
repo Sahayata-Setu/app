@@ -42,6 +42,7 @@ class DonationDetail extends ConsumerWidget {
       component: data1.when(
         data: (data) {
           final singleData = data['body'];
+          log("Single Data: ${singleData['images'][0]}");
           return Container(
             alignment: Alignment.topLeft,
             // height: ScreenUtil().screenHeight,

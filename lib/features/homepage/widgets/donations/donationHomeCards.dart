@@ -21,7 +21,7 @@ class DonationHomeCards extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // log("this is for homepage${singleInfo['images'][0]}");
+    log("this is for homepage ${singleInfo['images'][0]}");
     return GestureDetector(
       onTap: () {
         routePush(DonationDetailRoute(id: singleInfo['_id']), context);
@@ -34,13 +34,20 @@ class DonationHomeCards extends StatelessWidget {
         children: [
           ClipRRect(
             borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(24.r),
-                topRight: Radius.circular(24.r)),
+                topLeft: Radius.circular(12.r),
+                topRight: Radius.circular(12.r)),
             child: Container(
               height: 210.h,
+              width: 260.w,
               decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(12.r),
                 image: DecorationImage(
-                  image: NetworkImage("${singleInfo['images'][0]}"),
+                  fit: BoxFit.fill,
+                  image: NetworkImage(
+                    singleInfo['images'].length == 0
+                        ? "https://www.ncenet.com/wp-content/uploads/2020/04/No-image-found.jpg"
+                        : singleInfo['images'][0],
+                  ),
                 ),
               ),
             ),

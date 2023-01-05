@@ -35,7 +35,9 @@ class NeedCategories extends StatelessWidget {
           children: [
             Container(
                 decoration: BoxDecoration(
-                    color: colorP, borderRadius: BorderRadius.circular(5.w)),
+                  color: colorP,
+                  borderRadius: BorderRadius.circular(5.w),
+                ),
                 height: 55.h,
                 width: 55.w,
                 padding: EdgeInsets.all(5.w),
@@ -49,7 +51,7 @@ class NeedCategories extends StatelessWidget {
             ),
             CustomText(
               text: title,
-              fontSize: 15.sp,
+              fontSize: 16.sp,
             )
           ],
         ),
