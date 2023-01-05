@@ -5,8 +5,8 @@ import 'package:socket_io_client/socket_io_client.dart' as IO;
 class SocketService {
   IO.Socket socket = IO.io(
       // im using adb so i need to use my wifi ip
-      'http://157.245.108.215:5000',
-      // 'http://10.0.2.2:5000',
+      // 'http://157.245.108.215:5000',
+      'http://10.0.2.2:5000',
       IO.OptionBuilder().setTransports(['websocket']).setQuery({}).build());
   // handleMessage(data) {
   //   log("Data f${data}");

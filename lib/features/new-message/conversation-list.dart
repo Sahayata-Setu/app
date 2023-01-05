@@ -4,6 +4,8 @@ import 'package:donationapp/features/new-message/chat-detail.dart';
 import 'package:donationapp/helpers/time.dart';
 import 'package:donationapp/utils/store-service/store.service.dart';
 import 'package:flutter/material.dart';
+import 'package:socket_io_client/socket_io_client.dart' as IO;
+import 'package:socket_io_client/socket_io_client.dart';
 
 class ConversationList extends StatefulWidget {
   String name;
@@ -27,13 +29,48 @@ class ConversationList extends StatefulWidget {
 }
 
 class _ConversationListState extends State<ConversationList> {
+  late IO.Socket socket;
+
+  @override
+  // void initState() {
+  //   // TODO: implement initState
+  //   try {
+  //     socket = IO.io(
+  //         'http://192.168.15.130:5000',
+  //         // 'http://157.245.108.215:5000',
+  //         OptionBuilder().setTransports(['websocket']) // for Flutter or Dart VM
+  //             .setQuery({"token": StorageService.getToken()})
+  //             // .disableAutoConnect() // disable auto-connection
+  //             // .setExtraHeaders({'foo': 'bar'}) // optional
+  //             .build());
+  //     socket.connect();
+  //     socket.on("username", handleUser);
+  //   } catch (e) {
+  //     print(e.toString());
+  //   }
+  //   super.initState();
+  // }
+
+  // @override
+  // void dispose() {
+  //   super.dispose();
+  //   socket.disconnect();
+  //   // _messageController.clear();
+  //   socket.off('username');
+  // }
+
+  handleUser(data) {
+    log('this is data: ${data}');
+  }
+
   @override
   Widget build(BuildContext context) {
     final senderId = StorageService.getId();
-    log("conv: ${senderId}");
+    log("conv: ${widget.name}");
     return GestureDetector(
       onTap: () {
         Navigator.push(context, MaterialPageRoute(builder: (context) {
+          // socket.emit('join', widget.receiverId);
           return ChatDetailPage(
             name: widget.name,
             sender: senderId,

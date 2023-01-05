@@ -24,7 +24,7 @@ class MessageServiceClass {
         ),
       );
 
-      log("this is from 25 mess ${response}");
+      // log("this is from 25 mess ${response}");
 
       List<Messages> message = [];
       response['body'].forEach((resp) {
@@ -65,7 +65,7 @@ class MessageServiceClass {
         // message.add(SingleMessage.fromJson(resp));
       });
 
-      log("this is response for update profile ${message}");
+      // log("this is response for update profile ${message}");
       return message;
     } catch (err) {
       // log("this is  70 ${err}");

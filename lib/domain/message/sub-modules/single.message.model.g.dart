@@ -10,7 +10,7 @@ _$_SingleMessage _$$_SingleMessageFromJson(Map<String, dynamic> json) =>
     _$_SingleMessage(
       id: json['id'] as String?,
       sender: json['sender'] as String?,
-      receiver: json['receiver'] as String?,
+      reciever: json['reciever'] as String?,
       message: json['message'] as String?,
       createdAt: json['createdAt'] as String?,
     );
@@ -19,7 +19,7 @@ Map<String, dynamic> _$$_SingleMessageToJson(_$_SingleMessage instance) =>
     <String, dynamic>{
       'id': instance.id,
       'sender': instance.sender,
-      'receiver': instance.receiver,
+      'reciever': instance.reciever,
       'message': instance.message,
       'createdAt': instance.createdAt,
     };

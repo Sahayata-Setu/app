@@ -7,6 +7,7 @@ import 'package:donationapp/domain/new-message/message.dart';
 import 'package:donationapp/features/new-message/store/socket-service.dart';
 import 'package:donationapp/services/message/message.services.dart';
 import 'package:donationapp/store/message/message.store.dart';
+import 'package:donationapp/utils/store-service/store.service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:socket_io_client/socket_io_client.dart' as IO;
@@ -61,14 +62,14 @@ class _ChatDetailPageState extends ConsumerState<ChatDetailPage> {
 
     if (_initState) {
       ref.watch(initializeMessage(widget.reciever));
-      // log("Hello form init");
+      // log("Hello form init${widget.reciever}");
 
       // SocketService().initConnection();
       connectToServer();
       scrollToBottom();
       // final allM = ref.watch(allMessages);
       // SocketService().socket.on("message", (data) {
-      //   log("This is cd: $data");
+      // log("This is cd: $allM");
       //   ref.read(allMessages.notifier).state = [
       //     ...allM,
       //     SingleMessage.fromJson(data)
@@ -85,17 +86,13 @@ class _ChatDetailPageState extends ConsumerState<ChatDetailPage> {
       // final allMess = ref.watch(allMessages);
       // log("message: ${allMess.length}");
       socket = IO.io(
+          // 'http://192.168.15.130:5000',
           'http://157.245.108.215:5000',
           OptionBuilder().setTransports(['websocket']) // for Flutter or Dart VM
-              // .setQuery({"token": token})
-              // .disableAutoConnect() // disable auto-connection
-              // .setExtraHeaders({'foo': 'bar'}) // optional
-              .build());
+              .setQuery({"token": StorageService.getToken()}).build());
       socket.connect();
-      socket.on('message', handleData);
-      // socket.off('message', () => print("message off"));
-      // socket.on('disconnect', () => print('disconnect'));
-      // socket.on('fromServer', () => print());
+      socket.emit("connect-new-user", StorageService.getId());
+      socket.on('send-message-to-specific-user', handleData);
     } catch (e) {
       print(e.toString());
     }
@@ -104,7 +101,7 @@ class _ChatDetailPageState extends ConsumerState<ChatDetailPage> {
   handleData(data) {
     final allMess = ref.watch(allMessages);
     // log("All mess: $allMess");
-    log("This is cd: $data");
+    // log("This is cd--------------------: ${SingleMessage.fromJson(data)}");
     ref.read(allMessages.notifier).state = [
       ...allMess,
       SingleMessage.fromJson(data)
@@ -112,6 +109,21 @@ class _ChatDetailPageState extends ConsumerState<ChatDetailPage> {
     ];
     _messageController.clear();
   }
+
+  // handleUser(data) {
+  //   final allMess = ref.watch(allMessages);
+  //   // log("THis is all reciever 1 : ${allMess}");
+
+  //   log("MEssage: ${SingleMessage.fromJson(data)}");
+  //   ref.read(allMessages.notifier).state = [
+  //     ...allMess,
+  //     SingleMessage.fromJson(data)
+  //     // {"id": data['id']}
+  //   ];
+  //   // log("THis is all reciever 2: ${allMess}");
+
+  //   _messageController.clear();
+  // }
 
   void scrollToBottom() {
     if (scrollController.hasClients) {
@@ -125,9 +137,11 @@ class _ChatDetailPageState extends ConsumerState<ChatDetailPage> {
   @override
   void dispose() {
     super.dispose();
-    SocketService().socket.disconnect();
+    socket.disconnect();
     _messageController.clear();
-    SocketService().socket.off('message');
+    // socket.off('connect-new-user');
+    socket.off('send-message-to-specific-user');
+    // socket.off('whispher');
   }
 
   ScrollController scrollController = ScrollController();
@@ -138,8 +152,7 @@ class _ChatDetailPageState extends ConsumerState<ChatDetailPage> {
     // final messages = ref.watch(providerOfSocket);
     final messageService = ref.watch(messageProvider);
     // final allM = ref.watch(allMessages);
-
-    log("THis is all reciever: ${widget.reciever}");
+    // log("message: $allM");
 
     handleMessage() async {
       try {
@@ -147,13 +160,14 @@ class _ChatDetailPageState extends ConsumerState<ChatDetailPage> {
             {"message": _messageController.text, "receiver": widget.reciever});
         // log('this is sresp ${resp}');
         if (resp != null) {
-          SocketService().sendMessage({
+          socket.emit("send-message-to-specific-user", {
             "id": resp.id,
-            "message": _messageController.text,
+            "message": "${_messageController.text}",
             "sender": widget.sender,
             "reciever": widget.reciever,
             "createdAt": resp.createdAt.toString(),
           });
+          // socket.emit("join", widget.sender);
         }
       } catch (e) {
         log('$e the success');

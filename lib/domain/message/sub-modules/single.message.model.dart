@@ -10,7 +10,7 @@ class SingleMessage with _$SingleMessage {
   const factory SingleMessage({
     String? id,
     String? sender,
-    String? receiver,
+    String? reciever,
     String? message,
     String? createdAt,
     // String? updatedAt,

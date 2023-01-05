@@ -22,7 +22,7 @@ SingleMessage _$SingleMessageFromJson(Map<String, dynamic> json) {
 mixin _$SingleMessage {
   String? get id => throw _privateConstructorUsedError;
   String? get sender => throw _privateConstructorUsedError;
-  String? get receiver => throw _privateConstructorUsedError;
+  String? get reciever => throw _privateConstructorUsedError;
   String? get message => throw _privateConstructorUsedError;
   String? get createdAt => throw _privateConstructorUsedError;
 
@@ -40,7 +40,7 @@ abstract class $SingleMessageCopyWith<$Res> {
   $Res call(
       {String? id,
       String? sender,
-      String? receiver,
+      String? reciever,
       String? message,
       String? createdAt});
 }
@@ -58,7 +58,7 @@ class _$SingleMessageCopyWithImpl<$Res>
   $Res call({
     Object? id = freezed,
     Object? sender = freezed,
-    Object? receiver = freezed,
+    Object? reciever = freezed,
     Object? message = freezed,
     Object? createdAt = freezed,
   }) {
@@ -71,9 +71,9 @@ class _$SingleMessageCopyWithImpl<$Res>
           ? _value.sender
           : sender // ignore: cast_nullable_to_non_nullable
               as String?,
-      receiver: receiver == freezed
-          ? _value.receiver
-          : receiver // ignore: cast_nullable_to_non_nullable
+      reciever: reciever == freezed
+          ? _value.reciever
+          : reciever // ignore: cast_nullable_to_non_nullable
               as String?,
       message: message == freezed
           ? _value.message
@@ -97,7 +97,7 @@ abstract class _$$_SingleMessageCopyWith<$Res>
   $Res call(
       {String? id,
       String? sender,
-      String? receiver,
+      String? reciever,
       String? message,
       String? createdAt});
 }
@@ -117,7 +117,7 @@ class __$$_SingleMessageCopyWithImpl<$Res>
   $Res call({
     Object? id = freezed,
     Object? sender = freezed,
-    Object? receiver = freezed,
+    Object? reciever = freezed,
     Object? message = freezed,
     Object? createdAt = freezed,
   }) {
@@ -130,9 +130,9 @@ class __$$_SingleMessageCopyWithImpl<$Res>
           ? _value.sender
           : sender // ignore: cast_nullable_to_non_nullable
               as String?,
-      receiver: receiver == freezed
-          ? _value.receiver
-          : receiver // ignore: cast_nullable_to_non_nullable
+      reciever: reciever == freezed
+          ? _value.reciever
+          : reciever // ignore: cast_nullable_to_non_nullable
               as String?,
       message: message == freezed
           ? _value.message
@@ -150,7 +150,7 @@ class __$$_SingleMessageCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_SingleMessage implements _SingleMessage {
   const _$_SingleMessage(
-      {this.id, this.sender, this.receiver, this.message, this.createdAt});
+      {this.id, this.sender, this.reciever, this.message, this.createdAt});
 
   factory _$_SingleMessage.fromJson(Map<String, dynamic> json) =>
       _$$_SingleMessageFromJson(json);
@@ -160,7 +160,7 @@ class _$_SingleMessage implements _SingleMessage {
   @override
   final String? sender;
   @override
-  final String? receiver;
+  final String? reciever;
   @override
   final String? message;
   @override
@@ -168,7 +168,7 @@ class _$_SingleMessage implements _SingleMessage {
 
   @override
   String toString() {
-    return 'SingleMessage(id: $id, sender: $sender, receiver: $receiver, message: $message, createdAt: $createdAt)';
+    return 'SingleMessage(id: $id, sender: $sender, reciever: $reciever, message: $message, createdAt: $createdAt)';
   }
 
   @override
@@ -178,7 +178,7 @@ class _$_SingleMessage implements _SingleMessage {
             other is _$_SingleMessage &&
             const DeepCollectionEquality().equals(other.id, id) &&
             const DeepCollectionEquality().equals(other.sender, sender) &&
-            const DeepCollectionEquality().equals(other.receiver, receiver) &&
+            const DeepCollectionEquality().equals(other.reciever, reciever) &&
             const DeepCollectionEquality().equals(other.message, message) &&
             const DeepCollectionEquality().equals(other.createdAt, createdAt));
   }
@@ -189,7 +189,7 @@ class _$_SingleMessage implements _SingleMessage {
       runtimeType,
       const DeepCollectionEquality().hash(id),
       const DeepCollectionEquality().hash(sender),
-      const DeepCollectionEquality().hash(receiver),
+      const DeepCollectionEquality().hash(reciever),
       const DeepCollectionEquality().hash(message),
       const DeepCollectionEquality().hash(createdAt));
 
@@ -210,7 +210,7 @@ abstract class _SingleMessage implements SingleMessage {
   const factory _SingleMessage(
       {final String? id,
       final String? sender,
-      final String? receiver,
+      final String? reciever,
       final String? message,
       final String? createdAt}) = _$_SingleMessage;
 
@@ -222,7 +222,7 @@ abstract class _SingleMessage implements SingleMessage {
   @override
   String? get sender;
   @override
-  String? get receiver;
+  String? get reciever;
   @override
   String? get message;
   @override
