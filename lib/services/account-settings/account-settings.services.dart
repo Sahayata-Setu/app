@@ -38,7 +38,7 @@ class UpdateProfileServiceClass {
       //   // log("this is 30 ${response}");
       //   // throw Exception("${response.message}");
       // }
-      log("this is response for update profile ${response}");
+      // log("this is response for update profile ${response}");
       return response;
     } catch (err) {
       log("this is  34 ${err}");
@@ -73,6 +73,46 @@ class UpdateProfileServiceClass {
   //     rethrow;
   //   }
   // }
+
+  Future<dynamic> updatePassword(userId, data) async {
+    try {
+      final token = StorageService.getToken();
+      final response = await _client.put(
+        "/user/profile/password/${userId}",
+        data: data,
+        options: Options(
+          headers: {"Authorization": "Bearer ${token}"},
+        ),
+      );
+      log("this is response for update password ${response}");
+
+      return response;
+    } catch (e) {
+      log("Error ${e}");
+      throw Exception(e);
+    }
+  }
+
+  //Update Location
+  Future<dynamic> updateLocation(userId, data) async {
+    try {
+      log("THis is data form service: ${data}");
+      final token = StorageService.getToken();
+      final response = await _client.put(
+        "/user/profile/city/${userId}",
+        data: data,
+        options: Options(
+          headers: {"Authorization": "Bearer ${token}"},
+        ),
+      );
+      log("this is response for update password ${response}");
+
+      return response;
+    } catch (e) {
+      log("Error ${e}");
+      throw Exception(e);
+    }
+  }
 }
 
 final updateProfileService =

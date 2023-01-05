@@ -83,20 +83,20 @@ class MessageDetails extends ConsumerWidget {
                 padding: EdgeInsets.all(kPadding.w),
                 child: Column(
                   children: [
-                    Expanded(
-                      child: ListView.builder(
-                        shrinkWrap: true,
-                        controller: scrollController,
-                        itemBuilder: (context, index) {
-                          return messages[index].sender!.id! == user['_id']
-                              ? SenderMessageWidget(
-                                  data: messages[index],
-                                )
-                              : ReceiverMessageWIdget(data: messages[index]);
-                        },
-                        itemCount: messages.length,
-                      ),
-                    ),
+                    // Expanded(
+                    //   child: ListView.builder(
+                    //     shrinkWrap: true,
+                    //     controller: scrollController,
+                    //     itemBuilder: (context, index) {
+                    //       return messages[index].sender!.id! == user['_id']
+                    //           ? SenderMessageWidget(
+                    //               data: messages[index],
+                    //             )
+                    //           : ReceiverMessageWIdget(data: messages[index]);
+                    //     },
+                    //     itemCount: messages.length,
+                    //   ),
+                    // ),
                     // ...messages.map((e) {
                     //   return e.sender!.id! == user['_id']
                     //       ? SenderMessageWidget(
@@ -145,22 +145,22 @@ class SenderMessageWidget extends StatelessWidget {
       padding: EdgeInsets.only(right: 20.w, top: 10.h),
       child: Column(crossAxisAlignment: CrossAxisAlignment.end, children: [
         Row(mainAxisAlignment: MainAxisAlignment.end, children: [
-          CircleAvatar(
-            backgroundColor: Colors.grey,
-            child: data.sender!.profilePic != null
-                ? ClipRRect(
-                    borderRadius: BorderRadius.circular(20),
-                    child: CachedNetworkImage(
-                      placeholder: ((context, url) =>
-                          const CircularProgressIndicator()),
-                      fit: BoxFit.cover,
-                      imageUrl: data.sender!.profilePic!,
-                    ))
-                : Text(
-                    data.sender!.firstName![0],
-                    style: TextStyle(color: Colors.white, fontSize: 20.sp),
-                  ),
-          ),
+          // CircleAvatar(
+          //   backgroundColor: Colors.grey,
+          //   child: data.sender!.profilePic != null
+          //       ? ClipRRect(
+          //           borderRadius: BorderRadius.circular(20),
+          //           child: CachedNetworkImage(
+          //             placeholder: ((context, url) =>
+          //                 const CircularProgressIndicator()),
+          //             fit: BoxFit.cover,
+          //             imageUrl: data.sender!.profilePic!,
+          //           ))
+          //       : Text(
+          //           data.sender!.firstName![0],
+          //           style: TextStyle(color: Colors.white, fontSize: 20.sp),
+          //         ),
+          // ),
           SizedBox(
             width: 5.h,
           ),
@@ -191,22 +191,22 @@ class ReceiverMessageWIdget extends StatelessWidget {
       padding: EdgeInsets.only(right: 20.w, top: 10.h),
       child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
         Row(mainAxisAlignment: MainAxisAlignment.start, children: [
-          CircleAvatar(
-            backgroundColor: Colors.grey,
-            child: data.sender!.profilePic != null
-                ? ClipRRect(
-                    borderRadius: BorderRadius.circular(20),
-                    child: CachedNetworkImage(
-                      placeholder: ((context, url) =>
-                          const CircularProgressIndicator()),
-                      fit: BoxFit.cover,
-                      imageUrl: data.sender!.profilePic!,
-                    ))
-                : Text(
-                    data.sender!.firstName![0],
-                    style: TextStyle(color: Colors.white, fontSize: 20.sp),
-                  ),
-          ),
+          // CircleAvatar(
+          //   backgroundColor: Colors.grey,
+          //   child: data.sender!.profilePic != null
+          //       ? ClipRRect(
+          //           borderRadius: BorderRadius.circular(20),
+          //           child: CachedNetworkImage(
+          //             placeholder: ((context, url) =>
+          //                 const CircularProgressIndicator()),
+          //             fit: BoxFit.cover,
+          //             imageUrl: data.sender!.profilePic!,
+          //           ))
+          //       : Text(
+          //           data.sender!.firstName![0],
+          //           style: TextStyle(color: Colors.white, fontSize: 20.sp),
+          //         ),
+          // ),
           SizedBox(
             width: 5.h,
           ),

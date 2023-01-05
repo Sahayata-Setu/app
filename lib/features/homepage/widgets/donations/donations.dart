@@ -65,6 +65,9 @@ class DonationsHome extends ConsumerWidget {
                         url: "/donations/Food",
                         badge: 23,
                         forPadding: 15.0,
+                        type: "donations",
+                        category: "Food",
+                        // ca
                       ),
                       // DonationsCategory(
                       //   text: translation(context).food,
@@ -80,6 +83,8 @@ class DonationsHome extends ConsumerWidget {
                         url: "/donations/Toys",
                         badge: 2,
                         forPadding: 10.0,
+                        type: "donations",
+                        category: "Food",
                       ),
                       DonationsCategory(
                         text: translation(context).books,
@@ -88,6 +93,8 @@ class DonationsHome extends ConsumerWidget {
                         badge: 3,
                         url: "/donations/Book",
                         forPadding: 15.0,
+                        type: "donations",
+                        category: "Food",
                       ),
                       DonationsCategory(
                         text: translation(context).clothes,
@@ -95,6 +102,8 @@ class DonationsHome extends ConsumerWidget {
                         badge: 10,
                         url: "/donations/Clothes",
                         forPadding: 15.0,
+                        type: "donations",
+                        category: "Food",
                       ),
                       //  DonationsCategory(text: "Others", icon: Icons.more_horiz)
                     ],

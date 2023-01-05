@@ -61,6 +61,7 @@ dependencies:
   firebase_core: ^1.24.0
   loading_animation_widget: ^1.2.0+3
   line_icons: ^2.0.1
+  socket_io_client: ^2.0.0
   
 
 dev_dependencies:

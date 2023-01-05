@@ -25,6 +25,7 @@ import 'package:donationapp/features/needs/Needs.dart';
 import 'package:donationapp/features/needs/widgets/addNeed.dart';
 import 'package:donationapp/features/needs/widgets/needDetail.dart';
 import 'package:donationapp/features/needs/widgets/needDetail.data.dart';
+import 'package:donationapp/features/new-message/all-messages.dart';
 import 'package:donationapp/features/notifications/notifications.dart';
 import 'package:donationapp/features/profile/user-profile.dart';
 import 'package:donationapp/features/profile/user-profile.data.dart';
@@ -45,7 +46,7 @@ import '../features/donations/Dontations.dart';
   MaterialRoute(page: AccountSettings, path: "/account-settings"),
   MaterialRoute(page: Login, path: "/login"),
   MaterialRoute(page: SearchPage, path: "/search"),
-  MaterialRoute(page: Message, path: "/messages"),
+  MaterialRoute(page: NewMessage, path: "/messages"),
   MaterialRoute(page: Notifications, path: "/notifications"),
 
   MaterialRoute(page: CampaignsList, path: "/campaigns"),

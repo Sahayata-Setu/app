@@ -20,13 +20,11 @@ SingleMessage _$SingleMessageFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$SingleMessage {
-  @JsonKey(name: "_id")
   String? get id => throw _privateConstructorUsedError;
-  User? get sender => throw _privateConstructorUsedError;
-  User? get receiver => throw _privateConstructorUsedError;
+  String? get sender => throw _privateConstructorUsedError;
+  String? get reciever => throw _privateConstructorUsedError;
   String? get message => throw _privateConstructorUsedError;
   String? get createdAt => throw _privateConstructorUsedError;
-  String? get updatedAt => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -40,15 +38,11 @@ abstract class $SingleMessageCopyWith<$Res> {
           SingleMessage value, $Res Function(SingleMessage) then) =
       _$SingleMessageCopyWithImpl<$Res>;
   $Res call(
-      {@JsonKey(name: "_id") String? id,
-      User? sender,
-      User? receiver,
+      {String? id,
+      String? sender,
+      String? reciever,
       String? message,
-      String? createdAt,
-      String? updatedAt});
-
-  $UserCopyWith<$Res>? get sender;
-  $UserCopyWith<$Res>? get receiver;
+      String? createdAt});
 }
 
 /// @nodoc
@@ -64,10 +58,9 @@ class _$SingleMessageCopyWithImpl<$Res>
   $Res call({
     Object? id = freezed,
     Object? sender = freezed,
-    Object? receiver = freezed,
+    Object? reciever = freezed,
     Object? message = freezed,
     Object? createdAt = freezed,
-    Object? updatedAt = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed
@@ -77,11 +70,11 @@ class _$SingleMessageCopyWithImpl<$Res>
       sender: sender == freezed
           ? _value.sender
           : sender // ignore: cast_nullable_to_non_nullable
-              as User?,
-      receiver: receiver == freezed
-          ? _value.receiver
-          : receiver // ignore: cast_nullable_to_non_nullable
-              as User?,
+              as String?,
+      reciever: reciever == freezed
+          ? _value.reciever
+          : reciever // ignore: cast_nullable_to_non_nullable
+              as String?,
       message: message == freezed
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
@@ -90,33 +83,7 @@ class _$SingleMessageCopyWithImpl<$Res>
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as String?,
-      updatedAt: updatedAt == freezed
-          ? _value.updatedAt
-          : updatedAt // ignore: cast_nullable_to_non_nullable
-              as String?,
     ));
-  }
-
-  @override
-  $UserCopyWith<$Res>? get sender {
-    if (_value.sender == null) {
-      return null;
-    }
-
-    return $UserCopyWith<$Res>(_value.sender!, (value) {
-      return _then(_value.copyWith(sender: value));
-    });
-  }
-
-  @override
-  $UserCopyWith<$Res>? get receiver {
-    if (_value.receiver == null) {
-      return null;
-    }
-
-    return $UserCopyWith<$Res>(_value.receiver!, (value) {
-      return _then(_value.copyWith(receiver: value));
-    });
   }
 }
 
@@ -128,17 +95,11 @@ abstract class _$$_SingleMessageCopyWith<$Res>
       __$$_SingleMessageCopyWithImpl<$Res>;
   @override
   $Res call(
-      {@JsonKey(name: "_id") String? id,
-      User? sender,
-      User? receiver,
+      {String? id,
+      String? sender,
+      String? reciever,
       String? message,
-      String? createdAt,
-      String? updatedAt});
-
-  @override
-  $UserCopyWith<$Res>? get sender;
-  @override
-  $UserCopyWith<$Res>? get receiver;
+      String? createdAt});
 }
 
 /// @nodoc
@@ -156,10 +117,9 @@ class __$$_SingleMessageCopyWithImpl<$Res>
   $Res call({
     Object? id = freezed,
     Object? sender = freezed,
-    Object? receiver = freezed,
+    Object? reciever = freezed,
     Object? message = freezed,
     Object? createdAt = freezed,
-    Object? updatedAt = freezed,
   }) {
     return _then(_$_SingleMessage(
       id: id == freezed
@@ -169,11 +129,11 @@ class __$$_SingleMessageCopyWithImpl<$Res>
       sender: sender == freezed
           ? _value.sender
           : sender // ignore: cast_nullable_to_non_nullable
-              as User?,
-      receiver: receiver == freezed
-          ? _value.receiver
-          : receiver // ignore: cast_nullable_to_non_nullable
-              as User?,
+              as String?,
+      reciever: reciever == freezed
+          ? _value.reciever
+          : reciever // ignore: cast_nullable_to_non_nullable
+              as String?,
       message: message == freezed
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
@@ -181,10 +141,6 @@ class __$$_SingleMessageCopyWithImpl<$Res>
       createdAt: createdAt == freezed
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
-              as String?,
-      updatedAt: updatedAt == freezed
-          ? _value.updatedAt
-          : updatedAt // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -194,33 +150,25 @@ class __$$_SingleMessageCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_SingleMessage implements _SingleMessage {
   const _$_SingleMessage(
-      {@JsonKey(name: "_id") this.id,
-      this.sender,
-      this.receiver,
-      this.message,
-      this.createdAt,
-      this.updatedAt});
+      {this.id, this.sender, this.reciever, this.message, this.createdAt});
 
   factory _$_SingleMessage.fromJson(Map<String, dynamic> json) =>
       _$$_SingleMessageFromJson(json);
 
   @override
-  @JsonKey(name: "_id")
   final String? id;
   @override
-  final User? sender;
+  final String? sender;
   @override
-  final User? receiver;
+  final String? reciever;
   @override
   final String? message;
   @override
   final String? createdAt;
-  @override
-  final String? updatedAt;
 
   @override
   String toString() {
-    return 'SingleMessage(id: $id, sender: $sender, receiver: $receiver, message: $message, createdAt: $createdAt, updatedAt: $updatedAt)';
+    return 'SingleMessage(id: $id, sender: $sender, reciever: $reciever, message: $message, createdAt: $createdAt)';
   }
 
   @override
@@ -230,10 +178,9 @@ class _$_SingleMessage implements _SingleMessage {
             other is _$_SingleMessage &&
             const DeepCollectionEquality().equals(other.id, id) &&
             const DeepCollectionEquality().equals(other.sender, sender) &&
-            const DeepCollectionEquality().equals(other.receiver, receiver) &&
+            const DeepCollectionEquality().equals(other.reciever, reciever) &&
             const DeepCollectionEquality().equals(other.message, message) &&
-            const DeepCollectionEquality().equals(other.createdAt, createdAt) &&
-            const DeepCollectionEquality().equals(other.updatedAt, updatedAt));
+            const DeepCollectionEquality().equals(other.createdAt, createdAt));
   }
 
   @JsonKey(ignore: true)
@@ -242,10 +189,9 @@ class _$_SingleMessage implements _SingleMessage {
       runtimeType,
       const DeepCollectionEquality().hash(id),
       const DeepCollectionEquality().hash(sender),
-      const DeepCollectionEquality().hash(receiver),
+      const DeepCollectionEquality().hash(reciever),
       const DeepCollectionEquality().hash(message),
-      const DeepCollectionEquality().hash(createdAt),
-      const DeepCollectionEquality().hash(updatedAt));
+      const DeepCollectionEquality().hash(createdAt));
 
   @JsonKey(ignore: true)
   @override
@@ -262,29 +208,25 @@ class _$_SingleMessage implements _SingleMessage {
 
 abstract class _SingleMessage implements SingleMessage {
   const factory _SingleMessage(
-      {@JsonKey(name: "_id") final String? id,
-      final User? sender,
-      final User? receiver,
+      {final String? id,
+      final String? sender,
+      final String? reciever,
       final String? message,
-      final String? createdAt,
-      final String? updatedAt}) = _$_SingleMessage;
+      final String? createdAt}) = _$_SingleMessage;
 
   factory _SingleMessage.fromJson(Map<String, dynamic> json) =
       _$_SingleMessage.fromJson;
 
   @override
-  @JsonKey(name: "_id")
   String? get id;
   @override
-  User? get sender;
+  String? get sender;
   @override
-  User? get receiver;
+  String? get reciever;
   @override
   String? get message;
   @override
   String? get createdAt;
-  @override
-  String? get updatedAt;
   @override
   @JsonKey(ignore: true)
   _$$_SingleMessageCopyWith<_$_SingleMessage> get copyWith =>

@@ -24,6 +24,7 @@ class NeedsHome extends ConsumerWidget {
 
     final data = ref.watch(getAllNeedsProvider(""));
     // log("This is data from needs section: ${data}");
+    // final badge1 = ref.watch(needsByCategoryProvider(category));
 
     return Container(
         margin: EdgeInsets.all(kPadding.w),
@@ -52,16 +53,21 @@ class NeedsHome extends ConsumerWidget {
                             // icon: Icons.food_bank,
                             imageName: "foods",
                             badge: 33,
+                            category: "Food",
+
                             url: "/needs/Food",
                             forPadding: 15.0,
+                            type: "need",
                           ),
                           DonationsCategory(
                             text: translation(context).toys,
                             badge: 9,
                             // icon: Icons.toys,
                             imageName: "toys",
+                            category: "Toys",
                             url: "/needs/Toys",
                             forPadding: 10.0,
+                            type: "need",
                           ),
                           DonationsCategory(
                             text: translation(context).books,
@@ -69,6 +75,8 @@ class NeedsHome extends ConsumerWidget {
                             imageName: "books",
                             // icon: Icons.library_books,
                             url: "/needs/Books",
+                            category: "Books",
+                            type: "need",
                             forPadding: 15.0,
                           ),
                           DonationsCategory(
@@ -76,7 +84,9 @@ class NeedsHome extends ConsumerWidget {
                             badge: 10,
                             url: "/needs/Clothes",
                             imageName: "clothes",
+                            category: "Clothes",
                             forPadding: 15.0,
+                            type: "need",
                             // icon: Icons.person,
                           ),
                           // DonationsCategory(text: "Others", icon: Icons.more_horiz)
