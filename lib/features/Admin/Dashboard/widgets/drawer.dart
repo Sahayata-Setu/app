@@ -44,8 +44,71 @@ class Menu_Drawer extends ConsumerWidget {
                     onPressed: () {
                       Navigator.pop(context);
                     },
-                    icon: Icon(Icons.close)),
+                    icon: Icon(
+                      Icons.close,
+                      color: Colors.white,
+                    )),
               ),
+              ListTile(
+                  title: CustomText(
+                    text: "Dashboard",
+                    fontColor: whiteColor,
+                    fontSize: 18.sp,
+                  ),
+                  onTap: () {
+                    // Navigator.pop(context);
+                    routeTo("/admin-dashboard", context);
+                  }),
+              ListTile(
+                  title: CustomText(
+                    text: "Users",
+                    fontColor: whiteColor,
+                    fontSize: 18.sp,
+                  ),
+                  onTap: () {
+                    // Navigator.pop(context);
+                    routeTo("/viewUsers", context);
+                  }),
+              ListTile(
+                  title: CustomText(
+                    text: "Volunteers",
+                    fontColor: whiteColor,
+                    fontSize: 18.sp,
+                  ),
+                  onTap: () {
+                    // Navigator.pop(context);
+                    routeTo("/homepage", context);
+                  }),
+              ListTile(
+                  title: CustomText(
+                    text: "Messages",
+                    fontColor: whiteColor,
+                    fontSize: 18.sp,
+                  ),
+                  onTap: () {
+                    // Navigator.pop(context);
+                    routeTo("/homepage", context);
+                  }),
+              ListTile(
+                  title: CustomText(
+                    text: "Requests",
+                    fontColor: whiteColor,
+                    fontSize: 18.sp,
+                  ),
+                  onTap: () {
+                    // Navigator.pop(context);
+                    routeTo("/homepage", context);
+                  }),
+              ListTile(
+                  title: CustomText(
+                    text: "Profile",
+                    fontColor: whiteColor,
+                    fontSize: 18.sp,
+                  ),
+                  onTap: () {
+                    // Navigator.pop(context);
+                    routeTo("/homepage", context);
+                  }),
               ListTile(
                 title: CustomText(
                   text: "Logout",

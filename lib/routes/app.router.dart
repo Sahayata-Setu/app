@@ -31,6 +31,7 @@ import 'package:donationapp/features/profile/user-profile.dart';
 import 'package:donationapp/features/profile/user-profile.data.dart';
 import 'package:donationapp/features/search-page/search-page.dart';
 import 'package:donationapp/features/signup/SignUp.dart';
+import '../features/Admin/Users/viewUsers.dart';
 import '../features/donations/Dontations.dart';
 
 @MaterialAutoRouter(routes: [
@@ -70,6 +71,7 @@ import '../features/donations/Dontations.dart';
   MaterialRoute(page: ApproveVolunter, path: "/approveVolunter/:id"),
 
   MaterialRoute(page: AdminDashBoardData, path: "/admin-dashboard"),
+  MaterialRoute(page: ViewUsers, path: "/viewUsers"),
   MaterialRoute(
       page: MessageDetails, path: "/message/:receiverName/:receiverId"),
 ])
