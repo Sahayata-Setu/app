@@ -59,26 +59,6 @@ class NavBar extends StatelessWidget {
                 ),
               ),
             )
-          //  Container(
-          //     width: 5,
-          //     height: 5,
-          //     child: Image.asset(
-          //       "assets/images/logo.png",
-          //       height: 5,
-          //       width: 5,
-          //     ),
-          //     decoration: BoxDecoration(
-          //       shape: BoxShape.circle,
-          //       // image: DecorationImage(
-          //       //     fit: BoxFit.fitWidth,
-
-          //       //     image: AssetImage("assets/images/logo.png",))
-          //     ),
-          //   )
-          // ? CircleAvatar(
-          //     child: Image.asset("assets/images/logo.png", fit: BoxFit.cover),
-          //     // radius: 5,
-          //   )
           :
           // route == HomePageRoute.name ||
           route == LoginRoute.name || route == SignupRoute.name
