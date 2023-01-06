@@ -1,7 +1,5 @@
-import 'dart:developer';
-
 import 'package:donationapp/app.dart';
-import 'package:donationapp/constant/common/BottomNavBar/BottomNavBar.dart';
+import 'package:donationapp/constant/common/GoogleButtomNavBar/GoogleButtomNavBar.dart';
 import 'package:donationapp/constant/common/NavBar/navbar.dart';
 
 import 'package:donationapp/constant/kconstant.dart';
@@ -33,7 +31,7 @@ class DonationsClaim extends StatelessWidget {
         // route: "/homepage",
         showBadge: false,
       ),
-      bottomNavBar: BottomNavBar(showBottomNavBar: false),
+      bottomNavBar: const GoogleButtomNavBar(showBottomNavBar: false),
       isAdmin: false,
     );
   }

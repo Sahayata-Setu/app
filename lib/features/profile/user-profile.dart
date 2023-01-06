@@ -114,6 +114,8 @@ class UserProfile extends ConsumerWidget {
                   imageName: "i-icon",
                 ),
               ),
+
+              /// isVolunter ? const SizedBox():
               GestureDetector(
                 onTap: () {
                   routeTo("/apply-volunteer", context);

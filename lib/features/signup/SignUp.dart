@@ -1,5 +1,6 @@
 import 'dart:developer';
 import 'package:donationapp/app.dart';
+import 'package:donationapp/constant/common/GoogleButtomNavBar/GoogleButtomNavBar.dart';
 import 'package:donationapp/constant/common/NavBar/navbar.dart';
 import 'package:donationapp/constant/common/Text/custom-text.dart';
 import 'package:donationapp/constant/kconstant.dart';
@@ -11,8 +12,6 @@ import 'package:donationapp/store/signup/signup.store.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
-import '../../constant/common/BottomNavBar/BottomNavBar.dart';
 
 class Signup extends ConsumerWidget {
   const Signup({super.key});
@@ -173,7 +172,7 @@ class Signup extends ConsumerWidget {
         ),
       ),
       isAdmin: false,
-      bottomNavBar: BottomNavBar(showBottomNavBar: false),
+      bottomNavBar: const GoogleButtomNavBar(showBottomNavBar: false),
     );
   }
 }

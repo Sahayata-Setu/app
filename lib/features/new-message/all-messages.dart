@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:donationapp/app.dart';
 import 'package:donationapp/constant/common/BottomNavBar/BottomNavBar.dart';
+import 'package:donationapp/constant/common/GoogleButtomNavBar/GoogleButtomNavBar.dart';
 import 'package:donationapp/constant/common/NavBar/navbar.dart';
 import 'package:donationapp/constant/common/loading/loadingPage.dart';
 import 'package:donationapp/domain/new-message/chatUserModel.dart';
@@ -138,7 +139,7 @@ class NewMessage extends ConsumerWidget {
         showBadge: false,
         title: "Messages",
       ),
-      bottomNavBar: BottomNavBar(showBottomNavBar: true),
+      bottomNavBar: const GoogleButtomNavBar(showBottomNavBar: true),
       isAdmin: false,
     );
     // return Scaffold(

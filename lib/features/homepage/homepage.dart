@@ -1,5 +1,4 @@
 import 'package:donationapp/app.dart';
-import 'package:donationapp/constant/common/BottomNavBar/BottomNavBar.dart';
 import 'package:donationapp/constant/common/GoogleButtomNavBar/GoogleButtomNavBar.dart';
 import 'package:donationapp/constant/common/NavBar/navbar.dart';
 import 'package:donationapp/constant/kconstant.dart';
@@ -13,8 +12,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
-
-import '../../main.dart';
 
 class HomePage extends ConsumerStatefulWidget {
   const HomePage({super.key});
@@ -97,7 +94,7 @@ class _HomePageState extends ConsumerState<HomePage> {
         showBadge: true,
       ),
       isAdmin: false,
-      bottomNavBar: GoogleButtomNavBar(showBottomNavBar: true),
+      bottomNavBar: const GoogleButtomNavBar(showBottomNavBar: true),
     );
   }
 }

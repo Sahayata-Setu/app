@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:developer';
 import 'dart:io';
 
+import 'package:donationapp/constant/common/GoogleButtomNavBar/GoogleButtomNavBar.dart';
 import 'package:donationapp/helpers/route.utils.dart';
 import 'package:donationapp/store/add-need/add-need.store.dart';
 import 'package:donationapp/store/homepage/homepage.store.dart';
@@ -11,7 +12,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:donationapp/app.dart';
-import 'package:donationapp/constant/common/BottomNavBar/BottomNavBar.dart';
 import 'package:donationapp/constant/common/NavBar/navbar.dart';
 import 'package:donationapp/constant/common/Text/custom-text.dart';
 import 'package:donationapp/constant/common/button/cusotm-button.dart';
@@ -171,7 +171,7 @@ class AddRequest extends ConsumerWidget {
         showBadge: false,
       ),
       isAdmin: false,
-      bottomNavBar: const BottomNavBar(showBottomNavBar: false),
+      bottomNavBar: const GoogleButtomNavBar(showBottomNavBar: false),
     );
   }
 }

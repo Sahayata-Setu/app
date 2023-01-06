@@ -1,3 +1,4 @@
+import 'package:donationapp/constant/kconstant.dart';
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:line_icons/line_icons.dart';
@@ -13,7 +14,7 @@ class GoogleButtomNavBar extends StatefulWidget {
 }
 
 class _GoogleButtomNavBarState extends State<GoogleButtomNavBar> {
-  int _selectedIndex = 0;
+  static int _selectedIndex = 0;
   static const TextStyle optionStyle =
       TextStyle(fontSize: 30, fontWeight: FontWeight.w600);
   void onTabTapped(int index) {
@@ -61,19 +62,20 @@ class _GoogleButtomNavBarState extends State<GoogleButtomNavBar> {
                 )
               ],
             ),
-            child: SafeArea(
+            // child: SafeArea(
+            child: SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
               child: Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 6.0, vertical: 8),
+                padding: const EdgeInsets.all(6.0),
                 child: GNav(
                     rippleColor: Colors.grey[300]!,
                     hoverColor: Colors.grey[100]!,
                     gap: 8,
-                    activeColor: Colors.black,
+                    activeColor: blueColor,
                     iconSize: 24,
                     padding: EdgeInsets.symmetric(horizontal: 20, vertical: 12),
                     duration: Duration(milliseconds: 400),
-                    tabBackgroundColor: Colors.grey[100]!,
+                    tabBackgroundColor: backgroundColor,
                     color: Colors.black,
                     tabs: const [
                       GButton(
@@ -100,7 +102,11 @@ class _GoogleButtomNavBarState extends State<GoogleButtomNavBar> {
                     selectedIndex: _selectedIndex,
                     onTabChange: onTabTapped),
               ),
+
+              //   padding:
+              //       const EdgeInsets.symmetric(horizontal: 6.0, vertical: 8),
             ),
+            //  ),
           )
         : Container();
   }

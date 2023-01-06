@@ -1,15 +1,7 @@
-import 'dart:developer';
 import 'package:flutter/material.dart';
 
-import 'package:donationapp/helpers/route.utils.dart';
-import 'package:flutter_speed_dial/flutter_speed_dial.dart';
-
 import 'package:auto_route/auto_route.dart';
-import 'package:donationapp/constant/common/NavBar/navbar.dart';
 import 'package:donationapp/constant/kconstant.dart';
-import 'package:donationapp/routes/app.router.gr.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 // this component shares the common widget among differnt components like futter
 class App extends StatefulWidget {

@@ -3,12 +3,10 @@ import 'package:badges/badges.dart';
 import 'package:donationapp/classes/language.dart';
 import 'package:donationapp/constant/common/Text/custom-text.dart';
 import 'package:donationapp/constant/kconstant.dart';
-import 'package:donationapp/features/new-message/all-messages.dart';
 import 'package:donationapp/helpers/route.utils.dart';
 import 'package:donationapp/main.dart';
 import 'package:donationapp/routes/app.router.gr.dart';
 import 'package:donationapp/utils/store-service/language.store.dart';
-import 'package:donationapp/utils/store-service/store.service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -51,7 +49,7 @@ class NavBar extends StatelessWidget {
               route == SearchPageRoute.name ||
               route == UserProfileRoute.name
           ? Container(
-              margin: EdgeInsets.only(left: 10),
+              margin: const EdgeInsets.only(left: 10),
               child: Badge(
                 badgeColor: blueColor,
                 badgeContent: Image.asset(
@@ -85,9 +83,9 @@ class NavBar extends StatelessWidget {
           // route == HomePageRoute.name ||
           route == LoginRoute.name || route == SignupRoute.name
               // route == MessageRoute.name
-              ? SizedBox()
+              ? const SizedBox()
               : IconButton(
-                  icon: Icon(Icons.arrow_back),
+                  icon: const Icon(Icons.arrow_back),
                   onPressed: () {
                     Navigator.of(context).pop();
                   },
@@ -96,7 +94,7 @@ class NavBar extends StatelessWidget {
       actions: [
         route == HomePageRoute.name || route == LoginRoute.name
             ? DropdownButton<Language>(
-                icon: Icon(Icons.language),
+                icon: const Icon(Icons.language),
                 items: Language.languageList()
                     .map((e) => DropdownMenuItem<Language>(
                         value: e, child: Text(e.name)))
@@ -109,7 +107,7 @@ class NavBar extends StatelessWidget {
                     MyApp.setLocale(context, Locale(language.languageCode, ''));
                   }
                 })
-            : SizedBox(),
+            : const SizedBox(),
         isAdmin != null
             ? Container(
                 margin: EdgeInsets.symmetric(horizontal: 10.w),
@@ -131,7 +129,7 @@ class NavBar extends StatelessWidget {
                         ),
                         child: Container(
                           margin: EdgeInsets.only(top: 6.h),
-                          child: Icon(
+                          child: const Icon(
                             Icons.star,
                             size: kiconSize2,
                           ),
@@ -139,25 +137,33 @@ class NavBar extends StatelessWidget {
                         // showBadge: showBadge ? true : false,
                       ),
                       Padding(
-                        padding: EdgeInsets.all(kPadding1),
+                        padding: const EdgeInsets.all(kPadding1),
                         child: PopupMenuButton(
                           color: backgroundColor,
-                          child: Icon(
+                          child: const Icon(
                             Icons.add,
                             size: KiconSize,
                           ),
                           // onSelected: (item)=>onSelected(context,item),
                           itemBuilder: (context) => [
                             PopupMenuItem<int>(
-                                child: Text("Create donation"),
+                                child: const Text("Create donation"),
                                 onTap: () {
                                   // go to create post item
                                   routeTo("/createDonation", context);
                                 }),
                             PopupMenuItem<int>(
-                              child: Text("Create need"),
+                              child: const Text("Create need"),
                               onTap: () {
                                 routeTo("/createNeed", context);
+                                // go to create request button
+                              },
+                            ),
+                            //check for isVolunteer?SizedBox():
+                            PopupMenuItem<int>(
+                              child: const Text("Create Campaign"),
+                              onTap: () {
+                                routeTo("/createCampaign", context);
                                 // go to create request button
                               },
                             ),

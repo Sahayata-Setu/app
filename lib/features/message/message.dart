@@ -79,7 +79,7 @@ class Message extends ConsumerWidget {
           showBadge: true,
         ),
         isAdmin: false,
-        bottomNavBar: GoogleButtomNavBar(showBottomNavBar: true),
+        bottomNavBar: const GoogleButtomNavBar(showBottomNavBar: true),
       ),
     );
   }
