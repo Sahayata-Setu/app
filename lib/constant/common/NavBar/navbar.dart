@@ -95,20 +95,28 @@ class NavBar extends StatelessWidget {
       //leading: isAdmin == null ? const SizedBox.shrink() : Icon(Icons.menu),
       actions: [
         route == HomePageRoute.name || route == LoginRoute.name
-            ? DropdownButton<Language>(
-                icon: Icon(Icons.language),
-                items: Language.languageList()
-                    .map((e) => DropdownMenuItem<Language>(
-                        value: e, child: Text(e.name)))
-                    .toList(),
-                // value: ,
-                onChanged: (Language? language) async {
-                  if (language != null) {
-                    Locale _locale =
-                        await setLanguagePref(language.languageCode);
-                    MyApp.setLocale(context, Locale(language.languageCode, ''));
-                  }
-                })
+            ? Padding(
+                padding: EdgeInsets.all(18.sp),
+                child: DropdownButton<Language>(
+                    underline: Container(),
+                    icon: Icon(Icons.language),
+                    // decoration: InputDecoration(
+                    //     border: UnderlineInputBorder(
+                    //         borderSide: BorderSide(color: Colors.red))),
+                    items: Language.languageList()
+                        .map((e) => DropdownMenuItem<Language>(
+                            value: e, child: Text(e.name)))
+                        .toList(),
+                    // value: ,
+                    onChanged: (Language? language) async {
+                      if (language != null) {
+                        Locale _locale =
+                            await setLanguagePref(language.languageCode);
+                        MyApp.setLocale(
+                            context, Locale(language.languageCode, ''));
+                      }
+                    }),
+              )
             : SizedBox(),
         isAdmin != null
             ? Container(
