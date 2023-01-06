@@ -56,15 +56,14 @@ class _LoginState extends ConsumerState<Login> {
         log("this is resp${resp['userRole']}");
         // log("user type ${getUserType}");
         if (resp['userRole'] == "user") {
-          // ignore: use_build_context_synchronously
-          // log("this is message");
           replaceRouteTo('/homepage', context);
           const snackBar = SnackBar(
             content: Text('Logged In'),
           );
           ScaffoldMessenger.of(context).showSnackBar(snackBar);
           pop(context);
-          // CustomScaffoldMessenger.info("Sucessfully logged In", context);
+        } else if (resp['userRole'] == 'volunteer') {
+          replaceRouteTo("/volunteer", context);
         } else if (resp['userRole'] == "admin") {
           log("Hello");
           replaceRouteTo("/admin-dashboard", context);
@@ -72,7 +71,6 @@ class _LoginState extends ConsumerState<Login> {
             content: Text('Logged in'),
           );
           ScaffoldMessenger.of(context).showSnackBar(snackBar);
-          // CustomScaffoldMessenger.info("Sucessfully logged In", context);
         }
 
         // ignore: use_build_context_synchronously

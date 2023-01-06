@@ -1,11 +1,15 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:badges/badges.dart';
+import 'package:donationapp/classes/language.dart';
 import 'package:donationapp/constant/common/Text/custom-text.dart';
 import 'package:donationapp/constant/kconstant.dart';
 import 'package:donationapp/helpers/route.utils.dart';
 import 'package:donationapp/routes/app.router.gr.dart';
+import 'package:donationapp/utils/store-service/language.store.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import '../../../main.dart';
 
 class NavBar extends StatelessWidget {
   const NavBar({super.key, this.title, this.route, required this.showBadge});
@@ -25,6 +29,22 @@ class NavBar extends StatelessWidget {
         fontSize: 18.sp,
       ),
       actions: [
+        route == HomePageRoute.name || route == LoginRoute.name
+            ? DropdownButton<Language>(
+                icon: Icon(Icons.language),
+                items: Language.languageList()
+                    .map((e) => DropdownMenuItem<Language>(
+                        value: e, child: Text(e.name)))
+                    .toList(),
+                // value: ,
+                onChanged: (Language? language) async {
+                  if (language != null) {
+                    Locale _locale =
+                        await setLanguagePref(language.languageCode);
+                    MyApp.setLocale(context, Locale(language.languageCode, ''));
+                  }
+                })
+            : SizedBox(),
         showBadge
             ? Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,

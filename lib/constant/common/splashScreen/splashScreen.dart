@@ -33,10 +33,13 @@ class SplashScreen extends StatelessWidget {
         height: ScreenUtil().scaleHeight,
         child: Column(
           children: [
-            Center(
-              child: Container(
-                height: 100.h,
-                child: Image.asset("assets/images/logo.png"),
+            Padding(
+              padding: EdgeInsets.only(top: 200.h),
+              child: Center(
+                child: Container(
+                  height: 100.h,
+                  child: Image.asset("assets/images/logo.png"),
+                ),
               ),
             ),
           ],

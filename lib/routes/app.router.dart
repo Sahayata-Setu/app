@@ -32,6 +32,7 @@ import 'package:donationapp/features/profile/user-profile.dart';
 import 'package:donationapp/features/profile/user-profile.data.dart';
 import 'package:donationapp/features/search-page/search-page.dart';
 import 'package:donationapp/features/signup/SignUp.dart';
+import 'package:donationapp/features/volunteer/volunteer.dart';
 import '../features/donations/Dontations.dart';
 
 @MaterialAutoRouter(routes: [
@@ -61,6 +62,8 @@ import '../features/donations/Dontations.dart';
   MaterialRoute(page: DonationDetail, path: "/donations-details/:id"),
 
   MaterialRoute(page: Needs, path: "/needs/:category"),
+  MaterialRoute(page: Volunteer, path: "/volunteer"),
+
   MaterialRoute(page: AddRequest, path: "/createNeed"),
   MaterialRoute(page: NeedDetail, path: "/needs/details/:id"),
   MaterialRoute(page: ChangeLanguage, path: "/change-language"),
