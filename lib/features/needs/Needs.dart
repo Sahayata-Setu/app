@@ -25,7 +25,11 @@ class Needs extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final data1 = ref.watch(needsByCategoryProvider(category));
     return App(
-      appbar: NavBar(showBadge: true, title: "Needs", isAdmin: false),
+      appbar: NavBar(
+        showBadge: true,
+        title: "Needs",
+        // isAdmin: false,
+      ),
       component: Container(
         alignment: Alignment.topLeft,
         height: ScreenUtil().screenHeight.h + kPadding.h,

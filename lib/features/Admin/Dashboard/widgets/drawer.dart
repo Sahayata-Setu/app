@@ -47,6 +47,16 @@ class Menu_Drawer extends ConsumerWidget {
                     icon: Icon(Icons.close)),
               ),
               ListTile(
+                  title: CustomText(
+                    text: "Messages",
+                    fontColor: whiteColor,
+                    fontSize: 18.sp,
+                  ),
+                  onTap: () {
+                    // Navigator.pop(context);
+                    routeTo("/homepage", context);
+                  }),
+              ListTile(
                 title: CustomText(
                   text: "Logout",
                   fontColor: whiteColor,
@@ -56,16 +66,6 @@ class Menu_Drawer extends ConsumerWidget {
                   handleLogout();
                 },
               ),
-              ListTile(
-                  title: CustomText(
-                    text: "Home",
-                    fontColor: whiteColor,
-                    fontSize: 18.sp,
-                  ),
-                  onTap: () {
-                    // Navigator.pop(context);
-                    routeTo("/homepage", context);
-                  })
             ]),
       ),
     );

@@ -23,8 +23,8 @@ class Dontaions extends ConsumerWidget {
       appbar: NavBar(
         showBadge: true,
         title: "Donations",
-        isAdmin: false,
-        isMainPage: false,
+        // isAdmin: false,
+        // isMainPage: false,
       ),
       component: data.when(
           data: (data) {

@@ -1,9 +1,11 @@
 import 'dart:developer';
 
+import 'package:donationapp/constant/common/Text/custom-text.dart';
 import 'package:donationapp/features/new-message/chat-detail.dart';
 import 'package:donationapp/helpers/time.dart';
 import 'package:donationapp/utils/store-service/store.service.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:socket_io_client/socket_io_client.dart' as IO;
 import 'package:socket_io_client/socket_io_client.dart';
 
@@ -86,8 +88,13 @@ class _ConversationListState extends State<ConversationList> {
               child: Row(
                 children: <Widget>[
                   CircleAvatar(
-                    backgroundImage:
-                        AssetImage("assets/images/profileicon.png"),
+                    // backgroundImage:
+                    //     AssetImage("assets/images/profileicon.png"),
+                    child: CustomText(
+                      text: "${widget.name[0]}",
+                      fontSize: 25.sp,
+                      fontColor: Colors.white,
+                    ),
                     backgroundColor: Colors.grey,
                     maxRadius: 30,
                   ),

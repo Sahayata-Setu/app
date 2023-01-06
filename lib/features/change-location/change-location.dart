@@ -33,7 +33,7 @@ class ChangeLocation extends ConsumerWidget {
         ),
       ),
       appbar: const NavBar(
-        isMainPage: false,
+        // isMainPage: false,
         showBadge: false,
         // route: "/homepage",
         title: "Change Location",
