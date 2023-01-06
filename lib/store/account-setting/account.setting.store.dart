@@ -29,6 +29,14 @@ final locationDetailsProvider = StateProvider(
 
 final loading = StateProvider((ref) => (false));
 
+//get all neeeds
+final getAllDonationsByUser =
+    FutureProvider.family<Map<String, dynamic>, String>(
+  (ref, userId) {
+    return ref.watch(updateProfileService).getAllDontaionsByUser(userId);
+  },
+);
+
 class AddNotifier extends ChangeNotifier {
   AddNotifier(this.read) : super();
   final Reader read;

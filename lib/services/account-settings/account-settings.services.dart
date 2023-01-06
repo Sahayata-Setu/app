@@ -113,6 +113,26 @@ class UpdateProfileServiceClass {
       throw Exception(e);
     }
   }
+
+  //Update Location
+  Future<Map<String, dynamic>> getAllDontaionsByUser(userId) async {
+    // log("THis is data form service: ${userId}");
+    try {
+      final token = StorageService.getToken();
+      final response = await _client.get(
+        "/user/donation/user/${userId}",
+        options: Options(
+          headers: {"Authorization": "Bearer ${token}"},
+        ),
+      );
+      // log("this is response for update password ${response}");
+
+      return response;
+    } catch (e) {
+      log("Error 132 ${e}");
+      throw Exception(e);
+    }
+  }
 }
 
 final updateProfileService =

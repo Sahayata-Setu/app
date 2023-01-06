@@ -4,9 +4,6 @@ import 'dart:developer';
 import 'package:donationapp/constant/common/Text/custom-text.dart';
 import 'package:donationapp/constant/common/loading/loadingPage.dart';
 import 'package:donationapp/domain/message/sub-modules/single.message.model.dart';
-import 'package:donationapp/domain/new-message/message.dart';
-import 'package:donationapp/features/new-message/store/socket-service.dart';
-import 'package:donationapp/services/message/message.services.dart';
 import 'package:donationapp/store/message/message.store.dart';
 import 'package:donationapp/utils/store-service/store.service.dart';
 import 'package:flutter/material.dart';
@@ -46,8 +43,9 @@ class _ChatDetailPageState extends ConsumerState<ChatDetailPage> {
   void connectToServer() {
     try {
       socket = IO.io(
-          // 'http://192.168.15.130:5000',
           'http://146.190.8.65:5000',
+          // 'http://146.190.8.65:5000',
+          // 'http://10.0.2.2:5000',
           OptionBuilder().setTransports(['websocket']) // for Flutter or Dart VM
               .setQuery({"token": StorageService.getToken()}).build());
       socket.connect();
@@ -75,15 +73,6 @@ class _ChatDetailPageState extends ConsumerState<ChatDetailPage> {
   }
 
   handleUser(data) {
-    // for (int i = 0; i < data.length; i++) {
-    //   // if (widget.reciever.toString() == data[i].toString()) {
-    //   //   ref.read(onlineStatusProvider.notifier).state = "Online";
-    //   // } else {
-    //   //   log("User is not online");
-    //   //   ref.read(onlineStatusProvider.notifier).state = "Offline";
-    //   // }
-    //   log("User is online: ${widget.reciever.toString() == data[i].toString()}");
-    // }
     if (data.contains(widget.reciever)) {
       log("Online");
 
@@ -93,11 +82,6 @@ class _ChatDetailPageState extends ConsumerState<ChatDetailPage> {
 
       ref.read(onlineStatusProvider.notifier).state = "Offline";
     }
-
-    // log("Data: ${data.contains(widget.reciever)}");
-    // log("Reciever: ${widget.reciever}");
-
-    // data.contains(widget.reciever).then((e) => log("Hello"));
   }
 
   void scrollToBottom() {
@@ -169,6 +153,7 @@ class _ChatDetailPageState extends ConsumerState<ChatDetailPage> {
                 IconButton(
                   onPressed: () {
                     Navigator.pop(context);
+                    socket.emit('disconnet', StorageService.getId());
                   },
                   icon: Icon(
                     Icons.arrow_back,
@@ -220,7 +205,7 @@ class _ChatDetailPageState extends ConsumerState<ChatDetailPage> {
                             width: 4.w,
                           ),
                           Text(
-                            "${onlineStatus}",
+                            "${onlineStatus == 'Online' ? "Active Now" : "Offline"}",
                             style: TextStyle(
                                 color: Colors.grey.shade600, fontSize: 13),
                           ),
@@ -229,10 +214,10 @@ class _ChatDetailPageState extends ConsumerState<ChatDetailPage> {
                     ],
                   ),
                 ),
-                Icon(
-                  Icons.settings,
-                  color: Colors.black54,
-                ),
+                // Icon(
+                //   Icons.settings,
+                //   color: Colors.black54,
+                // ),
               ],
             ),
           ),
