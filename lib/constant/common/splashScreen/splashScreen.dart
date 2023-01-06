@@ -32,6 +32,7 @@ class SplashScreen extends StatelessWidget {
         color: blueColor,
         height: ScreenUtil().scaleHeight,
         child: Column(
+          // mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Padding(
               padding: EdgeInsets.only(top: 200.h),
@@ -42,6 +43,22 @@ class SplashScreen extends StatelessWidget {
                 ),
               ),
             ),
+            SizedBox(
+              height: 20.h,
+            ),
+            CustomText(
+              text: "Sahayata Setu",
+              fontColor: blueBackgroundColor,
+              fontSize: 26.sp,
+            ),
+            // SizedBox(
+            //   height: 20.h,
+            // ),
+            CustomText(
+              text: "Say yes to donation",
+              fontColor: blueBackgroundColor,
+              fontSize: 12.sp,
+            )
           ],
         ),
       ),

@@ -64,7 +64,7 @@ class AccountSettings extends ConsumerWidget {
       appbar: const NavBar(
         showBadge: false,
         title: "Account Settings",
-        // isMainPage: false,
+        isMainPage: false,
       ),
       isAdmin: false,
       bottomNavBar: const GoogleButtomNavBar(

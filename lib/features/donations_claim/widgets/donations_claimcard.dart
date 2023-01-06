@@ -114,7 +114,7 @@ class DonationsClaimCard extends StatelessWidget {
           kPadding.w,
         ),
         child: Column(
-          children: <Widget>[
+          children: [
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -131,8 +131,15 @@ class DonationsClaimCard extends StatelessWidget {
             SizedBox(
               height: 10.h,
             ),
-            // Container(child: ),
-
+            // Row(
+            //   children: [
+            //     CustomText(
+            //       text: "${donationStatus}",
+            //       fontSize: 14.sp,
+            //       fontWeight: FontWeight.normal,
+            //     )
+            //   ],
+            // ),
             showWidget(),
             SizedBox(
               height: 10.h,

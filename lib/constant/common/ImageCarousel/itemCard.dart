@@ -148,12 +148,12 @@ class ItemCard extends StatelessWidget {
                           context);
                     },
                   ),
-                  // IconButton(
-                  //     onPressed: () {},
-                  //     icon: const CustomIcon(
-                  //       icon: Icons.share,
-                  //       color: blueColor,
-                  //     ))
+                  IconButton(
+                      onPressed: () {},
+                      icon: const CustomIcon(
+                        icon: Icons.share,
+                        color: blueColor,
+                      ))
                 ],
               ),
             ),
