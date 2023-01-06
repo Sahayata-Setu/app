@@ -119,6 +119,7 @@ flutter:
   assets:
    - assets/images/
    - assets/images/needy/
+   - assets/images/category_icons/
    
   #  - lib/features/lang
   #   - images/a_dot_ham.jpeg

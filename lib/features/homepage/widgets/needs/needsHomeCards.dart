@@ -1,6 +1,7 @@
 import 'package:donationapp/constant/common/Text/custom-text.dart';
 import 'package:donationapp/features/homepage/widgets/heading.dart';
 import 'package:donationapp/features/needs/widgets/needDetail.data.dart';
+import 'package:donationapp/features/new-message/chat-detail.dart';
 import 'package:donationapp/helpers/route.utils.dart';
 import 'package:donationapp/routes/app.router.gr.dart';
 import 'package:donationapp/utils/store-service/language.store.dart';
@@ -22,7 +23,7 @@ class NeedsHomeCards extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // routePush(NeedDetailRoute(id: singleInfo['_id']), context);
-    // log("this is for homepage${singleInfo}");
+    log("this is for homepage${singleInfo}");
     return GestureDetector(
       onTap: () {
         routePush(NeedDetailRoute(id: singleInfo['_id']), context);
@@ -134,9 +135,17 @@ class NeedsHomeCards extends StatelessWidget {
                   width: 80.w,
                   height: 40.h,
                   fn: () {
-                    routeTo(
-                        "/message/${singleInfo['donor_name']}/${singleInfo['donor_id']}",
-                        context);
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) {
+                      return ChatDetailPage(
+                        name: singleInfo['beneficiary_name'],
+                        // sender: senderId,
+                        reciever: singleInfo['beneficiary_id'],
+                      );
+                    }));
+                    // routeTo(
+                    //     "/message/${singleInfo['donor_name']}/${singleInfo['donor_id']}",
+                    //     context);
                   },
                   child: Text(
                     translation(context).claim,

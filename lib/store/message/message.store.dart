@@ -13,6 +13,8 @@ final categoriesProvider = StateProvider((ref) => true);
 final recieverIdProvider = StateProvider((ref) => "");
 final messageController = StateProvider((ref) => TextEditingController());
 
+final onlineStatusProvider = StateProvider((ref) => "Offline");
+
 final allConnectedUsersProvider = FutureProvider.autoDispose<List<Messages>>(
   (ref) {
     return ref.watch(messageService).getConnectUsers();

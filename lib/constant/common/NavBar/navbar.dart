@@ -141,27 +141,28 @@ class NavBar extends StatelessWidget {
                       Padding(
                         padding: EdgeInsets.all(kPadding1),
                         child: PopupMenuButton(
-                            color: backgroundColor,
-                            child: Icon(
-                              Icons.add,
-                              size: KiconSize,
+                          color: backgroundColor,
+                          child: Icon(
+                            Icons.add,
+                            size: KiconSize,
+                          ),
+                          // onSelected: (item)=>onSelected(context,item),
+                          itemBuilder: (context) => [
+                            PopupMenuItem<int>(
+                                child: Text("Create donation"),
+                                onTap: () {
+                                  // go to create post item
+                                  routeTo("/createDonation", context);
+                                }),
+                            PopupMenuItem<int>(
+                              child: Text("Create need"),
+                              onTap: () {
+                                routeTo("/createNeed", context);
+                                // go to create request button
+                              },
                             ),
-                            // onSelected: (item)=>onSelected(context,item),
-                            itemBuilder: (context) => [
-                                  PopupMenuItem<int>(
-                                      child: Text("Create donation"),
-                                      onTap: () {
-                                        // go to create post item
-                                        routeTo("/createDonation", context);
-                                      }),
-                                  PopupMenuItem<int>(
-                                    child: Text("Create need"),
-                                    onTap: () {
-                                      routeTo("/createNeed", context);
-                                      // go to create request button
-                                    },
-                                  ),
-                                ]),
+                          ],
+                        ),
                       )
                       // Container(
                       //     margin: EdgeInsets.symmetric(horizontal: 10.w),

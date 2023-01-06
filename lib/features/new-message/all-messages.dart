@@ -113,7 +113,8 @@ class NewMessage extends ConsumerWidget {
                       physics: NeverScrollableScrollPhysics(),
                       itemBuilder: (context, index) {
                         return ConversationList(
-                          name: data[index].firstName!,
+                          name:
+                              "${data[index].firstName!} ${data[index].lastName!}",
                           receiverId: data[index].id,
                           messageText: data[index].message!,
                           imageUrl: "",
