@@ -39,7 +39,7 @@ class ChangePassword extends ConsumerWidget {
         showBadge: false,
         // route: "/homepage",
         title: "Change Password",
-        isMainPage: false,
+        // isMainPage: false,
       ),
       isAdmin: false,
       bottomNavBar: BottomNavBar(showBottomNavBar: false),

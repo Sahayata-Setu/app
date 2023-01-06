@@ -2,22 +2,16 @@ import 'dart:async';
 import 'dart:developer';
 
 import 'package:auto_route/annotations.dart';
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:donationapp/app.dart';
-import 'package:donationapp/constant/common/BottomNavBar/BottomNavBar.dart';
+import 'package:donationapp/constant/common/GoogleButtomNavBar/GoogleButtomNavBar.dart';
 import 'package:donationapp/constant/common/NavBar/navbar.dart';
-import 'package:donationapp/constant/common/Text/custom-text.dart';
 import 'package:donationapp/constant/kconstant.dart';
-import 'package:donationapp/domain/message/message.model.dart';
 import 'package:donationapp/domain/message/sub-modules/single.message.model.dart';
 import 'package:donationapp/helpers/time.dart';
-import 'package:donationapp/store/homepage/homepage.store.dart';
 import 'package:donationapp/store/message/message.store.dart';
 import 'package:donationapp/utils/store-service/store.service.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
+
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -129,7 +123,7 @@ class MessageDetails extends ConsumerWidget {
                 )),
             appbar: NavBar(
                 title: receiverName.split("%20").join(" "), showBadge: false),
-            bottomNavBar: BottomNavBar(showBottomNavBar: false),
+            bottomNavBar: const GoogleButtomNavBar(showBottomNavBar: false),
             isAdmin: false));
   }
 }

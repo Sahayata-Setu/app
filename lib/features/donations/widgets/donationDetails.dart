@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:auto_route/auto_route.dart';
+import 'package:donationapp/constant/common/GoogleButtomNavBar/GoogleButtomNavBar.dart';
 import 'package:donationapp/constant/common/Icon/custom-icon.dart';
 import 'package:donationapp/constant/common/button/cusotm-button.dart';
 import 'package:donationapp/constant/common/horizontal-line/horizontal-line.dart';
@@ -386,7 +387,7 @@ class DonationDetail extends ConsumerWidget {
         showBadge: false,
       ),
       isAdmin: false,
-      bottomNavBar: const BottomNavBar(showBottomNavBar: false),
+      bottomNavBar: const GoogleButtomNavBar(showBottomNavBar: false),
     );
   }
 }

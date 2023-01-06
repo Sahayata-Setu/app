@@ -2,12 +2,11 @@ import 'dart:convert';
 import 'dart:developer';
 import 'dart:io';
 
-import 'package:auto_route/annotations.dart';
+import 'package:donationapp/constant/common/GoogleButtomNavBar/GoogleButtomNavBar.dart';
 import 'package:donationapp/constant/common/Text/custom-text.dart';
 import 'package:donationapp/constant/common/button/cusotm-button.dart';
 import 'package:donationapp/constant/common/textfield/CustomTextField.dart';
 import 'package:donationapp/constant/kconstant.dart';
-import 'package:donationapp/features/homepage/widgets/dropdown.dart';
 import 'package:donationapp/helpers/route.utils.dart';
 import 'package:donationapp/store/add-donation/add.donation.store.dart';
 import 'package:donationapp/store/homepage/homepage.store.dart';
@@ -18,7 +17,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl/intl.dart';
 
 import '../../../../app.dart';
-import '../../../../constant/common/BottomNavBar/BottomNavBar.dart';
 import '../../../../constant/common/NavBar/navbar.dart';
 
 class AddDontaion extends ConsumerWidget {
@@ -228,7 +226,7 @@ class AddDontaion extends ConsumerWidget {
         showBadge: false,
       ),
       isAdmin: false,
-      bottomNavBar: const BottomNavBar(showBottomNavBar: false),
+      bottomNavBar: const GoogleButtomNavBar(showBottomNavBar: false),
     );
   }
 }

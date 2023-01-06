@@ -1,5 +1,6 @@
 import 'package:donationapp/app.dart';
 import 'package:donationapp/constant/common/BottomNavBar/BottomNavBar.dart';
+import 'package:donationapp/constant/common/GoogleButtomNavBar/GoogleButtomNavBar.dart';
 import 'package:donationapp/constant/common/NavBar/navbar.dart';
 import 'package:donationapp/constant/common/Text/custom-text.dart';
 import 'package:donationapp/constant/common/textfield/CustomTextField.dart';
@@ -63,10 +64,10 @@ class AccountSettings extends ConsumerWidget {
       appbar: const NavBar(
         showBadge: false,
         title: "Account Settings",
-        isMainPage: false,
+        // isMainPage: false,
       ),
       isAdmin: false,
-      bottomNavBar: BottomNavBar(
+      bottomNavBar: const GoogleButtomNavBar(
         showBottomNavBar: false,
       ),
     );

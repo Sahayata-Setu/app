@@ -1,4 +1,4 @@
-import 'package:auto_route/annotations.dart';
+import 'package:donationapp/constant/common/GoogleButtomNavBar/GoogleButtomNavBar.dart';
 import 'package:donationapp/constant/common/Text/custom-text.dart';
 import 'package:donationapp/constant/common/button/cusotm-button.dart';
 import 'package:donationapp/constant/common/textfield/CustomTextField.dart';
@@ -7,7 +7,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../app.dart';
-import '../../../../constant/common/BottomNavBar/BottomNavBar.dart';
 import '../../../../constant/common/NavBar/navbar.dart';
 
 class CreateCampaign extends StatelessWidget {
@@ -59,7 +58,7 @@ class CreateCampaign extends StatelessWidget {
         showBadge: false,
       ),
       isAdmin: false,
-      bottomNavBar: const BottomNavBar(showBottomNavBar: false),
+      bottomNavBar: const GoogleButtomNavBar(showBottomNavBar: false),
     );
   }
 }

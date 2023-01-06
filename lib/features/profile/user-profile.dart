@@ -23,6 +23,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../constant/common/GoogleButtomNavBar/GoogleButtomNavBar.dart';
+
 class UserProfile extends ConsumerWidget {
   const UserProfile({super.key});
   // final data;
@@ -112,6 +114,8 @@ class UserProfile extends ConsumerWidget {
                   imageName: "i-icon",
                 ),
               ),
+
+              /// isVolunter ? const SizedBox():
               GestureDetector(
                 onTap: () {
                   routeTo("/apply-volunteer", context);
@@ -149,7 +153,7 @@ class UserProfile extends ConsumerWidget {
         ),
       ),
       isAdmin: false,
-      bottomNavBar: BottomNavBar(showBottomNavBar: true),
+      bottomNavBar: const GoogleButtomNavBar(showBottomNavBar: true),
     );
   }
 }
