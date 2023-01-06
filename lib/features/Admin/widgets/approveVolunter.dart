@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:auto_route/auto_route.dart';
+import 'package:donationapp/constant/common/GoogleButtomNavBar/GoogleButtomNavBar.dart';
 import 'package:donationapp/constant/common/ImageCarousel/itemCard.dart';
 import 'package:donationapp/constant/common/button/cusotm-button.dart';
 import 'package:flutter/material.dart';
@@ -162,7 +163,7 @@ class ApproveVolunter extends StatelessWidget {
         showBadge: false,
       ),
       isAdmin: false,
-      bottomNavBar: const BottomNavBar(showBottomNavBar: false),
+      bottomNavBar: const GoogleButtomNavBar(showBottomNavBar: false),
     );
   }
 }

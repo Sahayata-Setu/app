@@ -1,6 +1,5 @@
-import 'dart:developer';
-
 import 'package:auto_route/auto_route.dart';
+import 'package:donationapp/constant/common/GoogleButtomNavBar/GoogleButtomNavBar.dart';
 import 'package:donationapp/constant/common/Icon/custom-icon.dart';
 import 'package:donationapp/constant/common/horizontal-line/horizontal-line.dart';
 import 'package:donationapp/constant/common/loading/loadingPage.dart';
@@ -12,10 +11,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:donationapp/constant/common/ImageCarousel/image_carousel.dart';
 import 'package:donationapp/constant/common/Text/custom-text.dart';
 import 'package:donationapp/constant/kconstant.dart';
-import 'package:intl/intl.dart';
 
 import '../../../../app.dart';
-import '../../../../constant/common/BottomNavBar/BottomNavBar.dart';
 import '../../../../constant/common/NavBar/navbar.dart';
 
 class NeedDetail extends ConsumerWidget {
@@ -162,7 +159,7 @@ class NeedDetail extends ConsumerWidget {
         showBadge: false,
       ),
       isAdmin: false,
-      bottomNavBar: const BottomNavBar(showBottomNavBar: false),
+      bottomNavBar: const GoogleButtomNavBar(showBottomNavBar: false),
     );
     ;
   }

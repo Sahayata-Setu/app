@@ -1,5 +1,6 @@
 import 'package:donationapp/app.dart';
 import 'package:donationapp/constant/common/BottomNavBar/BottomNavBar.dart';
+import 'package:donationapp/constant/common/GoogleButtomNavBar/GoogleButtomNavBar.dart';
 import 'package:donationapp/constant/common/ImageCarousel/ImageOverlay.dart';
 import 'package:donationapp/constant/common/NavBar/navbar.dart';
 import 'package:donationapp/constant/kconstant.dart';
@@ -13,9 +14,9 @@ class CampaignsList extends StatelessWidget {
     return App(
       appbar: NavBar(
         showBadge: false,
-        isAdmin: false,
+        // isAdmin: false,
         title: "Campaigns",
-        isMainPage: false,
+        // isMainPage: false,
       ),
       component: Container(
         padding: EdgeInsets.all(kPadding.h),
@@ -29,7 +30,7 @@ class CampaignsList extends StatelessWidget {
                   title: "Save the children",
                 )),
       ),
-      bottomNavBar: BottomNavBar(showBottomNavBar: true),
+      bottomNavBar: GoogleButtomNavBar(showBottomNavBar: true),
       isAdmin: false,
     );
   }

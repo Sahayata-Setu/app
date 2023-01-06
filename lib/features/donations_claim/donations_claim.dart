@@ -1,7 +1,5 @@
-import 'dart:developer';
-
 import 'package:donationapp/app.dart';
-import 'package:donationapp/constant/common/BottomNavBar/BottomNavBar.dart';
+import 'package:donationapp/constant/common/GoogleButtomNavBar/GoogleButtomNavBar.dart';
 import 'package:donationapp/constant/common/NavBar/navbar.dart';
 
 import 'package:donationapp/constant/kconstant.dart';
@@ -35,7 +33,7 @@ class _DonationsClaimState extends ConsumerState<DonationsClaim> {
         padding: EdgeInsets.all(kPadding.h),
         child: donations.when(
             data: (data) {
-              log("Datas: ${data['body'][0]}");
+              // log("Datas: ${data['body'][0]}");
               final allDonations = data['body'];
               return Column(children: [
                 ListView.builder(
@@ -71,7 +69,7 @@ class _DonationsClaimState extends ConsumerState<DonationsClaim> {
         // route: "/homepage",
         showBadge: false,
       ),
-      bottomNavBar: BottomNavBar(showBottomNavBar: false),
+      bottomNavBar: const GoogleButtomNavBar(showBottomNavBar: false),
       isAdmin: false,
     );
   }

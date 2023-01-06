@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:donationapp/app.dart';
 import 'package:donationapp/constant/common/BottomNavBar/BottomNavBar.dart';
+import 'package:donationapp/constant/common/GoogleButtomNavBar/GoogleButtomNavBar.dart';
 import 'package:donationapp/constant/common/NavBar/navbar.dart';
 import 'package:donationapp/constant/common/Text/custom-text.dart';
 import 'package:donationapp/constant/common/textfield/CustomTextField.dart';
@@ -43,10 +44,10 @@ class ApplyForVolunteer extends ConsumerWidget {
         showBadge: false,
         // route: "/homepage",
         title: "Apply for volunteer",
-        isMainPage: false,
+        // isMainPage: false,
       ),
       isAdmin: true,
-      bottomNavBar: BottomNavBar(showBottomNavBar: false),
+      bottomNavBar: const GoogleButtomNavBar(showBottomNavBar: false),
     );
   }
 }
