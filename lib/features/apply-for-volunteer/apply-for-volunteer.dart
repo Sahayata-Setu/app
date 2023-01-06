@@ -44,7 +44,7 @@ class ApplyForVolunteer extends ConsumerWidget {
         showBadge: false,
         // route: "/homepage",
         title: "Apply for volunteer",
-        // isMainPage: false,
+        isMainPage: false,
       ),
       isAdmin: true,
       bottomNavBar: const GoogleButtomNavBar(showBottomNavBar: false),

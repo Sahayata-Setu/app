@@ -2,7 +2,6 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:donationapp/constant/common/Text/custom-text.dart';
 import 'package:donationapp/features/new-message/chat-detail.dart';
 import 'package:donationapp/helpers/route.utils.dart';
-import 'package:donationapp/helpers/time.dart';
 import 'package:donationapp/routes/app.router.gr.dart';
 import 'package:donationapp/utils/store-service/language.store.dart';
 import 'package:flutter/material.dart';
@@ -85,8 +84,8 @@ class DonationHomeCards extends StatelessWidget {
                         horizontal: 10.w,
                       ),
                       child: CustomText(
-                        text: "${convertToAgo(singleInfo['createdAt'])}",
-                        fontSize: 12.sp,
+                        text: "1 hr",
+                        fontSize: 16.sp,
                       ),
                     ),
                   )

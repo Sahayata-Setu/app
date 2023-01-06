@@ -94,7 +94,7 @@ class DonationsHome extends ConsumerWidget {
                         url: "/donations/Book",
                         forPadding: 15.0,
                         type: "donations",
-                        category: "Books",
+                        category: "Food",
                       ),
                       DonationsCategory(
                         text: translation(context).clothes,

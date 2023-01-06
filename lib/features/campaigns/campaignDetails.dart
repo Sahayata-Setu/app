@@ -16,9 +16,9 @@ class CampiagnDetails extends StatelessWidget {
     return App(
       appbar: NavBar(
         showBadge: true,
-        // isAdmin: false,
+        isAdmin: false,
         title: "Campaign Detail",
-        // isMainPage: false,
+        isMainPage: false,
       ),
       component: Container(
         constraints: BoxConstraints(

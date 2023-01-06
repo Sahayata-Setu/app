@@ -14,9 +14,9 @@ class CampaignsList extends StatelessWidget {
     return App(
       appbar: NavBar(
         showBadge: false,
-        // isAdmin: false,
+        isAdmin: false,
         title: "Campaigns",
-        // isMainPage: false,
+        isMainPage: false,
       ),
       component: Container(
         padding: EdgeInsets.all(kPadding.h),

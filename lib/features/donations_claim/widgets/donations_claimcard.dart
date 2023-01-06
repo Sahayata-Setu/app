@@ -15,91 +15,6 @@ class DonationsClaimCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    showWidget() {
-      if (donationStatus == "approved") {
-        return Row(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            Container(
-              height: 16.h,
-              width: 16.w,
-              decoration: BoxDecoration(
-                  color: Colors.green,
-                  borderRadius: BorderRadius.circular(5.r)),
-              child: Center(
-                child: Icon(
-                  Icons.check,
-                  color: Colors.white,
-                  size: 16.w,
-                ),
-              ),
-            ),
-            SizedBox(
-              width: 10.w,
-            ),
-            CustomText(
-              text: "Approved",
-              fontSize: 14.sp,
-              fontWeight: FontWeight.normal,
-            )
-          ],
-        );
-      } else if (donationStatus == "rejected") {
-        return Row(
-          children: [
-            Container(
-              height: 16.h,
-              width: 16.w,
-              decoration: BoxDecoration(
-                  color: Colors.red, borderRadius: BorderRadius.circular(5.r)),
-              child: Center(
-                child: Icon(
-                  Icons.cancel_outlined,
-                  color: Colors.white,
-                  size: 14.w,
-                ),
-              ),
-            ),
-            SizedBox(
-              width: 10.w,
-            ),
-            CustomText(
-              text: "Rejected",
-              fontSize: 14.sp,
-              fontWeight: FontWeight.normal,
-            )
-          ],
-        );
-      } else {
-        return Row(
-          children: [
-            Container(
-              height: 16.h,
-              width: 16.w,
-              decoration: BoxDecoration(
-                  color: Colors.amber,
-                  borderRadius: BorderRadius.circular(5.r)),
-              child: Center(
-                child: Icon(
-                  Icons.pending_actions_outlined,
-                  color: Colors.white,
-                  size: 14.w,
-                ),
-              ),
-            ),
-            SizedBox(
-              width: 10.w,
-            ),
-            CustomText(
-              text: "Pending",
-              fontSize: 14.sp,
-              fontWeight: FontWeight.normal,
-            )
-          ],
-        );
-      }
-    }
-
     return Card(
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(12.r),
@@ -114,7 +29,7 @@ class DonationsClaimCard extends StatelessWidget {
           kPadding.w,
         ),
         child: Column(
-          children: <Widget>[
+          children: [
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -125,15 +40,21 @@ class DonationsClaimCard extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                donationStatus == "pending" ? ForPending() : Text(""),
+                donationStatus == "Pending" ? ForPending() : Text(""),
               ],
             ),
             SizedBox(
               height: 10.h,
             ),
-            // Container(child: ),
-
-            showWidget(),
+            Row(
+              children: [
+                CustomText(
+                  text: "${donationStatus}",
+                  fontSize: 14.sp,
+                  fontWeight: FontWeight.normal,
+                )
+              ],
+            ),
             SizedBox(
               height: 10.h,
             ),

@@ -11,7 +11,6 @@ import 'package:donationapp/features/campaigns/campaignDetails.dart';
 import 'package:donationapp/features/campaigns/campaignsList.dart';
 import 'package:donationapp/features/campaigns/widgets/createCampaign.dart';
 import 'package:donationapp/features/certifications/widgets/certificatePrint.dart';
-import 'package:donationapp/features/change-language/change-lang.dart';
 import 'package:donationapp/features/change-location/change-location.dart';
 import 'package:donationapp/features/change-password/change-password.dart';
 import 'package:donationapp/features/donations/widgets/addDonations.dart';
@@ -63,7 +62,6 @@ import '../features/donations/Dontations.dart';
   MaterialRoute(page: Needs, path: "/needs/:category"),
   MaterialRoute(page: AddRequest, path: "/createNeed"),
   MaterialRoute(page: NeedDetail, path: "/needs/details/:id"),
-  MaterialRoute(page: ChangeLanguage, path: "/change-language"),
 
   MaterialRoute(page: UserProfile, path: "/user-profile"),
   MaterialRoute(page: CertificatePrint, path: "/certificatePreview"),

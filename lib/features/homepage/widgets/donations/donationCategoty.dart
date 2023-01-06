@@ -5,7 +5,6 @@ import 'package:badges/badges.dart';
 import 'package:donationapp/constant/common/Icon/custom-icon.dart';
 import 'package:donationapp/constant/common/Image/custom-image.dart';
 import 'package:donationapp/constant/common/Text/custom-text.dart';
-import 'package:donationapp/constant/common/loading/loadingPage.dart';
 import 'package:donationapp/constant/kconstant.dart';
 import 'package:donationapp/helpers/route.utils.dart';
 import 'package:donationapp/store/homepage/homepage.store.dart';
@@ -54,32 +53,23 @@ class DonationsCategory extends ConsumerWidget {
               badgeColor: blueColor,
               toAnimate: false,
               // borderRadius: BorderRadius.circular(8),
-              badgeContent: data1.when(
-                data: (data) {
-                  log("Category data: ${data['body'].length}");
-                  return data['body'].length > 9
-                      ? Text(
-                          // add the number of donations here
-                          '9+',
-                          style: TextStyle(color: Colors.white),
-                        )
-                      : Padding(
-                          padding: const EdgeInsets.all(3.0),
-                          child: Text(
-                            // add the number of donations here
-                            ' ${data['body'].length}',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 14.sp,
-                            ),
-                          ),
-                        );
-                },
-                error: (e, h) => Center(
-                  child: CustomText(text: "Some error occured"),
-                ),
-                loading: () => Container(),
-              ),
+              badgeContent: badge > 9
+                  ? Text(
+                      // add the number of donations here
+                      '9+',
+                      style: TextStyle(color: Colors.white),
+                    )
+                  : Padding(
+                      padding: const EdgeInsets.all(3.0),
+                      child: Text(
+                        // add the number of donations here
+                        '${badge}',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 14.sp,
+                        ),
+                      ),
+                    ),
               child: Container(
                 width: 60.w,
                 height: 60.h,
