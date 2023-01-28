@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:auto_route/auto_route.dart';
 import 'package:donationapp/constant/common/Text/custom-text.dart';
 import 'package:donationapp/constant/kconstant.dart';
@@ -9,6 +11,7 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:line_icons/line_icon.dart';
 
 class Menu_Drawer extends ConsumerWidget {
   const Menu_Drawer({super.key});
@@ -40,11 +43,99 @@ class Menu_Drawer extends ConsumerWidget {
                 decoration: BoxDecoration(
                     //color: Colors.blue,
                     ),
-                child: IconButton(
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
-                    icon: Icon(Icons.close)),
+                child: InkWell(
+                  child: LineIcon.times(
+                    color: whiteColor,
+                    size: 30.h,
+                  ),
+                  onTap: () {
+                    Navigator.pop(context);
+                  },
+                ),
+
+                // * Previous Code is below
+                // child: IconButton(
+                //   onPressed: () {
+                //     Navigator.pop(context);
+                //   },
+                //   icon: Icon(Icons.close),
+                // ),
+                // * Upto here
+              ),
+
+              // ****************************
+              // This is for temporary stage only
+              // ****************************
+
+              ListTile(
+                  title: CustomText(
+                    text: "User Home",
+                    fontColor: whiteColor,
+                    fontSize: 18.sp,
+                  ),
+                  onTap: () {
+                    // Navigator.pop(context);
+                    routeTo("/homepage", context);
+                  }),
+
+              // ****************************
+              // Todo: Above ListTile should be removed
+              // ****************************
+
+              ListTile(
+                  title: CustomText(
+                    text: "Dashboard",
+                    fontColor: whiteColor,
+                    fontSize: 18.sp,
+                  ),
+                  onTap: () {
+                    // Navigator.pop(context);
+                    routeTo("/admin-dashboard", context);
+                  }),
+              ListTile(
+                  title: CustomText(
+                    text: "Users",
+                    fontColor: whiteColor,
+                    fontSize: 18.sp,
+                  ),
+                  onTap: () {
+                    // Navigator.pop(context);
+                    routeTo("/view-user", context);
+                  }),
+              ListTile(
+                  title: CustomText(
+                    text: "Messages",
+                    fontColor: whiteColor,
+                    fontSize: 18.sp,
+                  ),
+                  onTap: () {
+                    // Navigator.pop(context);
+                    // Todo: Insert route of admin messages
+                    routeTo("/", context);
+                  }),
+              ListTile(
+                title: CustomText(
+                  text: "Requests",
+                  fontColor: whiteColor,
+                  fontSize: 18.sp,
+                ),
+                onTap: () {
+                  // Navigator.pop(context)
+                  // Todo: Insert route of admin request list
+                  routeTo("/", context);
+                },
+              ),
+              ListTile(
+                title: CustomText(
+                  text: "Profile",
+                  fontColor: whiteColor,
+                  fontSize: 18.sp,
+                ),
+                onTap: () {
+                  // Navigator.pop(context)
+                  // Todo: Insert route of admin profile
+                  routeTo("/", context);
+                },
               ),
               ListTile(
                 title: CustomText(
@@ -56,16 +147,6 @@ class Menu_Drawer extends ConsumerWidget {
                   handleLogout();
                 },
               ),
-              ListTile(
-                  title: CustomText(
-                    text: "Home",
-                    fontColor: whiteColor,
-                    fontSize: 18.sp,
-                  ),
-                  onTap: () {
-                    // Navigator.pop(context);
-                    routeTo("/homepage", context);
-                  })
             ]),
       ),
     );

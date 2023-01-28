@@ -4,6 +4,7 @@ import 'package:donationapp/auth/auth_check/auth_check.dart';
 import 'package:donationapp/constant/common/splashScreen/splashScreen.dart';
 import 'package:donationapp/features/Admin/Dashboard/admin-dashboard.data.dart';
 import 'package:donationapp/features/Admin/Dashboard/adminDashboard.dart';
+import 'package:donationapp/features/Admin/Users/viewUsers.dart';
 import 'package:donationapp/features/Admin/widgets/approveVolunter.dart';
 import 'package:donationapp/features/account-settings/account-settings.dart';
 import 'package:donationapp/features/apply-for-volunteer/apply-for-volunteer.dart';
@@ -33,7 +34,7 @@ import 'package:donationapp/features/signup/SignUp.dart';
 import '../features/donations/Dontations.dart';
 
 @MaterialAutoRouter(routes: [
-  MaterialRoute(page: AuthCheckWidget, initial: true, path: "/"),
+  MaterialRoute(page: AuthCheckWidget),
   MaterialRoute(page: SplashScreen, path: "/splash"),
   MaterialRoute(page: Signup, path: "/signup"),
   // MaterialRoute(page: Signup, path: "/signup"),
@@ -69,6 +70,7 @@ import '../features/donations/Dontations.dart';
   MaterialRoute(page: ApproveVolunter, path: "/approveVolunter/:id"),
 
   MaterialRoute(page: AdminDashBoardData, path: "/admin-dashboard"),
+  MaterialRoute(page: ViewUsers, path: "/view-user", initial: true),
   MaterialRoute(
       page: MessageDetails, path: "/message/:receiverName/:receiverId"),
 ])
