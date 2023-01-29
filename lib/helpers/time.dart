@@ -19,6 +19,14 @@ String convertToAgo(String dateTime) {
   }
 }
 
+String dateFormat(date) {
+  final DateTime now = DateTime.now();
+  final DateFormat formatter = DateFormat('yyyy-MM-dd');
+  final String formatted = formatter.format(date);
+  print(formatted);
+  return formatted;
+}
+
 Map<String, dynamic> parseJwt(String token) {
   final parts = token.split('.');
   if (parts.length != 3) {
