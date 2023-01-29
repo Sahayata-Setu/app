@@ -32,13 +32,33 @@ class SplashScreen extends StatelessWidget {
         color: blueColor,
         height: ScreenUtil().scaleHeight,
         child: Column(
+          // mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            Center(
-              child: Container(
-                height: 100.h,
-                child: Image.asset("assets/images/logo.png"),
+            Padding(
+              padding: EdgeInsets.only(top: 200.h),
+              child: Center(
+                child: Container(
+                  height: 100.h,
+                  child: Image.asset("assets/images/logo.png"),
+                ),
               ),
             ),
+            SizedBox(
+              height: 20.h,
+            ),
+            CustomText(
+              text: "Sahayata Setu",
+              fontColor: blueBackgroundColor,
+              fontSize: 26.sp,
+            ),
+            // SizedBox(
+            //   height: 20.h,
+            // ),
+            CustomText(
+              text: "Say yes to donation",
+              fontColor: blueBackgroundColor,
+              fontSize: 12.sp,
+            )
           ],
         ),
       ),

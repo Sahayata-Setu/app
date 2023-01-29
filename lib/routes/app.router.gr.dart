@@ -24,7 +24,6 @@ import '../features/campaigns/campaignDetails.dart' as _i15;
 import '../features/campaigns/campaignsList.dart' as _i13;
 import '../features/campaigns/widgets/createCampaign.dart' as _i14;
 import '../features/certifications/widgets/certificatePrint.dart' as _i24;
-import '../features/change-language/change-lang.dart' as _i22;
 import '../features/change-location/change-location.dart' as _i7;
 import '../features/change-password/change-password.dart' as _i6;
 import '../features/donations/Dontations.dart' as _i16;
@@ -35,13 +34,14 @@ import '../features/homepage/homepage.dart' as _i4;
 import '../features/login/login.dart' as _i9;
 import '../features/message/messageDetails.dart' as _i28;
 import '../features/needs/Needs.dart' as _i19;
-import '../features/needs/widgets/addNeed.dart' as _i20;
-import '../features/needs/widgets/needDetail.dart' as _i21;
+import '../features/needs/widgets/addNeed.dart' as _i21;
+import '../features/needs/widgets/needDetail.dart' as _i22;
 import '../features/new-message/all-messages.dart' as _i11;
 import '../features/notifications/notifications.dart' as _i12;
 import '../features/profile/user-profile.dart' as _i23;
 import '../features/search-page/search-page.dart' as _i10;
 import '../features/signup/SignUp.dart' as _i3;
+import '../features/volunteer/volunteer.dart' as _i20;
 
 class AppRouter extends _i29.RootStackRouter {
   AppRouter([_i30.GlobalKey<_i30.NavigatorState>? navigatorKey])
@@ -139,9 +139,13 @@ class AppRouter extends _i29.RootStackRouter {
           routeData: routeData,
           child: _i19.Needs(key: args.key, category: args.category));
     },
+    VolunteerRoute.name: (routeData) {
+      return _i29.MaterialPageX<dynamic>(
+          routeData: routeData, child: const _i20.Volunteer());
+    },
     AddRequestRoute.name: (routeData) {
       return _i29.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i20.AddRequest());
+          routeData: routeData, child: const _i21.AddRequest());
     },
     NeedDetailRoute.name: (routeData) {
       final pathParams = routeData.inheritedPathParams;
@@ -149,11 +153,7 @@ class AppRouter extends _i29.RootStackRouter {
           orElse: () => NeedDetailRouteArgs(id: pathParams.get('id')));
       return _i29.MaterialPageX<dynamic>(
           routeData: routeData,
-          child: _i21.NeedDetail(key: args.key, data: args.data, id: args.id));
-    },
-    ChangeLanguageRoute.name: (routeData) {
-      return _i29.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i22.ChangeLanguage());
+          child: _i22.NeedDetail(key: args.key, data: args.data, id: args.id));
     },
     UserProfileRoute.name: (routeData) {
       return _i29.MaterialPageX<dynamic>(
@@ -216,9 +216,9 @@ class AppRouter extends _i29.RootStackRouter {
         _i29.RouteConfig(DonationDetailRoute.name,
             path: '/donations-details/:id'),
         _i29.RouteConfig(NeedsRoute.name, path: '/needs/:category'),
+        _i29.RouteConfig(VolunteerRoute.name, path: '/volunteer'),
         _i29.RouteConfig(AddRequestRoute.name, path: '/createNeed'),
         _i29.RouteConfig(NeedDetailRoute.name, path: '/needs/details/:id'),
-        _i29.RouteConfig(ChangeLanguageRoute.name, path: '/change-language'),
         _i29.RouteConfig(UserProfileRoute.name, path: '/user-profile'),
         _i29.RouteConfig(CertificatePrintRoute.name,
             path: '/certificatePreview'),
@@ -447,7 +447,15 @@ class NeedsRouteArgs {
 }
 
 /// generated route for
-/// [_i20.AddRequest]
+/// [_i20.Volunteer]
+class VolunteerRoute extends _i29.PageRouteInfo<void> {
+  const VolunteerRoute() : super(VolunteerRoute.name, path: '/volunteer');
+
+  static const String name = 'VolunteerRoute';
+}
+
+/// generated route for
+/// [_i21.AddRequest]
 class AddRequestRoute extends _i29.PageRouteInfo<void> {
   const AddRequestRoute() : super(AddRequestRoute.name, path: '/createNeed');
 
@@ -455,7 +463,7 @@ class AddRequestRoute extends _i29.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i21.NeedDetail]
+/// [_i22.NeedDetail]
 class NeedDetailRoute extends _i29.PageRouteInfo<NeedDetailRouteArgs> {
   NeedDetailRoute({_i30.Key? key, dynamic data, dynamic id})
       : super(NeedDetailRoute.name,
@@ -479,15 +487,6 @@ class NeedDetailRouteArgs {
   String toString() {
     return 'NeedDetailRouteArgs{key: $key, data: $data, id: $id}';
   }
-}
-
-/// generated route for
-/// [_i22.ChangeLanguage]
-class ChangeLanguageRoute extends _i29.PageRouteInfo<void> {
-  const ChangeLanguageRoute()
-      : super(ChangeLanguageRoute.name, path: '/change-language');
-
-  static const String name = 'ChangeLanguageRoute';
 }
 
 /// generated route for

@@ -84,7 +84,7 @@ class DonationsHome extends ConsumerWidget {
                         badge: 2,
                         forPadding: 10.0,
                         type: "donations",
-                        category: "Food",
+                        category: "Toys",
                       ),
                       DonationsCategory(
                         text: translation(context).books,
@@ -103,7 +103,7 @@ class DonationsHome extends ConsumerWidget {
                         url: "/donations/Clothes",
                         forPadding: 15.0,
                         type: "donations",
-                        category: "Food",
+                        category: "Clothes",
                       ),
                       //  DonationsCategory(text: "Others", icon: Icons.more_horiz)
                     ],

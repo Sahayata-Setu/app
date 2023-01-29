@@ -24,7 +24,7 @@ class NeedsHomeCards extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // routePush(NeedDetailRoute(id: singleInfo['_id']), context);
-    // log("this is for homepage${singleInfo}");
+    log("this is for homepage${singleInfo}");
     return GestureDetector(
       onTap: () {
         routePush(NeedDetailRoute(id: singleInfo['_id']), context);
@@ -83,26 +83,21 @@ class NeedsHomeCards extends StatelessWidget {
                       fontSize: 18.sp,
                     ),
                   ),
-                  Container(
-                    width: 90.w,
-                    child: Card(
-                      color: backgroundColor,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(12.r),
+                  Card(
+                    color: backgroundColor,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12.r),
+                    ),
+                    elevation: 0,
+                    shadowColor: Colors.transparent,
+                    child: Padding(
+                      padding: EdgeInsets.symmetric(
+                        vertical: 5.h,
+                        horizontal: 5.h,
                       ),
-                      elevation: 0,
-                      shadowColor: Colors.transparent,
-                      child: Padding(
-                        padding: EdgeInsets.symmetric(
-                          vertical: 5.h,
-                          // horizontal: 5.h,
-                        ),
-                        child: Center(
-                          child: CustomText(
-                            text: "${convertToAgo(singleInfo['createdAt'])}",
-                            fontSize: 12.sp,
-                          ),
-                        ),
+                      child: CustomText(
+                        text: "${convertToAgo(singleInfo['createdAt'])}",
+                        fontSize: 12.sp,
                       ),
                     ),
                   )
@@ -154,8 +149,7 @@ class NeedsHomeCards extends StatelessWidget {
                     //     context);
                   },
                   child: Text(
-                    // translation(context).claim,
-                    "Donate",
+                    'Donate',
                     style: TextStyle(
                       fontSize: 16.sp,
                     ),
