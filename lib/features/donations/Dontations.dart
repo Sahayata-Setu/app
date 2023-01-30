@@ -1,16 +1,11 @@
-import 'dart:developer';
-
 import 'package:auto_route/auto_route.dart';
 import 'package:donationapp/app.dart';
-import 'package:donationapp/constant/common/BottomNavBar/BottomNavBar.dart';
-import 'package:donationapp/constant/common/ImageCarousel/customImageOverlay.dart';
+import 'package:donationapp/constant/common/GoogleButtomNavBar/GoogleButtomNavBar.dart';
 import 'package:donationapp/constant/common/ImageCarousel/itemCard.dart';
 import 'package:donationapp/constant/common/NavBar/navbar.dart';
 import 'package:donationapp/constant/common/Text/custom-text.dart';
 import 'package:donationapp/constant/common/loading/loadingPage.dart';
 import 'package:donationapp/constant/kconstant.dart';
-import 'package:donationapp/features/donations/widgets/dontaionCard.dart';
-import 'package:donationapp/features/donations/widgets/dontaionItemCard.dart';
 import 'package:donationapp/store/homepage/homepage.store.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -83,7 +78,7 @@ class Dontaions extends ConsumerWidget {
             return Text("Error Occoured");
           },
           loading: () => LoadingPage()),
-      bottomNavBar: BottomNavBar(showBottomNavBar: true),
+      bottomNavBar: const GoogleButtomNavBar(showBottomNavBar: true),
       isAdmin: false,
     );
   }

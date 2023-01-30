@@ -16,15 +16,22 @@ final userDetailsProvider = StateProvider(
 );
 final passwordDetailsProvider = StateProvider(
   (ref) => ({
-    "token": "",
-    "password": "",
+    "old_password": "",
+    "new_password": "",
   }),
 );
 
 final locationDetailsProvider = StateProvider(
   (ref) => ({
-    "location": "",
+    "city": "",
   }),
+);
+//get all neeeds
+final getAllDonationsByUser =
+    FutureProvider.family<Map<String, dynamic>, String>(
+  (ref, userId) {
+    return ref.watch(updateProfileService).getAllDontaionsByUser(userId);
+  },
 );
 
 final loading = StateProvider((ref) => (false));
@@ -48,6 +55,8 @@ class AddNotifier extends ChangeNotifier {
   //     rethrow;
   //   }
   // }
+
+  //Update profile info
   updateProfile(id, data) async {
     // log("this is of data ${data}");
     final updateService = read(updateProfileService);
@@ -55,6 +64,46 @@ class AddNotifier extends ChangeNotifier {
 
     try {
       final resp = await updateService.updateProfile(id, data);
+      if (resp != null) {
+        read(loading.notifier).state = false;
+      }
+      notifyListeners();
+      return resp;
+    } catch (e) {
+      read(loading.notifier).state = false;
+      log('$e');
+      rethrow;
+    }
+  }
+
+  //update password
+  updatePassword(userId, data) async {
+    // log("this is of data ${data}");
+    final updateService = read(updateProfileService);
+    read(loading.notifier).state = true;
+
+    try {
+      final resp = await updateService.updatePassword(userId, data);
+      if (resp != null) {
+        read(loading.notifier).state = false;
+      }
+      notifyListeners();
+      return resp;
+    } catch (e) {
+      read(loading.notifier).state = false;
+      log('$e');
+      rethrow;
+    }
+  }
+
+  //update password
+  updateLocation(userId, data) async {
+    // log("this is of data ${data}");
+    final updateService = read(updateProfileService);
+    read(loading.notifier).state = true;
+
+    try {
+      final resp = await updateService.updateLocation(userId, data);
       if (resp != null) {
         read(loading.notifier).state = false;
       }

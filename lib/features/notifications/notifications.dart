@@ -8,6 +8,8 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../constant/common/GoogleButtomNavBar/GoogleButtomNavBar.dart';
+
 class Notifications extends StatelessWidget {
   const Notifications({super.key});
 
@@ -29,7 +31,7 @@ class Notifications extends StatelessWidget {
         showBadge: true,
       ),
       isAdmin: false,
-      bottomNavBar: const BottomNavBar(showBottomNavBar: true),
+      bottomNavBar: const GoogleButtomNavBar(showBottomNavBar: true),
     );
   }
 }

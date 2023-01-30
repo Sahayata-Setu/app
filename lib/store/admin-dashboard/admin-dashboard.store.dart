@@ -34,7 +34,6 @@ class ApproveNotifier extends ChangeNotifier {
   ApproveNotifier(this.read) : super();
   final Reader read;
 
-  // @override
   approveVolunteer(userId, type) async {
     final approveVolunteerService = read(adminDashboardService);
     try {
@@ -76,5 +75,4 @@ class ApproveNotifier extends ChangeNotifier {
 }
 
 final approveVolunteerProvider =
-    ChangeNotifierProvider.autoDispose<ApproveNotifier>(
-        (ref) => ApproveNotifier(ref.read));
+    ChangeNotifierProvider<ApproveNotifier>((ref) => ApproveNotifier(ref.read));

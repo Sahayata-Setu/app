@@ -2,22 +2,16 @@ import 'dart:async';
 import 'dart:developer';
 
 import 'package:auto_route/annotations.dart';
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:donationapp/app.dart';
-import 'package:donationapp/constant/common/BottomNavBar/BottomNavBar.dart';
+import 'package:donationapp/constant/common/GoogleButtomNavBar/GoogleButtomNavBar.dart';
 import 'package:donationapp/constant/common/NavBar/navbar.dart';
-import 'package:donationapp/constant/common/Text/custom-text.dart';
 import 'package:donationapp/constant/kconstant.dart';
-import 'package:donationapp/domain/message/message.model.dart';
 import 'package:donationapp/domain/message/sub-modules/single.message.model.dart';
 import 'package:donationapp/helpers/time.dart';
-import 'package:donationapp/store/homepage/homepage.store.dart';
 import 'package:donationapp/store/message/message.store.dart';
 import 'package:donationapp/utils/store-service/store.service.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
+
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -83,20 +77,20 @@ class MessageDetails extends ConsumerWidget {
                 padding: EdgeInsets.all(kPadding.w),
                 child: Column(
                   children: [
-                    Expanded(
-                      child: ListView.builder(
-                        shrinkWrap: true,
-                        controller: scrollController,
-                        itemBuilder: (context, index) {
-                          return messages[index].sender!.id! == user['_id']
-                              ? SenderMessageWidget(
-                                  data: messages[index],
-                                )
-                              : ReceiverMessageWIdget(data: messages[index]);
-                        },
-                        itemCount: messages.length,
-                      ),
-                    ),
+                    // Expanded(
+                    //   child: ListView.builder(
+                    //     shrinkWrap: true,
+                    //     controller: scrollController,
+                    //     itemBuilder: (context, index) {
+                    //       return messages[index].sender!.id! == user['_id']
+                    //           ? SenderMessageWidget(
+                    //               data: messages[index],
+                    //             )
+                    //           : ReceiverMessageWIdget(data: messages[index]);
+                    //     },
+                    //     itemCount: messages.length,
+                    //   ),
+                    // ),
                     // ...messages.map((e) {
                     //   return e.sender!.id! == user['_id']
                     //       ? SenderMessageWidget(
@@ -129,7 +123,7 @@ class MessageDetails extends ConsumerWidget {
                 )),
             appbar: NavBar(
                 title: receiverName.split("%20").join(" "), showBadge: false),
-            bottomNavBar: BottomNavBar(showBottomNavBar: false),
+            bottomNavBar: const GoogleButtomNavBar(showBottomNavBar: false),
             isAdmin: false));
   }
 }
@@ -145,22 +139,22 @@ class SenderMessageWidget extends StatelessWidget {
       padding: EdgeInsets.only(right: 20.w, top: 10.h),
       child: Column(crossAxisAlignment: CrossAxisAlignment.end, children: [
         Row(mainAxisAlignment: MainAxisAlignment.end, children: [
-          CircleAvatar(
-            backgroundColor: Colors.grey,
-            child: data.sender!.profilePic != null
-                ? ClipRRect(
-                    borderRadius: BorderRadius.circular(20),
-                    child: CachedNetworkImage(
-                      placeholder: ((context, url) =>
-                          const CircularProgressIndicator()),
-                      fit: BoxFit.cover,
-                      imageUrl: data.sender!.profilePic!,
-                    ))
-                : Text(
-                    data.sender!.firstName![0],
-                    style: TextStyle(color: Colors.white, fontSize: 20.sp),
-                  ),
-          ),
+          // CircleAvatar(
+          //   backgroundColor: Colors.grey,
+          //   child: data.sender!.profilePic != null
+          //       ? ClipRRect(
+          //           borderRadius: BorderRadius.circular(20),
+          //           child: CachedNetworkImage(
+          //             placeholder: ((context, url) =>
+          //                 const CircularProgressIndicator()),
+          //             fit: BoxFit.cover,
+          //             imageUrl: data.sender!.profilePic!,
+          //           ))
+          //       : Text(
+          //           data.sender!.firstName![0],
+          //           style: TextStyle(color: Colors.white, fontSize: 20.sp),
+          //         ),
+          // ),
           SizedBox(
             width: 5.h,
           ),
@@ -191,22 +185,22 @@ class ReceiverMessageWIdget extends StatelessWidget {
       padding: EdgeInsets.only(right: 20.w, top: 10.h),
       child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
         Row(mainAxisAlignment: MainAxisAlignment.start, children: [
-          CircleAvatar(
-            backgroundColor: Colors.grey,
-            child: data.sender!.profilePic != null
-                ? ClipRRect(
-                    borderRadius: BorderRadius.circular(20),
-                    child: CachedNetworkImage(
-                      placeholder: ((context, url) =>
-                          const CircularProgressIndicator()),
-                      fit: BoxFit.cover,
-                      imageUrl: data.sender!.profilePic!,
-                    ))
-                : Text(
-                    data.sender!.firstName![0],
-                    style: TextStyle(color: Colors.white, fontSize: 20.sp),
-                  ),
-          ),
+          // CircleAvatar(
+          //   backgroundColor: Colors.grey,
+          //   child: data.sender!.profilePic != null
+          //       ? ClipRRect(
+          //           borderRadius: BorderRadius.circular(20),
+          //           child: CachedNetworkImage(
+          //             placeholder: ((context, url) =>
+          //                 const CircularProgressIndicator()),
+          //             fit: BoxFit.cover,
+          //             imageUrl: data.sender!.profilePic!,
+          //           ))
+          //       : Text(
+          //           data.sender!.firstName![0],
+          //           style: TextStyle(color: Colors.white, fontSize: 20.sp),
+          //         ),
+          // ),
           SizedBox(
             width: 5.h,
           ),

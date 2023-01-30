@@ -7,9 +7,10 @@ import 'package:donationapp/helpers/route.utils.dart';
 import 'package:donationapp/main.dart';
 import 'package:donationapp/routes/app.router.gr.dart';
 import 'package:donationapp/utils/store-service/language.store.dart';
-import 'package:donationapp/utils/store-service/store.service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import '../../../main.dart';
 
 class NavBar extends StatelessWidget {
   //final isVolunter = StorageService.getUserType
@@ -45,7 +46,7 @@ class NavBar extends StatelessWidget {
       ),
 
       leading: route == HomePageRoute.name ||
-              route == MessageRoute.name ||
+              route == NewMessageRoute.name ||
               route == NotificationsRoute.name ||
               route == SearchPageRoute.name ||
               route == UserProfileRoute.name
@@ -60,33 +61,13 @@ class NavBar extends StatelessWidget {
               //   ),
               // ),
             )
-          //  Container(
-          //     width: 5,
-          //     height: 5,
-          //     child: Image.asset(
-          //       "assets/images/logo.png",
-          //       height: 5,
-          //       width: 5,
-          //     ),
-          //     decoration: BoxDecoration(
-          //       shape: BoxShape.circle,
-          //       // image: DecorationImage(
-          //       //     fit: BoxFit.fitWidth,
-
-          //       //     image: AssetImage("assets/images/logo.png",))
-          //     ),
-          //   )
-          // ? CircleAvatar(
-          //     child: Image.asset("assets/images/logo.png", fit: BoxFit.cover),
-          //     // radius: 5,
-          //   )
           :
           // route == HomePageRoute.name ||
           route == LoginRoute.name || route == SignupRoute.name
               // route == MessageRoute.name
-              ? SizedBox()
+              ? const SizedBox()
               : IconButton(
-                  icon: Icon(Icons.arrow_back),
+                  icon: const Icon(Icons.arrow_back),
                   onPressed: () {
                     Navigator.of(context).pop();
                   },
@@ -94,21 +75,26 @@ class NavBar extends StatelessWidget {
       //leading: isAdmin == null ? const SizedBox.shrink() : Icon(Icons.menu),
       actions: [
         route == HomePageRoute.name || route == LoginRoute.name
-            ? DropdownButton<Language>(
-                icon: Icon(Icons.language),
-                items: Language.languageList()
-                    .map((e) => DropdownMenuItem<Language>(
-                        value: e, child: Text(e.name)))
-                    .toList(),
-                // value: ,
-                onChanged: (Language? language) async {
-                  if (language != null) {
-                    Locale _locale =
-                        await setLanguagePref(language.languageCode);
-                    MyApp.setLocale(context, Locale(language.languageCode, ''));
-                  }
-                })
-            : SizedBox(),
+            ? Padding(
+                padding: EdgeInsets.only(right: kPadding.w, top: 8.h),
+                child: DropdownButton<Language>(
+                    underline: Container(),
+                    icon: const Icon(Icons.language),
+                    items: Language.languageList()
+                        .map((e) => DropdownMenuItem<Language>(
+                            value: e, child: Text(e.name)))
+                        .toList(),
+                    // value: ,
+                    onChanged: (Language? language) async {
+                      if (language != null) {
+                        Locale _locale =
+                            await setLanguagePref(language.languageCode);
+                        MyApp.setLocale(
+                            context, Locale(language.languageCode, ''));
+                      }
+                    }),
+              )
+            : const SizedBox(),
         isAdmin != null
             ? Container(
                 margin: EdgeInsets.symmetric(horizontal: 10.w),
@@ -138,25 +124,33 @@ class NavBar extends StatelessWidget {
                       //   // showBadge: showBadge ? true : false,
                       // ),
                       Padding(
-                        padding: EdgeInsets.all(kPadding1),
+                        padding: const EdgeInsets.all(kPadding1),
                         child: PopupMenuButton(
                           color: backgroundColor,
-                          child: Icon(
+                          child: const Icon(
                             Icons.add,
                             size: KiconSize,
                           ),
                           // onSelected: (item)=>onSelected(context,item),
                           itemBuilder: (context) => [
                             PopupMenuItem<int>(
-                                child: Text("Create donation"),
+                                child: const Text("Create donation"),
                                 onTap: () {
                                   // go to create post item
                                   routeTo("/createDonation", context);
                                 }),
                             PopupMenuItem<int>(
-                              child: Text("Create need"),
+                              child: const Text("Create need"),
                               onTap: () {
                                 routeTo("/createNeed", context);
+                                // go to create request button
+                              },
+                            ),
+                            //check for isVolunteer?SizedBox():
+                            PopupMenuItem<int>(
+                              child: const Text("Create Campaign"),
+                              onTap: () {
+                                routeTo("/createCampaign", context);
                                 // go to create request button
                               },
                             ),

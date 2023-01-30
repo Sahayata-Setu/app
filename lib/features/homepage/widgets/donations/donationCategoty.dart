@@ -7,17 +7,20 @@ import 'package:donationapp/constant/common/Image/custom-image.dart';
 import 'package:donationapp/constant/common/Text/custom-text.dart';
 import 'package:donationapp/constant/kconstant.dart';
 import 'package:donationapp/helpers/route.utils.dart';
+import 'package:donationapp/store/homepage/homepage.store.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class DonationsCategory extends StatelessWidget {
+class DonationsCategory extends ConsumerWidget {
   const DonationsCategory(
       {super.key,
       required this.text,
       this.url,
+      this.type,
       this.forPadding,
       // @PathParam('category') this.category,
-      // this.icon,
+      this.category,
       this.imageName,
       this.badge});
 
@@ -25,12 +28,17 @@ class DonationsCategory extends StatelessWidget {
   final forPadding;
   // final icon;
   final imageName;
-  // final category;
+  final category;
   final url;
   final badge;
+  final type;
   @override
-  Widget build(BuildContext context) {
-    // log("THis is category ${category}");
+  Widget build(BuildContext context, WidgetRef ref) {
+    final data1 = type == "need"
+        ? ref.watch(needsByCategoryProvider(category))
+        : ref.watch(donationsByCategoryProvider(category));
+
+    // log("THis is category ${data1.value!['body'].length}");
     return GestureDetector(
       onTap: () {
         routeTo(url, context);

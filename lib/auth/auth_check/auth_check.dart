@@ -32,6 +32,8 @@ class AuthCheckWidget extends ConsumerWidget {
             // log("${user}");
             if (userRole == 'user') {
               replaceRouteTo("/homepage", context);
+            } else if (userRole == 'volunteer') {
+              replaceRouteTo("/volunteer", context);
             } else if (userRole == 'admin') {
               replaceRouteTo("/admin-dashboard", context);
             }

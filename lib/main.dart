@@ -1,3 +1,4 @@
+import 'package:donationapp/features/new-message/store/socket-service.dart';
 import 'package:donationapp/routes/app.router.gr.dart';
 import 'package:donationapp/utils/base-client/path.provider.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -30,6 +31,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   //initiallize path for offline cache
   await AppPathProvider.initPath();
+
   await Firebase.initializeApp();
   FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
 

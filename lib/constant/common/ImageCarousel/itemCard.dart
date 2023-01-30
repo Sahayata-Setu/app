@@ -6,6 +6,7 @@ import 'package:badges/badges.dart';
 import 'package:donationapp/constant/common/Icon/custom-icon.dart';
 import 'package:donationapp/constant/common/button/cusotm-button.dart';
 import 'package:donationapp/helpers/route.utils.dart';
+import 'package:donationapp/helpers/time.dart';
 import 'package:donationapp/routes/app.router.gr.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -72,18 +73,22 @@ class ItemCard extends StatelessWidget {
                 alignment: Alignment.bottomRight,
                 // padding: EdgeInsets.all(kPadding1),
                 height: 150, //350.0,
-                child: Container(
-                  child: CustomText(
-                    text: "1h ago ",
-                    fontColor: whiteColor,
+                child: Card(
+                  color: backgroundColor,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12.r),
                   ),
-                  decoration: BoxDecoration(
-                    color: secondaryBlue,
-                    borderRadius: BorderRadius.circular(5),
-                    // border: Border.all(
-                    //   color: blueColor,
-                    //   width: 2,
-                    // )
+                  elevation: 0,
+                  shadowColor: Colors.transparent,
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(
+                      vertical: 2.h,
+                      horizontal: 10.w,
+                    ),
+                    child: CustomText(
+                      text: "${convertToAgo(data['createdAt'])}",
+                      fontSize: 12.sp,
+                    ),
                   ),
                 ),
 

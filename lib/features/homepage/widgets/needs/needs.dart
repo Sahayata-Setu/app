@@ -24,6 +24,7 @@ class NeedsHome extends ConsumerWidget {
 
     final data = ref.watch(getAllNeedsProvider(""));
     // log("This is data from needs section: ${data}");
+    // final badge1 = ref.watch(needsByCategoryProvider(category));
 
     return Container(
       margin: EdgeInsets.only(top: kPadding.w),

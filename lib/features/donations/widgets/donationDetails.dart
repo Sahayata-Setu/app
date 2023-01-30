@@ -1,10 +1,12 @@
 import 'dart:developer';
 
 import 'package:auto_route/auto_route.dart';
+import 'package:donationapp/constant/common/GoogleButtomNavBar/GoogleButtomNavBar.dart';
 import 'package:donationapp/constant/common/Icon/custom-icon.dart';
 import 'package:donationapp/constant/common/button/cusotm-button.dart';
 import 'package:donationapp/constant/common/horizontal-line/horizontal-line.dart';
 import 'package:donationapp/constant/common/loading/loadingPage.dart';
+import 'package:donationapp/features/new-message/chat-detail.dart';
 import 'package:donationapp/helpers/route.utils.dart';
 import 'package:donationapp/store/message/message.store.dart';
 import 'package:donationapp/utils/store-service/language.store.dart';
@@ -42,6 +44,7 @@ class DonationDetail extends ConsumerWidget {
       component: data1.when(
         data: (data) {
           final singleData = data['body'];
+          log("Single Data: ${singleData['images'][0]}");
           return Container(
             alignment: Alignment.topLeft,
             // height: ScreenUtil().screenHeight,
@@ -265,9 +268,17 @@ class DonationDetail extends ConsumerWidget {
 
                       GestureDetector(
                         onTap: () {
-                          routeTo(
-                              "/message/${singleData['donor_name']}/${singleData['donor_id']}",
-                              context);
+                          // routeTo(
+                          //     "/message/${singleData['donor_name']}/${singleData['donor_id']}",
+                          //     context);
+                          Navigator.push(context,
+                              MaterialPageRoute(builder: (context) {
+                            return ChatDetailPage(
+                              name: singleData['donor_name'],
+                              // sender: senderId,
+                              reciever: singleData['donor_id'],
+                            );
+                          }));
                         },
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -385,7 +396,7 @@ class DonationDetail extends ConsumerWidget {
         showBadge: false,
       ),
       isAdmin: false,
-      bottomNavBar: const BottomNavBar(showBottomNavBar: false),
+      bottomNavBar: const GoogleButtomNavBar(showBottomNavBar: false),
     );
   }
 }

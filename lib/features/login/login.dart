@@ -1,14 +1,12 @@
 import 'dart:developer';
 
 import 'package:donationapp/app.dart';
-import 'package:donationapp/constant/common/BottomNavBar/BottomNavBar.dart';
+import 'package:donationapp/constant/common/GoogleButtomNavBar/GoogleButtomNavBar.dart';
 import 'package:donationapp/constant/common/NavBar/navbar.dart';
-import 'package:donationapp/constant/common/Text/custom-text.dart';
 import 'package:donationapp/constant/kconstant.dart';
 import 'package:donationapp/constant/modules/signup/signup.class.dart';
 import 'package:donationapp/constant/common/textfield/CustomTextField.dart';
 import 'package:donationapp/features/login/widgets/logo-area.dart';
-import 'package:donationapp/helpers/custom.toast.dart';
 import 'package:donationapp/helpers/route.utils.dart';
 import 'package:donationapp/store/login/login.store.dart';
 import 'package:donationapp/utils/store-service/store.service.dart';
@@ -58,15 +56,14 @@ class _LoginState extends ConsumerState<Login> {
         log("this is resp${resp['userRole']}");
         // log("user type ${getUserType}");
         if (resp['userRole'] == "user") {
-          // ignore: use_build_context_synchronously
-          // log("this is message");
           replaceRouteTo('/homepage', context);
           const snackBar = SnackBar(
             content: Text('Logged In'),
           );
           ScaffoldMessenger.of(context).showSnackBar(snackBar);
           pop(context);
-          // CustomScaffoldMessenger.info("Sucessfully logged In", context);
+        } else if (resp['userRole'] == 'volunteer') {
+          replaceRouteTo("/volunteer", context);
         } else if (resp['userRole'] == "admin") {
           log("Hello");
           replaceRouteTo("/admin-dashboard", context);
@@ -74,7 +71,6 @@ class _LoginState extends ConsumerState<Login> {
             content: Text('Logged in'),
           );
           ScaffoldMessenger.of(context).showSnackBar(snackBar);
-          // CustomScaffoldMessenger.info("Sucessfully logged In", context);
         }
 
         // ignore: use_build_context_synchronously
@@ -180,7 +176,7 @@ class _LoginState extends ConsumerState<Login> {
         ),
       ),
       isAdmin: false,
-      bottomNavBar: BottomNavBar(showBottomNavBar: false),
+      bottomNavBar: const GoogleButtomNavBar(showBottomNavBar: false),
     );
   }
 }

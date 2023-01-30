@@ -4,6 +4,8 @@ import 'package:donationapp/constant/common/NavBar/navbar.dart';
 import 'package:donationapp/constant/kconstant.dart';
 import 'package:flutter/material.dart';
 
+import '../../constant/common/GoogleButtomNavBar/GoogleButtomNavBar.dart';
+
 class SearchPage extends StatelessWidget {
   const SearchPage({super.key});
 
@@ -41,7 +43,7 @@ class SearchPage extends StatelessWidget {
         // route: "/homepage",
       ),
       isAdmin: false,
-      bottomNavBar: BottomNavBar(showBottomNavBar: true),
+      bottomNavBar: const GoogleButtomNavBar(showBottomNavBar: true),
     );
   }
 }

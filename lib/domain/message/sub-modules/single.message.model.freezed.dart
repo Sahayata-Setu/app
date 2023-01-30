@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'single.message.model.dart';
 
@@ -20,13 +20,11 @@ SingleMessage _$SingleMessageFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$SingleMessage {
-  @JsonKey(name: "_id")
   String? get id => throw _privateConstructorUsedError;
-  User? get sender => throw _privateConstructorUsedError;
-  User? get receiver => throw _privateConstructorUsedError;
+  String? get sender => throw _privateConstructorUsedError;
+  String? get reciever => throw _privateConstructorUsedError;
   String? get message => throw _privateConstructorUsedError;
   String? get createdAt => throw _privateConstructorUsedError;
-  String? get updatedAt => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -38,85 +36,57 @@ mixin _$SingleMessage {
 abstract class $SingleMessageCopyWith<$Res> {
   factory $SingleMessageCopyWith(
           SingleMessage value, $Res Function(SingleMessage) then) =
-      _$SingleMessageCopyWithImpl<$Res>;
+      _$SingleMessageCopyWithImpl<$Res, SingleMessage>;
+  @useResult
   $Res call(
-      {@JsonKey(name: "_id") String? id,
-      User? sender,
-      User? receiver,
+      {String? id,
+      String? sender,
+      String? reciever,
       String? message,
-      String? createdAt,
-      String? updatedAt});
-
-  $UserCopyWith<$Res>? get sender;
-  $UserCopyWith<$Res>? get receiver;
+      String? createdAt});
 }
 
 /// @nodoc
-class _$SingleMessageCopyWithImpl<$Res>
+class _$SingleMessageCopyWithImpl<$Res, $Val extends SingleMessage>
     implements $SingleMessageCopyWith<$Res> {
   _$SingleMessageCopyWithImpl(this._value, this._then);
 
-  final SingleMessage _value;
   // ignore: unused_field
-  final $Res Function(SingleMessage) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? id = freezed,
     Object? sender = freezed,
-    Object? receiver = freezed,
+    Object? reciever = freezed,
     Object? message = freezed,
     Object? createdAt = freezed,
-    Object? updatedAt = freezed,
   }) {
     return _then(_value.copyWith(
-      id: id == freezed
+      id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String?,
-      sender: sender == freezed
+      sender: freezed == sender
           ? _value.sender
           : sender // ignore: cast_nullable_to_non_nullable
-              as User?,
-      receiver: receiver == freezed
-          ? _value.receiver
-          : receiver // ignore: cast_nullable_to_non_nullable
-              as User?,
-      message: message == freezed
+              as String?,
+      reciever: freezed == reciever
+          ? _value.reciever
+          : reciever // ignore: cast_nullable_to_non_nullable
+              as String?,
+      message: freezed == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as String?,
-      createdAt: createdAt == freezed
+      createdAt: freezed == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as String?,
-      updatedAt: updatedAt == freezed
-          ? _value.updatedAt
-          : updatedAt // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ));
-  }
-
-  @override
-  $UserCopyWith<$Res>? get sender {
-    if (_value.sender == null) {
-      return null;
-    }
-
-    return $UserCopyWith<$Res>(_value.sender!, (value) {
-      return _then(_value.copyWith(sender: value));
-    });
-  }
-
-  @override
-  $UserCopyWith<$Res>? get receiver {
-    if (_value.receiver == null) {
-      return null;
-    }
-
-    return $UserCopyWith<$Res>(_value.receiver!, (value) {
-      return _then(_value.copyWith(receiver: value));
-    });
+    ) as $Val);
   }
 }
 
@@ -127,64 +97,52 @@ abstract class _$$_SingleMessageCopyWith<$Res>
           _$_SingleMessage value, $Res Function(_$_SingleMessage) then) =
       __$$_SingleMessageCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
-      {@JsonKey(name: "_id") String? id,
-      User? sender,
-      User? receiver,
+      {String? id,
+      String? sender,
+      String? reciever,
       String? message,
-      String? createdAt,
-      String? updatedAt});
-
-  @override
-  $UserCopyWith<$Res>? get sender;
-  @override
-  $UserCopyWith<$Res>? get receiver;
+      String? createdAt});
 }
 
 /// @nodoc
 class __$$_SingleMessageCopyWithImpl<$Res>
-    extends _$SingleMessageCopyWithImpl<$Res>
+    extends _$SingleMessageCopyWithImpl<$Res, _$_SingleMessage>
     implements _$$_SingleMessageCopyWith<$Res> {
   __$$_SingleMessageCopyWithImpl(
       _$_SingleMessage _value, $Res Function(_$_SingleMessage) _then)
-      : super(_value, (v) => _then(v as _$_SingleMessage));
+      : super(_value, _then);
 
-  @override
-  _$_SingleMessage get _value => super._value as _$_SingleMessage;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? id = freezed,
     Object? sender = freezed,
-    Object? receiver = freezed,
+    Object? reciever = freezed,
     Object? message = freezed,
     Object? createdAt = freezed,
-    Object? updatedAt = freezed,
   }) {
     return _then(_$_SingleMessage(
-      id: id == freezed
+      id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String?,
-      sender: sender == freezed
+      sender: freezed == sender
           ? _value.sender
           : sender // ignore: cast_nullable_to_non_nullable
-              as User?,
-      receiver: receiver == freezed
-          ? _value.receiver
-          : receiver // ignore: cast_nullable_to_non_nullable
-              as User?,
-      message: message == freezed
+              as String?,
+      reciever: freezed == reciever
+          ? _value.reciever
+          : reciever // ignore: cast_nullable_to_non_nullable
+              as String?,
+      message: freezed == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as String?,
-      createdAt: createdAt == freezed
+      createdAt: freezed == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
-              as String?,
-      updatedAt: updatedAt == freezed
-          ? _value.updatedAt
-          : updatedAt // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -194,33 +152,25 @@ class __$$_SingleMessageCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_SingleMessage implements _SingleMessage {
   const _$_SingleMessage(
-      {@JsonKey(name: "_id") this.id,
-      this.sender,
-      this.receiver,
-      this.message,
-      this.createdAt,
-      this.updatedAt});
+      {this.id, this.sender, this.reciever, this.message, this.createdAt});
 
   factory _$_SingleMessage.fromJson(Map<String, dynamic> json) =>
       _$$_SingleMessageFromJson(json);
 
   @override
-  @JsonKey(name: "_id")
   final String? id;
   @override
-  final User? sender;
+  final String? sender;
   @override
-  final User? receiver;
+  final String? reciever;
   @override
   final String? message;
   @override
   final String? createdAt;
-  @override
-  final String? updatedAt;
 
   @override
   String toString() {
-    return 'SingleMessage(id: $id, sender: $sender, receiver: $receiver, message: $message, createdAt: $createdAt, updatedAt: $updatedAt)';
+    return 'SingleMessage(id: $id, sender: $sender, reciever: $reciever, message: $message, createdAt: $createdAt)';
   }
 
   @override
@@ -228,27 +178,23 @@ class _$_SingleMessage implements _SingleMessage {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_SingleMessage &&
-            const DeepCollectionEquality().equals(other.id, id) &&
-            const DeepCollectionEquality().equals(other.sender, sender) &&
-            const DeepCollectionEquality().equals(other.receiver, receiver) &&
-            const DeepCollectionEquality().equals(other.message, message) &&
-            const DeepCollectionEquality().equals(other.createdAt, createdAt) &&
-            const DeepCollectionEquality().equals(other.updatedAt, updatedAt));
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.sender, sender) || other.sender == sender) &&
+            (identical(other.reciever, reciever) ||
+                other.reciever == reciever) &&
+            (identical(other.message, message) || other.message == message) &&
+            (identical(other.createdAt, createdAt) ||
+                other.createdAt == createdAt));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(id),
-      const DeepCollectionEquality().hash(sender),
-      const DeepCollectionEquality().hash(receiver),
-      const DeepCollectionEquality().hash(message),
-      const DeepCollectionEquality().hash(createdAt),
-      const DeepCollectionEquality().hash(updatedAt));
+  int get hashCode =>
+      Object.hash(runtimeType, id, sender, reciever, message, createdAt);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_SingleMessageCopyWith<_$_SingleMessage> get copyWith =>
       __$$_SingleMessageCopyWithImpl<_$_SingleMessage>(this, _$identity);
 
@@ -262,29 +208,25 @@ class _$_SingleMessage implements _SingleMessage {
 
 abstract class _SingleMessage implements SingleMessage {
   const factory _SingleMessage(
-      {@JsonKey(name: "_id") final String? id,
-      final User? sender,
-      final User? receiver,
+      {final String? id,
+      final String? sender,
+      final String? reciever,
       final String? message,
-      final String? createdAt,
-      final String? updatedAt}) = _$_SingleMessage;
+      final String? createdAt}) = _$_SingleMessage;
 
   factory _SingleMessage.fromJson(Map<String, dynamic> json) =
       _$_SingleMessage.fromJson;
 
   @override
-  @JsonKey(name: "_id")
   String? get id;
   @override
-  User? get sender;
+  String? get sender;
   @override
-  User? get receiver;
+  String? get reciever;
   @override
   String? get message;
   @override
   String? get createdAt;
-  @override
-  String? get updatedAt;
   @override
   @JsonKey(ignore: true)
   _$$_SingleMessageCopyWith<_$_SingleMessage> get copyWith =>

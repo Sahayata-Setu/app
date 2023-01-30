@@ -1,5 +1,6 @@
 import 'package:donationapp/app.dart';
 import 'package:donationapp/constant/common/BottomNavBar/BottomNavBar.dart';
+import 'package:donationapp/constant/common/GoogleButtomNavBar/GoogleButtomNavBar.dart';
 import 'package:donationapp/constant/common/NavBar/navbar.dart';
 import 'package:donationapp/constant/kconstant.dart';
 import 'package:donationapp/features/Admin/Dashboard/widgets/users/usersPageCard.dart';
@@ -30,7 +31,7 @@ class UsersPage extends StatelessWidget {
         showBadge: true,
       ),
       isAdmin: false,
-      bottomNavBar: const BottomNavBar(showBottomNavBar: true),
+      bottomNavBar: const GoogleButtomNavBar(showBottomNavBar: true),
     );
   }
 }

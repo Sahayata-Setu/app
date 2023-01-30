@@ -26,11 +26,13 @@ import 'package:donationapp/features/needs/Needs.dart';
 import 'package:donationapp/features/needs/widgets/addNeed.dart';
 import 'package:donationapp/features/needs/widgets/needDetail.dart';
 import 'package:donationapp/features/needs/widgets/needDetail.data.dart';
+import 'package:donationapp/features/new-message/all-messages.dart';
 import 'package:donationapp/features/notifications/notifications.dart';
 import 'package:donationapp/features/profile/user-profile.dart';
 import 'package:donationapp/features/profile/user-profile.data.dart';
 import 'package:donationapp/features/search-page/search-page.dart';
 import 'package:donationapp/features/signup/SignUp.dart';
+import 'package:donationapp/features/volunteer/volunteer.dart';
 import '../features/donations/Dontations.dart';
 
 @MaterialAutoRouter(routes: [
@@ -46,7 +48,7 @@ import '../features/donations/Dontations.dart';
   MaterialRoute(page: AccountSettings, path: "/account-settings"),
   MaterialRoute(page: Login, path: "/login"),
   MaterialRoute(page: SearchPage, path: "/search"),
-  MaterialRoute(page: Message, path: "/messages"),
+  MaterialRoute(page: NewMessage, path: "/messages"),
   MaterialRoute(page: Notifications, path: "/notifications"),
 
   MaterialRoute(page: CampaignsList, path: "/campaigns"),
@@ -60,6 +62,8 @@ import '../features/donations/Dontations.dart';
   MaterialRoute(page: DonationDetail, path: "/donations-details/:id"),
 
   MaterialRoute(page: Needs, path: "/needs/:category"),
+  MaterialRoute(page: Volunteer, path: "/volunteer"),
+
   MaterialRoute(page: AddRequest, path: "/createNeed"),
   MaterialRoute(page: NeedDetail, path: "/needs/details/:id"),
 
