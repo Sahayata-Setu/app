@@ -44,17 +44,17 @@ class DonationCard extends StatelessWidget {
                       fontWeight: FontWeight.w500,
                       fontSize: 14.sp,
                     ),
-                    Badge(
-                      badgeContent: const Text(
-                        "1h ago",
-                        style: TextStyle(color: whiteColor),
-                      ),
-                      badgeColor: secondaryBlue,
-                      shape: BadgeShape.square,
-                      padding: EdgeInsets.all(5.h),
-                      borderRadius: BorderRadius.circular(10.r),
-                      toAnimate: false,
-                    )
+                    // Badge(
+                    //   badgeContent: const Text(
+                    //     "1h ago",
+                    //     style: TextStyle(color: whiteColor),
+                    //   ),
+                    //   badgeColor: secondaryBlue,
+                    //   shape: BadgeShape.square,
+                    //   padding: EdgeInsets.all(5.h),
+                    //   borderRadius: BorderRadius.circular(10.r),
+                    //   toAnimate: false,
+                    // )
                   ]),
               subtitle: Row(
                 children: [

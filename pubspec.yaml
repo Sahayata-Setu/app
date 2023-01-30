@@ -63,6 +63,7 @@ dependencies:
   google_nav_bar: ^5.0.6
   line_icons: ^2.0.1
   socket_io_client: ^2.0.0
+  firebase_core_platform_interface: 4.5.1
   
 
 dev_dependencies:

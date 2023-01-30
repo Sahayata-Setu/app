@@ -69,16 +69,8 @@ class DonationsHome extends ConsumerWidget {
                         category: "Food",
                         // ca
                       ),
-                      // DonationsCategory(
-                      //   text: translation(context).food,
-                      //   imageName: "foods",
-                      //   url: "/donations/Food",
-                      //   badge: 23,
-                      // ),
-
                       DonationsCategory(
                         text: translation(context).toys,
-                        // icon: Icons.toys,
                         imageName: "toys",
                         url: "/donations/Toys",
                         badge: 2,
@@ -88,7 +80,6 @@ class DonationsHome extends ConsumerWidget {
                       ),
                       DonationsCategory(
                         text: translation(context).books,
-                        // icon: Icons.library_books,
                         imageName: "books",
                         badge: 3,
                         url: "/donations/Book",
@@ -105,7 +96,6 @@ class DonationsHome extends ConsumerWidget {
                         type: "donations",
                         category: "Clothes",
                       ),
-                      //  DonationsCategory(text: "Others", icon: Icons.more_horiz)
                     ],
                   ),
                 ),
@@ -117,37 +107,38 @@ class DonationsHome extends ConsumerWidget {
                   ),
                   child: CustomText(
                     text: translation(context).latestDonations,
-                    fontSize: 15.sp,
-                    fontColor: textColor,
-                    fontWeight: FontWeight.w800,
+                    fontSize: 18.sp,
+                    fontColor: blackColor,
+                    fontWeight: FontWeight.bold,
                   ),
                 ),
-                //Donations cards
 
+                //Donations cards
                 data.when(
                   data: (data) {
                     final donationsDetails = data['body'];
                     return SizedBox(
-                        height: 360.h,
-                        child: ListView.builder(
-                          padding: EdgeInsets.only(left: kPadding),
-                          scrollDirection: Axis.horizontal,
-                          itemCount: donationsDetails.length,
-                          itemBuilder: (context, index) => Container(
-                            margin: EdgeInsets.all(10.w),
-                            child: Card(
-                              margin: EdgeInsets.zero,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(12.r),
-                              ),
-                              elevation: 0,
-                              shadowColor: Colors.transparent,
-                              child: DonationHomeCards(
-                                singleInfo: donationsDetails[index],
-                              ),
+                      height: 360.h,
+                      child: ListView.builder(
+                        padding: EdgeInsets.only(left: 10.w),
+                        scrollDirection: Axis.horizontal,
+                        itemCount: donationsDetails.length,
+                        itemBuilder: (context, index) => Container(
+                          margin: EdgeInsets.all(10.w),
+                          child: Card(
+                            margin: EdgeInsets.zero,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(12.r),
+                            ),
+                            elevation: 0,
+                            shadowColor: Colors.transparent,
+                            child: DonationHomeCards(
+                              singleInfo: donationsDetails[index],
                             ),
                           ),
-                        ));
+                        ),
+                      ),
+                    );
                   },
                   error: (e, st) => Center(
                     child: CustomText(text: "Something went wrong!!"),
