@@ -4,6 +4,7 @@ import 'package:donationapp/auth/auth_check/auth_check.dart';
 import 'package:donationapp/constant/common/splashScreen/splashScreen.dart';
 import 'package:donationapp/features/Admin/Dashboard/admin-dashboard.data.dart';
 import 'package:donationapp/features/Admin/Dashboard/adminDashboard.dart';
+import 'package:donationapp/features/Admin/Users/userDetails.dart';
 import 'package:donationapp/features/Admin/Users/viewUsers.dart';
 import 'package:donationapp/features/Admin/widgets/approveVolunter.dart';
 import 'package:donationapp/features/account-settings/account-settings.dart';
@@ -75,6 +76,7 @@ import '../features/donations/Dontations.dart';
 
   MaterialRoute(page: AdminDashBoardData, path: "/admin-dashboard"),
   MaterialRoute(page: ViewUsers, path: "/view-user", initial: true),
+  MaterialRoute(page: UserDetails, path: "/userDetails"),
   MaterialRoute(
       page: MessageDetails, path: "/message/:receiverName/:receiverId"),
 ])

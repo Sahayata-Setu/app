@@ -115,6 +115,17 @@ class Menu_Drawer extends ConsumerWidget {
                   }),
               ListTile(
                 title: CustomText(
+                  text: "Donations",
+                  fontColor: whiteColor,
+                  fontSize: 18.sp,
+                ),
+                onTap: () {
+                  // Navigator.pop(context)
+                  routeTo("/donations-list", context);
+                },
+              ),
+              ListTile(
+                title: CustomText(
                   text: "Requests",
                   fontColor: whiteColor,
                   fontSize: 18.sp,

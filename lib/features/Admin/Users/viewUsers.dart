@@ -8,6 +8,7 @@ import 'package:donationapp/features/Admin/Dashboard/widgets/drawer.dart';
 import 'package:donationapp/features/Admin/Dashboard/widgets/optionsTab.dart';
 import 'package:donationapp/features/Admin/Dashboard/widgets/dashbordCards.dart';
 import 'package:donationapp/features/Admin/Users/userCard.dart';
+import 'package:donationapp/helpers/route.utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -31,16 +32,14 @@ class ViewUsers extends StatelessWidget {
         color: whiteColor,
         child: Column(
           children: [
-            UserCard(
-              userName: "Tushar Banek",
-              userLocation: "Andaman Nicobar",
-            ),
-            HorizontalLine(
-              color: lightBlueColor,
-            ),
-            UserCard(
-              userName: "Pintu Gupta",
-              userLocation: "Birgunj",
+            InkWell(
+              child: UserCard(
+                userName: "Tushar Banik",
+                userLocation: "Andaman Nicobar",
+              ),
+              onTap: () {
+                routeTo("/userDetails", context);
+              },
             ),
             HorizontalLine(
               color: lightBlueColor,
