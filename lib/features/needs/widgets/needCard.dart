@@ -38,18 +38,18 @@ class NeedCard extends StatelessWidget {
                         ),
                         fit: BoxFit.cover,
                         alignment: Alignment.topCenter)),
-                child: Badge(
-                  badgeContent: const Text(
-                    "Campaign",
-                    style: TextStyle(color: whiteColor),
-                  ),
-                  badgeColor: blueColor,
-                  shape: BadgeShape.square,
-                  padding: const EdgeInsets.all(7),
-                  borderRadius: BorderRadius.circular(10),
-                  toAnimate: false,
-                  showBadge: isCampaign ? true : false,
-                ),
+                // child: Badge(
+                //   badgeContent: const Text(
+                //     "Campaign",
+                //     style: TextStyle(color: whiteColor),
+                //   ),
+                //   badgeColor: blueColor,
+                //   shape: BadgeShape.square,
+                //   padding: const EdgeInsets.all(7),
+                //   borderRadius: BorderRadius.circular(10),
+                //   toAnimate: false,
+                //   showBadge: isCampaign ? true : false,
+                // ),
               ),
               ListTile(
                 title: Row(
@@ -60,17 +60,17 @@ class NeedCard extends StatelessWidget {
                         fontWeight: FontWeight.w500,
                         fontSize: 14.sp,
                       ),
-                      Badge(
-                        badgeContent: const Text(
-                          "1h ago",
-                          style: TextStyle(color: whiteColor),
-                        ),
-                        badgeColor: secondaryBlue,
-                        shape: BadgeShape.square,
-                        padding: const EdgeInsets.all(5),
-                        borderRadius: BorderRadius.circular(10),
-                        toAnimate: false,
-                      )
+                      // Badge(
+                      //   badgeContent: const Text(
+                      //     "1h ago",
+                      //     style: TextStyle(color: whiteColor),
+                      //   ),
+                      //   badgeColor: secondaryBlue,
+                      //   shape: BadgeShape.square,
+                      //   padding: const EdgeInsets.all(5),
+                      //   borderRadius: BorderRadius.circular(10),
+                      //   toAnimate: false,
+                      // )
                     ]),
                 subtitle: Row(
                   children: [

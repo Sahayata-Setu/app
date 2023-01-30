@@ -49,52 +49,52 @@ class DonationsCategory extends ConsumerWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Badge(
-              badgeColor: blueColor,
-              toAnimate: false,
-              // borderRadius: BorderRadius.circular(8),
-              badgeContent: data1.when(
-                data: (data) {
-                  log("Category data: ${data['body'].length}");
-                  return data['body'].length > 9
-                      ? Text(
-                          // add the number of donations here
-                          '9+',
-                          style: TextStyle(color: Colors.white),
-                        )
-                      : Padding(
-                          padding: const EdgeInsets.all(3.0),
-                          child: Text(
-                            // add the number of donations here
-                            ' ${data['body'].length}',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 14.sp,
-                            ),
-                          ),
-                        );
-                },
-                error: (e, h) => Center(
-                  child: CustomText(text: "Some error occured"),
-                ),
-                loading: () => Container(),
-              ),
-              child: Container(
-                width: 60.w,
-                height: 60.h,
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: secondaryBlue,
-                ),
-                // child: CustomIcon(icon: icon, color: whiteColor),
-                child: Container(
-                  padding: EdgeInsets.all(forPadding),
-                  child: CustomImage(
-                    imageName: imageName,
-                  ),
-                ),
-              ),
-            ),
+            // Badge(
+            //   badgeColor: blueColor,
+            //   toAnimate: false,
+            //   // borderRadius: BorderRadius.circular(8),
+            //   badgeContent: data1.when(
+            //     data: (data) {
+            //       log("Category data: ${data['body'].length}");
+            //       return data['body'].length > 9
+            //           ? Text(
+            //               // add the number of donations here
+            //               '9+',
+            //               style: TextStyle(color: Colors.white),
+            //             )
+            //           : Padding(
+            //               padding: const EdgeInsets.all(3.0),
+            //               child: Text(
+            //                 // add the number of donations here
+            //                 ' ${data['body'].length}',
+            //                 style: TextStyle(
+            //                   color: Colors.white,
+            //                   fontSize: 14.sp,
+            //                 ),
+            //               ),
+            //             );
+            //     },
+            //     error: (e, h) => Center(
+            //       child: CustomText(text: "Some error occured"),
+            //     ),
+            //     loading: () => Container(),
+            //   ),
+            //   child: Container(
+            //     width: 60.w,
+            //     height: 60.h,
+            //     decoration: BoxDecoration(
+            //       shape: BoxShape.circle,
+            //       color: secondaryBlue,
+            //     ),
+            //     // child: CustomIcon(icon: icon, color: whiteColor),
+            //     child: Container(
+            //       padding: EdgeInsets.all(forPadding),
+            //       child: CustomImage(
+            //         imageName: imageName,
+            //       ),
+            //     ),
+            //   ),
+            // ),
             Padding(
               padding: EdgeInsets.only(
                 top: 10.h,
