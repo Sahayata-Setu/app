@@ -51,14 +51,14 @@ class NavBar extends StatelessWidget {
               route == UserProfileRoute.name
           ? Container(
               margin: EdgeInsets.only(left: 10),
-              child: Badge(
-                badgeColor: blueColor,
-                badgeContent: Image.asset(
-                  "assets/images/logo.png",
-                  height: 2,
-                  width: 2,
-                ),
-              ),
+              // child: Badge(
+              //   badgeColor: blueColor,
+              //   badgeContent: Image.asset(
+              //     "assets/images/logo.png",
+              //     height: 2,
+              //     width: 2,
+              //   ),
+              // ),
             )
           //  Container(
           //     width: 5,
@@ -122,21 +122,21 @@ class NavBar extends StatelessWidget {
                 ? Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      Badge(
-                        badgeColor: Colors.orange,
-                        badgeContent: const Text(
-                          '9',
-                          style: TextStyle(color: Colors.white),
-                        ),
-                        child: Container(
-                          margin: EdgeInsets.only(top: 6.h),
-                          child: Icon(
-                            Icons.star,
-                            size: kiconSize2,
-                          ),
-                        ),
-                        // showBadge: showBadge ? true : false,
-                      ),
+                      // Badge(
+                      //   badgeColor: Colors.orange,
+                      //   badgeContent: const Text(
+                      //     '9',
+                      //     style: TextStyle(color: Colors.white),
+                      //   ),
+                      //   child: Container(
+                      //     margin: EdgeInsets.only(top: 6.h),
+                      //     child: Icon(
+                      //       Icons.star,
+                      //       size: kiconSize2,
+                      //     ),
+                      //   ),
+                      //   // showBadge: showBadge ? true : false,
+                      // ),
                       Padding(
                         padding: EdgeInsets.all(kPadding1),
                         child: PopupMenuButton(

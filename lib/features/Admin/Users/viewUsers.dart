@@ -24,10 +24,9 @@ class ViewUsers extends StatelessWidget {
       ),
       drawer: Menu_Drawer(),
       body: Container(
+        padding: EdgeInsets.all(10.h),
         child: Column(
-          children: [
-            Text("Hello"),
-          ],
+          children: [],
         ),
       ),
     );

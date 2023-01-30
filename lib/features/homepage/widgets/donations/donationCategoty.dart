@@ -41,43 +41,44 @@ class DonationsCategory extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Badge(
-              badgeColor: blueColor,
-              toAnimate: false,
-              // borderRadius: BorderRadius.circular(8),
-              badgeContent: badge > 9
-                  ? Text(
-                      // add the number of donations here
-                      '9+',
-                      style: TextStyle(color: Colors.white),
-                    )
-                  : Padding(
-                      padding: const EdgeInsets.all(3.0),
-                      child: Text(
-                        // add the number of donations here
-                        '${badge}',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 14.sp,
-                        ),
-                      ),
-                    ),
-              child: Container(
-                width: 60.w,
-                height: 60.h,
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: secondaryBlue,
-                ),
-                // child: CustomIcon(icon: icon, color: whiteColor),
-                child: Container(
-                  padding: EdgeInsets.all(forPadding),
-                  child: CustomImage(
-                    imageName: imageName,
-                  ),
-                ),
-              ),
-            ),
+            // Badge(
+            //   badgeColor: blueColor,
+            //   toAnimate: false,
+            //   // borderRadius: BorderRadius.circular(8),
+            //   badgeContent: badge > 9
+            //       ? Text(
+            //           // add the number of donations here
+            //           '9+',
+            //           style: TextStyle(color: Colors.white),
+            //         )
+            //       : Padding(
+            //           padding: const EdgeInsets.all(3.0),
+            //           child: Text(
+            //             // add the number of donations here
+            //             // '${badge}',
+            //             "badge here",
+            //             style: TextStyle(
+            //               color: Colors.white,
+            //               fontSize: 14.sp,
+            //             ),
+            //           ),
+            //         ),
+            //   child: Container(
+            //     width: 60.w,
+            //     height: 60.h,
+            //     decoration: BoxDecoration(
+            //       shape: BoxShape.circle,
+            //       color: secondaryBlue,
+            //     ),
+            //     // child: CustomIcon(icon: icon, color: whiteColor),
+            //     child: Container(
+            //       padding: EdgeInsets.all(forPadding),
+            //       child: CustomImage(
+            //         imageName: imageName,
+            //       ),
+            //     ),
+            //   ),
+            // ),
             Padding(
               padding: EdgeInsets.only(
                 top: 10.h,
