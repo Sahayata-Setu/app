@@ -7,7 +7,7 @@ import 'package:donationapp/constant/common/horizontal-line/horizontal-line.dart
 import 'package:donationapp/features/Admin/Dashboard/widgets/drawer.dart';
 import 'package:donationapp/features/Admin/Dashboard/widgets/optionsTab.dart';
 import 'package:donationapp/features/Admin/Dashboard/widgets/dashbordCards.dart';
-import 'package:donationapp/features/Admin/Users/userCard.dart';
+import 'package:donationapp/features/Admin/Users/widgets/userCard.dart';
 import 'package:donationapp/helpers/route.utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

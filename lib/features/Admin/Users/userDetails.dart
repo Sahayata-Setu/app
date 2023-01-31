@@ -2,7 +2,7 @@ import 'package:donationapp/constant/common/NavBar/adminNavBar.dart';
 import 'package:donationapp/constant/common/Text/custom-text.dart';
 import 'package:donationapp/constant/kconstant.dart';
 import 'package:donationapp/features/Admin/Dashboard/widgets/drawer.dart';
-import 'package:donationapp/features/Admin/Users/detailTile.dart';
+import 'package:donationapp/features/Admin/Users/widgets/detailTile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:line_icons/line_icon.dart';
