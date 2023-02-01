@@ -29,7 +29,7 @@ class ViewUsers extends StatelessWidget {
       drawer: Menu_Drawer(),
       body: Container(
         padding: EdgeInsets.all(10.h),
-        color: whiteColor,
+        // color: whiteColor,
         child: Column(
           children: [
             InkWell(
@@ -40,9 +40,6 @@ class ViewUsers extends StatelessWidget {
               onTap: () {
                 routeTo("/userDetails", context);
               },
-            ),
-            HorizontalLine(
-              color: lightBlueColor,
             ),
           ],
         ),

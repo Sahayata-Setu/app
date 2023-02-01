@@ -14,7 +14,7 @@ class ViewRequests extends StatelessWidget {
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(60),
-        child: AdminNavBar(title: "Requests"),
+        child: AdminNavBar(title: "Request Details"),
       ),
       drawer: Menu_Drawer(),
       body: Container(
@@ -23,7 +23,7 @@ class ViewRequests extends StatelessWidget {
           children: [
             InkWell(
               onTap: () {
-                replaceRouteTo("/requestDetails", context);
+                routeTo("/requestDetails", context);
               },
               child: RequestTile(
                 donerName: "Tasnimul Hasan Tauhid",

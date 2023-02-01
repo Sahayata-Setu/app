@@ -17,7 +17,7 @@ class UserDetails extends StatelessWidget {
       ),
       drawer: Menu_Drawer(),
       body: Container(
-        padding: EdgeInsets.fromLTRB(20.h, 5.h, 20.h, 20.h),
+        padding: EdgeInsets.fromLTRB(10.h, 5.h, 20.h, 10.h),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
@@ -26,45 +26,31 @@ class UserDetails extends StatelessWidget {
                 size: 50.h,
               ),
             ),
-            DetailTile(
-              title: "Full Name :",
-              value: "Tushar Banik",
-            ),
-            DetailTile(
-              title: "User Type :",
-              value: "Volunteer",
-            ),
-            DetailTile(
-              title: "Donations :",
-              value: "4",
-            ),
-            DetailTile(
-              title: "Benefitted :",
-              value: "3",
-            ),
-            DetailTile(
-              title: "Campaigns :",
-              value: "0",
-            ),
-            DetailTile(
-              title: "Status :",
-              value: "Verified",
-            ),
-            DetailTile(
-              title: "Contact No :",
-              value: "9811050468",
-            ),
-            DetailTile(
-              title: "Email :",
-              value: "tusharbanik8@gmail.com",
-            ),
-            DetailTile(
-              title: "City :",
-              value: "Andaman Nicobar",
-            ),
-            DetailTile(
-              title: "No of Report :",
-              value: "2",
+            Card(
+              // margin: EdgeInsets.symmetric(vertical: 10.h, horizontal: 20.h),
+              child: Container(
+                padding: EdgeInsets.all(10.h),
+                height: MediaQuery.of(context).size.height * 0.5,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    DetailTile(
+                      title: "Full Name",
+                      value: "Tushar Banik",
+                    ),
+                    DetailTile(title: "User Type", value: "Volunteer"),
+                    DetailTile(title: "Status", value: "Verified"),
+                    DetailTile(title: "Contact", value: "98xxxxxxxx"),
+                    DetailTile(title: "Email", value: "tushar@gmail.com"),
+                    DetailTile(title: "Donations", value: "4"),
+                    DetailTile(title: "Benefitted", value: "3"),
+                    DetailTile(title: "Campaign", value: "0"),
+                    DetailTile(title: "City", value: "Rajkot"),
+                    DetailTile(title: "Date", value: "2023/01/23"),
+                    DetailTile(title: "No of Report", value: "2"),
+                  ],
+                ),
+              ),
             ),
             ElevatedButton(
               onPressed: () {},
@@ -83,7 +69,7 @@ class UserDetails extends StatelessWidget {
                 ),
               ),
               child: CustomText(
-                text: "Submit",
+                text: "Remove",
                 fontColor: whiteColor,
                 fontSize: 16.sp,
               ),
