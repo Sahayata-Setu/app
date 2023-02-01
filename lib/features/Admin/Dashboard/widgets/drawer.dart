@@ -41,7 +41,7 @@ class Menu_Drawer extends ConsumerWidget {
             children: [
               DrawerHeader(
                 decoration: BoxDecoration(
-                    //color: Colors.blue,
+                    // color: Colors.blue,
                     ),
                 child: InkWell(
                   child: LineIcon.times(
@@ -54,12 +54,14 @@ class Menu_Drawer extends ConsumerWidget {
                 ),
 
                 // * Previous Code is below
+
                 // child: IconButton(
                 //   onPressed: () {
                 //     Navigator.pop(context);
                 //   },
                 //   icon: Icon(Icons.close),
                 // ),
+
                 // * Upto here
               ),
 
@@ -74,7 +76,7 @@ class Menu_Drawer extends ConsumerWidget {
                     fontSize: 18.sp,
                   ),
                   onTap: () {
-                    // Navigator.pop(context);
+                    Navigator.pop(context);
                     routeTo("/homepage", context);
                   }),
 
@@ -89,7 +91,7 @@ class Menu_Drawer extends ConsumerWidget {
                     fontSize: 18.sp,
                   ),
                   onTap: () {
-                    // Navigator.pop(context);
+                    Navigator.pop(context);
                     routeTo("/admin-dashboard", context);
                   }),
               ListTile(
@@ -99,7 +101,7 @@ class Menu_Drawer extends ConsumerWidget {
                     fontSize: 18.sp,
                   ),
                   onTap: () {
-                    // Navigator.pop(context);
+                    Navigator.pop(context);
                     routeTo("/view-user", context);
                   }),
               ListTile(
@@ -109,7 +111,7 @@ class Menu_Drawer extends ConsumerWidget {
                     fontSize: 18.sp,
                   ),
                   onTap: () {
-                    // Navigator.pop(context);
+                    Navigator.pop(context);
                     // Todo: Insert route of admin messages
                     routeTo("/", context);
                   }),
@@ -120,7 +122,7 @@ class Menu_Drawer extends ConsumerWidget {
                   fontSize: 18.sp,
                 ),
                 onTap: () {
-                  // Navigator.pop(context)
+                  Navigator.pop(context);
                   routeTo("/donations-list", context);
                 },
               ),
@@ -131,9 +133,21 @@ class Menu_Drawer extends ConsumerWidget {
                   fontSize: 18.sp,
                 ),
                 onTap: () {
-                  // Navigator.pop(context)
+                  Navigator.pop(context);
                   // Todo: Insert route of admin request list
                   routeTo("/requests", context);
+                },
+              ),
+              ListTile(
+                title: CustomText(
+                  text: "Volunteer Application",
+                  fontColor: whiteColor,
+                  fontSize: 18.sp,
+                ),
+                onTap: () {
+                  Navigator.pop(context);
+                  // Todo: Insert route of admin request list
+                  routeTo("/view-volunteer-applications", context);
                 },
               ),
               ListTile(
