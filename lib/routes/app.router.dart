@@ -4,7 +4,10 @@ import 'package:donationapp/auth/auth_check/auth_check.dart';
 import 'package:donationapp/constant/common/splashScreen/splashScreen.dart';
 import 'package:donationapp/features/Admin/Dashboard/admin-dashboard.data.dart';
 import 'package:donationapp/features/Admin/Dashboard/adminDashboard.dart';
+import 'package:donationapp/features/Admin/Donations/donatedDetails.dart';
 import 'package:donationapp/features/Admin/Donations/viewDonations.dart';
+import 'package:donationapp/features/Admin/Requests/requestDetails.dart';
+import 'package:donationapp/features/Admin/Requests/viewRequest.dart';
 import 'package:donationapp/features/Admin/Users/userDetails.dart';
 import 'package:donationapp/features/Admin/Users/viewUsers.dart';
 import 'package:donationapp/features/Admin/widgets/approveVolunter.dart';
@@ -83,6 +86,9 @@ import '../features/donations/Dontations.dart';
 
   // Admin Donations
   MaterialRoute(page: ViewDonations, path: "/donations-list"),
+  MaterialRoute(page: DonatedDetails, path: "/donatedDetails"),
+  MaterialRoute(page: ViewRequests, path: "/requests"),
+  MaterialRoute(page: RequestDetails, path: "/requestDetails"),
 ])
 @CustomAutoRouter(routes: [])
 class $AppRouter {}

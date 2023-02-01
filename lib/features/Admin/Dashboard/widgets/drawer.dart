@@ -133,7 +133,7 @@ class Menu_Drawer extends ConsumerWidget {
                 onTap: () {
                   // Navigator.pop(context)
                   // Todo: Insert route of admin request list
-                  routeTo("/", context);
+                  routeTo("/requests", context);
                 },
               ),
               ListTile(
