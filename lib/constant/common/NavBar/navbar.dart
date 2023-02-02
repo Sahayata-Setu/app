@@ -51,7 +51,7 @@ class NavBar extends StatelessWidget {
               route == SearchPageRoute.name ||
               route == UserProfileRoute.name
           ? Container(
-              margin: const EdgeInsets.only(left: 10),
+              margin: EdgeInsets.only(left: 10),
               // child: Badge(
               //   badgeColor: blueColor,
               //   badgeContent: Image.asset(
@@ -116,7 +116,7 @@ class NavBar extends StatelessWidget {
                       //   ),
                       //   child: Container(
                       //     margin: EdgeInsets.only(top: 6.h),
-                      //     child: const Icon(
+                      //     child: Icon(
                       //       Icons.star,
                       //       size: kiconSize2,
                       //     ),
@@ -147,6 +147,7 @@ class NavBar extends StatelessWidget {
                               },
                             ),
                             //check for isVolunteer?SizedBox():
+
                             PopupMenuItem<int>(
                               child: const Text("Create Campaign"),
                               onTap: () {

@@ -147,7 +147,17 @@ class UserProfile extends ConsumerWidget {
               ),
               SizedBox(
                 height: 20.h,
-              )
+              ),
+              GestureDetector(
+                onTap: () {
+                  // handleLogout();
+                  routeTo("/mobile-number", context);
+                },
+                child: UserProfileOptions(
+                  text: "OPT",
+                  imageName: "logout",
+                ),
+              ),
             ],
           ),
         ),

@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'donations.model.dart';
 
@@ -43,7 +43,8 @@ mixin _$Donations {
 /// @nodoc
 abstract class $DonationsCopyWith<$Res> {
   factory $DonationsCopyWith(Donations value, $Res Function(Donations) then) =
-      _$DonationsCopyWithImpl<$Res>;
+      _$DonationsCopyWithImpl<$Res, Donations>;
+  @useResult
   $Res call(
       {@JsonKey(name: "_id") String? id,
       String? donorId,
@@ -60,13 +61,16 @@ abstract class $DonationsCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$DonationsCopyWithImpl<$Res> implements $DonationsCopyWith<$Res> {
+class _$DonationsCopyWithImpl<$Res, $Val extends Donations>
+    implements $DonationsCopyWith<$Res> {
   _$DonationsCopyWithImpl(this._value, this._then);
 
-  final Donations _value;
   // ignore: unused_field
-  final $Res Function(Donations) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? id = freezed,
@@ -83,55 +87,55 @@ class _$DonationsCopyWithImpl<$Res> implements $DonationsCopyWith<$Res> {
     Object? updatedAt = freezed,
   }) {
     return _then(_value.copyWith(
-      id: id == freezed
+      id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String?,
-      donorId: donorId == freezed
+      donorId: freezed == donorId
           ? _value.donorId
           : donorId // ignore: cast_nullable_to_non_nullable
               as String?,
-      categories: categories == freezed
+      categories: freezed == categories
           ? _value.categories
           : categories // ignore: cast_nullable_to_non_nullable
               as List<String>?,
-      description: description == freezed
+      description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String?,
-      quantity: quantity == freezed
+      quantity: freezed == quantity
           ? _value.quantity
           : quantity // ignore: cast_nullable_to_non_nullable
               as int?,
-      city: city == freezed
+      city: freezed == city
           ? _value.city
           : city // ignore: cast_nullable_to_non_nullable
               as String?,
-      pickupDetails: pickupDetails == freezed
+      pickupDetails: freezed == pickupDetails
           ? _value.pickupDetails
           : pickupDetails // ignore: cast_nullable_to_non_nullable
               as String?,
-      images: images == freezed
+      images: freezed == images
           ? _value.images
           : images // ignore: cast_nullable_to_non_nullable
               as List<String>?,
-      status: status == freezed
+      status: freezed == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as String?,
-      donatedTo: donatedTo == freezed
+      donatedTo: freezed == donatedTo
           ? _value.donatedTo
           : donatedTo // ignore: cast_nullable_to_non_nullable
               as List<String>?,
-      createdAt: createdAt == freezed
+      createdAt: freezed == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as String?,
-      updatedAt: updatedAt == freezed
+      updatedAt: freezed == updatedAt
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
               as String?,
-    ));
+    ) as $Val);
   }
 }
 
@@ -141,6 +145,7 @@ abstract class _$$_DonationsCopyWith<$Res> implements $DonationsCopyWith<$Res> {
           _$_Donations value, $Res Function(_$_Donations) then) =
       __$$_DonationsCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {@JsonKey(name: "_id") String? id,
       String? donorId,
@@ -157,15 +162,14 @@ abstract class _$$_DonationsCopyWith<$Res> implements $DonationsCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_DonationsCopyWithImpl<$Res> extends _$DonationsCopyWithImpl<$Res>
+class __$$_DonationsCopyWithImpl<$Res>
+    extends _$DonationsCopyWithImpl<$Res, _$_Donations>
     implements _$$_DonationsCopyWith<$Res> {
   __$$_DonationsCopyWithImpl(
       _$_Donations _value, $Res Function(_$_Donations) _then)
-      : super(_value, (v) => _then(v as _$_Donations));
+      : super(_value, _then);
 
-  @override
-  _$_Donations get _value => super._value as _$_Donations;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? id = freezed,
@@ -182,51 +186,51 @@ class __$$_DonationsCopyWithImpl<$Res> extends _$DonationsCopyWithImpl<$Res>
     Object? updatedAt = freezed,
   }) {
     return _then(_$_Donations(
-      id: id == freezed
+      id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String?,
-      donorId: donorId == freezed
+      donorId: freezed == donorId
           ? _value.donorId
           : donorId // ignore: cast_nullable_to_non_nullable
               as String?,
-      categories: categories == freezed
+      categories: freezed == categories
           ? _value._categories
           : categories // ignore: cast_nullable_to_non_nullable
               as List<String>?,
-      description: description == freezed
+      description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String?,
-      quantity: quantity == freezed
+      quantity: freezed == quantity
           ? _value.quantity
           : quantity // ignore: cast_nullable_to_non_nullable
               as int?,
-      city: city == freezed
+      city: freezed == city
           ? _value.city
           : city // ignore: cast_nullable_to_non_nullable
               as String?,
-      pickupDetails: pickupDetails == freezed
+      pickupDetails: freezed == pickupDetails
           ? _value.pickupDetails
           : pickupDetails // ignore: cast_nullable_to_non_nullable
               as String?,
-      images: images == freezed
+      images: freezed == images
           ? _value._images
           : images // ignore: cast_nullable_to_non_nullable
               as List<String>?,
-      status: status == freezed
+      status: freezed == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as String?,
-      donatedTo: donatedTo == freezed
+      donatedTo: freezed == donatedTo
           ? _value._donatedTo
           : donatedTo // ignore: cast_nullable_to_non_nullable
               as List<String>?,
-      createdAt: createdAt == freezed
+      createdAt: freezed == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as String?,
-      updatedAt: updatedAt == freezed
+      updatedAt: freezed == updatedAt
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
               as String?,
@@ -236,7 +240,7 @@ class __$$_DonationsCopyWithImpl<$Res> extends _$DonationsCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Donations implements _Donations {
+class _$_Donations with DiagnosticableTreeMixin implements _Donations {
   const _$_Donations(
       {@JsonKey(name: "_id") this.id,
       this.donorId,
@@ -267,6 +271,7 @@ class _$_Donations implements _Donations {
   List<String>? get categories {
     final value = _categories;
     if (value == null) return null;
+    if (_categories is EqualUnmodifiableListView) return _categories;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(value);
   }
@@ -284,6 +289,7 @@ class _$_Donations implements _Donations {
   List<String>? get images {
     final value = _images;
     if (value == null) return null;
+    if (_images is EqualUnmodifiableListView) return _images;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(value);
   }
@@ -295,6 +301,7 @@ class _$_Donations implements _Donations {
   List<String>? get donatedTo {
     final value = _donatedTo;
     if (value == null) return null;
+    if (_donatedTo is EqualUnmodifiableListView) return _donatedTo;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(value);
   }
@@ -305,8 +312,27 @@ class _$_Donations implements _Donations {
   final String? updatedAt;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'Donations(id: $id, donorId: $donorId, categories: $categories, description: $description, quantity: $quantity, city: $city, pickupDetails: $pickupDetails, images: $images, status: $status, donatedTo: $donatedTo, createdAt: $createdAt, updatedAt: $updatedAt)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'Donations'))
+      ..add(DiagnosticsProperty('id', id))
+      ..add(DiagnosticsProperty('donorId', donorId))
+      ..add(DiagnosticsProperty('categories', categories))
+      ..add(DiagnosticsProperty('description', description))
+      ..add(DiagnosticsProperty('quantity', quantity))
+      ..add(DiagnosticsProperty('city', city))
+      ..add(DiagnosticsProperty('pickupDetails', pickupDetails))
+      ..add(DiagnosticsProperty('images', images))
+      ..add(DiagnosticsProperty('status', status))
+      ..add(DiagnosticsProperty('donatedTo', donatedTo))
+      ..add(DiagnosticsProperty('createdAt', createdAt))
+      ..add(DiagnosticsProperty('updatedAt', updatedAt));
   }
 
   @override
@@ -314,43 +340,47 @@ class _$_Donations implements _Donations {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Donations &&
-            const DeepCollectionEquality().equals(other.id, id) &&
-            const DeepCollectionEquality().equals(other.donorId, donorId) &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.donorId, donorId) || other.donorId == donorId) &&
             const DeepCollectionEquality()
                 .equals(other._categories, _categories) &&
-            const DeepCollectionEquality()
-                .equals(other.description, description) &&
-            const DeepCollectionEquality().equals(other.quantity, quantity) &&
-            const DeepCollectionEquality().equals(other.city, city) &&
-            const DeepCollectionEquality()
-                .equals(other.pickupDetails, pickupDetails) &&
+            (identical(other.description, description) ||
+                other.description == description) &&
+            (identical(other.quantity, quantity) ||
+                other.quantity == quantity) &&
+            (identical(other.city, city) || other.city == city) &&
+            (identical(other.pickupDetails, pickupDetails) ||
+                other.pickupDetails == pickupDetails) &&
             const DeepCollectionEquality().equals(other._images, _images) &&
-            const DeepCollectionEquality().equals(other.status, status) &&
+            (identical(other.status, status) || other.status == status) &&
             const DeepCollectionEquality()
                 .equals(other._donatedTo, _donatedTo) &&
-            const DeepCollectionEquality().equals(other.createdAt, createdAt) &&
-            const DeepCollectionEquality().equals(other.updatedAt, updatedAt));
+            (identical(other.createdAt, createdAt) ||
+                other.createdAt == createdAt) &&
+            (identical(other.updatedAt, updatedAt) ||
+                other.updatedAt == updatedAt));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(id),
-      const DeepCollectionEquality().hash(donorId),
+      id,
+      donorId,
       const DeepCollectionEquality().hash(_categories),
-      const DeepCollectionEquality().hash(description),
-      const DeepCollectionEquality().hash(quantity),
-      const DeepCollectionEquality().hash(city),
-      const DeepCollectionEquality().hash(pickupDetails),
+      description,
+      quantity,
+      city,
+      pickupDetails,
       const DeepCollectionEquality().hash(_images),
-      const DeepCollectionEquality().hash(status),
+      status,
       const DeepCollectionEquality().hash(_donatedTo),
-      const DeepCollectionEquality().hash(createdAt),
-      const DeepCollectionEquality().hash(updatedAt));
+      createdAt,
+      updatedAt);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_DonationsCopyWith<_$_Donations> get copyWith =>
       __$$_DonationsCopyWithImpl<_$_Donations>(this, _$identity);
 

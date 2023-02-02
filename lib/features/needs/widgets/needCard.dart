@@ -38,7 +38,8 @@ class NeedCard extends StatelessWidget {
                         ),
                         fit: BoxFit.cover,
                         alignment: Alignment.topCenter)),
-                // child: Badge(
+                // child:
+                // Badge(
                 //   badgeContent: const Text(
                 //     "Campaign",
                 //     style: TextStyle(color: whiteColor),
