@@ -19,7 +19,7 @@ class DonatedDetails extends StatelessWidget {
           children: [
             // Doners Section
             Container(
-              margin: EdgeInsets.all(10.h),
+              margin: EdgeInsets.only(top: 20.h, bottom: 10.h),
               alignment: Alignment.center,
               child: CustomText(
                 text: "Doner Details",
@@ -28,10 +28,9 @@ class DonatedDetails extends StatelessWidget {
               ),
             ),
             Card(
-              margin: EdgeInsets.symmetric(vertical: 10.h, horizontal: 20.h),
+              margin: EdgeInsets.symmetric(vertical: 5.h, horizontal: 20.h),
               child: Container(
                 padding: EdgeInsets.all(10.h),
-                height: MediaQuery.of(context).size.height * 0.25,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -47,10 +46,9 @@ class DonatedDetails extends StatelessWidget {
                 ),
               ),
             ),
-
             // Beneficiary section
             Container(
-              margin: EdgeInsets.all(10.h),
+              margin: EdgeInsets.only(top: 20.h, bottom: 10.h),
               alignment: Alignment.center,
               child: CustomText(
                 text: "Beneficiary Details",
@@ -59,10 +57,9 @@ class DonatedDetails extends StatelessWidget {
               ),
             ),
             Card(
-              margin: EdgeInsets.symmetric(vertical: 10.h, horizontal: 20.h),
+              margin: EdgeInsets.symmetric(vertical: 5.h, horizontal: 20.h),
               child: Container(
                 padding: EdgeInsets.all(10.h),
-                height: MediaQuery.of(context).size.height * 0.25,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [

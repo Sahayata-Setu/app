@@ -47,7 +47,7 @@ import 'package:donationapp/features/volunteer/volunteer.dart';
 import '../features/donations/Dontations.dart';
 
 @MaterialAutoRouter(routes: [
-  MaterialRoute(page: AuthCheckWidget, initial: true),
+  MaterialRoute(page: AuthCheckWidget),
 
   MaterialRoute(page: SplashScreen, path: "/splash"),
   MaterialRoute(page: MobileNumber, path: "/mobile-number"),
@@ -90,11 +90,14 @@ import '../features/donations/Dontations.dart';
   MaterialRoute(page: AdminDashBoardData, path: "/admin-dashboard"),
   MaterialRoute(page: OtpVerification, path: "/otp-verification"),
   // MaterialRoute(page: CampiagnDetails, path: "/campains-single-detail"),
-  MaterialRoute(page: ViewUsers, path: "/view-user"),
   MaterialRoute(
     page: MessageDetails,
     path: "/message/:receiverName/:receiverId",
   ),
+
+  // Admin users section
+  MaterialRoute(page: ViewUsers, path: "/view-user", initial: true),
+  MaterialRoute(page: UserDetails, path: "/userDetails"),
 
   // Admin Donations
   MaterialRoute(page: ViewDonations, path: "/donations-list"),
@@ -110,6 +113,8 @@ import '../features/donations/Dontations.dart';
   MaterialRoute(
       page: VolunteerApplicationDetails,
       path: "/volunteer-application-details"),
+
+  // Admin Profile Section
   MaterialRoute(page: AdminProfile, path: "/admin-profile"),
 ])
 @CustomAutoRouter(routes: [])

@@ -163,12 +163,10 @@ class Menu_Drawer extends ConsumerWidget {
                 "assets/images/application.png",
                 height: 16.h,
               ),
-              title: Flexible(
-                child: CustomText(
-                  text: "Applications",
-                  fontColor: whiteColor,
-                  fontSize: 18.sp,
-                ),
+              title: CustomText(
+                text: "Applications",
+                fontColor: whiteColor,
+                fontSize: 18.sp,
               ),
               onTap: () {
                 Navigator.pop(context);

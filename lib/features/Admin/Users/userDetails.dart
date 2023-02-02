@@ -17,7 +17,7 @@ class UserDetails extends StatelessWidget {
       ),
       drawer: Menu_Drawer(),
       body: Container(
-        padding: EdgeInsets.fromLTRB(10.h, 5.h, 20.h, 10.h),
+        padding: EdgeInsets.fromLTRB(10.h, 5.h, 10.h, 10.h),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
@@ -27,10 +27,8 @@ class UserDetails extends StatelessWidget {
               ),
             ),
             Card(
-              // margin: EdgeInsets.symmetric(vertical: 10.h, horizontal: 20.h),
               child: Container(
-                padding: EdgeInsets.all(10.h),
-                height: MediaQuery.of(context).size.height * 0.5,
+                margin: EdgeInsets.all(10.h),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
