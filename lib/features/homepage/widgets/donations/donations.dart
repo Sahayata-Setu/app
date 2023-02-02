@@ -24,7 +24,7 @@ class DonationsHome extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     // log("this is for donations home${donationsData}");
     // final donationsDetails = donationsData['body'].toList();
-    final data = ref.watch(donationsOrRequestProvider("donation"));
+    final data = ref.watch(donationsOrRequestProvider("donations"));
 
     // final donationDetails = ref.watch(donationsOrRequestProvider('donations'));
     // log("This is from donations ${donationsDetails}");

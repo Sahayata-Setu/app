@@ -19,7 +19,6 @@ class Campaigns extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final approvedCampagins = ref.watch(getApprovedCampaignsProvider(""));
-    // log("Campagins: ${approvedCampagins}");
 
     return Container(
         margin: EdgeInsets.only(bottom: kMargin.h),
@@ -55,43 +54,40 @@ class Campaigns extends ConsumerWidget {
             ),
             approvedCampagins.when(
               data: (data) {
-                final datas = data['body'];
+                List datas = data['body'].toList();
+                log("Campagins: ${datas}");
 
                 return Container(
                   height: 250.h,
                   margin: EdgeInsets.only(top: 5.h),
-                  child: ListView.builder(
-                    itemCount: datas.length,
-                    itemBuilder: (c, i) {
-                      return CarouselSlider(
-                        items: [
-                          ImageOverlay(
-                            border_radius: true,
-                            image: "${datas[i]['images'][0]}",
-                            title: "${datas[i]['title']}",
-                            location: "${datas[i]['city']}",
-                            height: 250.h,
-                            width: double.infinity,
-                            showShareBtn: false,
-                          ),
-
-                          // ImageOverlay(image: "assets/images/needy/poor1.jpg"),
-                          // ImageOverlay(image: "assets/images/needy/needy3.jpg"),
-                          // ImageOverlay(image: "assets/images/needy/poor2.jpg"),
-                        ],
-                        options: CarouselOptions(
+                  child: CarouselSlider(
+                    items: datas.map((e) {
+                      return GestureDetector(
+                        onTap: () {
+                          routeTo("/campaigns/${e['_id']}", context);
+                        },
+                        child: ImageOverlay(
+                          border_radius: true,
+                          image: "${e['images'][0]}",
+                          title: "${e['title']}",
+                          location: "${e['city']}",
                           height: 250.h,
-                          enlargeCenterPage: true,
-                          autoPlay: true,
-                          //aspectRatio: 2 / 9,
-                          autoPlayCurve: Curves.fastOutSlowIn,
-                          enableInfiniteScroll: true,
-                          autoPlayAnimationDuration:
-                              const Duration(milliseconds: 800),
-                          viewportFraction: 0.9,
+                          width: double.infinity,
+                          showShareBtn: false,
                         ),
                       );
-                    },
+                    }).toList(),
+                    options: CarouselOptions(
+                      height: 250.h,
+                      enlargeCenterPage: true,
+                      autoPlay: true,
+                      //aspectRatio: 2 / 9,
+                      autoPlayCurve: Curves.fastOutSlowIn,
+                      enableInfiniteScroll: true,
+                      autoPlayAnimationDuration:
+                          const Duration(milliseconds: 800),
+                      viewportFraction: 0.9,
+                    ),
                   ),
                 );
               },
