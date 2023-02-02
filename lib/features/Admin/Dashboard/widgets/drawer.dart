@@ -36,143 +36,176 @@ class Menu_Drawer extends ConsumerWidget {
           left: kPadding.w + 20.w,
         ),
         child: ListView(
-            // Important: Remove any padding from the ListView.
-            padding: EdgeInsets.zero,
-            children: [
-              DrawerHeader(
-                decoration: BoxDecoration(
-                    // color: Colors.blue,
-                    ),
-                child: InkWell(
-                  child: LineIcon.times(
-                    color: whiteColor,
-                    size: 30.h,
+          // Important: Remove any padding from the ListView.
+          padding: EdgeInsets.zero,
+          children: [
+            DrawerHeader(
+              decoration: BoxDecoration(
+                  // color: Colors.blue,
                   ),
-                  onTap: () {
-                    Navigator.pop(context);
-                  },
+              child: InkWell(
+                child: LineIcon.times(
+                  color: whiteColor,
+                  size: 30.h,
                 ),
-
-                // * Previous Code is below
-
-                // child: IconButton(
-                //   onPressed: () {
-                //     Navigator.pop(context);
-                //   },
-                //   icon: Icon(Icons.close),
-                // ),
-
-                // * Upto here
+                onTap: () {
+                  Navigator.pop(context);
+                },
               ),
 
-              // ****************************
-              // This is for temporary stage only
-              // ****************************
+              // * Previous Code is below
 
-              ListTile(
-                  title: CustomText(
-                    text: "User Home",
-                    fontColor: whiteColor,
-                    fontSize: 18.sp,
-                  ),
-                  onTap: () {
-                    Navigator.pop(context);
-                    routeTo("/homepage", context);
-                  }),
+              // child: IconButton(
+              //   onPressed: () {
+              //     Navigator.pop(context);
+              //   },
+              //   icon: Icon(Icons.close),
+              // ),
 
-              // ****************************
-              // Todo: Above ListTile should be removed
-              // ****************************
+              // * Upto here
+            ),
 
-              ListTile(
-                  title: CustomText(
-                    text: "Dashboard",
-                    fontColor: whiteColor,
-                    fontSize: 18.sp,
-                  ),
-                  onTap: () {
-                    Navigator.pop(context);
-                    routeTo("/admin-dashboard", context);
-                  }),
-              ListTile(
-                  title: CustomText(
-                    text: "Users",
-                    fontColor: whiteColor,
-                    fontSize: 18.sp,
-                  ),
-                  onTap: () {
-                    Navigator.pop(context);
-                    routeTo("/view-user", context);
-                  }),
-              ListTile(
-                  title: CustomText(
-                    text: "Messages",
-                    fontColor: whiteColor,
-                    fontSize: 18.sp,
-                  ),
-                  onTap: () {
-                    Navigator.pop(context);
-                    // Todo: Insert route of admin messages
-                    routeTo("/", context);
-                  }),
-              ListTile(
+            // ****************************
+            // This is for temporary stage only
+            // ****************************
+
+            ListTile(
                 title: CustomText(
-                  text: "Donations",
+                  text: "User Home",
                   fontColor: whiteColor,
                   fontSize: 18.sp,
                 ),
                 onTap: () {
                   Navigator.pop(context);
-                  routeTo("/donations-list", context);
-                },
-              ),
-              ListTile(
+                  routeTo("/homepage", context);
+                }),
+
+            // ****************************
+            // Todo: Above ListTile should be removed
+            // ****************************
+
+            ListTile(
+                leading: Image.asset(
+                  "assets/images/dashboard.png",
+                  height: 16.h,
+                ),
                 title: CustomText(
-                  text: "Requests",
+                  text: "Dashboard",
                   fontColor: whiteColor,
                   fontSize: 18.sp,
                 ),
                 onTap: () {
                   Navigator.pop(context);
-                  // Todo: Insert route of admin request list
-                  routeTo("/requests", context);
-                },
-              ),
-              ListTile(
+                  routeTo("/admin-dashboard", context);
+                }),
+            ListTile(
+                leading: Image.asset(
+                  "assets/images/user.png",
+                  height: 16.h,
+                ),
                 title: CustomText(
-                  text: "Volunteer Application",
+                  text: "Users",
                   fontColor: whiteColor,
                   fontSize: 18.sp,
                 ),
                 onTap: () {
                   Navigator.pop(context);
-                  // Todo: Insert route of admin request list
-                  routeTo("/view-volunteer-applications", context);
-                },
-              ),
-              ListTile(
+                  routeTo("/view-user", context);
+                }),
+            ListTile(
+                leading: Image.asset(
+                  "assets/images/message.png",
+                  height: 16.h,
+                ),
                 title: CustomText(
-                  text: "Profile",
+                  text: "Messages",
                   fontColor: whiteColor,
                   fontSize: 18.sp,
                 ),
                 onTap: () {
-                  // Navigator.pop(context)
-                  // Todo: Insert route of admin profile
+                  Navigator.pop(context);
+                  // Todo: Insert route of admin messages
                   routeTo("/", context);
-                },
+                }),
+            ListTile(
+              leading: Image.asset(
+                "assets/images/donation.png",
+                height: 16.h,
               ),
-              ListTile(
-                title: CustomText(
-                  text: "Logout",
+              title: CustomText(
+                text: "Donations",
+                fontColor: whiteColor,
+                fontSize: 18.sp,
+              ),
+              onTap: () {
+                Navigator.pop(context);
+                routeTo("/donations-list", context);
+              },
+            ),
+            ListTile(
+              // Icon not defined yet
+              leading: Image.asset(
+                "assets/images/requests.png",
+                height: 16.h,
+              ),
+              title: CustomText(
+                text: "Requests",
+                fontColor: whiteColor,
+                fontSize: 18.sp,
+              ),
+              onTap: () {
+                Navigator.pop(context);
+                routeTo("/requests", context);
+              },
+            ),
+            ListTile(
+              leading: Image.asset(
+                "assets/images/application.png",
+                height: 16.h,
+              ),
+              title: Flexible(
+                child: CustomText(
+                  text: "Applications",
                   fontColor: whiteColor,
                   fontSize: 18.sp,
                 ),
-                onTap: () {
-                  handleLogout();
-                },
               ),
-            ]),
+              onTap: () {
+                Navigator.pop(context);
+                routeTo("/view-volunteer-applications", context);
+              },
+            ),
+            ListTile(
+              leading: Image.asset(
+                "assets/images/user.png",
+                height: 16.h,
+              ),
+              title: CustomText(
+                text: "Profile",
+                fontColor: whiteColor,
+                fontSize: 18.sp,
+              ),
+              onTap: () {
+                Navigator.pop(context);
+                routeTo("/admin-profile", context);
+              },
+            ),
+            ListTile(
+              leading: Image.asset(
+                "assets/images/logout.png",
+                height: 16.h,
+              ),
+              title: CustomText(
+                text: "Logout",
+                fontColor: whiteColor,
+                fontSize: 18.sp,
+              ),
+              onTap: () {
+                handleLogout();
+              },
+            ),
+          ],
+        ),
       ),
     );
   }

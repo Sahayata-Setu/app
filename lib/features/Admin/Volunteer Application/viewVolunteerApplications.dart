@@ -28,6 +28,14 @@ class ViewVolunteerApplications extends StatelessWidget {
               onTap: () {
                 routeTo("/volunteer-application-details", context);
               },
+            ),
+            InkWell(
+              child: VolunteerCard(
+                name: "Tasnimul Hasan Tauhid",
+              ),
+              onTap: () {
+                routeTo("/volunteer-application-details", context);
+              },
             )
           ],
         ),

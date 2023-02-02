@@ -9,6 +9,7 @@ class VolunteerCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
+      elevation: 0,
       child: Container(
         padding: EdgeInsets.all(10.h),
         child: Row(
