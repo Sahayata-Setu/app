@@ -1,5 +1,8 @@
 import 'package:donationapp/services/homepage/homepage.service.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
+part 'homepage.store.freezed.dart';
+// part 'homepage.data.provider.g.dart';
 
 final categoriesProvider = StateProvider((ref) => true);
 
@@ -42,11 +45,30 @@ final donationsByCategoryProvider =
   },
 );
 
-//Get donations by category
-final needsByCategoryProvider =
+//Get Campaigns By ID
+final singleCampaignsByIdProvider =
     FutureProvider.family<Map<String, dynamic>, String>(
-  (ref, category) {
-    return ref.watch(homePageService).getNeedsByCategory(category);
+  (ref, id) {
+    return ref.watch(homePageService).getSingleCampaignsById(id);
+  },
+);
+
+//Get donations by category
+
+@freezed
+abstract class MyParameter with _$MyParameter {
+  factory MyParameter({
+    required String type,
+    required String category,
+  }) = _MyParameter;
+}
+
+final needsByCategoryProvider =
+    FutureProvider.family<Map<String, dynamic>, MyParameter>(
+  (ref, myparameter) {
+    return ref
+        .watch(homePageService)
+        .getNeedsByCategory(myparameter.type, myparameter.category);
   },
 );
 

@@ -22,7 +22,7 @@ class NeedsHome extends ConsumerWidget {
     // final needDetails = data['body'].toList();
     // log("this is from needs page ${needDetails}");
 
-    final data = ref.watch(getAllNeedsProvider(""));
+    final data = ref.watch(donationsOrRequestProvider("requests"));
     // log("This is data from needs section: ${data}");
     // final badge1 = ref.watch(needsByCategoryProvider(category));
 
@@ -50,7 +50,11 @@ class NeedsHome extends ConsumerWidget {
                   DonationsCategory(
                     text: translation(context).food,
                     // icon: Icons.food_bank,
+                    type: "need",
+
                     imageName: "foods",
+                    category: "Food",
+
                     badge: 33,
                     url: "/needs/Food",
                     forPadding: 15.0,
@@ -59,6 +63,9 @@ class NeedsHome extends ConsumerWidget {
                     text: translation(context).toys,
                     badge: 9,
                     // icon: Icons.toys,
+                    type: "need",
+                    category: "Toys",
+
                     imageName: "toys",
                     url: "/needs/Toys",
                     forPadding: 10.0,
@@ -66,6 +73,9 @@ class NeedsHome extends ConsumerWidget {
                   DonationsCategory(
                     text: translation(context).books,
                     badge: 8,
+                    type: "need",
+                    category: "Books",
+
                     imageName: "books",
                     // icon: Icons.library_books,
                     url: "/needs/Books",
@@ -74,8 +84,12 @@ class NeedsHome extends ConsumerWidget {
                   DonationsCategory(
                     text: translation(context).clothes,
                     badge: 10,
+                    category: "Clothes",
+
                     url: "/needs/Clothes",
                     imageName: "clothes",
+                    type: "need",
+
                     forPadding: 15.0,
                     // icon: Icons.person,
                   ),

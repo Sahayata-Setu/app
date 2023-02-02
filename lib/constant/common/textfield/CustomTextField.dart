@@ -1,8 +1,6 @@
 import 'dart:developer';
 
-import 'package:donationapp/constant/common/Text/custom-text.dart';
 import 'package:donationapp/constant/kconstant.dart';
-import 'package:donationapp/store/login/login.store.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -77,7 +75,7 @@ class CustomTextField extends StatelessWidget {
           // fillColor: whiteColor,
         ),
         onChanged: (value) {
-          refs.state[name] = value;
+          refs.state[name] = value.trim();
         },
       ),
     );

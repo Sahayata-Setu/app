@@ -10,6 +10,7 @@ import 'package:donationapp/features/account-settings/account-settings.dart';
 import 'package:donationapp/features/apply-for-volunteer/apply-for-volunteer.dart';
 import 'package:donationapp/features/campaigns/campaignDetails.dart';
 import 'package:donationapp/features/campaigns/campaignsList.dart';
+import 'package:donationapp/features/campaigns/widgets/campiganDetailsListings.dart';
 import 'package:donationapp/features/campaigns/widgets/createCampaign.dart';
 import 'package:donationapp/features/certifications/widgets/certificatePrint.dart';
 import 'package:donationapp/features/change-location/change-location.dart';
@@ -28,6 +29,8 @@ import 'package:donationapp/features/needs/widgets/needDetail.dart';
 import 'package:donationapp/features/needs/widgets/needDetail.data.dart';
 import 'package:donationapp/features/new-message/all-messages.dart';
 import 'package:donationapp/features/notifications/notifications.dart';
+import 'package:donationapp/features/otp/mobile-number.dart';
+import 'package:donationapp/features/otp/otp-verification.dart';
 import 'package:donationapp/features/profile/user-profile.dart';
 import 'package:donationapp/features/profile/user-profile.data.dart';
 import 'package:donationapp/features/search-page/search-page.dart';
@@ -36,8 +39,11 @@ import 'package:donationapp/features/volunteer/volunteer.dart';
 import '../features/donations/Dontations.dart';
 
 @MaterialAutoRouter(routes: [
-  MaterialRoute(page: AuthCheckWidget),
+  MaterialRoute(page: AuthCheckWidget, initial: true),
+
   MaterialRoute(page: SplashScreen, path: "/splash"),
+  MaterialRoute(page: MobileNumber, path: "/mobile-number"),
+
   MaterialRoute(page: Signup, path: "/signup"),
   // MaterialRoute(page: Signup, path: "/signup"),
   MaterialRoute(page: HomePage, path: "/homepage"),
@@ -74,7 +80,9 @@ import '../features/donations/Dontations.dart';
   MaterialRoute(page: ApproveVolunter, path: "/approveVolunter/:id"),
 
   MaterialRoute(page: AdminDashBoardData, path: "/admin-dashboard"),
-  MaterialRoute(page: ViewUsers, path: "/view-user", initial: true),
+  MaterialRoute(page: OtpVerification, path: "/otp-verification"),
+  // MaterialRoute(page: CampiagnDetails, path: "/campains-single-detail"),
+  MaterialRoute(page: ViewUsers, path: "/view-user"),
   MaterialRoute(
       page: MessageDetails, path: "/message/:receiverName/:receiverId"),
 ])

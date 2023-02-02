@@ -34,19 +34,14 @@ class CampaignCards extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          GestureDetector(
-            onTap: () {
-              routeTo("/campaigns/:id", context);
-            }, //go to /campaigns/:id
-            child: ImageOverlay(
-                border_radius: false,
-                image: image,
-                location: location,
-                title: title,
-                height: 200.h,
-                width: double.infinity,
-                showShareBtn: false),
-          ),
+          ImageOverlay(
+              border_radius: false,
+              image: image,
+              location: location,
+              title: title,
+              height: 200.h,
+              width: double.infinity,
+              showShareBtn: false),
           Container(
             padding: EdgeInsets.only(
                 bottom: 10.w, left: 10.w, right: 10.w, top: 10.w),
