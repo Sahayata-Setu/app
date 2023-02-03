@@ -69,16 +69,16 @@ class Menu_Drawer extends ConsumerWidget {
             // This is for temporary stage only
             // ****************************
 
-            ListTile(
-                title: CustomText(
-                  text: "User Home",
-                  fontColor: whiteColor,
-                  fontSize: 18.sp,
-                ),
-                onTap: () {
-                  Navigator.pop(context);
-                  routeTo("/homepage", context);
-                }),
+            // ListTile(
+            //     title: CustomText(
+            //       text: "User Home",
+            //       fontColor: whiteColor,
+            //       fontSize: 18.sp,
+            //     ),
+            //     onTap: () {
+            //       Navigator.pop(context);
+            //       routeTo("/homepage", context);
+            //     }),
 
             // ****************************
             // Todo: Above ListTile should be removed
@@ -87,7 +87,7 @@ class Menu_Drawer extends ConsumerWidget {
             ListTile(
                 leading: Image.asset(
                   "assets/images/dashboard.png",
-                  height: 16.h,
+                  height: 18.h,
                 ),
                 title: CustomText(
                   text: "Dashboard",
@@ -101,7 +101,7 @@ class Menu_Drawer extends ConsumerWidget {
             ListTile(
                 leading: Image.asset(
                   "assets/images/user.png",
-                  height: 16.h,
+                  height: 18.h,
                 ),
                 title: CustomText(
                   text: "Users",
@@ -115,7 +115,7 @@ class Menu_Drawer extends ConsumerWidget {
             ListTile(
                 leading: Image.asset(
                   "assets/images/message.png",
-                  height: 16.h,
+                  height: 18.h,
                 ),
                 title: CustomText(
                   text: "Messages",
