@@ -41,7 +41,7 @@ class AdminProfile extends StatelessWidget {
               alignment: Alignment.center,
               margin: EdgeInsets.only(
                 top: 15.h,
-                bottom: 10.h,
+                bottom: 15.h,
               ),
               child: PrimaryCustomButton(
                 child: CustomText(
@@ -53,14 +53,22 @@ class AdminProfile extends StatelessWidget {
                 },
               ),
             ),
-            InkWell(
-              child: CustomText(
-                text: "Change Password ?",
-                fontSize: 14.sp,
+            Expanded(
+              child: Align(
+                alignment: FractionalOffset.bottomCenter,
+                child: MaterialButton(
+                  onPressed: () => {
+                    routeTo(
+                      "/admin-change-password",
+                      context,
+                    ),
+                  },
+                  child: CustomText(
+                    text: "Change Password ?",
+                    fontSize: 16.sp,
+                  ),
+                ),
               ),
-              onTap: () {
-                routeTo("", context);
-              },
             ),
           ],
         ),

@@ -23,7 +23,7 @@ class RequestDetails extends StatelessWidget {
       ),
       drawer: Menu_Drawer(),
       body: Container(
-        margin: EdgeInsets.symmetric(vertical: 10.h, horizontal: 15.h),
+        margin: EdgeInsets.all(10.h),
         child: Column(
           children: [
             // * Image section is remaining
@@ -34,10 +34,9 @@ class RequestDetails extends StatelessWidget {
             ),
             Card(
               child: Container(
-                padding: EdgeInsets.all(10.h),
-                margin: EdgeInsets.symmetric(vertical: 10.h),
+                margin: EdgeInsets.all(10.h),
                 child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     DetailTile(title: "Category", value: "Foods"),

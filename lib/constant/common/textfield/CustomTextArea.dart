@@ -5,21 +5,24 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomTextArea extends StatelessWidget {
-  const CustomTextArea({
-    super.key,
-    required this.text,
-    this.value,
-    this.hint,
-    this.fontSize,
-    this.contentPadding,
-    this.isPhoneNo,
-  });
+  const CustomTextArea(
+      {super.key,
+      required this.text,
+      this.value,
+      this.hint,
+      this.fontSize,
+      this.contentPadding,
+      this.isPhoneNo,
+      this.refs,
+      this.isObscure});
   final value;
   final hint;
   final String text;
   final fontSize;
   final isPhoneNo;
   final contentPadding;
+  final refs;
+  final isObscure;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -51,6 +54,11 @@ class CustomTextArea extends StatelessWidget {
               fontSize: 16.sp,
             ),
             initialValue: value ?? null,
+            obscureText: isObscure ?? false,
+
+            // onChanged: (value) {
+            //   refs.state[text] = value.trim();
+            // },
           ),
         ),
       ],
