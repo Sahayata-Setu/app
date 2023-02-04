@@ -6,10 +6,12 @@ import "package:flutter/material.dart";
 import "package:flutter_screenutil/flutter_screenutil.dart";
 
 class DetailTile extends StatelessWidget {
-  const DetailTile({super.key, required this.title, required this.value});
+  const DetailTile(
+      {super.key, required this.title, required this.value, this.fontColor});
 
   final String title;
   final String value;
+  final fontColor;
 
   @override
   Widget build(BuildContext context) {
@@ -22,12 +24,13 @@ class DetailTile extends StatelessWidget {
             text: title,
             fontSize: 16.sp,
             fontWeight: FontWeight.w500,
-            fontColor: textColor,
+            fontColor: fontColor ?? textColor,
           ),
           CustomText(
             text: value,
             fontSize: 15.sp,
             fontWeight: FontWeight.w400,
+            fontColor: fontColor ?? textColor,
           )
         ],
       ),

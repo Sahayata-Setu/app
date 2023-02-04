@@ -96,7 +96,7 @@ class Menu_Drawer extends ConsumerWidget {
                 ),
                 onTap: () {
                   Navigator.pop(context);
-                  routeTo("/admin-dashboard", context);
+                  routeTo("/new-admin-dashboard", context);
                 }),
             ListTile(
                 leading: Image.asset(

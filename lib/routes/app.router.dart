@@ -6,6 +6,7 @@ import 'package:donationapp/features/Admin/Dashboard/admin-dashboard.data.dart';
 import 'package:donationapp/features/Admin/Dashboard/adminDashboard.dart';
 import 'package:donationapp/features/Admin/Donations/donatedDetails.dart';
 import 'package:donationapp/features/Admin/Donations/viewDonations.dart';
+import 'package:donationapp/features/Admin/NewDashboard/new-admin-dashboard.dart';
 import 'package:donationapp/features/Admin/Profile/adminChangePassword.dart';
 import 'package:donationapp/features/Admin/Profile/adminProfile.dart';
 import 'package:donationapp/features/Admin/Requests/requestDetails.dart';
@@ -49,7 +50,7 @@ import 'package:donationapp/features/volunteer/volunteer.dart';
 import '../features/donations/Dontations.dart';
 
 @MaterialAutoRouter(routes: [
-  MaterialRoute(page: AuthCheckWidget),
+  MaterialRoute(page: AuthCheckWidget, initial: true),
 
   MaterialRoute(page: SplashScreen, path: "/splash"),
   MaterialRoute(page: MobileNumber, path: "/mobile-number"),
@@ -97,8 +98,11 @@ import '../features/donations/Dontations.dart';
     path: "/message/:receiverName/:receiverId",
   ),
 
+  // Admin New Dashboard
+  MaterialRoute(page: NewAdminDashboard, path: "/new-admin-dashboard"),
+
   // Admin users section
-  MaterialRoute(page: ViewUsers, path: "/view-user", initial: true),
+  MaterialRoute(page: ViewUsers, path: "/view-user"),
   MaterialRoute(page: UserDetails, path: "/userDetails"),
 
   // Admin Donations
