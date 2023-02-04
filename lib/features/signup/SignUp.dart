@@ -24,6 +24,9 @@ class Signup extends ConsumerWidget {
 
     const languages = ["english", "hindi", "gujarati"];
     const gender = ["male", "female", "other"];
+    final phoneNo = ref.watch(signUpDetailsProvider);
+
+    log("Phone No: ${phoneNo['phoneNo']}");
     // log("$signUpRef");
 
     handleSumbit() async {
@@ -87,6 +90,8 @@ class Signup extends ConsumerWidget {
                   refs: ref.read(signUpDetailsProvider.notifier),
                   label: "Phone Number",
                   name: "phoneNo",
+                  value: phoneNo['phoneNo'],
+                  readOnly: true,
                 ),
                 CustomTextField(
                   refs: ref.read(signUpDetailsProvider.notifier),

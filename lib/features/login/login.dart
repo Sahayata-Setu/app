@@ -74,7 +74,6 @@ class _LoginState extends ConsumerState<Login> {
         }
 
         // ignore: use_build_context_synchronously
-
       } catch (e) {
         log('$e the success');
         const snackBar = SnackBar(
@@ -167,7 +166,7 @@ class _LoginState extends ConsumerState<Login> {
                     ),
               TextButton(
                 onPressed: () {
-                  replaceRouteTo("/signup", context);
+                  routeTo("/mobile-number", context);
                 },
                 child: Text("Need an account? Signup"),
               )

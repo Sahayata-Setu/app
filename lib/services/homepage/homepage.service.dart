@@ -145,6 +145,28 @@ class HomepageServiceClass {
       throw Exception("Invalid Request $e");
     }
   }
+
+  //Create Request for donation
+  Future<Map<String, dynamic>> createRequestForDonation(data) async {
+    try {
+      final token = StorageService.getToken();
+      // log("Hello ${category}");
+      final response = await _client.post(
+        "/approval/create-request",
+        data: data,
+        options: Options(
+          headers: {"Authorization": "Bearer ${token}"},
+        ),
+      );
+
+      log("this is from app ${response}");
+
+      return response;
+    } catch (e) {
+      log("this is error$e");
+      throw Exception("Invalid Request $e");
+    }
+  }
 }
 
 final homePageService =

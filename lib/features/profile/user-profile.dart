@@ -125,6 +125,15 @@ class UserProfile extends ConsumerWidget {
                   imageName: "volunteer",
                 ),
               ),
+              // GestureDetector(
+              //   onTap: () {
+              //     // routeTo("/apply-volunteer", context);
+              //   },
+              //   child: UserProfileOptions(
+              //     text: translation(context).applyVolunter,
+              //     imageName: "volunteer",
+              //   ),
+              // ),
               userType == "admin"
                   ? GestureDetector(
                       onTap: () {
@@ -145,9 +154,9 @@ class UserProfile extends ConsumerWidget {
                   imageName: "logout",
                 ),
               ),
-              SizedBox(
-                height: 20.h,
-              ),
+              // SizedBox(
+              //   height: 20.h,
+              // ),
               GestureDetector(
                 onTap: () {
                   // handleLogout();
