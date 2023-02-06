@@ -7,7 +7,7 @@ import 'package:donationapp/features/Admin/Users/widgets/detailTile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class NewAdminDashboard extends StatelewssWidget {
+class NewAdminDashboard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List listItem = [
@@ -16,27 +16,26 @@ class NewAdminDashboard extends StatelewssWidget {
       {"title": "New Users", "value": "99"},
       {"title": "New Volunteers", "value": "99"},
       {"title": "Pending Requests", "value": "99"},
-      {"title": "Total Campaigns", "value": "99"},
+      {"title": "Total Campaigns", "value": "9"},
     ];
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(60),
         child: AdminNavBar(title: "Dashboard"),
       ),
-      drawer: Menu_Drawer(),wh
+      drawer: Menu_Drawer(),
       body: Column(
         children: [
           Container(
             height: 250.h,
             margin: EdgeInsets.symmetric(
               vertical: 15.h,
-              // horizontal: 10.h,
             ),
             child: ListView.builder(
               clipBehavior: Clip.hardEdge,
               scrollDirection: Axis.horizontal,
               itemCount: 4,
-              itemBuilder: (c, i) {
+              itemBuilder: (context, index) {
                 return Container(
                   width: 330.w,
                   margin: EdgeInsets.only(right: 5.w, left: 5.w),

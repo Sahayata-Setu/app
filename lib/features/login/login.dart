@@ -1,8 +1,8 @@
 import 'dart:developer';
-
 import 'package:donationapp/app.dart';
 import 'package:donationapp/constant/common/GoogleButtomNavBar/GoogleButtomNavBar.dart';
 import 'package:donationapp/constant/common/NavBar/navbar.dart';
+import 'package:donationapp/constant/common/textfield/CustomTextArea.dart';
 import 'package:donationapp/constant/kconstant.dart';
 import 'package:donationapp/constant/modules/signup/signup.class.dart';
 import 'package:donationapp/constant/common/textfield/CustomTextField.dart';
@@ -74,7 +74,6 @@ class _LoginState extends ConsumerState<Login> {
         }
 
         // ignore: use_build_context_synchronously
-
       } catch (e) {
         log('$e the success');
         const snackBar = SnackBar(
@@ -111,6 +110,9 @@ class _LoginState extends ConsumerState<Login> {
                 name: "email",
                 // refT: ref,
               ),
+              // CustomTextArea(
+              //   text: "Email",
+              // ),
               //Password Field
               Container(
                 padding: EdgeInsets.only(
