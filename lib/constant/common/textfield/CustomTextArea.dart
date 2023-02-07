@@ -15,8 +15,10 @@ class CustomTextArea extends ConsumerStatefulWidget {
     this.contentPadding,
     this.isPhoneNo,
     this.refs,
+    this.name,
     this.isObscure,
   });
+  final name;
   final value;
   final hint;
   final String text;
@@ -63,10 +65,9 @@ class _CustomTextAreaState extends ConsumerState<CustomTextArea> {
             ),
             initialValue: widget.value ?? null,
             obscureText: widget.isObscure ?? false,
-
-            // onChanged: (value) {
-            //   refs.state[text] = value.trim();
-            // },
+            onChanged: (value) {
+              widget.refs.state[widget.name] = value.trim();
+            },
           ),
         ),
       ],

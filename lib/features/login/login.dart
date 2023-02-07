@@ -2,6 +2,8 @@ import 'dart:developer';
 import 'package:donationapp/app.dart';
 import 'package:donationapp/constant/common/GoogleButtomNavBar/GoogleButtomNavBar.dart';
 import 'package:donationapp/constant/common/NavBar/navbar.dart';
+import 'package:donationapp/constant/common/Text/custom-text.dart';
+import 'package:donationapp/constant/common/button/primary-custom-botton.dart';
 import 'package:donationapp/constant/common/textfield/CustomTextArea.dart';
 import 'package:donationapp/constant/kconstant.dart';
 import 'package:donationapp/constant/modules/signup/signup.class.dart';
@@ -92,7 +94,7 @@ class _LoginState extends ConsumerState<Login> {
       ),
       component: Container(
         // height: 600.h,
-        height: MediaQuery.of(context).size.height,
+        height: MediaQuery.of(context).size.height - 70.h,
         color: SignupKConstant.backgroundColor,
         child: Container(
           padding: EdgeInsets.only(
@@ -104,53 +106,72 @@ class _LoginState extends ConsumerState<Login> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               LogoArea(),
-              CustomTextField(
-                refs: ref.read(loginDetailsProvider.notifier),
-                label: "Email",
-                name: "email",
-                // refT: ref,
-              ),
-              // CustomTextArea(
-              //   text: "Email",
+
+              // Old Email Field
+              // CustomTextField(
+              //   refs: ref.read(loginDetailsProvider.notifier),
+              //   label: "Email",
+              //   name: "email",
               // ),
-              //Password Field
+
+              // New Email Field
+              CustomTextArea(
+                text: "Email",
+                refs: ref.read(loginDetailsProvider.notifier),
+                name: "email",
+              ),
+
+              // New Password Field
               Container(
-                padding: EdgeInsets.only(
-                  bottom: kPadding.h,
+                margin: EdgeInsets.only(
+                  bottom: 10.h,
                 ),
-                child: TextFormField(
-                  obscureText: true,
-                  initialValue: "",
-                  // maxLines: lines == null ? null : lines,
-                  style: const TextStyle(
-                    color: blackColor,
-                  ),
-                  // obscureText: obText,
-                  decoration: const InputDecoration(
-                    hintText: "Password",
-                    hintStyle: TextStyle(
-                      color: Colors.grey,
-                    ),
-                    fillColor: whiteColor,
-                    // border: InputBorder.none,
-                    enabledBorder: UnderlineInputBorder(
-                      borderSide: BorderSide(
-                        color: blackColor,
-                      ),
-                    ),
-                    focusedBorder: UnderlineInputBorder(
-                      borderSide: BorderSide(
-                        color: blackColor,
-                      ),
-                    ),
-                    // fillColor: whiteColor,
-                  ),
-                  onChanged: (value) {
-                    ref.read(loginDetailsProvider.notifier).state["password"] =
-                        value;
-                  },
+                child: CustomTextArea(
+                  text: "Password",
+                  name: "password",
+                  isObscure: true,
+                  refs: ref.read(loginDetailsProvider.notifier),
                 ),
               ),
+
+              // Old Password Field
+              // Container(
+              //   padding: EdgeInsets.only(
+              //     bottom: kPadding.h,
+              //   ),
+              //   child: TextFormField(
+              //     obscureText: true,
+              //     initialValue: "",
+              //     // maxLines: lines == null ? null : lines,
+              //     style: const TextStyle(
+              //       color: blackColor,
+              //     ),
+              //     // obscureText: obText,
+              //     decoration: const InputDecoration(
+              //       hintText: "Password",
+              //       hintStyle: TextStyle(
+              //         color: Colors.grey,
+              //       ),
+              //       fillColor: whiteColor,
+              //       // border: InputBorder.none,
+              //       enabledBorder: UnderlineInputBorder(
+              //         borderSide: BorderSide(
+              //           color: blackColor,
+              //         ),
+              //       ),
+              //       focusedBorder: UnderlineInputBorder(
+              //         borderSide: BorderSide(
+              //           color: blackColor,
+              //         ),
+              //       ),
+              //       // fillColor: whiteColor,
+              //     ),
+              //     onChanged: (value) {
+              //       ref.read(loginDetailsProvider.notifier).state["password"] =
+              //           value;
+              //     },
+              //   ),
+              // ),
 
               //
               state
@@ -167,11 +188,38 @@ class _LoginState extends ConsumerState<Login> {
                       ),
                       child: Text("Login"),
                     ),
-              TextButton(
-                onPressed: () {
-                  replaceRouteTo("/signup", context);
-                },
-                child: Text("Need an account? Signup"),
+
+              // PrimaryCustomButton(
+              //     child: CustomText(
+              //       text: "Login",
+              //       fontSize: 16.sp,
+              //     ),
+              //     fn: () {
+              //       handleSumbit();
+              //     }),
+
+              Expanded(
+                child: Container(
+                  alignment: Alignment.bottomCenter,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      CustomText(
+                        text: "Don't have an account ?",
+                        fontSize: 14.sp,
+                      ),
+                      TextButton(
+                        onPressed: () {
+                          replaceRouteTo("/signup", context);
+                        },
+                        child: CustomText(
+                          text: "Sign Up",
+                          fontSize: 14.sp,
+                        ),
+                      )
+                    ],
+                  ),
+                ),
               )
             ],
           ),
