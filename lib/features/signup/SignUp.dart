@@ -142,13 +142,15 @@ class Signup extends ConsumerWidget {
                 ),
                 MainCustomDropDown(
                   list: gender,
-                  name: "Gender",
+                  name: "gender",
+                  title: "Gender",
                   refs: ref.read(signUpDetailsProvider.notifier),
                 ),
 
                 MainCustomDropDown(
                   list: languages,
-                  name: "Preferred Language",
+                  name: "language",
+                  title: "Preferred Language",
                   refs: ref.read(signUpDetailsProvider.notifier),
                 ),
 
@@ -211,6 +213,7 @@ class Signup extends ConsumerWidget {
                   height: 10.h,
                 ),
                 Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     CustomText(
                       text: "Already have an account ?",

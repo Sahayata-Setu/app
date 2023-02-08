@@ -9,9 +9,11 @@ class MainCustomDropDown extends StatelessWidget {
     this.refs,
     this.name,
     this.list,
+    this.title,
   });
   final refs;
   final name;
+  final title;
   final list;
 
   @override
@@ -22,7 +24,7 @@ class MainCustomDropDown extends StatelessWidget {
         Container(
           margin: EdgeInsets.only(bottom: 10.w, top: 10.h),
           child: CustomText(
-            text: name,
+            text: title,
             fontColor: blackColor,
             fontSize: 16.sp,
           ),

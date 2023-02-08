@@ -68,7 +68,7 @@ class _LoginState extends ConsumerState<Login> {
           replaceRouteTo("/volunteer", context);
         } else if (resp['userRole'] == "admin") {
           log("Hello");
-          replaceRouteTo("/admin-dashboard", context);
+          replaceRouteTo("/new-admin-dashboard", context);
           const snackBar = SnackBar(
             content: Text('Logged in'),
           );
