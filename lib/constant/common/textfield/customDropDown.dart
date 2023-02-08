@@ -44,8 +44,6 @@ class MainCustomDropDown extends StatelessWidget {
           ),
           onChanged: (value) {
             refs.state[name] = value.toString();
-            // ref.read(signUpDetailsProvider.notifier).state['gender'] =
-            //     value.toString();
           },
         ),
       ],
