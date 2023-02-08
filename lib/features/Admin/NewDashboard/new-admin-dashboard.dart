@@ -16,7 +16,7 @@ class NewAdminDashboard extends StatelessWidget {
       {"title": "New Users", "value": "99"},
       {"title": "New Volunteers", "value": "99"},
       {"title": "Pending Requests", "value": "99"},
-      {"title": "Total Campaigns", "value": "99"},
+      {"title": "Total Campaigns", "value": "9"},
     ];
     return Scaffold(
       appBar: PreferredSize(
@@ -30,13 +30,12 @@ class NewAdminDashboard extends StatelessWidget {
             height: 250.h,
             margin: EdgeInsets.symmetric(
               vertical: 15.h,
-              // horizontal: 10.h,
             ),
             child: ListView.builder(
               clipBehavior: Clip.hardEdge,
               scrollDirection: Axis.horizontal,
               itemCount: 4,
-              itemBuilder: (c, i) {
+              itemBuilder: (context, index) {
                 return Container(
                   width: 330.w,
                   margin: EdgeInsets.only(right: 5.w, left: 5.w),

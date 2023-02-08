@@ -27,15 +27,17 @@ class AdminProfile extends StatelessWidget {
             CustomTextArea(
               text: "Full Name",
               value: "Tasnimul",
+              name: "fullName",
             ),
             CustomTextArea(
-              text: "Phone No:",
-              value: "98xxxxxxxx",
-              isPhoneNo: true,
-            ),
+                text: "Phone No:",
+                value: "98xxxxxxxx",
+                isPhoneNo: true,
+                name: "phoneNo"),
             CustomTextArea(
               text: "Email",
               value: "tasnimul@gmail.com",
+              name: "email",
             ),
             Container(
               alignment: Alignment.center,

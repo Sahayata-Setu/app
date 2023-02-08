@@ -125,7 +125,7 @@ class Menu_Drawer extends ConsumerWidget {
                 onTap: () {
                   Navigator.pop(context);
                   // Todo: Insert route of admin messages
-                  routeTo("/", context);
+                  // routeTo("", context);
                 }),
             ListTile(
               leading: Image.asset(

@@ -23,17 +23,20 @@ class AdminChangePassword extends StatelessWidget {
               text: "Old Password",
               isObscure: true,
               value: "Hello",
+              name: "oldPassword",
             ),
             Container(
               margin: EdgeInsets.symmetric(vertical: 5.h),
               child: CustomTextArea(
                 text: "New Password",
                 isObscure: true,
+                name: "newPassword",
               ),
             ),
             CustomTextArea(
               text: "Confirm New Password",
               isObscure: true,
+              name: "newPassword",
             ),
             Container(
               margin: EdgeInsets.only(top: 15.h),
