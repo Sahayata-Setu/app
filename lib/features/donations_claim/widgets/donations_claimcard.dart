@@ -1,104 +1,42 @@
+import 'dart:convert';
+import 'dart:developer';
+
 import 'package:donationapp/constant/common/Text/custom-text.dart';
 import 'package:donationapp/constant/kconstant.dart';
 import 'package:donationapp/features/donations_claim/widgets/forpending.dart';
+import 'package:donationapp/helpers/convertToJsonObject.dart';
+import 'package:donationapp/utils/store-service/store.service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:line_icons/line_icon.dart';
 
 class DonationsClaimCard extends StatelessWidget {
   const DonationsClaimCard(
-      {super.key, this.categoryName, this.donationStatus, this.donationDate});
+      {super.key,
+      this.donation,
+      this.donationDate,
+      this.donorId,
+      this.recieverId,
+      this.donor_status,
+      this.reciever_status,
+      this.donor_name,
+      this.reciever_name,
+      this.donationPostId});
 
-  final categoryName;
-  final donationStatus;
+  final donation;
+  final donationPostId;
   final donationDate;
-
+  final donorId;
+  final donor_name;
+  final reciever_name;
+  final recieverId;
+  final donor_status;
+  final reciever_status;
   @override
   Widget build(BuildContext context) {
-    showWidget() {
-      if (donationStatus == "approved") {
-        return Row(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            Container(
-              height: 16.h,
-              width: 16.w,
-              decoration: BoxDecoration(
-                  color: Colors.green,
-                  borderRadius: BorderRadius.circular(5.r)),
-              child: Center(
-                child: Icon(
-                  Icons.check,
-                  color: Colors.white,
-                  size: 16.w,
-                ),
-              ),
-            ),
-            SizedBox(
-              width: 10.w,
-            ),
-            CustomText(
-              text: "Approved",
-              fontSize: 14.sp,
-              fontWeight: FontWeight.normal,
-            )
-          ],
-        );
-      } else if (donationStatus == "rejected") {
-        return Row(
-          children: [
-            Container(
-              height: 16.h,
-              width: 16.w,
-              decoration: BoxDecoration(
-                  color: Colors.red, borderRadius: BorderRadius.circular(5.r)),
-              child: Center(
-                child: Icon(
-                  Icons.cancel_outlined,
-                  color: Colors.white,
-                  size: 14.w,
-                ),
-              ),
-            ),
-            SizedBox(
-              width: 10.w,
-            ),
-            CustomText(
-              text: "Rejected",
-              fontSize: 14.sp,
-              fontWeight: FontWeight.normal,
-            )
-          ],
-        );
-      } else {
-        return Row(
-          children: [
-            Container(
-              height: 16.h,
-              width: 16.w,
-              decoration: BoxDecoration(
-                  color: Colors.amber,
-                  borderRadius: BorderRadius.circular(5.r)),
-              child: Center(
-                child: Icon(
-                  Icons.pending_actions_outlined,
-                  color: Colors.white,
-                  size: 14.w,
-                ),
-              ),
-            ),
-            SizedBox(
-              width: 10.w,
-            ),
-            CustomText(
-              text: "Pending",
-              fontSize: 14.sp,
-              fontWeight: FontWeight.normal,
-            )
-          ],
-        );
-      }
-    }
+    final userId = StorageService.getId();
+
+    log("Donations: ${donation}");
 
     return Card(
       shape: RoundedRectangleBorder(
@@ -120,16 +58,74 @@ class DonationsClaimCard extends StatelessWidget {
               children: [
                 Flexible(
                   child: CustomText(
-                    text: "${categoryName}",
+                    text: "${donation}",
                     fontSize: 18.sp,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                donationStatus == "pending" ? ForPending() : Text(""),
+                ForPending(
+                  donationId: donationPostId,
+                )
               ],
             ),
             SizedBox(
               height: 10.h,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                CustomText(
+                  text: "Donor Status:",
+                  fontSize: 14.sp,
+                  fontWeight: FontWeight.normal,
+                ),
+                CustomText(
+                  text: "${donor_status}",
+                  fontSize: 14.sp,
+                  fontWeight: FontWeight.bold,
+                ),
+                CustomText(
+                  text: "Reciever Status:",
+                  fontSize: 14.sp,
+                  fontWeight: FontWeight.normal,
+                ),
+                CustomText(
+                  text: "${reciever_status}",
+                  fontSize: 14.sp,
+                  fontWeight: FontWeight.bold,
+                )
+              ],
+            ),
+
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                CustomText(
+                  text: "Donor name:",
+                  fontSize: 14.sp,
+                  fontWeight: FontWeight.normal,
+                ),
+                CustomText(
+                  text: "${donor_name}",
+                  fontSize: 14.sp,
+                  fontWeight: FontWeight.bold,
+                ),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                CustomText(
+                  text: "Reciever name:",
+                  fontSize: 14.sp,
+                  fontWeight: FontWeight.normal,
+                ),
+                CustomText(
+                  text: "${reciever_name}",
+                  fontSize: 14.sp,
+                  fontWeight: FontWeight.bold,
+                )
+              ],
             ),
             // Row(
             //   children: [
@@ -140,7 +136,7 @@ class DonationsClaimCard extends StatelessWidget {
             //     )
             //   ],
             // ),
-            showWidget(),
+            // showWidget(),
             SizedBox(
               height: 10.h,
             ),

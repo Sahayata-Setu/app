@@ -1,8 +1,12 @@
+import 'dart:developer';
+
 import 'package:donationapp/app.dart';
 import 'package:donationapp/constant/common/GoogleButtomNavBar/GoogleButtomNavBar.dart';
 import 'package:donationapp/constant/common/NavBar/navbar.dart';
+import 'package:donationapp/constant/common/Text/custom-text.dart';
 
 import 'package:donationapp/constant/kconstant.dart';
+import 'package:donationapp/features/donations_claim/store/donations_claim.store.dart';
 import 'package:donationapp/features/donations_claim/widgets/donations_claimcard.dart';
 import 'package:donationapp/helpers/time.dart';
 import 'package:donationapp/store/account-setting/account.setting.store.dart';
@@ -26,31 +30,115 @@ class _DonationsClaimState extends ConsumerState<DonationsClaim> {
   Widget build(BuildContext context) {
     ScrollController scrollController = ScrollController();
     final donations = ref.watch(getAllDonationsByUser(StorageService.getId()));
-    // log("All donations by userid: ${donations}");
+
+    //Get all requests for donations and requests
+    final donationClaimRequests = ref.watch(donationClaimRequestsProvider(""));
+    log("All donations by userid: ${donationClaimRequests}");
+    //Selected Category
+    final selectedCategory = ref.watch(selectedCategoryProvider);
 
     return App(
       component: Container(
         padding: EdgeInsets.all(kPadding.h),
-        child: donations.when(
+        child: donationClaimRequests.when(
             data: (data) {
               // log("Datas: ${data['body'][0]}");
-              final allDonations = data['body'];
-              return Column(children: [
-                ListView.builder(
-                  controller: scrollController,
-                  shrinkWrap: true,
-                  scrollDirection: Axis.vertical,
-                  itemBuilder: (context, index) {
-                    return DonationsClaimCard(
-                      categoryName: "${allDonations[index]['category']}",
-                      donationDate:
-                          "${convertToAgo(allDonations[index]['createdAt'])}",
-                      donationStatus: "${allDonations[index]['status']}",
-                    );
-                  },
-                  itemCount: allDonations.length,
-                )
-              ]);
+              final allRequests = data['body'];
+              return Column(
+                children: [
+                  Container(
+                    height: 40,
+                    // decoration: BoxDecoration(
+                    //   color: Colors.amber,
+                    // ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        InkWell(
+                          onTap: () {
+                            ref.read(selectedCategoryProvider.notifier).state =
+                                "donation";
+                          },
+                          child: Container(
+                            height: 40,
+                            width: 100,
+                            decoration: BoxDecoration(
+                              color: selectedCategory == 'donation'
+                                  ? blueColor
+                                  : backgroundColor,
+                              borderRadius: BorderRadius.circular(18.r),
+                            ),
+                            // padding: EdgeInsets.all(kPadding.h),
+                            child: Center(
+                              child: CustomText(
+                                text: "Dontaion",
+                                fontSize: 14.sp,
+                                fontWeight: FontWeight.bold,
+                                fontColor: selectedCategory == 'donation'
+                                    ? whiteColor
+                                    : blackColor,
+                              ),
+                            ),
+                          ),
+                        ),
+                        InkWell(
+                          onTap: () {
+                            ref.read(selectedCategoryProvider.notifier).state =
+                                "claim";
+                          },
+                          child: Container(
+                            height: 40,
+                            width: 100,
+                            // padding: EdgeInsets.all(kPadding.h),
+                            decoration: BoxDecoration(
+                              color: selectedCategory == 'claim'
+                                  ? blueColor
+                                  : backgroundColor,
+                              borderRadius: BorderRadius.circular(18.r),
+                            ),
+                            child: Center(
+                              child: CustomText(
+                                text: "Claims",
+                                fontColor: selectedCategory == 'claim'
+                                    ? whiteColor
+                                    : blackColor,
+                                fontSize: 14.sp,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(
+                    height: 40.h,
+                  ),
+                  ListView.builder(
+                    controller: scrollController,
+                    shrinkWrap: true,
+                    scrollDirection: Axis.vertical,
+                    itemBuilder: (context, index) {
+                      return DonationsClaimCard(
+                        donorId: "${allRequests[index]['donorId']}",
+                        donor_name: "${allRequests[index]['donor_name']}",
+                        reciever_name: "${allRequests[index]['reciever_name']}",
+                        recieverId: "${allRequests[index]['donorId']}",
+                        donor_status: "${allRequests[index]['donor_status']}",
+                        reciever_status:
+                            "${allRequests[index]['reciever_status']}",
+                        donation: "${allRequests[index]['donationTitle']}",
+                        donationPostId:
+                            "${allRequests[index]['donationPostId']}",
+                        donationDate:
+                            "${convertToAgo(allRequests[index]['createdAt'])}",
+                        // donationStatus: "${allRequests[index]['status']}",
+                      );
+                    },
+                    itemCount: allRequests.length,
+                  )
+                ],
+              );
             },
             error: (e, h) => Text("Error"),
             loading: () => LoadingPage()),

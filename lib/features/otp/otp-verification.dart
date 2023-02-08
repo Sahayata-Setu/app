@@ -9,18 +9,26 @@ import 'package:donationapp/features/otp/store/mobile-number.store.dart';
 import 'package:donationapp/features/otp/store/otp-verification.store.dart';
 import 'package:donationapp/features/otp/widgets/otp-textfield.dart';
 import 'package:donationapp/helpers/route.utils.dart';
+import 'package:donationapp/store/signup/signup.store.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class OtpVerification extends ConsumerWidget {
+class OtpVerification extends ConsumerStatefulWidget {
   const OtpVerification({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  ConsumerState<OtpVerification> createState() => _OtpVerificationState();
+}
+
+class _OtpVerificationState extends ConsumerState<OtpVerification> {
+  @override
+  Widget build(BuildContext context) {
     FirebaseAuth auth = FirebaseAuth.instance;
     bool _isLoading = false;
+
+    //Store Imports from otp-verification.store.dart
     final firstDigit = ref.watch(first);
     final secondDigit = ref.watch(second);
     final thirdDigit = ref.watch(third);
@@ -28,6 +36,9 @@ class OtpVerification extends ConsumerWidget {
     final fifthDigit = ref.watch(fifth);
     final sixthDigit = ref.watch(sixth);
     final verification = ref.watch(verificationIdProvider);
+    final otpError = ref.watch(otpErrorProvider);
+
+    // late String error;
 
     final otp = firstDigit +
         secondDigit +
@@ -41,8 +52,14 @@ class OtpVerification extends ConsumerWidget {
       PhoneAuthCredential credential = PhoneAuthProvider.credential(
           verificationId: verification, smsCode: otp);
       await auth.signInWithCredential(credential).then((value) {
-        routeTo("/homepage", context);
+        log("Value: ${value.user!.phoneNumber}");
+        ref.read(signUpDetailsProvider.notifier).state['phoneNo'] =
+            value.user!.phoneNumber!;
+        routeTo("/signup", context);
         print("Logged IN");
+      }).catchError((e) {
+        print("Error: $e");
+        ref.read(otpErrorProvider.notifier).state = "Invalid OTP";
       });
     }
 
@@ -86,6 +103,11 @@ class OtpVerification extends ConsumerWidget {
                   ),
                 ],
               ),
+            ),
+            CustomText(
+              text: otpError ?? "",
+              fontSize: 12.sp,
+              fontColor: Colors.red,
             ),
             SizedBox(
               height: 20.h,

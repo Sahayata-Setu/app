@@ -4,7 +4,17 @@ import 'package:donationapp/auth/auth_check/auth_check.dart';
 import 'package:donationapp/constant/common/splashScreen/splashScreen.dart';
 import 'package:donationapp/features/Admin/Dashboard/admin-dashboard.data.dart';
 import 'package:donationapp/features/Admin/Dashboard/adminDashboard.dart';
+import 'package:donationapp/features/Admin/Donations/donatedDetails.dart';
+import 'package:donationapp/features/Admin/Donations/viewDonations.dart';
+import 'package:donationapp/features/Admin/NewDashboard/new-admin-dashboard.dart';
+import 'package:donationapp/features/Admin/Profile/adminChangePassword.dart';
+import 'package:donationapp/features/Admin/Profile/adminProfile.dart';
+import 'package:donationapp/features/Admin/Requests/requestDetails.dart';
+import 'package:donationapp/features/Admin/Requests/viewRequest.dart';
+import 'package:donationapp/features/Admin/Users/userDetails.dart';
 import 'package:donationapp/features/Admin/Users/viewUsers.dart';
+import 'package:donationapp/features/Admin/Volunteer%20Application/viewVolunteerApplications.dart';
+import 'package:donationapp/features/Admin/Volunteer%20Application/volunteerApplicationDetails.dart';
 import 'package:donationapp/features/Admin/widgets/approveVolunter.dart';
 import 'package:donationapp/features/account-settings/account-settings.dart';
 import 'package:donationapp/features/apply-for-volunteer/apply-for-volunteer.dart';
@@ -21,6 +31,7 @@ import 'package:donationapp/features/donations_claim/donations_claim.dart';
 import 'package:donationapp/features/homepage/homepage-data.dart';
 import 'package:donationapp/features/homepage/homepage.dart';
 import 'package:donationapp/features/login/login.dart';
+import 'package:donationapp/features/message/message.dart';
 import 'package:donationapp/features/message/message.dart';
 import 'package:donationapp/features/message/messageDetails.dart';
 import 'package:donationapp/features/needs/Needs.dart';
@@ -82,9 +93,36 @@ import '../features/donations/Dontations.dart';
   MaterialRoute(page: AdminDashBoardData, path: "/admin-dashboard"),
   MaterialRoute(page: OtpVerification, path: "/otp-verification"),
   // MaterialRoute(page: CampiagnDetails, path: "/campains-single-detail"),
-  MaterialRoute(page: ViewUsers, path: "/view-user"),
   MaterialRoute(
-      page: MessageDetails, path: "/message/:receiverName/:receiverId"),
+    page: MessageDetails,
+    path: "/message/:receiverName/:receiverId",
+  ),
+
+  // Admin New Dashboard
+  MaterialRoute(page: NewAdminDashboard, path: "/new-admin-dashboard"),
+
+  // Admin users section
+  MaterialRoute(page: ViewUsers, path: "/view-user"),
+  MaterialRoute(page: UserDetails, path: "/userDetails"),
+
+  // Admin Donations
+  MaterialRoute(page: ViewDonations, path: "/donations-list"),
+  MaterialRoute(page: DonatedDetails, path: "/donatedDetails"),
+
+  // Admin Requests Section
+  MaterialRoute(page: ViewRequests, path: "/requests"),
+  MaterialRoute(page: RequestDetails, path: "/requestDetails"),
+
+  // Admin Volunteer Applications
+  MaterialRoute(
+      page: ViewVolunteerApplications, path: "/view-volunteer-applications"),
+  MaterialRoute(
+      page: VolunteerApplicationDetails,
+      path: "/volunteer-application-details"),
+
+  // Admin Profile Section
+  MaterialRoute(page: AdminProfile, path: "/admin-profile"),
+  MaterialRoute(page: AdminChangePassword, path: "/admin-change-password"),
 ])
 @CustomAutoRouter(routes: [])
 class $AppRouter {}

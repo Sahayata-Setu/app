@@ -3,6 +3,8 @@ import 'package:donationapp/app.dart';
 import 'package:donationapp/constant/common/GoogleButtomNavBar/GoogleButtomNavBar.dart';
 import 'package:donationapp/constant/common/NavBar/navbar.dart';
 import 'package:donationapp/constant/common/Text/custom-text.dart';
+import 'package:donationapp/constant/common/textfield/CustomTextArea.dart';
+import 'package:donationapp/constant/common/textfield/customDropDown.dart';
 import 'package:donationapp/constant/kconstant.dart';
 import 'package:donationapp/constant/modules/signup/signup.class.dart';
 import 'package:donationapp/constant/common/textfield/CustomTextField.dart';
@@ -24,6 +26,9 @@ class Signup extends ConsumerWidget {
 
     const languages = ["english", "hindi", "gujarati"];
     const gender = ["male", "female", "other"];
+    final phoneNo = ref.watch(signUpDetailsProvider);
+
+    log("Phone No: ${phoneNo['phoneNo']}");
     // log("$signUpRef");
 
     handleSumbit() async {
@@ -46,13 +51,13 @@ class Signup extends ConsumerWidget {
         showBadge: false,
       ),
       component: Container(
-        height: 600.h,
+        // height: 600.h,
         color: SignupKConstant.backgroundColor,
         child: Container(
           padding: EdgeInsets.only(
             left: kPadding.w,
             right: kPadding.w,
-            top: kPadding.h + 10,
+            top: 10.h,
           ),
           child: SingleChildScrollView(
             scrollDirection: Axis.vertical,
@@ -66,89 +71,136 @@ class Signup extends ConsumerWidget {
                   fontColor: blackColor,
                 ),
                 const SizedBox(
-                  height: kMargin,
+                  height: kMargin / 2,
                 ),
-                CustomTextField(
+
+                CustomTextArea(
+                  text: "First Name",
                   refs: ref.read(signUpDetailsProvider.notifier),
-                  label: "First Name",
                   name: "firstName",
                 ),
-                CustomTextField(
+
+                CustomTextArea(
+                  text: "Last Name",
                   refs: ref.read(signUpDetailsProvider.notifier),
-                  label: "Last Name",
                   name: "lastName",
                 ),
-                CustomTextField(
+
+                CustomTextArea(
+                  text: "Email",
                   refs: ref.read(signUpDetailsProvider.notifier),
-                  label: "Email",
                   name: "email",
                 ),
-                CustomTextField(
+
+                CustomTextArea(
+                  text: "Phone Number",
                   refs: ref.read(signUpDetailsProvider.notifier),
-                  label: "Phone Number",
                   name: "phoneNo",
+                  isPhoneNo: true,
                 ),
-                CustomTextField(
-                  refs: ref.read(signUpDetailsProvider.notifier),
-                  label: "Address",
-                  name: "address",
-                ),
-                CustomTextField(
-                  refs: ref.read(signUpDetailsProvider.notifier),
-                  label: "City",
-                  name: "city",
-                ),
-                DropdownButtonFormField(
-                  items: gender.map((String category) {
-                    return new DropdownMenuItem(
-                        value: category, child: Text(category));
-                  }).toList(),
-                  decoration: const InputDecoration(
-                    label: Text("Gender"),
-                  ),
-                  onChanged: (val) {
-                    ref.read(signUpDetailsProvider.notifier).state['gender'] =
-                        val.toString();
-
-                    // log("This is dropdown val ${val}");
-                  },
-                ),
-                // Spacer(),
-                SizedBox(
-                  height: 10.h,
-                ),
-                DropdownButtonFormField(
-                  items: languages.map((String category) {
-                    return new DropdownMenuItem(
-                        value: category, child: Text(category));
-                  }).toList(),
-                  decoration: const InputDecoration(
-                    label: Text("Language"),
-                  ),
-                  onChanged: (val) {
-                    ref.read(signUpDetailsProvider.notifier).state['language'] =
-                        val.toString();
-
-                    // log("This is dropdown val ${val}");
-                  },
-                ),
-                SizedBox(
-                  height: 10.h,
-                ),
-
                 // CustomTextField(
                 //   refs: ref.read(signUpDetailsProvider.notifier),
-                //   label: "Language",
-                //   name: "language",
+                //   label: "First Name",
+                //   name: "firstName",
                 // ),
-
-                CustomTextField(
+                // CustomTextField(
+                //   refs: ref.read(signUpDetailsProvider.notifier),
+                //   label: "Last Name",
+                //   name: "lastName",
+                // ),
+                // CustomTextField(
+                //   refs: ref.read(signUpDetailsProvider.notifier),
+                //   label: "Email",
+                //   name: "email",
+                // ),
+                // CustomTextField(
+                //   refs: ref.read(signUpDetailsProvider.notifier),
+                //   label: "Phone Number",
+                //   name: "phoneNo",
+                // ),
+                // CustomTextField(
+                //   refs: ref.read(signUpDetailsProvider.notifier),
+                //   label: "Address",
+                //   name: "address",
+                // ),
+                // CustomTextField(
+                //   refs: ref.read(signUpDetailsProvider.notifier),
+                //   label: "City",
+                //   name: "city",
+                // ),
+                // CustomTextField(
+                //   refs: ref.read(signUpDetailsProvider.notifier),
+                //   label: "Password",
+                //   name: "password",
+                // ),
+                CustomTextArea(
+                  text: "City",
                   refs: ref.read(signUpDetailsProvider.notifier),
-                  label: "Password",
-                  name: "password",
+                  name: "city",
+                ),
+                CustomTextArea(
+                  text: "Address",
+                  refs: ref.read(signUpDetailsProvider.notifier),
+                  name: "address",
+                ),
+                MainCustomDropDown(
+                  list: gender,
+                  name: "gender",
+                  title: "Gender",
+                  refs: ref.read(signUpDetailsProvider.notifier),
                 ),
 
-                //
+                MainCustomDropDown(
+                  list: languages,
+                  name: "language",
+                  title: "Preferred Language",
+                  refs: ref.read(signUpDetailsProvider.notifier),
+                ),
+
+                // DropdownButtonFormField(
+                //   items: gender.map((String category) {
+                //     return new DropdownMenuItem(
+                //         value: category, child: Text(category));
+                //   }).toList(),
+                //   decoration: const InputDecoration(
+                //     label: Text("Gender"),
+                //   ),
+                //   onChanged: (val) {
+                //     ref.read(signUpDetailsProvider.notifier).state['gender'] =
+                //         val.toString();
+                //     // log("This is dropdown val ${val}");
+                //   },
+                // ),
+
+                // SizedBox(
+                //   height: 10.h,
+                // ),
+                // DropdownButtonFormField(
+                //   items: languages.map((String category) {
+                //     return new DropdownMenuItem(
+                //         value: category, child: Text(category));
+                //   }).toList(),
+                //   decoration: const InputDecoration(
+                //     label: Text("Language"),
+                //   ),
+                //   onChanged: (val) {
+                //     ref.read(signUpDetailsProvider.notifier).state['language'] =
+                //         val.toString();
+
+                //     // log("This is dropdown val ${val}");
+                //   },
+                // ),
+
+                CustomTextArea(
+                  text: "Password",
+                  refs: ref.read(signUpDetailsProvider.notifier),
+                  name: "password",
+                  isObscure: true,
+                ),
+                SizedBox(
+                  height: kMargin.h,
+                ),
+
                 ElevatedButton(
                   onPressed: () async {
                     // replaceRouteTo("/homepage", context);
@@ -160,11 +212,26 @@ class Signup extends ConsumerWidget {
                   child: Text("Sign Up"),
                 ),
 
-                TextButton(
-                  onPressed: () {
-                    replaceRouteTo("/login", context);
-                  },
-                  child: Text("Already have an account? Login"),
+                SizedBox(
+                  height: 10.h,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    CustomText(
+                      text: "Already have an account ?",
+                      fontSize: 14.sp,
+                    ),
+                    TextButton(
+                      onPressed: () {
+                        replaceRouteTo("/login", context);
+                      },
+                      child: CustomText(
+                        text: "Login",
+                        fontSize: 14.sp,
+                      ),
+                    )
+                  ],
                 )
               ],
             ),

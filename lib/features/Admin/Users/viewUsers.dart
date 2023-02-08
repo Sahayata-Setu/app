@@ -7,7 +7,8 @@ import 'package:donationapp/constant/common/horizontal-line/horizontal-line.dart
 import 'package:donationapp/features/Admin/Dashboard/widgets/drawer.dart';
 import 'package:donationapp/features/Admin/Dashboard/widgets/optionsTab.dart';
 import 'package:donationapp/features/Admin/Dashboard/widgets/dashbordCards.dart';
-import 'package:donationapp/features/Admin/Users/userCard.dart';
+import 'package:donationapp/features/Admin/Users/widgets/userCard.dart';
+import 'package:donationapp/helpers/route.utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -28,22 +29,17 @@ class ViewUsers extends StatelessWidget {
       drawer: Menu_Drawer(),
       body: Container(
         padding: EdgeInsets.all(10.h),
-        color: whiteColor,
+        // color: whiteColor,
         child: Column(
           children: [
-            UserCard(
-              userName: "Tushar Banek",
-              userLocation: "Andaman Nicobar",
-            ),
-            HorizontalLine(
-              color: lightBlueColor,
-            ),
-            UserCard(
-              userName: "Pintu Gupta",
-              userLocation: "Birgunj",
-            ),
-            HorizontalLine(
-              color: lightBlueColor,
+            InkWell(
+              child: UserCard(
+                userName: "Tushar Banik",
+                userLocation: "Andaman Nicobar",
+              ),
+              onTap: () {
+                routeTo("/userDetails", context);
+              },
             ),
           ],
         ),
