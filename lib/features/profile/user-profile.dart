@@ -7,6 +7,7 @@ import 'package:donationapp/constant/common/NavBar/navbar.dart';
 import 'package:donationapp/constant/common/Text/custom-text.dart';
 import 'package:donationapp/constant/common/horizontal-line/horizontal-line.dart';
 import 'package:donationapp/constant/kconstant.dart';
+import 'package:donationapp/features/donations_claim/store/donations_claim.store.dart';
 import 'package:donationapp/features/profile/widgets/user-profile-image.dart';
 import 'package:donationapp/features/profile/widgets/user-profile-info.dart';
 import 'package:donationapp/features/profile/widgets/user-profile-options.dart';
@@ -99,6 +100,7 @@ class UserProfile extends ConsumerWidget {
               GestureDetector(
                 onTap: () {
                   routeTo("/donations_claim", context);
+                  ref.watch(donationClaimRequestsProvider(""));
                 },
                 child: UserProfileOptions(
                   text: translation(context).donations_claim,
@@ -157,16 +159,16 @@ class UserProfile extends ConsumerWidget {
               // SizedBox(
               //   height: 20.h,
               // ),
-              GestureDetector(
-                onTap: () {
-                  // handleLogout();
-                  routeTo("/mobile-number", context);
-                },
-                child: UserProfileOptions(
-                  text: "OPT",
-                  imageName: "logout",
-                ),
-              ),
+              // GestureDetector(
+              //   onTap: () {
+              //     // handleLogout();
+              //     routeTo("/mobile-number", context);
+              //   },
+              //   child: UserProfileOptions(
+              //     text: "OPT",
+              //     imageName: "logout",
+              //   ),
+              // ),
             ],
           ),
         ),

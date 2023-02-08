@@ -1,9 +1,12 @@
+import 'package:donationapp/features/new-message/chat-detail.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 Widget buildPopupDialog(
   BuildContext context,
   message,
+  donor_name,
+  donor_id,
 ) {
   // final message;
   return AlertDialog(
@@ -29,10 +32,17 @@ Widget buildPopupDialog(
         ),
         ElevatedButton(
           onPressed: () {
-            Navigator.of(context).pop();
+            Navigator.push(context, MaterialPageRoute(builder: (context) {
+              return ChatDetailPage(
+                name: donor_name,
+                // sender: senderId,
+                reciever: donor_id,
+              );
+            }));
+            // Navigator.of(context).pop();
           },
           // textColor: Theme.of(context).primaryColor,
-          child: const Text('Close'),
+          child: const Text('Ok'),
         ),
       ],
     ),

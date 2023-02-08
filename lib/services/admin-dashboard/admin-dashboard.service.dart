@@ -11,7 +11,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 class AdminDashboardServiceClass {
   final _client = ApiHelper.instance;
 
-  //
   Future<Map<String, dynamic>> getDashboardDetails() async {
     // final singUpService
     try {
@@ -23,6 +22,7 @@ class AdminDashboardServiceClass {
           headers: {"Authorization": "Bearer ${token}"},
         ),
       );
+
       // log("${response.statusCode()}");
       // if(response.statusCode(400) )
       // StorageService.setToken(response['token']);

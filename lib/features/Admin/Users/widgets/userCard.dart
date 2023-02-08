@@ -31,7 +31,6 @@ class UserCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 CustomText(
-                  textOverFlow: TextOverflow.visible,
                   text: userName,
                   fontSize: 16.sp,
                   fontWeight: FontWeight.bold,

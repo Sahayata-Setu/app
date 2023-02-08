@@ -137,7 +137,7 @@ class _MobileNumberState extends ConsumerState<MobileNumber> {
               ],
             ),
             CustomText(
-              text: "${error ?? ""}",
+              text: error,
               fontSize: 14.sp,
               fontWeight: FontWeight.bold,
               fontColor: Colors.red,

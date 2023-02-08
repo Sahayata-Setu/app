@@ -38,7 +38,8 @@ class DonationHomeCards extends ConsumerWidget {
         showDialog(
           context: context,
           builder: (BuildContext context) {
-            return buildPopupDialog(context, "${response['message']}");
+            return buildPopupDialog(context, "${response['message']}",
+                singleInfo['donor_name'], singleInfo['donor_id']);
           },
         );
       } else {
@@ -126,7 +127,7 @@ class DonationHomeCards extends ConsumerWidget {
           });
     }
 
-    log("this is for homepage ${singleInfo}");
+    // log("this is for homepage ${singleInfo}");
     return GestureDetector(
       onTap: () {
         routePush(DonationDetailRoute(id: singleInfo['_id']), context);
@@ -205,7 +206,7 @@ class DonationHomeCards extends ConsumerWidget {
               top: 5.h,
             ),
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              // mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 LineIcon.mapMarker(),
                 SizedBox(

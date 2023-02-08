@@ -5,7 +5,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 part 'homepage.store.freezed.dart';
-// part 'homepage.data.provider.g.dart';
 
 final categoriesProvider = StateProvider((ref) => true);
 
@@ -55,8 +54,6 @@ final singleCampaignsByIdProvider =
     return ref.watch(homePageService).getSingleCampaignsById(id);
   },
 );
-
-//Get donations by category
 
 @freezed
 abstract class MyParameter with _$MyParameter {
