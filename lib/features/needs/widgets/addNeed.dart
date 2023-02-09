@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'dart:io';
 
 import 'package:donationapp/constant/common/GoogleButtomNavBar/GoogleButtomNavBar.dart';
+import 'package:donationapp/constant/common/textfield/CustomTextArea.dart';
 import 'package:donationapp/helpers/route.utils.dart';
 import 'package:donationapp/store/add-need/add-need.store.dart';
 import 'package:donationapp/store/homepage/homepage.store.dart';
@@ -86,38 +87,71 @@ class AddRequest extends ConsumerWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            CustomTextField(
-              label: "Title",
+            // CustomTextField(
+            //   label: "Title",
+            //   name: "title",
+            //   refs: ref.read(needDetailsProvider.notifier),
+            // ),
+            CustomTextArea(
+              text: "Title",
               name: "title",
               refs: ref.read(needDetailsProvider.notifier),
+              hint: "Title",
             ),
-            CustomTextField(
-              label: "Category",
+            // CustomTextField(
+            //   label: "Category",
+            //   name: "category",
+            //   refs: ref.read(needDetailsProvider.notifier),
+            // ),
+            CustomTextArea(
+              text: "Category",
               name: "category",
               refs: ref.read(needDetailsProvider.notifier),
+              hint: "Category",
             ),
-            CustomTextField(
-              label: "Quantity",
+            // CustomTextField(
+            //   label: "Quantity",
+            //   name: "quantity",
+            //   refs: ref.read(needDetailsProvider.notifier),
+            // ),
+            CustomTextArea(
+              text: "Quantity",
               name: "quantity",
               refs: ref.read(needDetailsProvider.notifier),
+              hint: "Quantity",
             ),
-            CustomTextField(
-              label: "Pickup Details",
+
+            // CustomTextField(
+            //   label: "Pickup Details",
+            //   name: "pickupDetails",
+            //   refs: ref.read(needDetailsProvider.notifier),
+            // ),
+            CustomTextArea(
+              text: "Pickup Details",
               name: "pickupDetails",
               refs: ref.read(needDetailsProvider.notifier),
+              hint: "Pickup Details",
             ),
-            CustomTextField(
-              label: "Description",
-              name: "description",
-              lines: 3,
-              refs: ref.read(needDetailsProvider.notifier),
-              //focusBorder: secondaryBlue,
+            // CustomTextField(
+            //   label: "Description",
+            //   name: "description",
+            //   lines: 3,
+            //   refs: ref.read(needDetailsProvider.notifier),
+            //   //focusBorder: secondaryBlue,
+            // ),
+            Container(
+              margin: EdgeInsets.only(bottom: 10.h),
+              child: CustomTextArea(
+                text: "Description",
+                name: "description",
+                refs: ref.read(needDetailsProvider.notifier),
+                hint: "Description",
+              ),
             ),
             // CustomTextField(
             //   label: "Request Detail",
             //   name: "detail",
             //   lines: 5,
-
             //   //focusBorder: secondaryBlue,
             // ),
             imageProv.isEmpty
@@ -140,29 +174,40 @@ class AddRequest extends ConsumerWidget {
                       },
                     ),
                   ),
-            CustomText(
-              text: "Photos",
-              fontSize: 14.sp,
+            Container(
+              margin: EdgeInsets.only(bottom: 10.h),
+              child: CustomText(
+                text: "Photos",
+                fontSize: 16.sp,
+              ),
             ),
-            OutlinedButton(
+            Container(
+              child: OutlinedButton(
                 onPressed: () {
                   selectImage();
                 },
-                child: const Icon(Icons.add)),
+                child: Container(
+                  height: 100.h,
+                  width: 100.w,
+                  child: const Icon(Icons.add),
+                ),
+              ),
+            ),
             Container(
-                // width: 80,
-                alignment: Alignment.center,
-                child: CustomElevatedButton(
-                  height: 40.sp,
-                  width: 180.sp,
-                  fn: () {
-                    handleSumbit();
-                  },
-                  child: CustomText(
-                    text: "Submit".toUpperCase(),
-                    fontSize: 14.sp,
-                  ),
-                ))
+              margin: EdgeInsets.only(top: kMargin.h),
+              alignment: Alignment.center,
+              child: CustomElevatedButton(
+                height: 40.sp,
+                width: 100.sp,
+                fn: () {
+                  handleSumbit();
+                },
+                child: CustomText(
+                  text: "Submit".toUpperCase(),
+                  fontSize: 14.sp,
+                ),
+              ),
+            )
           ],
         ),
       ),

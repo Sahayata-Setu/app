@@ -5,6 +5,7 @@ import 'dart:io';
 import 'package:donationapp/constant/common/GoogleButtomNavBar/GoogleButtomNavBar.dart';
 import 'package:donationapp/constant/common/Text/custom-text.dart';
 import 'package:donationapp/constant/common/button/cusotm-button.dart';
+import 'package:donationapp/constant/common/textfield/CustomTextArea.dart';
 import 'package:donationapp/constant/common/textfield/CustomTextField.dart';
 import 'package:donationapp/constant/kconstant.dart';
 import 'package:donationapp/helpers/route.utils.dart';
@@ -87,94 +88,151 @@ class AddDontaion extends ConsumerWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              CustomText(
-                text: "Title",
-                fontColor: blackColor,
-                fontSize: 16.sp,
-              ),
-              CustomTextField(
-                refs: ref.read(donationDetailsProvider.notifier),
-                label: "Name/Title",
-                name: "title",
-              ),
-              CustomText(
-                text: "Category",
-                fontColor: blackColor,
-                fontSize: 16.sp,
-              ),
-              CustomTextField(
-                refs: ref.read(donationDetailsProvider.notifier),
-                label: "Category",
-                name: "category",
-              ),
-              // CategoriesDropDown(
-              //   refs: ref,
+              // CustomText(
+              //   text: "Title",
+              //   fontColor: blackColor,
+              //   fontSize: 16.sp,
               // ),
-              CustomText(
-                text: "Quantity",
-                fontColor: blackColor,
-                fontSize: 16.sp,
-              ),
-              CustomTextField(
-                refs: ref.read(donationDetailsProvider.notifier),
-                label: "Quantity",
-                name: "quantity",
-              ),
-
               // CustomTextField(
               //   refs: ref.read(donationDetailsProvider.notifier),
-              //   label: "Pickup Location",
-              //   name: "pickUpLocation",
+              //   label: "Name/Title",
+              //   name: "title",
               // ),
-              CustomText(
-                text: "Pickup Details",
-                fontColor: blackColor,
-                fontSize: 16.sp,
+              // CustomText(
+              //   text: "Category",
+              //   fontColor: blackColor,
+              //   fontSize: 16.sp,
+              // ),
+              // CustomTextField(
+              //   refs: ref.read(donationDetailsProvider.notifier),
+              //   label: "Category",
+              //   name: "category",
+              // ),
+              Container(
+                margin: EdgeInsets.only(bottom: 10.h),
+                child: CustomTextArea(
+                  text: "Title",
+                  hint: "Title",
+                  isObscure: false,
+                  name: "title",
+                  refs: ref.read(donationDetailsProvider.notifier),
+                ),
               ),
-              CustomTextField(
-                refs: ref.read(donationDetailsProvider.notifier),
-                label: "Preferred Details",
-                name: "pickupDetails",
+
+              //* Category should have dropdown
+              Container(
+                margin: EdgeInsets.only(bottom: 10.h),
+                child: CustomTextArea(
+                  text: "Category",
+                  hint: "Category",
+                  name: "category",
+                  refs: ref.read(donationDetailsProvider.notifier),
+                ),
               ),
+
+              Container(
+                margin: EdgeInsets.only(bottom: 10.h),
+                child: CustomTextArea(
+                  text: "Quantity",
+                  hint: "Quantity",
+                  name: "quantity",
+                  refs: ref.read(donationDetailsProvider.notifier),
+                ),
+              ),
+
+              // CustomText(
+              //   text: "Quantity",
+              //   fontColor: blackColor,
+              //   fontSize: 16.sp,
+              // ),
+              // CustomTextField(
+              //   refs: ref.read(donationDetailsProvider.notifier),
+              //   label: "Quantity",
+              //   name: "quantity",
+              // ),
+
+              Container(
+                margin: EdgeInsets.only(bottom: 10.h),
+                child: CustomTextArea(
+                  text: "Pickup Details",
+                  hint: "Pickup Location",
+                  name: "pickupDetails",
+                  refs: ref.read(donationDetailsProvider.notifier),
+                ),
+              ),
+
+              // CustomText(
+              //   text: "Pickup Details",
+              //   fontColor: blackColor,
+              //   fontSize: 16.sp,
+              // ),
+              // CustomTextField(
+              //   refs: ref.read(donationDetailsProvider.notifier),
+              //   label: "Preferred Details",
+              //   name: "pickupDetails",
+              // ),
               // CustomTextField(
               //   refs: ref.read(donationDetailsProvider.notifier),
               //   label: "Pickup Day",
               //   name: "pickupDay",
               // ),
-              // Container(child: ,)
 
-              CustomText(
-                text: "Select Date",
-                fontColor: blackColor,
-                fontSize: 16.sp,
+              Container(
+                margin: EdgeInsets.only(bottom: 10.h),
+                child: CustomText(
+                  text: "Select Date",
+                  fontColor: blackColor,
+                  fontSize: 16.sp,
+                ),
               ),
+
               GestureDetector(
                 onTap: () {
                   _selectDate(context);
                 },
-                child: Icon(Icons.date_range),
+                child: Row(
+                  children: [
+                    Icon(Icons.date_range),
+                    Container(
+                      margin: EdgeInsets.only(left: 5.w),
+                      child: CustomText(
+                        text: DateFormat('yyyy-MM-dd').format(selectedDate),
+                        fontSize: 16.sp,
+                      ),
+                    ),
+                  ],
+                ),
               ),
-              CustomText(text: DateFormat('yyyy-MM-dd').format(selectedDate)),
+
               // DatePickerDialog(
               //   initialDate: selectedDate,
               //   firstDate: DateTime(2015, 8),
               //   lastDate: DateTime(2101),
               // ),
               SizedBox(
-                height: 8.h,
+                height: 10.h,
               ),
-              CustomText(
-                text: "Description",
-                fontColor: blackColor,
-                fontSize: 16.sp,
+              Container(
+                margin: EdgeInsets.only(bottom: 10.h),
+                child: CustomTextArea(
+                  text: "Description",
+                  hint: "Description",
+                  name: "description",
+                  refs: ref.read(donationDetailsProvider.notifier),
+                ),
               ),
-              CustomTextField(
-                refs: ref.read(donationDetailsProvider.notifier),
-                label: "Descritpion",
-                name: "description",
-                lines: 2,
-                //focusBorder: secondaryBlue,
-              ),
+              // CustomText(
+              //   text: "Description",
+              //   fontColor: blackColor,
+              //   fontSize: 16.sp,
+              // ),
+              // CustomTextField(
+              //   refs: ref.read(donationDetailsProvider.notifier),
+              //   label: "Descritpion",
+              //   name: "description",
+              //   lines: 2,
+              //   //focusBorder: secondaryBlue,
+              // ),
               imageProv.isEmpty
                   ? Container()
                   : SizedBox(
@@ -195,27 +253,36 @@ class AddDontaion extends ConsumerWidget {
                         },
                       ),
                     ),
-              CustomText(
-                text: "Photos",
-                fontSize: 14.sp,
+              Container(
+                margin: EdgeInsets.only(bottom: 5.h),
+                child: CustomText(
+                  text: "Photos",
+                  fontSize: 16.sp,
+                ),
               ),
               OutlinedButton(
-                  onPressed: () {
-                    selectImage();
-                  },
-                  child: const Icon(Icons.add)),
+                onPressed: () {
+                  selectImage();
+                },
+                child: Container(
+                  height: 100.h,
+                  width: 100.w,
+                  child: const Icon(Icons.add),
+                ),
+              ),
               Container(
                 // width: 80,
                 alignment: Alignment.center,
+                margin: EdgeInsets.only(top: kMargin.h),
                 child: CustomElevatedButton(
                   height: 40.sp,
-                  width: 180.sp,
+                  width: 100.sp,
                   fn: () {
                     handleSumbit();
                   },
                   child: CustomText(
                     text: "Submit".toUpperCase(),
-                    fontSize: 14.sp,
+                    fontSize: 16.sp,
                   ),
                 ),
               )

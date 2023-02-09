@@ -53,10 +53,6 @@ class _CustomTextAreaState extends ConsumerState<CustomTextArea> {
               contentPadding: widget.contentPadding == null
                   ? EdgeInsets.all(10.h)
                   : EdgeInsets.all(widget.contentPadding),
-              // prefixText: widget.isPhoneNo == true ? "+91" : null,
-              // prefixStyle: ,
-              // prefix: Text("+91"),
-
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(6.r),
               ),
