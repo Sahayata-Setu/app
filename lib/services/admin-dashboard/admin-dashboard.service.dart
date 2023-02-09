@@ -11,7 +11,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 class AdminDashboardServiceClass {
   final _client = ApiHelper.instance;
 
-  //
   Future<Map<String, dynamic>> getDashboardDetails() async {
     // final singUpService
     try {
@@ -23,6 +22,7 @@ class AdminDashboardServiceClass {
           headers: {"Authorization": "Bearer ${token}"},
         ),
       );
+
       // log("${response.statusCode()}");
       // if(response.statusCode(400) )
       // StorageService.setToken(response['token']);
@@ -73,13 +73,13 @@ class AdminDashboardServiceClass {
   }
 
   Future<Map<String, dynamic>> approveDonation(
-    userId,
+    donationId,
     type,
   ) async {
     try {
       final token = StorageService.getToken();
       final response = await _client.post(
-        "/admin/donation/${type}/${userId}",
+        "/admin/donation/${type}/${donationId}",
         options: Options(
           headers: {"Authorization": "Bearer ${token}"},
         ),
@@ -134,6 +134,23 @@ class AdminDashboardServiceClass {
       final token = StorageService.getToken();
       final response = await _client.get(
         "/admin/requests/pending",
+        options: Options(
+          headers: {"Authorization": "Bearer ${token}"},
+        ),
+      );
+
+      return response;
+    } catch (e) {
+      // log("this is error$e");
+      throw Exception("Invalid Request $e");
+    }
+  }
+
+  Future<Map<String, dynamic>> getAllDonations() async {
+    try {
+      final token = StorageService.getToken();
+      final response = await _client.get(
+        "/user/donation/all",
         options: Options(
           headers: {"Authorization": "Bearer ${token}"},
         ),

@@ -13,7 +13,7 @@ class HomepageServiceClass {
     try {
       final token = StorageService.getToken();
       final response = await _client.get(
-        "/user/${type}/all",
+        "/user/explore/${type}",
         options: Options(
           headers: {"Authorization": "Bearer ${token}"},
         ),
@@ -105,18 +105,62 @@ class HomepageServiceClass {
   }
 
   //Get needs by category
-  Future<Map<String, dynamic>> getNeedsByCategory(category) async {
+
+  Future<Map<String, dynamic>> getNeedsByCategory(type, category) async {
     try {
       final token = StorageService.getToken();
       // log("Hello ${category}");
       final response = await _client.get(
-        "/user/request/category/${category}",
+        "/user/explore/${type}/${category}",
         options: Options(
           headers: {"Authorization": "Bearer ${token}"},
         ),
       );
 
       // log("this is from app ${response}");
+
+      return response;
+    } catch (e) {
+      log("this is error$e");
+      throw Exception("Invalid Request $e");
+    }
+  }
+
+//Get Single Campaigns By Id
+  Future<Map<String, dynamic>> getSingleCampaignsById(id) async {
+    try {
+      final token = StorageService.getToken();
+      // log("Hello ${category}");
+      final response = await _client.get(
+        "/user/campaigns/$id",
+        options: Options(
+          headers: {"Authorization": "Bearer ${token}"},
+        ),
+      );
+
+      log("this is from app ${response}");
+
+      return response;
+    } catch (e) {
+      log("this is error$e");
+      throw Exception("Invalid Request $e");
+    }
+  }
+
+  //Create Request for donation
+  Future<Map<String, dynamic>> createRequestForDonation(data) async {
+    try {
+      final token = StorageService.getToken();
+      // log("Hello ${category}");
+      final response = await _client.post(
+        "/approval/create-request",
+        data: data,
+        options: Options(
+          headers: {"Authorization": "Bearer ${token}"},
+        ),
+      );
+
+      log("this is from app ${response}");
 
       return response;
     } catch (e) {

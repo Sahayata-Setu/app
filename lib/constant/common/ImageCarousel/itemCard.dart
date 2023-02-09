@@ -5,7 +5,9 @@ import 'package:auto_route/auto_route.dart';
 import 'package:badges/badges.dart';
 import 'package:donationapp/constant/common/Icon/custom-icon.dart';
 import 'package:donationapp/constant/common/button/cusotm-button.dart';
+import 'package:donationapp/features/new-message/chat-detail.dart';
 import 'package:donationapp/helpers/route.utils.dart';
+import 'package:donationapp/helpers/time.dart';
 import 'package:donationapp/routes/app.router.gr.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -35,7 +37,8 @@ class ItemCard extends StatelessWidget {
   Widget build(BuildContext context) {
     // final bData = data['body'];
     final route = AutoRouter.of(context).current.name;
-    log("this is from single categoryfff ${id}");
+    log("this is from single categoryfff ${data}");
+
     return GestureDetector(
       onTap: () {
         // routeTo("/donations/:id", context);
@@ -72,18 +75,22 @@ class ItemCard extends StatelessWidget {
                 alignment: Alignment.bottomRight,
                 // padding: EdgeInsets.all(kPadding1),
                 height: 150, //350.0,
-                child: Container(
-                  child: CustomText(
-                    text: "1h ago ",
-                    fontColor: whiteColor,
+                child: Card(
+                  color: backgroundColor,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12.r),
                   ),
-                  decoration: BoxDecoration(
-                    color: secondaryBlue,
-                    borderRadius: BorderRadius.circular(5),
-                    // border: Border.all(
-                    //   color: blueColor,
-                    //   width: 2,
-                    // )
+                  elevation: 0,
+                  shadowColor: Colors.transparent,
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(
+                      vertical: 2.h,
+                      horizontal: 10.w,
+                    ),
+                    child: CustomText(
+                      text: "${convertToAgo(data['createdAt'])}",
+                      fontSize: 12.sp,
+                    ),
                   ),
                 ),
 
@@ -138,9 +145,23 @@ class ItemCard extends StatelessWidget {
                     child: Text(btnName),
                     //width: 80.w,
                     fn: () {
-                      routeTo(
-                          "/message/${data['donor_name']}/${data['donor_id']}",
-                          context);
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) {
+                        return cardType == "need"
+                            ? ChatDetailPage(
+                                name: data['beneficiary_name'],
+                                // sender: senderId,
+                                reciever: data['beneficiary_id'],
+                              )
+                            : ChatDetailPage(
+                                name: data['donor_name'],
+                                // sender: senderId,
+                                reciever: data['donor_id'],
+                              );
+                      }));
+                      // routeTo(
+                      //     "/message/${data['donor_name']}/${data['donor_id']}",
+                      //     context);
                     },
                   ),
                   IconButton(

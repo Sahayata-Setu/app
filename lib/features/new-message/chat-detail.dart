@@ -169,6 +169,7 @@ class _ChatDetailPageState extends ConsumerState<ChatDetailPage> {
                 IconButton(
                   onPressed: () {
                     Navigator.pop(context);
+                    socket.emit('disconnet', StorageService.getId());
                   },
                   icon: Icon(
                     Icons.arrow_back,
@@ -220,7 +221,7 @@ class _ChatDetailPageState extends ConsumerState<ChatDetailPage> {
                             width: 4.w,
                           ),
                           Text(
-                            "${onlineStatus}",
+                            "${onlineStatus == 'Online' ? "Active Now" : "Offline"}",
                             style: TextStyle(
                                 color: Colors.grey.shade600, fontSize: 13),
                           ),

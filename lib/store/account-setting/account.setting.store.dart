@@ -26,6 +26,13 @@ final locationDetailsProvider = StateProvider(
     "city": "",
   }),
 );
+//get all neeeds
+final getAllDonationsByUser =
+    FutureProvider.family<Map<String, dynamic>, String>(
+  (ref, userId) {
+    return ref.watch(updateProfileService).getAllDontaionsByUser(userId);
+  },
+);
 
 final loading = StateProvider((ref) => (false));
 

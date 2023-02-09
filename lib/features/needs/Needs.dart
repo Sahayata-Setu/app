@@ -23,7 +23,9 @@ class Needs extends ConsumerWidget {
   final category;
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final data1 = ref.watch(needsByCategoryProvider(category));
+    //Fetch Changes in approved needs by category
+    final data1 = ref.watch(needsByCategoryProvider(
+        MyParameter(type: "requests", category: category)));
     return App(
       appbar: NavBar(showBadge: true, title: "Needs", isAdmin: false),
       component: Container(
@@ -58,7 +60,7 @@ class Needs extends ConsumerWidget {
                             crossAxisSpacing: 10,
                             mainAxisSpacing: 10),
                     itemBuilder: (context, index) => ItemCard(
-                      data: data['body'][index],
+                      data: data['body']['requests'][index],
                       // image: data['body'][index]['images'].length == null ??
                       //     "assets/images/veg.png",
                       image:
@@ -66,10 +68,10 @@ class Needs extends ConsumerWidget {
                           "https://www.ncenet.com/wp-content/uploads/2020/04/No-image-found.jpg",
                       cardType: "need",
                       // : data['body']['images'][0],
-                      id: data['body'][index]['_id'],
+                      id: data['body']['requests'][index]['_id'],
                       btnName: "DONATE",
                     ),
-                    itemCount: data['body'].length,
+                    itemCount: data['body']['requests'].length,
                   ),
                 );
               },

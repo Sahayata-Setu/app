@@ -1,6 +1,10 @@
+import 'dart:developer';
+
 import 'package:donationapp/constant/common/Text/custom-text.dart';
+import 'package:donationapp/constant/common/loading/loadingPage.dart';
 import 'package:donationapp/constant/kconstant.dart';
 import 'package:donationapp/constant/common/ImageCarousel/ImageOverlay.dart';
+import 'package:donationapp/features/campaigns/store/campaign-store.dart';
 import 'package:donationapp/features/homepage/widgets/heading.dart';
 import 'package:donationapp/helpers/route.utils.dart';
 import 'package:donationapp/utils/store-service/language.store.dart';
@@ -8,11 +12,14 @@ import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
 import 'package:donationapp/constant/common/ImageCarousel/image_carousel.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class Campaigns extends StatelessWidget {
+class Campaigns extends ConsumerWidget {
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final approvedCampagins = ref.watch(getApprovedCampaignsProvider(""));
+
     return Container(
         margin: EdgeInsets.only(bottom: kMargin.h),
         child: Column(
@@ -45,59 +52,47 @@ class Campaigns extends StatelessWidget {
                 )
               ],
             ),
-            Container(
-              height: 250.h,
-              margin: EdgeInsets.only(top: 5.h),
-              child: ListView(children: [
-                CarouselSlider(
-                  items: [
-                    ImageOverlay(
-                      border_radius: true,
-                      image:
-                          "https://images.unsplash.com/photo-1453728013993-6d66e9c9123a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bGVuc3xlbnwwfHwwfHw%3D&w=1000&q=80",
-                      title: "Help children from rajkot city to go to school.",
-                      location: "RK University",
+            approvedCampagins.when(
+              data: (data) {
+                List datas = data['body'].toList();
+                log("Campagins: ${datas}");
+
+                return Container(
+                  height: 250.h,
+                  margin: EdgeInsets.only(top: 5.h),
+                  child: CarouselSlider(
+                    items: datas.map((e) {
+                      return GestureDetector(
+                        onTap: () {
+                          routeTo("/campaigns/${e['_id']}", context);
+                        },
+                        child: ImageOverlay(
+                          border_radius: true,
+                          image: "${e['images'][0]}",
+                          title: "${e['title']}",
+                          location: "${e['city']}",
+                          height: 250.h,
+                          width: double.infinity,
+                          showShareBtn: false,
+                        ),
+                      );
+                    }).toList(),
+                    options: CarouselOptions(
                       height: 250.h,
-                      width: double.infinity,
-                      showShareBtn: true,
+                      enlargeCenterPage: true,
+                      autoPlay: true,
+                      //aspectRatio: 2 / 9,
+                      autoPlayCurve: Curves.fastOutSlowIn,
+                      enableInfiniteScroll: true,
+                      autoPlayAnimationDuration:
+                          const Duration(milliseconds: 800),
+                      viewportFraction: 0.9,
                     ),
-                    ImageOverlay(
-                      border_radius: true,
-                      width: double.infinity,
-                      height: 250.h,
-                      image:
-                          "https://images.unsplash.com/photo-1453728013993-6d66e9c9123a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bGVuc3xlbnwwfHwwfHw%3D&w=1000&q=80",
-                      title: "Help one child monthly",
-                      location: "Rajkot city",
-                      showShareBtn: true,
-                    ),
-                    ImageOverlay(
-                      border_radius: true,
-                      width: double.infinity,
-                      height: 250.h,
-                      image:
-                          "https://images.unsplash.com/photo-1453728013993-6d66e9c9123a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bGVuc3xlbnwwfHwwfHw%3D&w=1000&q=80",
-                      title: "Let's dress India",
-                      location: "Gujarat",
-                      showShareBtn: true,
-                    ),
-                    // ImageOverlay(image: "assets/images/needy/poor1.jpg"),
-                    // ImageOverlay(image: "assets/images/needy/needy3.jpg"),
-                    // ImageOverlay(image: "assets/images/needy/poor2.jpg"),
-                  ],
-                  options: CarouselOptions(
-                    height: 250.h,
-                    enlargeCenterPage: true,
-                    autoPlay: true,
-                    //aspectRatio: 2 / 9,
-                    autoPlayCurve: Curves.fastOutSlowIn,
-                    enableInfiniteScroll: true,
-                    autoPlayAnimationDuration:
-                        const Duration(milliseconds: 800),
-                    viewportFraction: 0.9,
                   ),
-                )
-              ]),
+                );
+              },
+              error: (e, s) => CustomText(text: "Something went wrong"),
+              loading: () => LoadingPage(),
             ),
           ],
         ));

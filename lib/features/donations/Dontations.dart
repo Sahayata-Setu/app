@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:auto_route/auto_route.dart';
 import 'package:donationapp/app.dart';
 import 'package:donationapp/constant/common/GoogleButtomNavBar/GoogleButtomNavBar.dart';
@@ -17,8 +19,9 @@ class Dontaions extends ConsumerWidget {
   final category;
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final data = ref.watch(donationsByCategoryProvider(category));
-    // log("THis is data from single category: ${data['body']}");
+    final data = ref.watch(needsByCategoryProvider(
+        MyParameter(type: "donations", category: category)));
+    log("THis is data from single category: ${data}");
     return App(
       appbar: NavBar(
         showBadge: true,
@@ -61,13 +64,14 @@ class Dontaions extends ConsumerWidget {
                                   mainAxisSpacing: 10),
                           itemBuilder: (context, index) => ItemCard(
                             cardType: "donations",
-                            data: data['body'][index],
-                            image: data['body'][index]['images'][0] ??
+                            data: data['body']['donations'][index],
+                            image: data['body']['donations'][index]['images']
+                                    [0] ??
                                 "assets/images/veg.png",
-                            id: data['body'][index]['_id'],
+                            id: data['body']['donations'][index]['_id'],
                             btnName: "CLAIM",
                           ),
-                          itemCount: data['body'].length,
+                          itemCount: data['body']['donations'].length,
                         ),
                       ),
                     ]),

@@ -29,12 +29,16 @@ final pendingRequestProvider = FutureProvider<Map<String, dynamic>>(
     return ref.watch(adminDashboardService).getPendingRequest();
   },
 );
+final getAllDonationsProvider = FutureProvider<Map<String, dynamic>>(
+  (ref) {
+    return ref.watch(adminDashboardService).getAllDonations();
+  },
+);
 
 class ApproveNotifier extends ChangeNotifier {
   ApproveNotifier(this.read) : super();
   final Reader read;
 
-  // @override
   approveVolunteer(userId, type) async {
     final approveVolunteerService = read(adminDashboardService);
     try {
@@ -48,10 +52,11 @@ class ApproveNotifier extends ChangeNotifier {
     }
   }
 
-  approveDonations(userId, type) async {
+  approveDonations(donationId, type) async {
     final approveVolunteerService = read(adminDashboardService);
     try {
-      final resp = await approveVolunteerService.approveDonation(userId, type);
+      final resp =
+          await approveVolunteerService.approveDonation(donationId, type);
 
       notifyListeners();
       return resp;
@@ -76,5 +81,4 @@ class ApproveNotifier extends ChangeNotifier {
 }
 
 final approveVolunteerProvider =
-    ChangeNotifierProvider.autoDispose<ApproveNotifier>(
-        (ref) => ApproveNotifier(ref.read));
+    ChangeNotifierProvider<ApproveNotifier>((ref) => ApproveNotifier(ref.read));

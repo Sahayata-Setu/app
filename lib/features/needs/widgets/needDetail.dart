@@ -3,6 +3,7 @@ import 'package:donationapp/constant/common/GoogleButtomNavBar/GoogleButtomNavBa
 import 'package:donationapp/constant/common/Icon/custom-icon.dart';
 import 'package:donationapp/constant/common/horizontal-line/horizontal-line.dart';
 import 'package:donationapp/constant/common/loading/loadingPage.dart';
+import 'package:donationapp/features/new-message/chat-detail.dart';
 import 'package:donationapp/store/homepage/homepage.store.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -108,13 +109,28 @@ class NeedDetail extends ConsumerWidget {
                           ),
                         ),
                         ListTile(
+                            // onTap: () {
+
+                            // },
                             title: CustomText(
                               text: "Contact Beneficiary",
                               fontColor: Colors.grey.shade600,
                             ),
-                            trailing: CustomIcon(
-                              icon: Icons.message,
-                              color: blueColor,
+                            trailing: InkWell(
+                              onTap: () {
+                                Navigator.push(context,
+                                    MaterialPageRoute(builder: (context) {
+                                  return ChatDetailPage(
+                                    name: singleData['beneficiary_name'],
+                                    // sender: senderId,
+                                    reciever: singleData['beneficiary_id'],
+                                  );
+                                }));
+                              },
+                              child: CustomIcon(
+                                icon: Icons.message,
+                                color: blueColor,
+                              ),
                             )),
                         ListTile(
                             title: CustomText(
