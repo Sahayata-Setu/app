@@ -194,19 +194,20 @@ class AddRequest extends ConsumerWidget {
               ),
             ),
             Container(
-                margin: EdgeInsets.only(top: kMargin.h),
-                alignment: Alignment.center,
-                child: CustomElevatedButton(
-                  height: 40.sp,
-                  width: 100.sp,
-                  fn: () {
-                    handleSumbit();
-                  },
-                  child: CustomText(
-                    text: "Submit".toUpperCase(),
-                    fontSize: 14.sp,
-                  ),
-                ))
+              margin: EdgeInsets.only(top: kMargin.h),
+              alignment: Alignment.center,
+              child: CustomElevatedButton(
+                height: 40.sp,
+                width: 100.sp,
+                fn: () {
+                  handleSumbit();
+                },
+                child: CustomText(
+                  text: "Submit".toUpperCase(),
+                  fontSize: 14.sp,
+                ),
+              ),
+            )
           ],
         ),
       ),

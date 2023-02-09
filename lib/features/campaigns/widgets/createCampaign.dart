@@ -5,6 +5,7 @@ import 'dart:io';
 import 'package:donationapp/constant/common/GoogleButtomNavBar/GoogleButtomNavBar.dart';
 import 'package:donationapp/constant/common/Text/custom-text.dart';
 import 'package:donationapp/constant/common/button/cusotm-button.dart';
+import 'package:donationapp/constant/common/textfield/CustomTextArea.dart';
 import 'package:donationapp/constant/common/textfield/CustomTextField.dart';
 import 'package:donationapp/constant/kconstant.dart';
 import 'package:donationapp/features/campaigns/store/campaign-store.dart';
@@ -100,90 +101,196 @@ class CreateCampaign extends ConsumerWidget {
     return App(
       component: Container(
           // height: ScreenUtil().screenHeight + kPadding1,
-          padding: const EdgeInsets.all(kPadding),
+          padding: const EdgeInsets.only(
+            right: kPadding,
+            left: kPadding,
+            bottom: kPadding,
+            top: kPadding / 2,
+          ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              CustomTextField(
-                label: "Campaign Name",
+              CustomTextArea(
+                text: "Campaign Name",
                 name: "title",
                 refs: ref.read(campaignDetails.notifier),
+                hint: "Campaign Name",
               ),
-              CustomTextField(
-                label: "Event Location",
+              // CustomTextField(
+              //   label: "Campaign Name",
+              //   name: "title",
+              //   refs: ref.read(campaignDetails.notifier),
+              // ),
+              // CustomTextField(
+              //   label: "Event Location",
+              //   name: "location",
+              //   refs: ref.read(campaignDetails.notifier),
+              // ),
+              CustomTextArea(
+                text: "Event Location",
                 name: "location",
                 refs: ref.read(campaignDetails.notifier),
+                hint: "Event Location",
               ),
-              CustomTextField(
-                label: "Time",
+
+              // CustomTextField(
+              //   label: "Time",
+              //   name: "eventTime",
+              //   refs: ref.read(campaignDetails.notifier),
+              // ),
+              CustomTextArea(
+                text: "Time",
                 name: "eventTime",
                 refs: ref.read(campaignDetails.notifier),
+                hint: "Event Time",
               ),
+
               //Start day
-              CustomText(
-                text: "Select start date",
-                fontSize: 14.sp,
+              Container(
+                margin: EdgeInsets.only(bottom: 10.h, top: 10.h),
+                child: CustomText(
+                  text: "Select Date",
+                  fontColor: blackColor,
+                  fontSize: 16.sp,
+                ),
               ),
-              Row(
-                children: [
-                  GestureDetector(
-                    onTap: () {
-                      _selectDate(
-                        context,
-                        ref.read(startDateProvider.notifier),
-                      );
-                    },
-                    child: Icon(
-                      Icons.date_range,
-                      size: 30.sp,
+
+              GestureDetector(
+                onTap: () {
+                  _selectDate(
+                    context,
+                    ref.read(startDateProvider.notifier),
+                  );
+                },
+                child: Row(
+                  children: [
+                    Icon(Icons.date_range),
+                    Container(
+                      margin: EdgeInsets.only(left: 5.w),
+                      child: CustomText(
+                        text: "${dateFormat(startDateProv)}",
+                        fontSize: 16.sp,
+                      ),
                     ),
-                  ),
-                  SizedBox(
-                    width: 10.w,
-                  ),
-                  CustomText(text: "${dateFormat(startDateProv)}"),
-                  // convertToAgo(dateTime)
-                ],
+                  ],
+                ),
               ),
+
+              // Start Day
+              // CustomText(
+              //   text: "Select start date",
+              //   fontSize: 14.sp,
+              // ),
+              // Row(
+              //   children: [
+              //     GestureDetector(
+              //       onTap: () {
+              //         _selectDate(
+              //           context,
+              //           ref.read(startDateProvider.notifier),
+              //         );
+              //       },
+              //       child: Icon(
+              //         Icons.date_range,
+              //         size: 30.sp,
+              //       ),
+              //     ),
+              //     SizedBox(
+              //       width: 10.w,
+              //     ),
+              //     CustomText(text: "${dateFormat(startDateProv)}"),
+              //     // convertToAgo(dateTime)
+              //   ],
+              // ),
+
               SizedBox(
                 height: 10.h,
               ),
-              //End day
-              CustomText(
-                text: "Select End date",
-                fontSize: 14.sp,
-              ),
-              Row(
-                children: [
-                  GestureDetector(
-                    onTap: () {
-                      _selectDate(
-                        context,
-                        ref.read(endDateProvider.notifier),
-                      );
-                    },
-                    child: Icon(
-                      Icons.date_range,
-                      size: 30.sp,
-                    ),
-                  ),
-                  SizedBox(
-                    width: 10.w,
-                  ),
-                  CustomText(text: "${dateFormat(endDateProv)}"),
-                ],
+
+              // End day
+              Container(
+                margin: EdgeInsets.only(bottom: 10.h, top: 10.h),
+                child: CustomText(
+                  text: "Select Date",
+                  fontColor: blackColor,
+                  fontSize: 16.sp,
+                ),
               ),
 
-              CustomTextField(
-                label: "Descritpion",
-                name: "description",
-                lines: 3,
-                refs: ref.read(campaignDetails.notifier),
-                //focusBorder: secondaryBlue,
+              GestureDetector(
+                onTap: () {
+                  _selectDate(
+                    context,
+                    ref.read(endDateProvider.notifier),
+                  );
+                },
+                child: Row(
+                  children: [
+                    Icon(Icons.date_range),
+                    Container(
+                      margin: EdgeInsets.only(left: 5.w),
+                      child: CustomText(
+                        text: "${dateFormat(endDateProv)}",
+                        fontSize: 16.sp,
+                      ),
+                    ),
+                  ],
+                ),
               ),
-              CustomText(
-                text: "Photos",
-                fontSize: 14.sp,
+
+              // End day
+              // CustomText(
+              //   text: "Select End date",
+              //   fontSize: 14.sp,
+              // ),
+              // Row(
+              //   children: [
+              //     GestureDetector(
+              //       onTap: () {
+              //         _selectDate(
+              //           context,
+              //           ref.read(endDateProvider.notifier),
+              //         );
+              //       },
+              //       child: Icon(
+              //         Icons.date_range,
+              //         size: 30.sp,
+              //       ),
+              //     ),
+              //     SizedBox(
+              //       width: 10.w,
+              //     ),
+              //     CustomText(text: "${dateFormat(endDateProv)}"),
+              //   ],
+              // ),
+
+              // CustomTextField(
+              //   label: "Descritpion",
+              //   name: "description",
+              //   lines: 3,
+              //   refs: ref.read(campaignDetails.notifier),
+              //   //focusBorder: secondaryBlue,
+              // ),
+
+              CustomTextArea(
+                text: "Description",
+                name: "description",
+                refs: ref.read(campaignDetails.notifier),
+                hint: "Description",
+              ),
+
+              // CustomText(
+              //   text: "Photos",
+              //   fontSize: 14.sp,
+              // ),
+
+              Container(
+                margin: EdgeInsets.only(bottom: 10.h, top: 10.h),
+                child: CustomText(
+                  text: "Photos",
+                  fontColor: blackColor,
+                  fontSize: 16.sp,
+                ),
               ),
               imageProvider.isNotEmpty
                   ? SizedBox(
@@ -215,20 +322,25 @@ class CreateCampaign extends ConsumerWidget {
                 onPressed: () {
                   selectImage();
                 },
-                child: const Icon(Icons.add),
+                child: Container(
+                  height: 100.h,
+                  width: 100.w,
+                  child: const Icon(Icons.add),
+                ),
               ),
+
               Container(
-                  // width: 80,
                   alignment: Alignment.center,
+                  margin: EdgeInsets.only(top: kMargin.h),
                   child: CustomElevatedButton(
                     height: 40.sp,
-                    width: 180.sp,
+                    width: 100.sp,
                     fn: () {
                       handleSumbit();
                     },
                     child: CustomText(
                       text: "Submit".toUpperCase(),
-                      fontSize: 14.sp,
+                      fontSize: 16.sp,
                     ),
                   ))
             ],

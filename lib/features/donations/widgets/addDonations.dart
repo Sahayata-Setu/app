@@ -282,7 +282,7 @@ class AddDontaion extends ConsumerWidget {
                   },
                   child: CustomText(
                     text: "Submit".toUpperCase(),
-                    fontSize: 14.sp,
+                    fontSize: 16.sp,
                   ),
                 ),
               )
