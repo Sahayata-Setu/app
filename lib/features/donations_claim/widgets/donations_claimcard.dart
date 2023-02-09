@@ -35,9 +35,15 @@ class DonationsClaimCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final userId = StorageService.getId();
+    late String userType;
 
-    log("Donations: ${donation}");
+    if (donorId == userId) {
+      userType = "donor";
+    } else {
+      userType = "reciever";
+    }
 
+    log("Donations: ${userType}");
     return Card(
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(12.r),
@@ -64,6 +70,7 @@ class DonationsClaimCard extends StatelessWidget {
                   ),
                 ),
                 ForPending(
+                  userType: userType,
                   donationId: donationPostId,
                 )
               ],
@@ -74,20 +81,24 @@ class DonationsClaimCard extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                CustomText(
-                  text: "Donor Status:",
-                  fontSize: 14.sp,
-                  fontWeight: FontWeight.normal,
+                Flexible(
+                  child: CustomText(
+                    text: "Donor Status:",
+                    fontSize: 14.sp,
+                    fontWeight: FontWeight.normal,
+                  ),
                 ),
                 CustomText(
                   text: "${donor_status}",
                   fontSize: 14.sp,
                   fontWeight: FontWeight.bold,
                 ),
-                CustomText(
-                  text: "Reciever Status:",
-                  fontSize: 14.sp,
-                  fontWeight: FontWeight.normal,
+                Flexible(
+                  child: CustomText(
+                    text: "Reciever Status:",
+                    fontSize: 14.sp,
+                    fontWeight: FontWeight.normal,
+                  ),
                 ),
                 CustomText(
                   text: "${reciever_status}",
@@ -105,10 +116,12 @@ class DonationsClaimCard extends StatelessWidget {
                   fontSize: 14.sp,
                   fontWeight: FontWeight.normal,
                 ),
-                CustomText(
-                  text: "${donor_name}",
-                  fontSize: 14.sp,
-                  fontWeight: FontWeight.bold,
+                Flexible(
+                  child: CustomText(
+                    text: "${donor_name}",
+                    fontSize: 14.sp,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
               ],
             ),
@@ -120,10 +133,12 @@ class DonationsClaimCard extends StatelessWidget {
                   fontSize: 14.sp,
                   fontWeight: FontWeight.normal,
                 ),
-                CustomText(
-                  text: "${reciever_name}",
-                  fontSize: 14.sp,
-                  fontWeight: FontWeight.bold,
+                Flexible(
+                  child: CustomText(
+                    text: "${reciever_name}",
+                    fontSize: 14.sp,
+                    fontWeight: FontWeight.bold,
+                  ),
                 )
               ],
             ),

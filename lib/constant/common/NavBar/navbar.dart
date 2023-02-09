@@ -1,5 +1,5 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:badges/badges.dart';
+import 'package:badges/badges.dart' as badge;
 import 'package:donationapp/classes/language.dart';
 import 'package:donationapp/constant/common/Text/custom-text.dart';
 import 'package:donationapp/constant/kconstant.dart';
@@ -7,6 +7,7 @@ import 'package:donationapp/helpers/route.utils.dart';
 import 'package:donationapp/main.dart';
 import 'package:donationapp/routes/app.router.gr.dart';
 import 'package:donationapp/utils/store-service/language.store.dart';
+import 'package:donationapp/utils/store-service/store.service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -31,7 +32,11 @@ class NavBar extends StatelessWidget {
   void onSelected(BuildContext ctx, int item) {}
   @override
   Widget build(BuildContext context) {
+    //Get current route
     final route = AutoRouter.of(context).current.name;
+    //Get user type
+    final userType = StorageService.getuserType();
+
     return AppBar(
       automaticallyImplyLeading:
           route == LoginRoute.name || route == AdminDashBoardDataRoute.name
@@ -52,14 +57,17 @@ class NavBar extends StatelessWidget {
               route == UserProfileRoute.name
           ? Container(
               margin: EdgeInsets.only(left: 10),
-              // child: Badge(
-              //   badgeColor: blueColor,
-              //   badgeContent: Image.asset(
-              //     "assets/images/logo.png",
-              //     height: 2,
-              //     width: 2,
-              //   ),
-              // ),
+              child: badge.Badge(
+                // badgeColor: blueColor,
+                badgeStyle: badge.BadgeStyle(
+                  badgeColor: blueColor,
+                ),
+                badgeContent: Image.asset(
+                  "assets/images/logo.png",
+                  height: 2,
+                  width: 2,
+                ),
+              ),
             )
           :
           // route == HomePageRoute.name ||
@@ -147,14 +155,23 @@ class NavBar extends StatelessWidget {
                               },
                             ),
                             //check for isVolunteer?SizedBox():
-
-                            PopupMenuItem<int>(
-                              child: const Text("Create Campaign"),
-                              onTap: () {
-                                routeTo("/createCampaign", context);
-                                // go to create request button
-                              },
-                            ),
+                            if (userType == "volunteer")
+                              PopupMenuItem<int>(
+                                child: const Text("Create Campaign"),
+                                onTap: () {
+                                  routeTo("/createCampaign", context);
+                                  // go to create request button
+                                },
+                              )
+                            // userType == "volunteer"
+                            //     ? PopupMenuItem<int>(
+                            //         child: const Text("Create Campaign"),
+                            //         onTap: () {
+                            //           routeTo("/createCampaign", context);
+                            //           // go to create request button
+                            //         },
+                            //       )
+                            //     : PopupMenuItem(child: Text(""))
                           ],
                         ),
                       )

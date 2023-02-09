@@ -32,107 +32,104 @@ class NewMessage extends ConsumerWidget {
     final messages = ref.watch(allConnectedUsersProvider);
 
     return App(
-      component: SingleChildScrollView(
-        physics: BouncingScrollPhysics(),
-        child: RefreshIndicator(
-          onRefresh: () async {
-            ref.refresh(allConnectedUsersProvider);
-          },
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              SafeArea(
-                child: Padding(
-                  padding: EdgeInsets.only(left: 16, right: 16, top: 10),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      Text(
-                        "Conversations",
-                        style: TextStyle(
-                            fontSize: 32, fontWeight: FontWeight.bold),
-                      ),
-                      Container(
-                        padding: EdgeInsets.only(
-                            left: 8, right: 8, top: 2, bottom: 2),
-                        height: 30,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(30),
-                          color: Colors.pink[50],
-                        ),
-                        child: Row(
-                          children: <Widget>[
-                            Icon(
-                              Icons.add,
-                              color: Colors.pink,
-                              size: 20,
-                            ),
-                            SizedBox(
-                              width: 2,
-                            ),
-                            Text(
-                              "Add New",
-                              style: TextStyle(
-                                  fontSize: 14, fontWeight: FontWeight.bold),
-                            ),
-                          ],
-                        ),
-                      )
-                    ],
-                  ),
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.only(top: 16, left: 16, right: 16),
-                child: TextField(
-                  decoration: InputDecoration(
-                    hintText: "Search...",
-                    hintStyle: TextStyle(color: Colors.grey.shade600),
-                    prefixIcon: Icon(
-                      Icons.search,
-                      color: Colors.grey.shade600,
-                      size: 20,
+      component: RefreshIndicator(
+        onRefresh: () async {
+          ref.refresh(allConnectedUsersProvider);
+        },
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            SafeArea(
+              child: Padding(
+                padding: EdgeInsets.only(left: 16, right: 16, top: 10),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    Text(
+                      "Conversations",
+                      style:
+                          TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
                     ),
-                    filled: true,
-                    fillColor: Colors.grey.shade100,
-                    contentPadding: EdgeInsets.all(8),
-                    enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(20),
-                        borderSide: BorderSide(color: Colors.grey.shade100)),
-                  ),
+                    // Container(
+                    //   padding: EdgeInsets.only(
+                    //       left: 8, right: 8, top: 2, bottom: 2),
+                    //   height: 30,
+                    //   decoration: BoxDecoration(
+                    //     borderRadius: BorderRadius.circular(30),
+                    //     color: Colors.pink[50],
+                    //   ),
+                    //   child: Row(
+                    //     children: <Widget>[
+                    //       Icon(
+                    //         Icons.add,
+                    //         color: Colors.pink,
+                    //         size: 20,
+                    //       ),
+                    //       SizedBox(
+                    //         width: 2,
+                    //       ),
+                    //       Text(
+                    //         "Add New",
+                    //         style: TextStyle(
+                    //             fontSize: 14, fontWeight: FontWeight.bold),
+                    //       ),
+                    //     ],
+                    //   ),
+                    // )
+                  ],
                 ),
               ),
-              //Message List of the users
+            ),
+            // Padding(
+            //   padding: EdgeInsets.only(top: 16, left: 16, right: 16),
+            //   child: TextField(
+            //     decoration: InputDecoration(
+            //       hintText: "Search...",
+            //       hintStyle: TextStyle(color: Colors.grey.shade600),
+            //       prefixIcon: Icon(
+            //         Icons.search,
+            //         color: Colors.grey.shade600,
+            //         size: 20,
+            //       ),
+            //       filled: true,
+            //       fillColor: Colors.grey.shade100,
+            //       contentPadding: EdgeInsets.all(8),
+            //       enabledBorder: OutlineInputBorder(
+            //           borderRadius: BorderRadius.circular(20),
+            //           borderSide: BorderSide(color: Colors.grey.shade100)),
+            //     ),
+            //   ),
+            // ),
+            //Message List of the users
 
-              messages.when(
-                  data: (data) {
-                    // log("This is all message dta: ${data[0]}");
-                    return ListView.builder(
-                      itemCount: data.length,
-                      shrinkWrap: true,
-                      padding: EdgeInsets.only(top: 16),
-                      physics: NeverScrollableScrollPhysics(),
-                      itemBuilder: (context, index) {
-                        return ConversationList(
-                          name:
-                              "${data[index].firstName!} ${data[index].lastName!}",
-                          receiverId: data[index].id,
-                          messageText: data[index].message!,
-                          imageUrl: "",
-                          time: data[index].createdAt!,
-                          createdAt: data[index].createdAt!,
-                          isMessageRead:
-                              (index == 0 || index == 3) ? true : false,
-                        );
-                      },
-                    );
-                  },
-                  error: (e, h) => Text("Something went worng"),
-                  loading: () => LoadingPage()),
+            messages.when(
+                data: (data) {
+                  // log("This is all message dta: ${data[0]}");
+                  return ListView.builder(
+                    itemCount: data.length,
+                    shrinkWrap: true,
+                    padding: EdgeInsets.only(top: 16),
+                    physics: NeverScrollableScrollPhysics(),
+                    itemBuilder: (context, index) {
+                      return ConversationList(
+                        name:
+                            "${data[index].firstName!} ${data[index].lastName!}",
+                        receiverId: data[index].id,
+                        messageText: data[index].message!,
+                        imageUrl: "",
+                        time: data[index].createdAt!,
+                        createdAt: data[index].createdAt!,
+                        isMessageRead:
+                            (index == 0 || index == 3) ? true : false,
+                      );
+                    },
+                  );
+                },
+                error: (e, h) => Text("Something went worng"),
+                loading: () => LoadingPage()),
 
-              //
-            ],
-          ),
+            //
+          ],
         ),
       ),
       appbar: NavBar(

@@ -10,23 +10,26 @@ class NoticationItem extends StatelessWidget {
       {super.key,
       required this.title,
       required this.icons,
-      required this.createdAt});
+      required this.createdAt,
+      this.subTitle});
   final String title;
   final icons;
   final createdAt;
+  final subTitle;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
         onTap: () {
-          print("hit");
-          routeTo("/admin-dashboard", context); // route to target
+          // print("hit");
+          // routeTo("/admin-dashboard", context); // route to target
           //  routeTo("/donations/:id", context);
         },
         child: Column(
           children: [
             ListTile(
+              trailing: Text(createdAt),
               title: Text(title),
-              subtitle: Text(createdAt),
+              subtitle: Text(subTitle),
               leading: Icon(icons),
             ),
             const HorizontalLine(

@@ -2,18 +2,24 @@ import 'dart:developer';
 
 import 'package:donationapp/constant/common/Text/custom-text.dart';
 import 'package:donationapp/features/donations_claim/store/donations_claim.store.dart';
+import 'package:donationapp/store/homepage/homepage.store.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:line_icons/line_icon.dart';
 
 class ForPending extends ConsumerWidget {
-  const ForPending({super.key, this.donationId});
+  const ForPending({
+    super.key,
+    this.donationId,
+    this.userType,
+  });
   final donationId;
-
+  final userType;
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final donationClaimRef = ref.watch(donationClaimProvider);
+    // final changePostStatus = ref.watch(donationClaimRequestsProvider(""));
     return PopupMenuButton(
       itemBuilder: (context) => [
         // PopupMenuItem(
@@ -24,14 +30,17 @@ class ForPending extends ConsumerWidget {
         // ),
         PopupMenuItem(
           child: CustomText(
-            text: "Claimed",
+            text: userType == "donor" ? "Donated" : "Received",
           ),
           onTap: () async {
-            ref.refresh(donationClaimRequestsProvider(""));
             final resp = await donationClaimRef.changeStatus(donationId);
-            // if (resp.statusCode == 200) {
-            log("This is response: $resp");
-            // }
+            // log("Resp: ${resp.statusCode}");
+            if (resp.isNotEmpty) {
+              ref.refresh(donationClaimRequestsProvider(""));
+              ref.refresh(donationsOrRequestProvider("donations"));
+              await donationClaimRef.changeStatusOfPost();
+              // log("This is response: $resp");
+            }
             // donatiponClaimProvider
           },
         ),
