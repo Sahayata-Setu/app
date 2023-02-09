@@ -8,6 +8,7 @@ import 'package:donationapp/constant/common/button/cusotm-button.dart';
 import 'package:donationapp/constant/common/horizontal-line/horizontal-line.dart';
 import 'package:donationapp/constant/common/loading/loadingPage.dart';
 import 'package:donationapp/features/new-message/chat-detail.dart';
+import 'package:donationapp/features/notifications/store/notification.store.dart';
 import 'package:donationapp/helpers/route.utils.dart';
 import 'package:donationapp/store/admin-dashboard/admin-dashboard.store.dart';
 import 'package:donationapp/store/message/message.store.dart';
@@ -43,35 +44,38 @@ class DonationDetail extends ConsumerWidget {
 
     final approveProv = ref.watch(approveVolunteerProvider);
     final userId = StorageService.getId();
+    final notificationRef = ref.watch(notificationProvider);
 
-    log("Donation Id: ${id}");
-    handleApprove() {
+    // log("Donation Id: ${id}");
+    handleApprove(userId, title) async {
       try {
-        final resp = approveProv.approveDonations(id, "approve").then((value) {
+        final resp =
+            approveProv.approveDonations(id, "approve").then((value) async {
+          await notificationRef.createNotification({
+            "userId": userId,
+            "createdBy": userId,
+            "title": title,
+            "message": "Donation Approved",
+            "link": "#"
+          });
           // log("this is resp from approve ${value['message']}");
           String mess = value['message'];
-          // if (value['message'] == "Donation Approved") {
+          //Refrest the Pending Donations
           ref.refresh(pendingDonationsProvider);
+          //Shows the snack bar if the donations is approved
           final snackBar = SnackBar(
             content: Text("$mess"),
           );
           ScaffoldMessenger.of(context).showSnackBar(snackBar);
           // } e
         }).catchError((e) {
+          //Shows the snack bar if the donations is already approved
           final snackBar = SnackBar(
             content: Text("Donation already Approved"),
           );
           ScaffoldMessenger.of(context).showSnackBar(snackBar);
           // log("this is error from resp ${e}");
         });
-        // resp.val();
-        // log("this is resp from approve ${resp.statusCode}");
-        // ref.refresh(pendingDonationsProvider);
-        // const snackBar = SnackBar(
-        //   content: Text('Sucessfully Approved.'),
-        // );
-        // ScaffoldMessenger.of(context).showSnackBar(snackBar);
-        // log(resp);
       } catch (e) {
         log("this is error from resp ${e}");
       }
@@ -431,7 +435,8 @@ class DonationDetail extends ConsumerWidget {
                           CustomElevatedButton(
                               child: Text("ACCEPT"),
                               fn: () {
-                                handleApprove();
+                                handleApprove(singleData['donor_id'],
+                                    singleData['title']);
                               }),
                           CustomElevatedButton(
                               child: Text("REJECT"),

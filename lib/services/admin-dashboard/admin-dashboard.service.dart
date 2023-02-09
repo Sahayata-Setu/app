@@ -162,6 +162,43 @@ class AdminDashboardServiceClass {
       throw Exception("Invalid Request $e");
     }
   }
+
+  Future<Map<String, dynamic>> getAllVolunteers() async {
+    try {
+      final token = StorageService.getToken();
+      final response = await _client.get(
+        "/admin/volunteers",
+        options: Options(
+          headers: {"Authorization": "Bearer ${token}"},
+        ),
+      );
+
+      return response;
+    } catch (e) {
+      // log("this is error$e");
+      throw Exception("Invalid Request $e");
+    }
+  }
+
+  //Get Single volunteer application details requesr
+  Future<Map<String, dynamic>> getSingleVolunteerApplicationRequesr(
+      applicationId) async {
+    log("Application id is $applicationId");
+    try {
+      final token = StorageService.getToken();
+      final response = await _client.get(
+        "/admin/volunteer/application/${applicationId}",
+        options: Options(
+          headers: {"Authorization": "Bearer ${token}"},
+        ),
+      );
+
+      return response;
+    } catch (e) {
+      // log("this is error$e");
+      throw Exception("Invalid Request $e");
+    }
+  }
 }
 
 final adminDashboardService =

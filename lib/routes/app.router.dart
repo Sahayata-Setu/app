@@ -119,7 +119,7 @@ import '../features/donations/Dontations.dart';
       page: ViewVolunteerApplications, path: "/view-volunteer-applications"),
   MaterialRoute(
       page: VolunteerApplicationDetails,
-      path: "/volunteer-application-details"),
+      path: "/volunteer-application-details/:userId"),
 
   // Admin Profile Section
   MaterialRoute(page: AdminProfile, path: "/admin-profile"),
