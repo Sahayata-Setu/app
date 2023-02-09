@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:donationapp/app.dart';
 import 'package:donationapp/constant/common/BottomNavBar/BottomNavBar.dart';
 import 'package:donationapp/constant/common/NavBar/navbar.dart';
+import 'package:donationapp/constant/common/Text/custom-text.dart';
 import 'package:donationapp/constant/common/loading/loadingPage.dart';
 import 'package:donationapp/constant/kconstant.dart';
 import 'package:donationapp/features/homepage/widgets/donations/donationHomeCards.dart';
@@ -31,6 +32,7 @@ class _SearchPageState extends ConsumerState<SearchPage> {
   @override
   Widget build(BuildContext context) {
     final searchController = ref.watch(seachControllerProvider);
+    // searchController.text.isNotEmpty ?
     final searchResult = ref.watch(searchProvider(searchController.text));
     // log("Search Field:${searchResult}");
 
@@ -64,41 +66,53 @@ class _SearchPageState extends ConsumerState<SearchPage> {
               ),
             ),
             searchResult.when(
-                data: (data) {
-                  log("Data: ${data['body']['all']['data']}");
-                  final allSearchResult = data['body']['all']['data'];
-                  return Container(
-                    height: MediaQuery.of(context).size.height - 200,
-                    child: ListView.builder(
-                      // physics: NeverScrollableScrollPhysics(),
-                      // shrinkWrap: true,
-                      itemBuilder: (context, index) {
-                        return Container(
-                            margin: EdgeInsets.only(
-                              left: kPadding.w + 20.w,
-                              right: kPadding.w + 40.w,
-                              bottom: kPadding.h,
-                              top: kPadding.h,
-                            ),
-                            // padding: EdgeInsets.only(right: kPadding.w),
-                            child: Card(
-                              margin: EdgeInsets.zero,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(12.r),
-                              ),
-                              elevation: 0,
-                              shadowColor: Colors.transparent,
-                              child: DonationHomeCards(
-                                singleInfo: allSearchResult[index],
-                              ),
-                            ));
-                      },
-                      itemCount: allSearchResult.length,
-                    ),
-                  );
-                },
-                loading: () => LoadingPage(),
-                error: (e, st) => Text("Error"))
+              data: (data) {
+                log("Data: ${data['body']['all']['data']}");
+                final allSearchResult = data['body']['all']['data'].toList();
+                return allSearchResult.isNotEmpty
+                    ? Container(
+                        height: MediaQuery.of(context).size.height - 200,
+                        child: ListView.builder(
+                          // physics: NeverScrollableScrollPhysics(),
+                          // shrinkWrap: true,
+                          itemBuilder: (context, index) {
+                            return Container(
+                                margin: EdgeInsets.only(
+                                  left: kPadding.w + 20.w,
+                                  right: kPadding.w + 40.w,
+                                  bottom: kPadding.h,
+                                  top: kPadding.h,
+                                ),
+                                // padding: EdgeInsets.only(right: kPadding.w),
+                                child: Card(
+                                  margin: EdgeInsets.zero,
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(12.r),
+                                  ),
+                                  elevation: 0,
+                                  shadowColor: Colors.transparent,
+                                  child: DonationHomeCards(
+                                    singleInfo: allSearchResult[index],
+                                  ),
+                                ));
+                          },
+                          itemCount: allSearchResult.length,
+                        ),
+                      )
+                    : Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          SizedBox(height: 100.h),
+                          CustomText(
+                            text: "No results found",
+                            fontSize: 22.sp,
+                          ),
+                        ],
+                      );
+              },
+              loading: () => LoadingPage(),
+              error: (e, st) => Text(""),
+            )
           ],
         ),
       ),

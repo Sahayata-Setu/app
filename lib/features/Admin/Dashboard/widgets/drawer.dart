@@ -123,6 +123,8 @@ class Menu_Drawer extends ConsumerWidget {
                   fontSize: 18.sp,
                 ),
                 onTap: () {
+                  routeTo("/admin-message", context);
+
                   Navigator.pop(context);
                   // Todo: Insert route of admin messages
                   // routeTo("", context);

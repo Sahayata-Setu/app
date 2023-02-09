@@ -97,6 +97,7 @@ class Signup extends ConsumerWidget {
                   refs: ref.read(signUpDetailsProvider.notifier),
                   name: "phoneNo",
                   isPhoneNo: true,
+                  value: ref.watch(signUpDetailsProvider)['phoneNo'],
                 ),
                 // CustomTextField(
                 //   refs: ref.read(signUpDetailsProvider.notifier),

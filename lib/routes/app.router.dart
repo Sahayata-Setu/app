@@ -15,6 +15,7 @@ import 'package:donationapp/features/Admin/Users/userDetails.dart';
 import 'package:donationapp/features/Admin/Users/viewUsers.dart';
 import 'package:donationapp/features/Admin/Volunteer%20Application/viewVolunteerApplications.dart';
 import 'package:donationapp/features/Admin/Volunteer%20Application/volunteerApplicationDetails.dart';
+import 'package:donationapp/features/Admin/admin-message/admin-message.dart';
 import 'package:donationapp/features/Admin/widgets/approveVolunter.dart';
 import 'package:donationapp/features/account-settings/account-settings.dart';
 import 'package:donationapp/features/apply-for-volunteer/apply-for-volunteer.dart';
@@ -103,7 +104,7 @@ import '../features/donations/Dontations.dart';
 
   // Admin users section
   MaterialRoute(page: ViewUsers, path: "/view-user"),
-  MaterialRoute(page: UserDetails, path: "/userDetails"),
+  MaterialRoute(page: UserDetails, path: "/userDetails/:userId"),
 
   // Admin Donations
   MaterialRoute(page: ViewDonations, path: "/donations-list"),
@@ -123,6 +124,7 @@ import '../features/donations/Dontations.dart';
   // Admin Profile Section
   MaterialRoute(page: AdminProfile, path: "/admin-profile"),
   MaterialRoute(page: AdminChangePassword, path: "/admin-change-password"),
+  MaterialRoute(page: AdminMessage, path: "/admin-message"),
 ])
 @CustomAutoRouter(routes: [])
 class $AppRouter {}

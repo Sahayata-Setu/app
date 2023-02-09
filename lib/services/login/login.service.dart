@@ -65,6 +65,7 @@ class LoginServiceClass implements AuthBase {
   @override
   Future<void> logOut() async {
     controller.add('');
+    StorageService.setToken('');
     StorageService.removeAll();
     return;
   }

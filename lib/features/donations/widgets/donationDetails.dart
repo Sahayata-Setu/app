@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:developer';
 
 import 'package:auto_route/auto_route.dart';
@@ -8,6 +9,7 @@ import 'package:donationapp/constant/common/horizontal-line/horizontal-line.dart
 import 'package:donationapp/constant/common/loading/loadingPage.dart';
 import 'package:donationapp/features/new-message/chat-detail.dart';
 import 'package:donationapp/helpers/route.utils.dart';
+import 'package:donationapp/store/admin-dashboard/admin-dashboard.store.dart';
 import 'package:donationapp/store/message/message.store.dart';
 import 'package:donationapp/utils/store-service/language.store.dart';
 import 'package:donationapp/utils/store-service/store.service.dart';
@@ -18,6 +20,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:donationapp/constant/common/ImageCarousel/image_carousel.dart';
 import 'package:donationapp/constant/common/Text/custom-text.dart';
 import 'package:donationapp/constant/kconstant.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:line_icons/line_icon.dart';
 
 import '../../../../app.dart';
@@ -38,13 +41,63 @@ class DonationDetail extends ConsumerWidget {
     final getUserType = StorageService.getuserType();
     final data1 = ref.watch(singleDonationsDataProvider(id));
 
+    final approveProv = ref.watch(approveVolunteerProvider);
+    final userId = StorageService.getId();
+
+    log("Donation Id: ${id}");
+    handleApprove() {
+      try {
+        final resp = approveProv.approveDonations(id, "approve").then((value) {
+          // log("this is resp from approve ${value['message']}");
+          String mess = value['message'];
+          // if (value['message'] == "Donation Approved") {
+          ref.refresh(pendingDonationsProvider);
+          final snackBar = SnackBar(
+            content: Text("$mess"),
+          );
+          ScaffoldMessenger.of(context).showSnackBar(snackBar);
+          // } e
+        }).catchError((e) {
+          final snackBar = SnackBar(
+            content: Text("Donation already Approved"),
+          );
+          ScaffoldMessenger.of(context).showSnackBar(snackBar);
+          // log("this is error from resp ${e}");
+        });
+        // resp.val();
+        // log("this is resp from approve ${resp.statusCode}");
+        // ref.refresh(pendingDonationsProvider);
+        // const snackBar = SnackBar(
+        //   content: Text('Sucessfully Approved.'),
+        // );
+        // ScaffoldMessenger.of(context).showSnackBar(snackBar);
+        // log(resp);
+      } catch (e) {
+        log("this is error from resp ${e}");
+      }
+    }
+
+    handleReject() {
+      try {
+        final resp = approveProv.approveDonations(id, "reject");
+        ref.refresh(pendingDonationsProvider);
+        const snackBar = SnackBar(
+          content: Text('Request sucessfully rejected'),
+        );
+        ScaffoldMessenger.of(context).showSnackBar(snackBar);
+        // log(resp);
+      } catch (e) {
+        log("this is error from resp ${e}");
+      }
+    }
+
     // log("this is id${id}");
     // log("rgtf donation${singleData}");
     return App(
       component: data1.when(
         data: (data) {
           final singleData = data['body'];
-          log("Single Data: ${singleData['images'][0]}");
+          log("Single Data: ${singleData}");
           return Container(
             alignment: Alignment.topLeft,
             // height: ScreenUtil().screenHeight,
@@ -373,12 +426,18 @@ class DonationDetail extends ConsumerWidget {
                 ),
                 getUserType == 'admin'
                     ? Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
                           CustomElevatedButton(
-                              child: Text("ACCEPT"), fn: () {}),
+                              child: Text("ACCEPT"),
+                              fn: () {
+                                handleApprove();
+                              }),
                           CustomElevatedButton(
-                              child: Text("REJECT"), fn: () {}),
+                              child: Text("REJECT"),
+                              fn: () {
+                                handleReject();
+                              }),
                         ],
                       )
                     : SizedBox()
