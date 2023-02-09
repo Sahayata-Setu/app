@@ -13,7 +13,7 @@ class CustomTextField extends StatelessWidget {
     this.lines,
     this.focusBorder,
     this.value,
-    // this.showObText,
+    this.readOnly,
     this.refs,
   });
   final refs;
@@ -24,6 +24,7 @@ class CustomTextField extends StatelessWidget {
   final focusBorder;
   final lines;
   final value;
+  final readOnly;
 
   @override
   Widget build(BuildContext context) {
@@ -35,6 +36,7 @@ class CustomTextField extends StatelessWidget {
         bottom: kPadding.h,
       ),
       child: TextFormField(
+        readOnly: readOnly == null ? false : readOnly,
         // obscureText: obsecure ? true : false,
         initialValue: value,
         maxLines: lines == null ? null : lines,
@@ -43,19 +45,6 @@ class CustomTextField extends StatelessWidget {
         ),
         // obscureText: obText,
         decoration: InputDecoration(
-          // suffixIcon: GestureDetector(
-          //   child: Icon(Icons.remove_red_eye_outlined),
-          //   onTap: () {
-          //     refT.read(obscureTextProvider.notifier).state = true;
-          //   },
-          // ),
-
-          // label: CustomText(
-          //   text: label,
-          //   fontColor: borderColor == null ? blackColor : borderColor,
-          // ),
-
-          // hintText: label,
           label: Text(label),
           hintStyle: TextStyle(
             color: Colors.grey,

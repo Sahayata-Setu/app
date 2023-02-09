@@ -16,6 +16,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
+import 'package:loading_animation_widget/loading_animation_widget.dart';
 
 class Login extends ConsumerStatefulWidget {
   const Login({super.key});
@@ -74,7 +75,8 @@ class _LoginState extends ConsumerState<Login> {
           );
           ScaffoldMessenger.of(context).showSnackBar(snackBar);
         }
-
+        //Refresh the state where loginDetails was used
+        ref.refresh(loginDetailsProvider);
         // ignore: use_build_context_synchronously
       } catch (e) {
         log('$e the success');
@@ -87,12 +89,16 @@ class _LoginState extends ConsumerState<Login> {
       }
     }
 
-    return App(
-      appbar: NavBar(
-        title: "LOGIN",
-        showBadge: false,
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: blueColor,
+        title: CustomText(
+          text: "Login",
+          fontColor: whiteColor,
+          fontSize: 20.sp,
+        ),
       ),
-      component: Container(
+      body: Container(
         // height: 600.h,
         height: MediaQuery.of(context).size.height - 70.h,
         color: SignupKConstant.backgroundColor,
@@ -106,13 +112,6 @@ class _LoginState extends ConsumerState<Login> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               LogoArea(),
-
-              // Old Email Field
-              // CustomTextField(
-              //   refs: ref.read(loginDetailsProvider.notifier),
-              //   label: "Email",
-              //   name: "email",
-              // ),
 
               // New Email Field
               CustomTextArea(
@@ -175,7 +174,10 @@ class _LoginState extends ConsumerState<Login> {
 
               //
               state
-                  ? CircularProgressIndicator()
+                  ? Center(
+                      child: LoadingAnimationWidget.waveDots(
+                          color: blueBackgroundColor, size: 80.h),
+                    )
                   : ElevatedButton(
                       onPressed: () {
                         // replaceRouteTo("/homepage", context);
@@ -210,7 +212,7 @@ class _LoginState extends ConsumerState<Login> {
                       ),
                       TextButton(
                         onPressed: () {
-                          replaceRouteTo("/signup", context);
+                          routeTo("/mobile-number", context);
                         },
                         child: CustomText(
                           text: "Sign Up",
@@ -225,8 +227,6 @@ class _LoginState extends ConsumerState<Login> {
           ),
         ),
       ),
-      isAdmin: false,
-      bottomNavBar: const GoogleButtomNavBar(showBottomNavBar: false),
     );
   }
 }

@@ -26,7 +26,6 @@ class RequestDetails extends StatelessWidget {
         margin: EdgeInsets.all(10.h),
         child: Column(
           children: [
-            // * Image section is remaining
             Container(
               height: 35.h,
               margin: EdgeInsets.only(bottom: 10.h),

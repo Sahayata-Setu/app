@@ -1,8 +1,10 @@
+import 'dart:developer';
+
 import 'package:donationapp/services/homepage/homepage.service.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 part 'homepage.store.freezed.dart';
-// part 'homepage.data.provider.g.dart';
 
 final categoriesProvider = StateProvider((ref) => true);
 
@@ -53,8 +55,6 @@ final singleCampaignsByIdProvider =
   },
 );
 
-//Get donations by category
-
 @freezed
 abstract class MyParameter with _$MyParameter {
   factory MyParameter({
@@ -72,6 +72,49 @@ final needsByCategoryProvider =
   },
 );
 
+class AddNotifier extends ChangeNotifier {
+  AddNotifier(this.read) : super();
+  final Reader read;
+
+  // updateProfile(Map<String, dynamic> data) async {
+  //   final updateProfile = read(updateProfileService);
+  //   final id = StorageService.getId();
+  //   // final image = read(imagesProvider);
+  //   try {
+  //     final resp = await updateProfile.updateProfile(id, data);
+  //     // if (resp != null) {
+  //     //   // final userDetails = StorageService.getUser();
+  //     //   // StorageService.setUser({...?userDetails, ...data});
+  //     // }
+  //     return resp;
+  //   } catch (e) {
+  //     rethrow;
+  //   }
+  // }
+
+  //Update profile info
+  createDonationRequest(data) async {
+    // log("this is of data ${data}");
+    final homepageService = read(homePageService);
+    // read(loading.notifier).state = true;
+
+    try {
+      final resp = await homepageService.createRequestForDonation(data);
+      if (resp != null) {
+        // read(loading.notifier).state = false;
+      }
+      notifyListeners();
+      return resp;
+    } catch (e) {
+      // read(loading.notifier).state = false;
+      log('$e');
+      rethrow;
+    }
+  }
+}
+
+final homepageProvider =
+    ChangeNotifierProvider<AddNotifier>((ref) => AddNotifier(ref.read));
 
 // final agentsSearchProvider =
 //     StateNotifierProvider.autoDispose<Map<String, dynamic>, String>(
