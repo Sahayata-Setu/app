@@ -204,6 +204,21 @@ class Menu_Drawer extends ConsumerWidget {
                 handleLogout();
               },
             ),
+            ListTile(
+              leading: Image.asset(
+                "assets/images/logout.png",
+                height: 16.h,
+              ),
+              title: CustomText(
+                text: "Add Location",
+                fontColor: whiteColor,
+                fontSize: 18.sp,
+              ),
+              onTap: () {
+                // handleLogout();
+                routeTo("/add-preferred-location", context);
+              },
+            ),
           ],
         ),
       ),
