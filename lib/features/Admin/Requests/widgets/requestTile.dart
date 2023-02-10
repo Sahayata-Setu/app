@@ -6,12 +6,12 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class RequestTile extends StatelessWidget {
   const RequestTile({
     super.key,
-    required this.donerName,
+    required this.title,
     required this.donationCategory,
     required this.donerLocation,
   });
 
-  final String donerName;
+  final String title;
   final String donationCategory;
   final String donerLocation;
 
@@ -26,7 +26,7 @@ class RequestTile extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             CustomText(
-              text: donerName,
+              text: title,
               fontSize: 16.sp,
               fontWeight: FontWeight.bold,
             ),
@@ -49,7 +49,7 @@ class RequestTile extends StatelessWidget {
                   ),
                 ),
                 CustomText(
-                  text: donerLocation,
+                  text: donerLocation.substring(0),
                   fontSize: 13.sp,
                   fontColor: blackColor,
                 ),

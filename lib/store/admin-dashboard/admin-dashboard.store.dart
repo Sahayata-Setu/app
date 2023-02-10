@@ -34,6 +34,11 @@ final getAllDonationsProvider = FutureProvider<Map<String, dynamic>>(
     return ref.watch(adminDashboardService).getAllDonations();
   },
 );
+final getAllRequestsProvider = FutureProvider<Map<String, dynamic>>(
+  (ref) {
+    return ref.watch(adminDashboardService).getAllRequests();
+  },
+);
 
 //Get All volunteers
 final getAllVolunteerProvider = FutureProvider<Map<String, dynamic>>(

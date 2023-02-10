@@ -11,7 +11,7 @@ class PrimaryCustomButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      onPressed: () {},
+      onPressed: fn,
       style: ButtonStyle(
         backgroundColor: color == null
             ? MaterialStateProperty.all<Color>(blueColor)

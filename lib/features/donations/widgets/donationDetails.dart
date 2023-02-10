@@ -37,7 +37,7 @@ class DonationDetail extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     // final singleData = data['body'];
-    final messages = ref.watch(allConnectedUsersProvider);
+    // final messages = ref.watch(allConnectedUsersProvider);
     // log("this is from data ${data['quantity']}");
     final getUserType = StorageService.getuserType();
     final data1 = ref.watch(singleDonationsDataProvider(id));
@@ -86,7 +86,7 @@ class DonationDetail extends ConsumerWidget {
         final resp = approveProv.approveDonations(id, "reject");
         ref.refresh(pendingDonationsProvider);
         const snackBar = SnackBar(
-          content: Text('Request sucessfully rejected'),
+          content: Text('Donation sucessfully rejected'),
         );
         ScaffoldMessenger.of(context).showSnackBar(snackBar);
         // log(resp);

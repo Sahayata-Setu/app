@@ -1,5 +1,4 @@
 import 'dart:developer';
-
 import 'package:donationapp/constant/common/NavBar/adminNavBar.dart';
 import 'package:donationapp/constant/common/Text/custom-text.dart';
 import 'package:donationapp/constant/common/horizontal-line/horizontal-line.dart';
@@ -43,15 +42,17 @@ class ViewDonations extends ConsumerWidget {
                       return InkWell(
                         child: DonationTile(
                           status: donations[index]['status'],
-                          donerName: donations[index]['donor_name'],
+                          // donerName: donations[index]['donor_name'],
+                          donationTitle: donations[index]['title'],
                           donationCategory: donations[index]['category'],
                           donerLocation: donations[index]['city'],
                         ),
                         onTap: () {
                           // routeTo("/donatedDetails", context);
                           routePush(
-                              DonationDetailRoute(id: donations[index]['_id']),
-                              context);
+                            DonationDetailRoute(id: donations[index]['_id']),
+                            context,
+                          );
                         },
                       );
                     },

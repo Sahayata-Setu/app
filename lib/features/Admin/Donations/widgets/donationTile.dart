@@ -9,12 +9,15 @@ class DonationTile extends StatelessWidget {
   const DonationTile({
     super.key,
     required this.donationCategory,
-    required this.donerName,
+    // required this.donerName,
+    this.donationTitle,
     required this.donerLocation,
     required this.status,
   });
 
-  final String donerName;
+  // final String donerName;
+  final donationTitle;
+
   final String donationCategory;
   final String donerLocation;
   final String status;
@@ -32,7 +35,7 @@ class DonationTile extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 CustomText(
-                  text: donerName,
+                  text: donationTitle,
                   fontSize: 16.sp,
                   fontWeight: FontWeight.bold,
                 ),

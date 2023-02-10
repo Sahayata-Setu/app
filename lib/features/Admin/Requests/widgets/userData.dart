@@ -5,7 +5,13 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:line_icons/line_icon.dart';
 
 class UserData extends StatelessWidget {
-  const UserData({super.key});
+  const UserData({
+    super.key,
+    this.userCity,
+    this.userName,
+  });
+  final userName;
+  final userCity;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -19,7 +25,7 @@ class UserData extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             CustomText(
-              text: "Tasnimul Hasan Tauhid",
+              text: userName,
               fontSize: 16.sp,
               fontWeight: FontWeight.w700,
             ),
@@ -30,7 +36,7 @@ class UserData extends StatelessWidget {
                   child: LineIcon.mapMarker(size: 14.sp),
                 ),
                 CustomText(
-                  text: "Rajkot",
+                  text: userCity,
                   fontSize: 14.sp,
                 ),
               ],

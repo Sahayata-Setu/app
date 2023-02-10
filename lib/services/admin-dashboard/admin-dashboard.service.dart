@@ -163,6 +163,23 @@ class AdminDashboardServiceClass {
     }
   }
 
+  Future<Map<String, dynamic>> getAllRequests() async {
+    try {
+      final token = StorageService.getToken();
+      final response = await _client.get(
+        "/user/request/category/all",
+        options: Options(
+          headers: {"Authorization": "Bearer ${token}"},
+        ),
+      );
+
+      return response;
+    } catch (e) {
+      // log("this is error$e");
+      throw Exception("Invalid Request $e");
+    }
+  }
+
   Future<Map<String, dynamic>> getAllVolunteers() async {
     try {
       final token = StorageService.getToken();
