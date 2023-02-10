@@ -1,6 +1,7 @@
 import 'package:donationapp/app.dart';
 import 'package:donationapp/constant/common/GoogleButtomNavBar/GoogleButtomNavBar.dart';
 import 'package:donationapp/constant/common/NavBar/navbar.dart';
+import 'package:donationapp/constant/common/Text/custom-text.dart';
 import 'package:donationapp/constant/kconstant.dart';
 import 'package:donationapp/features/donations/widgets/categoriesTab.dart';
 import 'package:donationapp/features/homepage/widgets/campaigns/campaign.dart';
@@ -12,6 +13,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class HomePage extends ConsumerStatefulWidget {
   const HomePage({super.key});
@@ -80,9 +82,26 @@ class _HomePageState extends ConsumerState<HomePage> {
         color: backgroundColor,
         //  height: ScreenUtil().screenHeight + kPadding,
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Campaigns(),
             CategoriesTab(),
+            Container(
+              padding: EdgeInsets.only(left: kPadding.w, top: kPadding.h),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  CustomText(
+                    text: "Perefrred Locations",
+                    fontSize: 16.sp,
+                    fontWeight: FontWeight.bold,
+                  ),
+                  Container(
+                    child: CustomText(text: "Rajkot"),
+                  )
+                ],
+              ),
+            )
             //CustomTabBar()
             // DonationsHome(), NeedsHome()
           ],

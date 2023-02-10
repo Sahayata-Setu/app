@@ -73,7 +73,12 @@ class NavBar extends StatelessWidget {
           // route == HomePageRoute.name ||
           route == LoginRoute.name || route == SignupRoute.name
               // route == MessageRoute.name
-              ? const SizedBox()
+              ? InkWell(
+                  onTap: () {
+                    Navigator.of(context).pop();
+                  },
+                  child: Icon(Icons.arrow_back),
+                )
               : IconButton(
                   icon: const Icon(Icons.arrow_back),
                   onPressed: () {

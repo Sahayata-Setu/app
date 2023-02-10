@@ -30,12 +30,10 @@ class AuthCheckWidget extends ConsumerWidget {
             // log("this is from auth${userRole}");
             log("24");
             // log("${user}");
-            if (userRole == 'user') {
+            if (userRole == 'user' || userRole == 'volunteer') {
               replaceRouteTo("/homepage", context);
             } else if (userRole == 'volunteer') {
               replaceRouteTo("/volunteer", context);
-            } else if (userRole == 'admin') {
-              replaceRouteTo("/new-admin-dashboard", context);
             }
           },
           unAuthenticated: (user) {
