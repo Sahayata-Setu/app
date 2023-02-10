@@ -46,6 +46,7 @@ import 'package:donationapp/features/otp/mobile-number.dart';
 import 'package:donationapp/features/otp/otp-verification.dart';
 import 'package:donationapp/features/profile/user-profile.dart';
 import 'package:donationapp/features/profile/user-profile.data.dart';
+import 'package:donationapp/features/profile/widgets/myDonations.dart';
 import 'package:donationapp/features/search-page/search-page.dart';
 import 'package:donationapp/features/signup/SignUp.dart';
 import 'package:donationapp/features/volunteer/campaigns.dart';
@@ -66,6 +67,8 @@ import '../features/donations/Dontations.dart';
   MaterialRoute(page: ChangeLocation, path: "/change-location"),
   // MaterialRoute(page: ChangeLocation, path: "/change-location"),
   MaterialRoute(page: AccountSettings, path: "/account-settings"),
+  MaterialRoute(page: MyDonations, path: "/myDonations"),
+
   MaterialRoute(page: Login, path: "/login"),
   MaterialRoute(page: SearchPage, path: "/search"),
   MaterialRoute(page: NewMessage, path: "/messages"),
