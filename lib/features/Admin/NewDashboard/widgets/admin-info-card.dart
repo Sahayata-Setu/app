@@ -5,9 +5,22 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AdminInfoCard extends StatelessWidget {
-  const AdminInfoCard({super.key, this.dashboardDats, this.cardTitle});
+  const AdminInfoCard(
+      {super.key,
+      this.dashboardDats,
+      this.cardTitle,
+      this.requests,
+      this.donations,
+      this.volunteers,
+      this.users,
+      this.campaigns});
   final dashboardDats;
   final cardTitle;
+  final requests;
+  final donations;
+  final volunteers;
+  final users;
+  final campaigns;
 
   @override
   Widget build(BuildContext context) {
@@ -36,22 +49,22 @@ class AdminInfoCard extends StatelessWidget {
               ),
               DetailTile(
                 title: "Total Requests",
-                value: "${dashboardDats["requests"]["approved"]}",
+                value: "${requests}",
                 fontColor: whiteColor,
               ),
               DetailTile(
                 title: "Total Donations",
-                value: "${dashboardDats["donations"]["approved"]}",
+                value: "${donations}",
                 fontColor: whiteColor,
               ),
               DetailTile(
                 title: "Total Volunteers",
-                value: "${dashboardDats["requests"]["approved"]}",
+                value: "${volunteers}",
                 fontColor: whiteColor,
               ),
               DetailTile(
                 title: "Total Users",
-                value: "${dashboardDats["users"]["verified"]}",
+                value: "${users}",
                 fontColor: whiteColor,
               ),
               DetailTile(

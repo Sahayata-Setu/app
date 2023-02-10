@@ -49,10 +49,18 @@ class NewAdminDashboard extends ConsumerWidget {
                         AdminInfoCard(
                           cardTitle: "All Time",
                           dashboardDats: dashboardDats,
+                          requests: dashboardDats['requests']['total'],
+                          donations: dashboardDats['donations']['total'],
+                          volunteers: dashboardDats['volunteers']['total'],
+                          users: dashboardDats['users']['total'],
                         ),
                         AdminInfoCard(
                           cardTitle: "Pending",
                           dashboardDats: dashboardDats,
+                          requests: dashboardDats['requests']['pending'],
+                          donations: dashboardDats['donations']['pending'],
+                          volunteers: dashboardDats['volunteers']['pending'],
+                          users: dashboardDats['users']['total'],
                         ),
                         AdminInfoCard(
                           cardTitle: "Approved",
@@ -129,6 +137,7 @@ class NewAdminDashboard extends ConsumerWidget {
                 ),
                 Expanded(
                   child: Container(
+                    margin: EdgeInsets.all(10.h),
                     padding: EdgeInsets.all(10.h),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.only(
@@ -160,23 +169,26 @@ class NewAdminDashboard extends ConsumerWidget {
                             fontColor: whiteColor,
                           ),
                         ),
-                        Container(
-                          height: 275.h,
-                          child: Scrollbar(
-                            thumbVisibility: true,
-                            radius: Radius.circular(30.r),
-                            child: ListView.builder(
-                              itemBuilder: (context, index) {
-                                return CardList(
-                                  title: listItem[index]['title'],
-                                  value: listItem[index]['value'],
-                                  fontColor: whiteColor,
-                                );
-                              },
-                              itemCount: listItem.length,
-                            ),
+                        // Container(
+                        //   height: 275.h,
+                        //   child: Scrollbar(
+                        //     thumbVisibility: true,
+                        //     radius: Radius.circular(30.r),
+                        //child:
+                        Expanded(
+                          child: ListView.builder(
+                            itemBuilder: (context, index) {
+                              return CardList(
+                                title: listItem[index]['title'],
+                                value: listItem[index]['value'],
+                                fontColor: whiteColor,
+                              );
+                            },
+                            itemCount: listItem.length,
                           ),
                         ),
+                        //  ),
+                        //  ),
                       ],
                     ),
                   ),

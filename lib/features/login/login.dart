@@ -96,110 +96,116 @@ class _LoginState extends ConsumerState<Login> {
           fontSize: 20.sp,
         ),
       ),
-      body: Container(
-        // height: 600.h,
-        height: MediaQuery.of(context).size.height - 70.h,
-        color: SignupKConstant.backgroundColor,
+      body: SingleChildScrollView(
         child: Container(
-          padding: EdgeInsets.only(
-            left: kPadding.w,
-            right: kPadding.w,
-            top: kPadding.h + 30,
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              LogoArea(),
+          // height: 600.h,
+          height: MediaQuery.of(context).size.height,
+          color: SignupKConstant.backgroundColor,
+          child: Container(
+            padding: EdgeInsets.only(
+              left: kPadding.w,
+              right: kPadding.w,
+              top: kPadding.h + 30,
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                LogoArea(),
 
-              // New Email Field
-              CustomTextArea(
-                text: "Email",
-                refs: ref.read(loginDetailsProvider.notifier),
-                name: "email",
-              ),
-
-              // New Password Field
-              Container(
-                margin: EdgeInsets.only(
-                  bottom: 10.h,
-                ),
-                child: CustomTextArea(
-                  text: "Password",
-                  name: "password",
-                  isObscure: true,
+                // New Email Field
+                CustomTextArea(
+                  text: "Email",
                   refs: ref.read(loginDetailsProvider.notifier),
+                  name: "email",
                 ),
-              ),
 
-              // Old Password Field
-              // Container(
-              //   padding: EdgeInsets.only(
-              //     bottom: kPadding.h,
-              //   ),
-              //   child: TextFormField(
-              //     obscureText: true,
-              //     initialValue: "",
-              //     // maxLines: lines == null ? null : lines,
-              //     style: const TextStyle(
-              //       color: blackColor,
-              //     ),
-              //     // obscureText: obText,
-              //     decoration: const InputDecoration(
-              //       hintText: "Password",
-              //       hintStyle: TextStyle(
-              //         color: Colors.grey,
-              //       ),
-              //       fillColor: whiteColor,
-              //       // border: InputBorder.none,
-              //       enabledBorder: UnderlineInputBorder(
-              //         borderSide: BorderSide(
-              //           color: blackColor,
-              //         ),
-              //       ),
-              //       focusedBorder: UnderlineInputBorder(
-              //         borderSide: BorderSide(
-              //           color: blackColor,
-              //         ),
-              //       ),
-              //       // fillColor: whiteColor,
-              //     ),
-              //     onChanged: (value) {
-              //       ref.read(loginDetailsProvider.notifier).state["password"] =
-              //           value;
-              //     },
-              //   ),
-              // ),
+                // New Password Field
+                Container(
+                  margin: EdgeInsets.only(
+                    bottom: 10.h,
+                  ),
+                  child: CustomTextArea(
+                    text: "Password",
+                    name: "password",
+                    isObscure: true,
+                    refs: ref.read(loginDetailsProvider.notifier),
+                  ),
+                ),
 
-              //
-              state
-                  ? Center(
-                      child: LoadingAnimationWidget.waveDots(
-                          color: blueBackgroundColor, size: 80.h),
-                    )
-                  : ElevatedButton(
-                      onPressed: () {
-                        // replaceRouteTo("/homepage", context);
-                        // handleSumbit();
-                        // log("${loginDetails}");
-                        handleSumbit();
-                      },
-                      style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.all(blueColor),
+                // Old Password Field
+                // Container(
+                //   padding: EdgeInsets.only(
+                //     bottom: kPadding.h,
+                //   ),
+                //   child: TextFormField(
+                //     obscureText: true,
+                //     initialValue: "",
+                //     // maxLines: lines == null ? null : lines,
+                //     style: const TextStyle(
+                //       color: blackColor,
+                //     ),
+                //     // obscureText: obText,
+                //     decoration: const InputDecoration(
+                //       hintText: "Password",
+                //       hintStyle: TextStyle(
+                //         color: Colors.grey,
+                //       ),
+                //       fillColor: whiteColor,
+                //       // border: InputBorder.none,
+                //       enabledBorder: UnderlineInputBorder(
+                //         borderSide: BorderSide(
+                //           color: blackColor,
+                //         ),
+                //       ),
+                //       focusedBorder: UnderlineInputBorder(
+                //         borderSide: BorderSide(
+                //           color: blackColor,
+                //         ),
+                //       ),
+                //       // fillColor: whiteColor,
+                //     ),
+                //     onChanged: (value) {
+                //       ref.read(loginDetailsProvider.notifier).state["password"] =
+                //           value;
+                //     },
+                //   ),
+                // ),
+
+                //
+                state
+                    ? Center(
+                        child: LoadingAnimationWidget.waveDots(
+                            color: blueBackgroundColor, size: 80.h),
+                      )
+                    : ElevatedButton(
+                        onPressed: () {
+                          // replaceRouteTo("/homepage", context);
+                          // handleSumbit();
+                          // log("${loginDetails}");
+                          handleSumbit();
+                        },
+                        style: ButtonStyle(
+                          backgroundColor: MaterialStateProperty.all(blueColor),
+                        ),
+                        child: Text("Login"),
                       ),
-                      child: Text("Login"),
-                    ),
+                TextButton(
+                    onPressed: () {
+                      routeTo("/forgot-password", context);
+                    },
+                    child: CustomText(
+                      text: "Forgot Password",
+                    )),
+                // PrimaryCustomButton(
+                //     child: CustomText(
+                //       text: "Login",
+                //       fontSize: 16.sp,
+                //     ),
+                //     fn: () {
+                //       handleSumbit();
+                //     }),
 
-              // PrimaryCustomButton(
-              //     child: CustomText(
-              //       text: "Login",
-              //       fontSize: 16.sp,
-              //     ),
-              //     fn: () {
-              //       handleSumbit();
-              //     }),
-
-              Expanded(
-                child: Container(
+                Container(
                   alignment: Alignment.bottomCenter,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -219,9 +225,9 @@ class _LoginState extends ConsumerState<Login> {
                       )
                     ],
                   ),
-                ),
-              )
-            ],
+                )
+              ],
+            ),
           ),
         ),
       ),

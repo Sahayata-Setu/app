@@ -105,7 +105,7 @@ class _OtpVerificationState extends ConsumerState<OtpVerification> {
               ),
             ),
             CustomText(
-              text: otpError ?? "",
+              text: otpError,
               fontSize: 12.sp,
               fontColor: Colors.red,
             ),

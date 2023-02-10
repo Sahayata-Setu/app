@@ -27,6 +27,22 @@ class UserDetailsServiceClass {
     }
   }
 
+  Future<Map<String, dynamic>> search(userName) async {
+    try {
+      final token = StorageService.getToken();
+      final response = await _client.get(
+        "/admin/search/donations/${userName}",
+        options: Options(
+          headers: {"Authorization": "Bearer ${token}"},
+        ),
+      );
+
+      return response;
+    } catch (e) {
+      log("this is error$e");
+      throw Exception("Invalid Request $e");
+    }
+  }
   //Change reciever request status
   // Future<dynamic> changeRequest(donationId) async {
   //   try {

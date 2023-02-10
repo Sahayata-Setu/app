@@ -8,3 +8,10 @@ final getAlluserDetailsProvider =
     return ref.watch(userDetailsService).getUserDetails();
   },
 );
+
+//Get All volunteers
+final searchUsers = FutureProvider.family<Map<String, dynamic>, String>(
+  (ref, data) {
+    return ref.watch(userDetailsService).search(data);
+  },
+);
