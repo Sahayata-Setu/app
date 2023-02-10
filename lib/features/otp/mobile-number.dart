@@ -14,6 +14,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:loading_animation_widget/loading_animation_widget.dart';
 
 class MobileNumber extends ConsumerStatefulWidget {
   const MobileNumber({super.key});
@@ -32,6 +33,7 @@ class _MobileNumberState extends ConsumerState<MobileNumber> {
   @override
   Widget build(BuildContext context) {
     final error = ref.watch(errorProvider);
+    final loading = ref.watch(loadingMobileProv);
 
     //Data Fetching from store
     // final verification = "";
@@ -41,6 +43,8 @@ class _MobileNumberState extends ConsumerState<MobileNumber> {
     FirebaseAuth auth = FirebaseAuth.instance;
 
     void verifyNumber() {
+      ref.read(loadingMobileProv.notifier).state = true;
+
       auth.verifyPhoneNumber(
         phoneNumber: "+91${_mobilePhoneController.text}",
         verificationCompleted: (PhoneAuthCredential credential) async {
@@ -53,6 +57,7 @@ class _MobileNumberState extends ConsumerState<MobileNumber> {
           ref.read(errorProvider.notifier).state = "Too many requests";
         },
         codeSent: (String verificationId, int? resendToken) {
+          ref.read(loadingMobileProv.notifier).state = false;
           ref.read(verificationIdProvider.notifier).state = verificationId;
           routeTo("/otp-verification", context);
         },
