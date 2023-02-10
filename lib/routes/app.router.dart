@@ -15,6 +15,7 @@ import 'package:donationapp/features/Admin/Users/userDetails.dart';
 import 'package:donationapp/features/Admin/Users/viewUsers.dart';
 import 'package:donationapp/features/Admin/Volunteer%20Application/viewVolunteerApplications.dart';
 import 'package:donationapp/features/Admin/Volunteer%20Application/volunteerApplicationDetails.dart';
+import 'package:donationapp/features/Admin/add-preferred-locations/add-preferred-locations.dart';
 import 'package:donationapp/features/Admin/admin-message/admin-message.dart';
 import 'package:donationapp/features/Admin/widgets/approveVolunter.dart';
 import 'package:donationapp/features/account-settings/account-settings.dart';
@@ -103,6 +104,7 @@ import '../features/donations/Dontations.dart';
 
   // Admin New Dashboard
   MaterialRoute(page: NewAdminDashboard, path: "/new-admin-dashboard"),
+  MaterialRoute(page: AddPreferredLocation, path: "/add-preferred-location"),
 
   // Admin users section
   MaterialRoute(page: ViewUsers, path: "/view-user"),
