@@ -8,7 +8,6 @@ import 'package:donationapp/constant/common/button/cusotm-button.dart';
 import 'package:donationapp/constant/common/horizontal-line/horizontal-line.dart';
 import 'package:donationapp/constant/common/loading/loadingPage.dart';
 import 'package:donationapp/features/new-message/chat-detail.dart';
-import 'package:donationapp/features/notifications/store/notification.store.dart';
 import 'package:donationapp/helpers/route.utils.dart';
 import 'package:donationapp/store/admin-dashboard/admin-dashboard.store.dart';
 import 'package:donationapp/store/message/message.store.dart';
@@ -37,45 +36,42 @@ class DonationDetail extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     // final singleData = data['body'];
-    // final messages = ref.watch(allConnectedUsersProvider);
+    final messages = ref.watch(allConnectedUsersProvider);
     // log("this is from data ${data['quantity']}");
     final getUserType = StorageService.getuserType();
     final data1 = ref.watch(singleDonationsDataProvider(id));
 
     final approveProv = ref.watch(approveVolunteerProvider);
     final userId = StorageService.getId();
-    final notificationRef = ref.watch(notificationProvider);
 
-    // log("Donation Id: ${id}");
-    handleApprove(userId, title) async {
+    log("Donation Id: ${id}");
+    handleApprove() {
       try {
-        final resp =
-            approveProv.approveDonations(id, "approve").then((value) async {
-          await notificationRef.createNotification({
-            "userId": userId,
-            "createdBy": userId,
-            "title": title,
-            "message": "Donation Approved",
-            "link": "#"
-          });
+        final resp = approveProv.approveDonations(id, "approve").then((value) {
           // log("this is resp from approve ${value['message']}");
           String mess = value['message'];
-          //Refrest the Pending Donations
+          // if (value['message'] == "Donation Approved") {
           ref.refresh(pendingDonationsProvider);
-          //Shows the snack bar if the donations is approved
           final snackBar = SnackBar(
             content: Text("$mess"),
           );
           ScaffoldMessenger.of(context).showSnackBar(snackBar);
           // } e
         }).catchError((e) {
-          //Shows the snack bar if the donations is already approved
           final snackBar = SnackBar(
             content: Text("Donation already Approved"),
           );
           ScaffoldMessenger.of(context).showSnackBar(snackBar);
           // log("this is error from resp ${e}");
         });
+        // resp.val();
+        // log("this is resp from approve ${resp.statusCode}");
+        // ref.refresh(pendingDonationsProvider);
+        // const snackBar = SnackBar(
+        //   content: Text('Sucessfully Approved.'),
+        // );
+        // ScaffoldMessenger.of(context).showSnackBar(snackBar);
+        // log(resp);
       } catch (e) {
         log("this is error from resp ${e}");
       }
@@ -86,7 +82,7 @@ class DonationDetail extends ConsumerWidget {
         final resp = approveProv.approveDonations(id, "reject");
         ref.refresh(pendingDonationsProvider);
         const snackBar = SnackBar(
-          content: Text('Donation sucessfully rejected'),
+          content: Text('Request sucessfully rejected'),
         );
         ScaffoldMessenger.of(context).showSnackBar(snackBar);
         // log(resp);
@@ -324,49 +320,6 @@ class DonationDetail extends ConsumerWidget {
                       // ),
 
                       GestureDetector(
-                        onTap: () {
-                          // routeTo(
-                          //     "/message/${singleData['donor_name']}/${singleData['donor_id']}",
-                          //     context);
-                          Navigator.push(context,
-                              MaterialPageRoute(builder: (context) {
-                            return ChatDetailPage(
-                              name: singleData['donor_name'],
-                              // sender: senderId,
-                              reciever: singleData['donor_id'],
-                            );
-                          }));
-                        },
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            CustomText(
-                              text: "Contact Donor",
-                              fontSize: 16.sp,
-                              fontWeight: FontWeight.bold,
-                              fontColor: Colors.grey.shade600,
-                            ),
-                            LineIcon.sms(),
-                          ],
-                        ),
-                      ),
-
-                      SizedBox(
-                        height: kMargin.h,
-                      ),
-
-                      // ListTile(
-                      //   title: CustomText(
-                      //     text: "Contact Donor",
-                      //     fontColor: Colors.grey.shade600,
-                      //   ),
-                      //   trailing: CustomIcon(
-                      //     icon: Icons.message,
-                      //     color: blueColor,
-                      //   ),
-                      // ),
-
-                      GestureDetector(
                         onTap: () {},
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -381,21 +334,9 @@ class DonationDetail extends ConsumerWidget {
                           ],
                         ),
                       ),
-
                       SizedBox(
                         height: kMargin.h,
                       ),
-
-                      // ListTile(
-                      //   title: CustomText(
-                      //     text: "Helpline",
-                      //     fontColor: Colors.grey.shade600,
-                      //   ),
-                      //   trailing: CustomIcon(
-                      //     icon: Icons.message,
-                      //     color: blueColor,
-                      //   ),
-                      // ),
 
                       HorizontalLine(),
 
@@ -411,6 +352,7 @@ class DonationDetail extends ConsumerWidget {
                           fontWeight: FontWeight.bold,
                         ),
                       ),
+
                       SizedBox(
                         height: kMargin.h,
                       ),
@@ -424,10 +366,70 @@ class DonationDetail extends ConsumerWidget {
                           fontSize: 14.sp,
                           text: "${singleData['description']}",
                         ),
-                      )
+                      ),
+
+                      Container(
+                        alignment: Alignment.center,
+                        margin: EdgeInsets.only(top: kPadding1.h),
+                        child: CustomElevatedButton(
+                          color: const Color(0xff000C66),
+                          width: 150.w,
+                          height: 35.h,
+                          fn: () {
+                            Navigator.push(context,
+                                MaterialPageRoute(builder: (context) {
+                              return ChatDetailPage(
+                                name: singleData['donor_name'],
+                                // sender: senderId,
+                                reciever: singleData['donor_id'],
+                              );
+                            }));
+                            // routeTo(
+                          },
+                          child: CustomText(
+                            text: translation(context).contact_doner,
+                            fontSize: 16.sp,
+                            fontWeight: FontWeight.bold,
+                            fontColor: Colors.white,
+                          ),
+                          // Text(
+                          //   translation(context).claim,
+                          //   style: TextStyle(
+                          //     fontSize: 16.sp,
+                          //   ),
+                          // ),
+                        ),
+                      ),
+
+                      SizedBox(
+                        height: kPadding.h,
+                      ),
+
+                      // ListTile(
+                      //   title: CustomText(
+                      //     text: "Contact Donor",
+                      //     fontColor: Colors.grey.shade600,
+                      //   ),
+                      //   trailing: CustomIcon(
+                      //     icon: Icons.message,
+                      //     color: blueColor,
+                      //   ),
+                      // ),
                     ],
                   ),
                 ),
+
+                // ListTile(
+                //   title: CustomText(
+                //     text: "Helpline",
+                //     fontColor: Colors.grey.shade600,
+                //   ),
+                //   trailing: CustomIcon(
+                //     icon: Icons.message,
+                //     color: blueColor,
+                //   ),
+                // ),
+
                 getUserType == 'admin'
                     ? Row(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -435,8 +437,7 @@ class DonationDetail extends ConsumerWidget {
                           CustomElevatedButton(
                               child: Text("ACCEPT"),
                               fn: () {
-                                handleApprove(singleData['donor_id'],
-                                    singleData['title']);
+                                handleApprove();
                               }),
                           CustomElevatedButton(
                               child: Text("REJECT"),
