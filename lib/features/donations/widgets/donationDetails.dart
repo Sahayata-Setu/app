@@ -320,49 +320,6 @@ class DonationDetail extends ConsumerWidget {
                       // ),
 
                       GestureDetector(
-                        onTap: () {
-                          // routeTo(
-                          //     "/message/${singleData['donor_name']}/${singleData['donor_id']}",
-                          //     context);
-                          Navigator.push(context,
-                              MaterialPageRoute(builder: (context) {
-                            return ChatDetailPage(
-                              name: singleData['donor_name'],
-                              // sender: senderId,
-                              reciever: singleData['donor_id'],
-                            );
-                          }));
-                        },
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            CustomText(
-                              text: "Contact Donor",
-                              fontSize: 16.sp,
-                              fontWeight: FontWeight.bold,
-                              fontColor: Colors.grey.shade600,
-                            ),
-                            LineIcon.sms(),
-                          ],
-                        ),
-                      ),
-
-                      SizedBox(
-                        height: kMargin.h,
-                      ),
-
-                      // ListTile(
-                      //   title: CustomText(
-                      //     text: "Contact Donor",
-                      //     fontColor: Colors.grey.shade600,
-                      //   ),
-                      //   trailing: CustomIcon(
-                      //     icon: Icons.message,
-                      //     color: blueColor,
-                      //   ),
-                      // ),
-
-                      GestureDetector(
                         onTap: () {},
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -377,21 +334,9 @@ class DonationDetail extends ConsumerWidget {
                           ],
                         ),
                       ),
-
                       SizedBox(
                         height: kMargin.h,
                       ),
-
-                      // ListTile(
-                      //   title: CustomText(
-                      //     text: "Helpline",
-                      //     fontColor: Colors.grey.shade600,
-                      //   ),
-                      //   trailing: CustomIcon(
-                      //     icon: Icons.message,
-                      //     color: blueColor,
-                      //   ),
-                      // ),
 
                       HorizontalLine(),
 
@@ -407,6 +352,7 @@ class DonationDetail extends ConsumerWidget {
                           fontWeight: FontWeight.bold,
                         ),
                       ),
+
                       SizedBox(
                         height: kMargin.h,
                       ),
@@ -420,10 +366,70 @@ class DonationDetail extends ConsumerWidget {
                           fontSize: 14.sp,
                           text: "${singleData['description']}",
                         ),
-                      )
+                      ),
+
+                      Container(
+                        alignment: Alignment.center,
+                        margin: EdgeInsets.only(top: kPadding1.h),
+                        child: CustomElevatedButton(
+                          color: const Color(0xff000C66),
+                          width: 150.w,
+                          height: 35.h,
+                          fn: () {
+                            Navigator.push(context,
+                                MaterialPageRoute(builder: (context) {
+                              return ChatDetailPage(
+                                name: singleData['donor_name'],
+                                // sender: senderId,
+                                reciever: singleData['donor_id'],
+                              );
+                            }));
+                            // routeTo(
+                          },
+                          child: CustomText(
+                            text: "Contact Doner",
+                            fontSize: 16.sp,
+                            fontWeight: FontWeight.bold,
+                            fontColor: Colors.white,
+                          ),
+                          // Text(
+                          //   translation(context).claim,
+                          //   style: TextStyle(
+                          //     fontSize: 16.sp,
+                          //   ),
+                          // ),
+                        ),
+                      ),
+
+                      SizedBox(
+                        height: kPadding.h,
+                      ),
+
+                      // ListTile(
+                      //   title: CustomText(
+                      //     text: "Contact Donor",
+                      //     fontColor: Colors.grey.shade600,
+                      //   ),
+                      //   trailing: CustomIcon(
+                      //     icon: Icons.message,
+                      //     color: blueColor,
+                      //   ),
+                      // ),
                     ],
                   ),
                 ),
+
+                // ListTile(
+                //   title: CustomText(
+                //     text: "Helpline",
+                //     fontColor: Colors.grey.shade600,
+                //   ),
+                //   trailing: CustomIcon(
+                //     icon: Icons.message,
+                //     color: blueColor,
+                //   ),
+                // ),
+
                 getUserType == 'admin'
                     ? Row(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
