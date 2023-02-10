@@ -13,14 +13,14 @@ class ImageCarousel extends StatelessWidget {
     // log("this is from image crousel ${data['images'].isEmpty}");
     return Container(
       height: 200,
-      margin: EdgeInsets.only(top: kMargin),
+      margin: EdgeInsets.only(top: kMargin / 2),
       child: ListView(children: [
         CarouselSlider(
           items: [
             //1st Image of Slider
 
             Container(
-              margin: const EdgeInsets.all(6.0),
+              // margin: const EdgeInsets.all(6.0),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(8.0),
                 image: DecorationImage(

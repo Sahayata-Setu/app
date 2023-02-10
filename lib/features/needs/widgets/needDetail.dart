@@ -225,44 +225,6 @@ class NeedDetail extends ConsumerWidget {
                                 //       ),
                                 //     )),
 
-                                Container(
-                                  margin:
-                                      EdgeInsets.only(bottom: 20.h, top: 10.h),
-                                  child: Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      CustomText(
-                                        text: "Beneficiary",
-                                        fontSize: 16.sp,
-                                        fontWeight: FontWeight.w500,
-                                        fontColor: textColor,
-                                      ),
-                                      InkWell(
-                                        child: LineIcon.facebookMessenger(
-                                          size: 20.sp,
-                                        ),
-                                        onTap: () {
-                                          Navigator.push(
-                                            context,
-                                            MaterialPageRoute(
-                                              builder: (context) {
-                                                return ChatDetailPage(
-                                                  name: singleData[
-                                                      'beneficiary_name'],
-                                                  // sender: senderId,
-                                                  reciever: singleData[
-                                                      'beneficiary_id'],
-                                                );
-                                              },
-                                            ),
-                                          );
-                                        },
-                                      )
-                                    ],
-                                  ),
-                                ),
-
                                 // ListTile(
                                 //   title: CustomText(
                                 //     text: "Helpline",
@@ -275,7 +237,8 @@ class NeedDetail extends ConsumerWidget {
                                 // ),
 
                                 Container(
-                                  margin: EdgeInsets.only(bottom: 10.h),
+                                  margin:
+                                      EdgeInsets.only(bottom: 10.h, top: 10.h),
                                   child: HorizontalLine(
                                     color: blueColor,
                                   ),
@@ -294,7 +257,65 @@ class NeedDetail extends ConsumerWidget {
                                   fontSize: 14.sp,
                                   fontWeight: FontWeight.w500,
                                   fontColor: textColor,
-                                )
+                                ),
+                                Container(
+                                  margin:
+                                      EdgeInsets.only(bottom: 20.h, top: 10.h),
+                                  child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      CustomText(
+                                        text: "Beneficiary",
+                                        fontSize: 16.sp,
+                                        fontWeight: FontWeight.w500,
+                                        fontColor: textColor,
+                                      ),
+                                      PrimaryCustomButton(
+                                        child: LineIcon.facebookMessenger(
+                                          size: 20.sp,
+                                        ),
+                                        fn: () {
+                                          Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                              builder: (context) {
+                                                return ChatDetailPage(
+                                                  name: singleData[
+                                                      'beneficiary_name'],
+                                                  // sender: senderId,
+                                                  reciever: singleData[
+                                                      'beneficiary_id'],
+                                                );
+                                              },
+                                            ),
+                                          );
+                                        },
+                                      ),
+                                      // InkWell(
+                                      //   child: LineIcon.facebookMessenger(
+                                      //     size: 20.sp,
+                                      //   ),
+                                      //   onTap: () {
+                                      //     Navigator.push(
+                                      //       context,
+                                      //       MaterialPageRoute(
+                                      //         builder: (context) {
+                                      //           return ChatDetailPage(
+                                      //             name: singleData[
+                                      //                 'beneficiary_name'],
+                                      //             // sender: senderId,
+                                      //             reciever: singleData[
+                                      //                 'beneficiary_id'],
+                                      //           );
+                                      //         },
+                                      //       ),
+                                      //     );
+                                      //   },
+                                      // )
+                                    ],
+                                  ),
+                                ),
                               ],
                             ),
                           ),
@@ -331,43 +352,45 @@ class NeedDetail extends ConsumerWidget {
                         getUserType == 'admin'
                             ? Container(
                                 margin: EdgeInsets.only(top: 10.h),
-                                child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceAround,
-                                  children: [
-                                    PrimaryCustomButton(
-                                      child: CustomText(
-                                        text: "Allow",
-                                        fontSize: 16.sp,
-                                      ),
-                                      color: blueColor,
-                                      fn: () {
-                                        // routeTo("", context);
-                                        handleApprove();
-                                      },
-                                    ),
-                                    PrimaryCustomButton(
-                                      child: CustomText(
-                                        text: "Remove",
-                                        fontSize: 16.sp,
-                                      ),
-                                      color: Colors.red,
-                                      fn: () {
-                                        handleReject();
-                                      },
-                                    ),
-                                    // CustomElevatedButton(
-                                    //     child: Text("ACCEPT"),
-                                    //     fn: () {
-                                    //       handleApprove();
-                                    //     }),
-                                    // CustomElevatedButton(
-                                    //     child: Text("REJECT"),
-                                    //     fn: () {
-                                    //       handleReject();
-                                    //     }),
-                                  ],
-                                ),
+                                child: singleData['status'] == "pending"
+                                    ? Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceAround,
+                                        children: [
+                                          PrimaryCustomButton(
+                                            child: CustomText(
+                                              text: "Allow",
+                                              fontSize: 16.sp,
+                                            ),
+                                            color: blueColor,
+                                            fn: () {
+                                              // routeTo("", context);
+                                              handleApprove();
+                                            },
+                                          ),
+                                          PrimaryCustomButton(
+                                            child: CustomText(
+                                              text: "Remove",
+                                              fontSize: 16.sp,
+                                            ),
+                                            color: Colors.red,
+                                            fn: () {
+                                              handleReject();
+                                            },
+                                          ),
+                                          // CustomElevatedButton(
+                                          //     child: Text("ACCEPT"),
+                                          //     fn: () {
+                                          //       handleApprove();
+                                          //     }),
+                                          // CustomElevatedButton(
+                                          //     child: Text("REJECT"),
+                                          //     fn: () {
+                                          //       handleReject();
+                                          //     }),
+                                        ],
+                                      )
+                                    : SizedBox(),
                               )
                             : SizedBox()
 
