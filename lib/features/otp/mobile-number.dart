@@ -9,6 +9,7 @@ import 'package:donationapp/constant/common/button/custom-gradient-button.dart';
 import 'package:donationapp/constant/kconstant.dart';
 import 'package:donationapp/features/otp/store/mobile-number.store.dart';
 import 'package:donationapp/features/otp/store/otp-verification.store.dart';
+import 'package:donationapp/features/otp/widgets/recaptcha.dart';
 import 'package:donationapp/helpers/route.utils.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -152,7 +153,8 @@ class _MobileNumberState extends ConsumerState<MobileNumber> {
                 ref.refresh(otpErrorProvider);
               },
               buttonText: "Send Otp",
-            )
+            ),
+            Container(height: 150.h, child: Recaptcha())
             // ElevatedButton(
             //   onPressed: () {
             //     verifyNumber();

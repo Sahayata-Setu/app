@@ -53,6 +53,7 @@ import 'package:donationapp/features/signup/SignUp.dart';
 import 'package:donationapp/features/volunteer/campaigns.dart';
 import 'package:donationapp/features/volunteer/volunteer.dart';
 import '../features/donations/Dontations.dart';
+import '../features/otp/widgets/recaptcha.dart';
 
 @MaterialAutoRouter(routes: [
   MaterialRoute(page: AuthCheckWidget, initial: true),
@@ -62,6 +63,7 @@ import '../features/donations/Dontations.dart';
 
   MaterialRoute(page: Signup, path: "/signup"),
   // MaterialRoute(page: Signup, path: "/signup"),
+
   MaterialRoute(page: HomePage, path: "/homepage"),
   MaterialRoute(page: DonationsClaim, path: "/donations_claim"),
   MaterialRoute(page: ChangePassword, path: "/change-password"),
@@ -69,6 +71,7 @@ import '../features/donations/Dontations.dart';
   // MaterialRoute(page: ChangeLocation, path: "/change-location"),
   MaterialRoute(page: AccountSettings, path: "/account-settings"),
   MaterialRoute(page: MyDonations, path: "/myDonations"),
+  //MaterialRoute(page: Recaptcha, path: "/recaptcha"),
 
   MaterialRoute(page: Login, path: "/login"),
   MaterialRoute(page: SearchPage, path: "/search"),
