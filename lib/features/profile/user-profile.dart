@@ -109,8 +109,8 @@ class UserProfile extends ConsumerWidget {
               ),
               GestureDetector(
                 onTap: () {
-                  routeTo("/see-all-campaigns", context);
-                  ref.watch(donationClaimRequestsProvider(""));
+                  routeTo("/myDonations", context);
+                  //ref.watch(donationClaimRequestsProvider(""));
                 },
                 child: UserProfileOptions(
                   text: translation(context).myDonations,
