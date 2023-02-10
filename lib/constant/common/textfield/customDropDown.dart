@@ -36,6 +36,8 @@ class MainCustomDropDown extends StatelessWidget {
               child: CustomText(text: category),
             );
           }).toList(),
+          borderRadius: BorderRadius.circular(12.r),
+          // style: ,
           decoration: InputDecoration(
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(6.r),

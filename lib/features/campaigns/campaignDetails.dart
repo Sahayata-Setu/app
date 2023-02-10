@@ -40,7 +40,7 @@ class CampiagnDetails extends ConsumerWidget {
               child: Column(
                 children: [
                   Container(
-                    margin: EdgeInsets.only(bottom: kPadding.h),
+                    // margin: EdgeInsets.only(bottom: kPadding.h),
                     child: ImageOverlay(
                         image: data['images'][0],
                         title: "${data['title']}",
@@ -51,11 +51,14 @@ class CampiagnDetails extends ConsumerWidget {
                         borderTop: true,
                         showShareBtn: true),
                   ),
-                  CampaignDetailsListings(
-                    data: data,
+                  Container(
+                    alignment: Alignment.topLeft,
+                    child: CampaignDetailsListings(
+                      data: data,
+                    ),
                   ),
                   Container(
-                    margin: EdgeInsets.only(bottom: kPadding.h),
+                    // margin: EdgeInsets.only(bottom: kPadding.h),
                     alignment: Alignment.center,
                     child: CustomElevatedButton(
                         child: Text("Donate".toUpperCase()),

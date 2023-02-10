@@ -73,7 +73,12 @@ class NavBar extends StatelessWidget {
           // route == HomePageRoute.name ||
           route == LoginRoute.name || route == SignupRoute.name
               // route == MessageRoute.name
-              ? const SizedBox()
+              ? InkWell(
+                  onTap: () {
+                    Navigator.of(context).pop();
+                  },
+                  child: Icon(Icons.arrow_back),
+                )
               : IconButton(
                   icon: const Icon(Icons.arrow_back),
                   onPressed: () {
@@ -87,7 +92,10 @@ class NavBar extends StatelessWidget {
                 padding: EdgeInsets.only(right: kPadding.w, top: 8.h),
                 child: DropdownButton<Language>(
                     underline: Container(),
-                    icon: const Icon(Icons.language),
+                    icon: const Icon(
+                      Icons.language,
+                      color: Colors.white,
+                    ),
                     items: Language.languageList()
                         .map((e) => DropdownMenuItem<Language>(
                             value: e, child: Text(e.name)))
@@ -116,21 +124,21 @@ class NavBar extends StatelessWidget {
                 ? Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      // Badge(
-                      //   badgeColor: Colors.orange,
-                      //   badgeContent: const Text(
-                      //     '9',
-                      //     style: TextStyle(color: Colors.white),
-                      //   ),
-                      //   child: Container(
-                      //     margin: EdgeInsets.only(top: 6.h),
-                      //     child: Icon(
-                      //       Icons.star,
-                      //       size: kiconSize2,
-                      //     ),
-                      //   ),
-                      //   // showBadge: showBadge ? true : false,
-                      // ),
+                      badge.Badge(
+                        //  badgeColor: Colors.orange,
+                        badgeContent: const Text(
+                          '9',
+                          style: TextStyle(color: Colors.white),
+                        ),
+                        child: Container(
+                          margin: EdgeInsets.only(top: 6.h),
+                          child: Icon(
+                            Icons.star,
+                            size: kiconSize2,
+                          ),
+                        ),
+                        // showBadge: showBadge ? true : false,
+                      ),
                       Padding(
                         padding: const EdgeInsets.all(kPadding1),
                         child: PopupMenuButton(

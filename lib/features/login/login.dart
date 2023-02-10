@@ -58,15 +58,13 @@ class _LoginState extends ConsumerState<Login> {
             .signup({...loginDetails, "registrationToken": appToken});
         log("this is resp${resp['userRole']}");
         // log("user type ${getUserType}");
-        if (resp['userRole'] == "user") {
+        if (resp['userRole'] == "user" || resp['userRole'] == 'volunteer') {
           replaceRouteTo('/homepage', context);
           const snackBar = SnackBar(
             content: Text('Logged In'),
           );
           ScaffoldMessenger.of(context).showSnackBar(snackBar);
           pop(context);
-        } else if (resp['userRole'] == 'volunteer') {
-          replaceRouteTo("/volunteer", context);
         } else if (resp['userRole'] == "admin") {
           log("Hello");
           replaceRouteTo("/new-admin-dashboard", context);

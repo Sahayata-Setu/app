@@ -109,6 +109,16 @@ class UserProfile extends ConsumerWidget {
               ),
               GestureDetector(
                 onTap: () {
+                  routeTo("/myDonations", context);
+                  //ref.watch(donationClaimRequestsProvider(""));
+                },
+                child: UserProfileOptions(
+                  text: translation(context).myDonations,
+                  imageName: "claim",
+                ),
+              ),
+              GestureDetector(
+                onTap: () {
                   routeTo("/change-language", context);
                 },
                 child: UserProfileOptions(
@@ -118,15 +128,34 @@ class UserProfile extends ConsumerWidget {
               ),
 
               /// isVolunter ? const SizedBox():
-              GestureDetector(
-                onTap: () {
-                  routeTo("/apply-volunteer", context);
-                },
-                child: UserProfileOptions(
-                  text: translation(context).applyVolunter,
-                  imageName: "volunteer",
-                ),
-              ),
+              userType != "volunteer"
+                  ? GestureDetector(
+                      onTap: () {
+                        routeTo("/apply-volunteer", context);
+                      },
+                      child: UserProfileOptions(
+                        text: translation(context).applyVolunter,
+                        imageName: "volunteer",
+                      ),
+                    )
+                  : GestureDetector(
+                      onTap: () {
+                        routeTo("/see-all-campaigns", context);
+                      },
+                      child: UserProfileOptions(
+                        text: "My Campaigns",
+                        imageName: "volunteer",
+                      ),
+                    ),
+              // GestureDetector(
+              //   onTap: () {
+              //     routeTo("/apply-volunteer", context);
+              //   },
+              //   child: UserProfileOptions(
+              //     text: translation(context).applyVolunter,
+              //     imageName: "volunteer",
+              //   ),
+              // ),
               // GestureDetector(
               //   onTap: () {
               //     // routeTo("/apply-volunteer", context);

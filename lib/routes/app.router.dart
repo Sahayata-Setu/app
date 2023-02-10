@@ -15,6 +15,7 @@ import 'package:donationapp/features/Admin/Users/userDetails.dart';
 import 'package:donationapp/features/Admin/Users/viewUsers.dart';
 import 'package:donationapp/features/Admin/Volunteer%20Application/viewVolunteerApplications.dart';
 import 'package:donationapp/features/Admin/Volunteer%20Application/volunteerApplicationDetails.dart';
+import 'package:donationapp/features/Admin/add-preferred-locations/add-preferred-locations.dart';
 import 'package:donationapp/features/Admin/admin-message/admin-message.dart';
 import 'package:donationapp/features/Admin/widgets/approveVolunter.dart';
 import 'package:donationapp/features/account-settings/account-settings.dart';
@@ -45,8 +46,10 @@ import 'package:donationapp/features/otp/mobile-number.dart';
 import 'package:donationapp/features/otp/otp-verification.dart';
 import 'package:donationapp/features/profile/user-profile.dart';
 import 'package:donationapp/features/profile/user-profile.data.dart';
+import 'package:donationapp/features/profile/widgets/myDonations.dart';
 import 'package:donationapp/features/search-page/search-page.dart';
 import 'package:donationapp/features/signup/SignUp.dart';
+import 'package:donationapp/features/volunteer/campaigns.dart';
 import 'package:donationapp/features/volunteer/volunteer.dart';
 import '../features/donations/Dontations.dart';
 
@@ -64,6 +67,8 @@ import '../features/donations/Dontations.dart';
   MaterialRoute(page: ChangeLocation, path: "/change-location"),
   // MaterialRoute(page: ChangeLocation, path: "/change-location"),
   MaterialRoute(page: AccountSettings, path: "/account-settings"),
+  MaterialRoute(page: MyDonations, path: "/myDonations"),
+
   MaterialRoute(page: Login, path: "/login"),
   MaterialRoute(page: SearchPage, path: "/search"),
   MaterialRoute(page: NewMessage, path: "/messages"),
@@ -87,6 +92,7 @@ import '../features/donations/Dontations.dart';
 
   MaterialRoute(page: UserProfile, path: "/user-profile"),
   MaterialRoute(page: CertificatePrint, path: "/certificatePreview"),
+  MaterialRoute(page: MyCampaigns, path: "/see-all-campaigns"),
   // MaterialRoute(page: ApplyForVolunteer, path: "/apply-volunteer"),
   MaterialRoute(page: ApplyForVolunteer, path: "/apply-volunteer"),
   MaterialRoute(page: ApproveVolunter, path: "/approveVolunter/:id"),
@@ -101,6 +107,7 @@ import '../features/donations/Dontations.dart';
 
   // Admin New Dashboard
   MaterialRoute(page: NewAdminDashboard, path: "/new-admin-dashboard"),
+  MaterialRoute(page: AddPreferredLocation, path: "/add-preferred-location"),
 
   // Admin users section
   MaterialRoute(page: ViewUsers, path: "/view-user"),
