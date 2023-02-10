@@ -30,31 +30,31 @@ class CampaignDetailsListings extends StatelessWidget {
       // log("Data: $data");
     }
 
-    return Expanded(
-      child: Padding(
-        padding: EdgeInsets.all(kPadding.w),
-        child: Column(
-          // mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            InfoText(text: "Campaign Name:"),
-            InfoDetailText(text: data['title']),
-            InfoText(text: "Event Location:"),
-            InfoDetailText(text: data['location']),
-            InfoText(text: "Time:"),
-            InfoDetailText(text: "6:00 am to 9:00 pm"),
-            InfoText(text: "Start day:"),
-            InfoDetailText(text: "${formatDate(data['startTime'])}"),
-            InfoText(text: "End day:"),
-            InfoDetailText(text: "${formatDate(data['startTime'])}"),
-            InfoText(text: "Description:"),
-            Flexible(
-              child: InfoDetailText(
-                  textOverFlow: TextOverflow.visible,
-                  text: "${data['description']}"),
-            ),
-          ],
-        ),
+    return Container(
+      padding: EdgeInsets.all(kPadding1.w),
+      // height: 300.h,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          InfoText(text: "Campaign Name:"),
+          InfoDetailText(text: data['title']),
+          InfoText(text: "Event Location:"),
+          InfoDetailText(text: data['location']),
+          InfoText(text: "Time:"),
+          InfoDetailText(text: "6:00 am to 9:00 pm"),
+          InfoText(text: "Start day:"),
+          InfoDetailText(text: "${formatDate(data['startTime'])}"),
+          InfoText(text: "End day:"),
+          InfoDetailText(text: "${formatDate(data['startTime'])}"),
+          InfoText(text: "Description:"),
+          // Flexible(
+          // child:
+          InfoDetailText(
+              textOverFlow: TextOverflow.visible,
+              text: "${data['description']}"),
+          // ),
+        ],
       ),
     );
   }
