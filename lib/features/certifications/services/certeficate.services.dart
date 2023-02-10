@@ -6,15 +6,15 @@ import 'package:donationapp/utils/base-client/base_client.dart';
 import 'package:donationapp/utils/store-service/store.service.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class ProfileServiceClass {
+class pointServiceClass {
   final _client = ApiHelper.instance;
 
   //Get all donations or requests
-  Future<Map<String, dynamic>> myDonations(userId) async {
+  Future<Map<String, dynamic>> points(userId) async {
     try {
       final token = StorageService.getToken();
       final response = await _client.get(
-        "/user/donation/user/$userId",
+        "/user/point/$userId",
         options: Options(
           headers: {"Authorization": "Bearer ${token}"},
         ),
@@ -28,5 +28,5 @@ class ProfileServiceClass {
   }
 }
 
-final profilePageService =
-    Provider<ProfileServiceClass>((ref) => ProfileServiceClass());
+final pointPageService =
+    Provider<pointServiceClass>((ref) => pointServiceClass());
