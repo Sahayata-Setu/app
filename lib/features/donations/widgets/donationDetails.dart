@@ -119,104 +119,70 @@ class DonationDetail extends ConsumerWidget {
                 ImageCarousel(
                   data: singleData,
                 ),
-
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    CustomText(
-                      text: "Quantity",
-                      fontSize: 16.sp,
-                      fontWeight: FontWeight.bold,
-                      fontColor: Colors.grey.shade600,
-                    ),
-                    CustomText(
-                      text: "${singleData['quantity']}",
-                      fontSize: 15.sp,
-                      fontWeight: FontWeight.normal,
-                    ),
-                  ],
+                Container(
+                  margin: EdgeInsets.all(10.h),
+                  child: UserData(
+                    userName: "${singleData['donor_name']}",
+                    userCity: "${singleData['city']}",
+                  ),
                 ),
 
-                SizedBox(
-                  height: kMargin.h,
-                ),
-
-                // ListTile(
-                //   title: CustomText(
-                //     text: "Quantity",
-                //     fontColor: Colors.grey.shade600,
-                //   ),
-                //   trailing: CustomText(
-                //     text: "${singleData['quantity']}",
-                //     fontWeight: FontWeight.w500,
-                //     fontSize: 15.sp,
-                //   ),
-                // ),
-
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    CustomText(
-                      text: "Preferred Time",
-                      fontSize: 16.sp,
-                      fontWeight: FontWeight.bold,
-                      fontColor: Colors.grey.shade600,
-                    ),
-                    CustomText(
-                      text: "${singleData['pickupDetails']}",
-                      fontSize: 15.sp,
-                      fontWeight: FontWeight.normal,
-                    ),
-                  ],
-                ),
-
-                SizedBox(
-                  height: kMargin.h,
-                ),
-
-                // ListTile(
-                //   title: CustomText(
-                //     text: "Prefeered Time",
-                //     fontColor: Colors.grey.shade600,
-                //   ),
-                //   trailing: CustomText(
-                //     text: "${singleData['pickupDetails']}",
-                //     fontWeight: FontWeight.w500,
-                //     fontSize: 15.sp,
-                //   ),
-                // ),
-
-                GestureDetector(
-                  onTap: () {
-                    // routeTo(
-                    //     "/message/${singleData['donor_name']}/${singleData['donor_id']}",
-                    //     context);
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) {
-                      return ChatDetailPage(
-                        name: singleData['donor_name'],
-                        // sender: senderId,
-                        reciever: singleData['donor_id'],
-                      );
-                    }));
-                  },
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                Container(
+                  margin: EdgeInsets.all(10.h),
+                  child: Column(
                     children: [
-                      CustomText(
-                        text: "Contact Donor",
-                        fontSize: 16.sp,
-                        fontWeight: FontWeight.bold,
-                        fontColor: Colors.grey.shade600,
+                      DetailTile(
+                        title: "Title",
+                        value: "${singleData['title']}",
                       ),
-                      LineIcon.sms(),
+                      DetailTile(
+                        title: "Quantity",
+                        value: "${singleData['quantity']}",
+                      ),
+                      DetailTile(
+                        title: "Preferred Time",
+                        value: "${singleData['quantity']}",
+                      ),
+                      DetailTile(
+                        title: "Created At",
+                        value: "${date[0]}",
+                      ),
+                      DetailTile(
+                        title: "Pickup Detail",
+                        value: "${singleData['pickupDetails']}",
+                      ),
                     ],
                   ),
                 ),
 
-                SizedBox(
-                  height: kMargin.h,
-                ),
+                // GestureDetector(
+                //   onTap: () {
+                //     Navigator.push(context,
+                //         MaterialPageRoute(builder: (context) {
+                //       return ChatDetailPage(
+                //         name: singleData['donor_name'],
+                //         // sender: senderId,
+                //         reciever: singleData['donor_id'],
+                //       );
+                //     }));
+                //   },
+                //   child: Row(
+                //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                //     children: [
+                //       CustomText(
+                //         text: "Contact Donor",
+                //         fontSize: 16.sp,
+                //         fontWeight: FontWeight.bold,
+                //         fontColor: Colors.grey.shade600,
+                //       ),
+                //       LineIcon.sms(),
+                //     ],
+                //   ),
+                // ),
+
+                // SizedBox(
+                //   height: kMargin.h,
+                // ),
 
                 // ListTile(
                 //   title: CustomText(
@@ -229,25 +195,21 @@ class DonationDetail extends ConsumerWidget {
                 //   ),
                 // ),
 
-                GestureDetector(
-                  onTap: () {},
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      CustomText(
-                        text: "Helpline",
-                        fontSize: 16.sp,
-                        fontWeight: FontWeight.bold,
-                        fontColor: Colors.grey.shade600,
-                      ),
-                      LineIcon.sms(),
-                    ],
-                  ),
-                ),
-
-                SizedBox(
-                  height: kMargin.h,
-                ),
+                // GestureDetector(
+                //   onTap: () {},
+                //   child: Row(
+                //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                //     children: [
+                //       CustomText(
+                //         text: "Helpline",
+                //         fontSize: 16.sp,
+                //         fontWeight: FontWeight.bold,
+                //         fontColor: Colors.grey.shade600,
+                //       ),
+                //       LineIcon.sms(),
+                //     ],
+                //   ),
+                // ),
 
                 // ListTile(
                 //   title: CustomText(
@@ -260,7 +222,11 @@ class DonationDetail extends ConsumerWidget {
                 //   ),
                 // ),
 
-                HorizontalLine(),
+                Center(
+                  child: HorizontalLine(
+                    width: MediaQuery.of(context).size.width - 20.w,
+                  ),
+                ),
 
                 SizedBox(
                   height: kMargin.h,
@@ -287,7 +253,61 @@ class DonationDetail extends ConsumerWidget {
                     fontSize: 14.sp,
                     text: "${singleData['description']}",
                   ),
-                )
+                ),
+
+                Container(
+                  alignment: Alignment.center,
+                  margin: EdgeInsets.only(top: 10.h),
+                  child: HorizontalLine(
+                    width: MediaQuery.of(context).size.width - 20.w,
+                  ),
+                ),
+
+                getUserType == 'admin'
+                    ? Container(
+                        margin: EdgeInsets.only(top: 10.h),
+                        child: singleData['status'] == "pending"
+                            ? Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceAround,
+                                children: [
+                                  // CustomElevatedButton(
+                                  //     child: Text("ACCEPT"),
+                                  //     fn: () {
+                                  //       handleApprove();
+                                  //     }),
+                                  // CustomElevatedButton(
+                                  //   child: Text("REJECT"),
+                                  //   fn: () {
+                                  //     handleReject();
+                                  //   },
+                                  // ),
+                                  PrimaryCustomButton(
+                                    child: CustomText(
+                                      text: "Allow",
+                                      fontSize: 16.sp,
+                                    ),
+                                    color: blueColor,
+                                    fn: () {
+                                      // routeTo("", context);
+                                      handleApprove();
+                                    },
+                                  ),
+                                  PrimaryCustomButton(
+                                    child: CustomText(
+                                      text: "Remove",
+                                      fontSize: 16.sp,
+                                    ),
+                                    color: Colors.red,
+                                    fn: () {
+                                      handleReject();
+                                    },
+                                  ),
+                                ],
+                              )
+                            : SizedBox(),
+                      )
+                    : SizedBox(),
               ],
             ),
           );
@@ -300,368 +320,3 @@ class DonationDetail extends ConsumerWidget {
     );
   }
 }
-                  
-              
-                
- 
-
-
-// Unreachable code 
-
-
-// getUserType == 'admin'
-//                     ? Container(
-//                         margin: EdgeInsets.only(top: 10.h),
-//                         child: singleData['status'] == "pending"
-//                             ? Row(
-//                                 mainAxisAlignment:
-//                                     MainAxisAlignment.spaceAround,
-//                                 children: [
-//                                   // CustomElevatedButton(
-//                                   //     child: Text("ACCEPT"),
-//                                   //     fn: () {
-//                                   //       handleApprove();
-//                                   //     }),
-//                                   // CustomElevatedButton(
-//                                   //   child: Text("REJECT"),
-//                                   //   fn: () {
-//                                   //     handleReject();
-//                                   //   },
-//                                   // ),
-//                                   PrimaryCustomButton(
-//                                     child: CustomText(
-//                                       text: "Allow",
-//                                       fontSize: 16.sp,
-//                                     ),
-//                                     color: blueColor,
-//                                     fn: () {
-//                                       // routeTo("", context);
-//                                       handleApprove();
-//                                     },
-//                                   ),
-//                                   PrimaryCustomButton(
-//                                     child: CustomText(
-//                                       text: "Remove",
-//                                       fontSize: 16.sp,
-//                                     ),
-//                                     color: Colors.red,
-//                                     fn: () {
-//                                       handleReject();
-//                                     },
-//                                   ),
-//                                 ],
-//                               )
-//                             : SizedBox(),
-//                       )
-//                     : SizedBox(),
-
-
-
-
-
-// ! Unreachable code is above
-
-
-
-// Padding(
-                //   padding: EdgeInsets.all(kPadding1.w),
-                //   child: Column(
-                //     crossAxisAlignment: CrossAxisAlignment.start,
-                //     children: [
-                //       Row(
-                //         mainAxisAlignment: MainAxisAlignment.start,
-                //         children: [
-                //           LineIcon.user(
-                //             color: blackColor,
-                //             size: 30.h,
-                //           ),
-                //           SizedBox(
-                //             width: 10.w,
-                //           ),
-
-                //           // CustomText(
-                //           //   text: "${singleData['donor_name']}",
-                //           //   fontSize: 16.sp,
-                //           //   fontWeight: FontWeight.bold,
-                //           // ),
-
-                //           Column(
-                //             crossAxisAlignment: CrossAxisAlignment.start,
-                //             children: [
-                //               Padding(
-                //                 padding: EdgeInsets.only(bottom: 5.h),
-                //                 child: CustomText(
-                //                   text: "${singleData['donor_name']}",
-                //                   fontSize: 16.sp,
-                //                   fontWeight: FontWeight.bold,
-                //                 ),
-                //               ),
-                //               Row(
-                //                 children: [
-                //                   LineIcon.mapMarker(
-                //                     size: 15.w,
-                //                   ),
-                //                   SizedBox(
-                //                     width: 5.w,
-                //                   ),
-                //                   CustomText(
-                //                     text: "${singleData['city']}",
-                //                     fontSize: 14.sp,
-                //                     fontWeight: FontWeight.normal,
-                //                   ),
-                //                 ],
-                //               )
-                //             ],
-                //           )
-                //         ],
-                //       ),
-                //       SizedBox(
-                //         height: kMargin.h,
-                //       ),
-                //       // ListTile(
-                //       //   leading: CustomText(
-                //       //       text: "${singleData['title']}", fontSize: 16.sp),
-                //       //   subtitle: Container(
-                //       //     alignment: Alignment.topLeft,
-                //       //     child: Row(
-                //       //       crossAxisAlignment: CrossAxisAlignment.start,
-                //       //       mainAxisAlignment: MainAxisAlignment.start,
-                //       //       children: [
-                //       //         Padding(
-                //       //           padding: EdgeInsets.only(right: 8),
-                //       //           child: CustomIcon(icon: Icons.location_on),
-                //       //         ),
-                //       //         CustomText(
-                //       //           text: "${singleData['city']}",
-                //       //           fontColor: textColor,
-                //       //         )
-                //       //       ],
-                //       //     ),
-                //       //   ),
-                //       // ),
-
-                //       Row(
-                //         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                //         children: [
-                //           CustomText(
-                //             text: "Title",
-                //             fontSize: 16.sp,
-                //             fontWeight: FontWeight.bold,
-                //             fontColor: Colors.grey.shade600,
-                //           ),
-                //           Flexible(
-                //             child: CustomText(
-                //               text: "${singleData['title']}",
-                //               fontSize: 15.sp,
-                //               fontWeight: FontWeight.normal,
-                //             ),
-                //           ),
-                //         ],
-                //       ),
-
-                //       SizedBox(
-                //         height: kMargin.h,
-                //       ),
-
-                //       // ListTile(
-                //       //   title: CustomText(
-                //       //     text: "Name",
-                //       //     fontColor: Colors.grey.shade600,
-                //       //   ),
-                //       //   trailing: CustomText(
-                //       //     text: "${singleData['donor_name']}",
-                //       //     fontWeight: FontWeight.w500,
-                //       //     fontSize: 15.sp,
-                //       //   ),
-                //       // ),
-
-                //       Row(
-                //         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                //         children: [
-                //           CustomText(
-                //             text: "Category",
-                //             fontSize: 16.sp,
-                //             fontWeight: FontWeight.bold,
-                //             fontColor: Colors.grey.shade600,
-                //           ),
-                //           CustomText(
-                //             text: "${singleData['category']}",
-                //             fontSize: 15.sp,
-                //             fontWeight: FontWeight.normal,
-                //           ),
-                //         ],
-                //       ),
-
-                //       SizedBox(
-                //         height: kMargin.h,
-                //       ),
-
-                //       // ListTile(
-                //       //   title: CustomText(
-                //       //     text: "Category",
-                //       //     fontColor: Colors.grey.shade600,
-                //       //   ),
-                //       //   trailing: CustomText(
-                //       //     text: "${singleData['category']}",
-                //       //     fontWeight: FontWeight.w500,
-                //       //     fontSize: 15.sp,
-                //       //   ),
-                //       // ),
-
-                //       Row(
-                //         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                //         children: [
-                //           CustomText(
-                //             text: "Quantity",
-                //             fontSize: 16.sp,
-                //             fontWeight: FontWeight.bold,
-                //             fontColor: Colors.grey.shade600,
-                //           ),
-                //           CustomText(
-                //             text: "${singleData['quantity']}",
-                //             fontSize: 15.sp,
-                //             fontWeight: FontWeight.normal,
-                //           ),
-                //         ],
-                //       ),
-
-                //       SizedBox(
-                //         height: kMargin.h,
-                //       ),
-
-                //       // ListTile(
-                //       //   title: CustomText(
-                //       //     text: "Quantity",
-                //       //     fontColor: Colors.grey.shade600,
-                //       //   ),
-                //       //   trailing: CustomText(
-                //       //     text: "${singleData['quantity']}",
-                //       //     fontWeight: FontWeight.w500,
-                //       //     fontSize: 15.sp,
-                //       //   ),
-                //       // ),
-
-                //       Row(
-                //         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                //         children: [
-                //           CustomText(
-                //             text: "Preferred Time",
-                //             fontSize: 16.sp,
-                //             fontWeight: FontWeight.bold,
-                //             fontColor: Colors.grey.shade600,
-                //           ),
-                //           CustomText(
-                //             text: "${singleData['pickupDetails']}",
-                //             fontSize: 15.sp,
-                //             fontWeight: FontWeight.normal,
-                //           ),
-                //         ],
-                //       ),
-
-                //       SizedBox(
-                //         height: kMargin.h,
-                //       ),
-
-                //       // ListTile(
-                //       //   title: CustomText(
-                //       //     text: "Prefeered Time",
-                //       //     fontColor: Colors.grey.shade600,
-                //       //   ),
-                //       //   trailing: CustomText(
-                //       //     text: "${singleData['pickupDetails']}",
-                //       //     fontWeight: FontWeight.w500,
-                //       //     fontSize: 15.sp,
-                //       //   ),
-                //       // ),
-
-                //       GestureDetector(
-                //         onTap: () {
-                //           // routeTo(
-                //           //     "/message/${singleData['donor_name']}/${singleData['donor_id']}",
-                //           //     context);
-                //           Navigator.push(context,
-                //               MaterialPageRoute(builder: (context) {
-                //             return ChatDetailPage(
-                //               name: singleData['donor_name'],
-                //               // sender: senderId,
-                //               reciever: singleData['donor_id'],
-                //             );
-                //           }));
-                //         },
-                //         child: Row(
-                //           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                //           children: [
-                //             CustomText(
-                //               text: "Contact Donor",
-                //               fontSize: 16.sp,
-                //               fontWeight: FontWeight.bold,
-                //               fontColor: Colors.grey.shade600,
-                //             ),
-                //             LineIcon.sms(),
-                //           ],
-                //         ),
-                //       ),
-
-                //       SizedBox(
-                //         height: kMargin.h,
-                //       ),
-
-                //       // ListTile(
-                //       //   title: CustomText(
-                //       //     text: "Contact Donor",
-                //       //     fontColor: Colors.grey.shade600,
-                //       //   ),
-                //       //   trailing: CustomIcon(
-                //       //     icon: Icons.message,
-                //       //     color: blueColor,
-                //       //   ),
-                //       // ),
-
-                //       GestureDetector(
-                //         onTap: () {},
-                //         child: Row(
-                //           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                //           children: [
-                //             CustomText(
-                //               text: "Helpline",
-                //               fontSize: 16.sp,
-                //               fontWeight: FontWeight.bold,
-                //               fontColor: Colors.grey.shade600,
-                //             ),
-                //             LineIcon.sms(),
-                //           ],
-                //         ),
-                //       ),
-
-                //       SizedBox(
-                //         height: kMargin.h,
-                //       ),
-
-                //       // ListTile(
-                //       //   title: CustomText(
-                //       //     text: "Helpline",
-                //       //     fontColor: Colors.grey.shade600,
-                //       //   ),
-                //       //   trailing: CustomIcon(
-                //       //     icon: Icons.message,
-                //       //     color: blueColor,
-                //       //   ),
-                //       // ),
-
-                //       HorizontalLine(),
-
-                //       SizedBox(
-                //         height: kMargin.h,
-                //       ),
-
-                      // ListTile(
-                      //   title: CustomText(
-                      //     text: "Category",
-                      //     fontColor: Colors.grey.shade600,
-                      //   ),
-                      //   trailing: CustomText(
-                      //     text: "${singleData['category']}",
-                      //     fontWeight: FontWeight.w500,
-                      //     fontSize: 15.sp,
-                      //   ),
-                      // ),
