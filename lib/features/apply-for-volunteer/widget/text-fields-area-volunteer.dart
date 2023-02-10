@@ -33,6 +33,7 @@ class TextFieldAreaVolunteer extends ConsumerWidget {
           // ref: ref,
           label: "Reason",
           name: "reason",
+
           borderColor: whiteColor,
         ),
         CustomText(

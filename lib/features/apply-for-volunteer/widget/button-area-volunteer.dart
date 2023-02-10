@@ -53,7 +53,7 @@ class ButtonAreaVolunteer extends ConsumerWidget {
           ),
           child: Center(
             child: CustomText(
-              text: "Sumbit",
+              text: "SUBMIT",
               fontWeight: FontWeight.bold,
             ),
           ),
