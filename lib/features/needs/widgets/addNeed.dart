@@ -4,6 +4,7 @@ import 'dart:io';
 
 import 'package:donationapp/constant/common/GoogleButtomNavBar/GoogleButtomNavBar.dart';
 import 'package:donationapp/constant/common/textfield/CustomTextArea.dart';
+import 'package:donationapp/constant/common/textfield/customDropDown.dart';
 import 'package:donationapp/helpers/route.utils.dart';
 import 'package:donationapp/store/add-need/add-need.store.dart';
 import 'package:donationapp/store/homepage/homepage.store.dart';
@@ -80,6 +81,8 @@ class AddRequest extends ConsumerWidget {
       // log("this is form don ${resp}");
     }
 
+    const category = ["Foods", "Clothes", "Toys", "Books", "Others"];
+
     return App(
       component: Container(
         height: ScreenUtil().screenHeight,
@@ -98,16 +101,19 @@ class AddRequest extends ConsumerWidget {
               refs: ref.read(needDetailsProvider.notifier),
               hint: "Title",
             ),
-            // CustomTextField(
-            //   label: "Category",
+
+            // CustomTextArea(
+            //   text: "Category",
             //   name: "category",
             //   refs: ref.read(needDetailsProvider.notifier),
+            //   hint: "Category",
             // ),
-            CustomTextArea(
-              text: "Category",
+
+            MainCustomDropDown(
+              list: category,
               name: "category",
+              title: "Category",
               refs: ref.read(needDetailsProvider.notifier),
-              hint: "Category",
             ),
             // CustomTextField(
             //   label: "Quantity",

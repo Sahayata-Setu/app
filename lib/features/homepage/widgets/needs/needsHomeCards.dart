@@ -133,7 +133,7 @@ class NeedsHomeCards extends StatelessWidget {
               children: [
                 CustomElevatedButton(
                   color: const Color(0xff000C66),
-                  width: 80.w,
+                  width: 90.w,
                   height: 40.h,
                   fn: () {
                     Navigator.push(context,

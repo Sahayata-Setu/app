@@ -45,11 +45,6 @@ class NewMessage extends ConsumerWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
-                    Text(
-                      "Conversations",
-                      style:
-                          TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
-                    ),
                     // Container(
                     //   padding: EdgeInsets.only(
                     //       left: 8, right: 8, top: 2, bottom: 2),

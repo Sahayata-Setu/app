@@ -84,6 +84,7 @@ class _HomePageState extends ConsumerState<HomePage> {
         //height: ,
         // margin: EdgeInsets.symmetric(vertical: kPadding),
         // padding: EdgeInsets.all(kPadding),
+        margin: EdgeInsets.only(bottom: kPadding),
         color: backgroundColor,
         //  height: ScreenUtil().screenHeight + kPadding,
         child: Column(

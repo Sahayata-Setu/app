@@ -112,191 +112,160 @@ class NeedDetail extends ConsumerWidget {
                             userName: "${singleData['beneficiary_name']}",
                           ),
                         ),
-                        Card(
-                          child: Container(
-                            margin: EdgeInsets.all(10.h),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                // ListTile(
-                                //   title: CustomText(
-                                //     text: "Name",
-                                //     fontColor: Colors.grey.shade600,
-                                //   ),
-                                //   trailing: CustomText(
-                                //     text: "${singleData['beneficiary_name']}",
-                                //     fontWeight: FontWeight.w500,
-                                //     fontSize: 15.sp,
-                                //   ),
-                                // ),
-                                DetailTile(
-                                  title: "Title",
-                                  value: "${singleData['title']}",
+                        Container(
+                          margin: EdgeInsets.all(10.h),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              // ListTile(
+                              //   title: CustomText(
+                              //     text: "Name",
+                              //     fontColor: Colors.grey.shade600,
+                              //   ),
+                              //   trailing: CustomText(
+                              //     text: "${singleData['beneficiary_name']}",
+                              //     fontWeight: FontWeight.w500,
+                              //     fontSize: 15.sp,
+                              //   ),
+                              // ),
+                              DetailTile(
+                                title: "Title",
+                                value: "${singleData['title']}",
+                              ),
+
+                              // ListTile(
+                              //   title: CustomText(
+                              //     text: "Category",
+                              //     fontColor: Colors.grey.shade600,
+                              //   ),
+                              //   trailing: CustomText(
+                              //     text: "${singleData['category']}",
+                              //     fontWeight: FontWeight.w500,
+                              //     fontSize: 15.sp,
+                              //   ),
+                              // ),
+
+                              DetailTile(
+                                title: "Category",
+                                value: "${singleData['category']}",
+                              ),
+
+                              // ListTile(
+                              //   title: CustomText(
+                              //     text: "Quantity",
+                              //     fontColor: Colors.grey.shade600,
+                              //   ),
+                              //   trailing: CustomText(
+                              //     text:
+                              //         "${singleData['quantity']}", //"${singleData['quantity']}",
+                              //     fontWeight: FontWeight.w500,
+                              //     fontSize: 15.sp,
+                              //   ),
+                              // ),
+                              DetailTile(
+                                title: "Quantity",
+                                value: "${singleData['quantity']}",
+                              ),
+
+                              // ListTile(
+                              //   title: CustomText(
+                              //     text: "Created at",
+                              //     fontColor: Colors.grey.shade600,
+                              //   ),
+                              //   trailing: CustomText(
+                              //     text:
+                              //         "${date[0]}", //"${singleData['pickupDetails']}",
+                              //     // singleData['pickupDate']
+                              //     fontWeight: FontWeight.w500,
+                              //     fontSize: 15.sp,
+                              //   ),
+                              // ),
+
+                              DetailTile(
+                                title: "Created at",
+                                value: "${date[0]}",
+                              ),
+
+                              // ListTile(
+                              //   title: CustomText(
+                              //     text: "Pickup Details",
+                              //     fontColor: Colors.grey.shade600,
+                              //   ),
+                              //   trailing: CustomText(
+                              //     text: "${singleData['pickupDetails']}",
+                              //   ),
+                              // ),
+
+                              DetailTile(
+                                title: "Pickup Details",
+                                value: "${singleData['pickupDetails']}",
+                              ),
+
+                              // ListTile(
+                              //     title: CustomText(
+                              //       text: "Contact Beneficiary",
+                              //       fontColor: Colors.grey.shade600,
+                              //     ),
+                              //     trailing: InkWell(
+                              //       onTap: () {
+                              //         Navigator.push(context,
+                              //             MaterialPageRoute(builder: (context) {
+                              //           return ChatDetailPage(
+                              //             name: singleData['beneficiary_name'],
+                              //             // sender: senderId,
+                              //             reciever: singleData['beneficiary_id'],
+                              //           );
+                              //         }));
+                              //       },
+                              //       child: CustomIcon(
+                              //         icon: Icons.message,
+                              //         color: blueColor,
+                              //       ),
+                              //     )),
+
+                              // ListTile(
+                              //   title: CustomText(
+                              //     text: "Helpline",
+                              //     fontColor: Colors.grey.shade600,
+                              //   ),
+                              //   trailing: CustomIcon(
+                              //     icon: Icons.message,
+                              //     color: blueColor,
+                              //   ),
+                              // ),
+
+                              Container(
+                                margin:
+                                    EdgeInsets.only(bottom: 10.h, top: 10.h),
+                                child: HorizontalLine(
+                                  color: blueColor,
                                 ),
-
-                                // ListTile(
-                                //   title: CustomText(
-                                //     text: "Category",
-                                //     fontColor: Colors.grey.shade600,
-                                //   ),
-                                //   trailing: CustomText(
-                                //     text: "${singleData['category']}",
-                                //     fontWeight: FontWeight.w500,
-                                //     fontSize: 15.sp,
-                                //   ),
-                                // ),
-
-                                DetailTile(
-                                  title: "Category",
-                                  value: "${singleData['category']}",
+                              ),
+                              Container(
+                                alignment: Alignment.center,
+                                margin: EdgeInsets.only(bottom: 10.h),
+                                child: CustomText(
+                                  text: "Description",
+                                  fontSize: 18.sp,
+                                  fontWeight: FontWeight.w600,
                                 ),
+                              ),
+                              CustomText(
+                                text: "${singleData['description']}",
+                                fontSize: 14.sp,
+                                fontWeight: FontWeight.w500,
+                                fontColor: textColor,
+                              ),
 
-                                // ListTile(
-                                //   title: CustomText(
-                                //     text: "Quantity",
-                                //     fontColor: Colors.grey.shade600,
-                                //   ),
-                                //   trailing: CustomText(
-                                //     text:
-                                //         "${singleData['quantity']}", //"${singleData['quantity']}",
-                                //     fontWeight: FontWeight.w500,
-                                //     fontSize: 15.sp,
-                                //   ),
-                                // ),
-                                DetailTile(
-                                  title: "Quantity",
-                                  value: "${singleData['quantity']}",
+                              Container(
+                                margin:
+                                    EdgeInsets.only(bottom: 10.h, top: 20.h),
+                                child: HorizontalLine(
+                                  color: blueColor,
                                 ),
-
-                                // ListTile(
-                                //   title: CustomText(
-                                //     text: "Created at",
-                                //     fontColor: Colors.grey.shade600,
-                                //   ),
-                                //   trailing: CustomText(
-                                //     text:
-                                //         "${date[0]}", //"${singleData['pickupDetails']}",
-                                //     // singleData['pickupDate']
-                                //     fontWeight: FontWeight.w500,
-                                //     fontSize: 15.sp,
-                                //   ),
-                                // ),
-
-                                DetailTile(
-                                  title: "Created at",
-                                  value: "${date[0]}",
-                                ),
-
-                                // ListTile(
-                                //   title: CustomText(
-                                //     text: "Pickup Details",
-                                //     fontColor: Colors.grey.shade600,
-                                //   ),
-                                //   trailing: CustomText(
-                                //     text: "${singleData['pickupDetails']}",
-                                //   ),
-                                // ),
-
-                                DetailTile(
-                                  title: "Pickup Details",
-                                  value: "${singleData['pickupDetails']}",
-                                ),
-
-                                // ListTile(
-                                //     title: CustomText(
-                                //       text: "Contact Beneficiary",
-                                //       fontColor: Colors.grey.shade600,
-                                //     ),
-                                //     trailing: InkWell(
-                                //       onTap: () {
-                                //         Navigator.push(context,
-                                //             MaterialPageRoute(builder: (context) {
-                                //           return ChatDetailPage(
-                                //             name: singleData['beneficiary_name'],
-                                //             // sender: senderId,
-                                //             reciever: singleData['beneficiary_id'],
-                                //           );
-                                //         }));
-                                //       },
-                                //       child: CustomIcon(
-                                //         icon: Icons.message,
-                                //         color: blueColor,
-                                //       ),
-                                //     )),
-
-                                Container(
-                                  margin:
-                                      EdgeInsets.only(bottom: 20.h, top: 10.h),
-                                  child: Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      CustomText(
-                                        text: "Beneficiary",
-                                        fontSize: 16.sp,
-                                        fontWeight: FontWeight.w500,
-                                        fontColor: textColor,
-                                      ),
-                                      InkWell(
-                                        child: LineIcon.facebookMessenger(
-                                          size: 20.sp,
-                                        ),
-                                        onTap: () {
-                                          Navigator.push(
-                                            context,
-                                            MaterialPageRoute(
-                                              builder: (context) {
-                                                return ChatDetailPage(
-                                                  name: singleData[
-                                                      'beneficiary_name'],
-                                                  // sender: senderId,
-                                                  reciever: singleData[
-                                                      'beneficiary_id'],
-                                                );
-                                              },
-                                            ),
-                                          );
-                                        },
-                                      )
-                                    ],
-                                  ),
-                                ),
-
-                                // ListTile(
-                                //   title: CustomText(
-                                //     text: "Helpline",
-                                //     fontColor: Colors.grey.shade600,
-                                //   ),
-                                //   trailing: CustomIcon(
-                                //     icon: Icons.message,
-                                //     color: blueColor,
-                                //   ),
-                                // ),
-
-                                Container(
-                                  margin: EdgeInsets.only(bottom: 10.h),
-                                  child: HorizontalLine(
-                                    color: blueColor,
-                                  ),
-                                ),
-                                Container(
-                                  alignment: Alignment.center,
-                                  margin: EdgeInsets.only(bottom: 10.h),
-                                  child: CustomText(
-                                    text: "Description",
-                                    fontSize: 18.sp,
-                                    fontWeight: FontWeight.w600,
-                                  ),
-                                ),
-                                CustomText(
-                                  text: "${singleData['description']}",
-                                  fontSize: 14.sp,
-                                  fontWeight: FontWeight.w500,
-                                  fontColor: textColor,
-                                )
-                              ],
-                            ),
+                              ),
+                            ],
                           ),
                         ),
                         // Container(
@@ -328,46 +297,73 @@ class NeedDetail extends ConsumerWidget {
                         //   ),
                         // ),
 
+                        Container(
+                          alignment: Alignment.center,
+                          // margin: EdgeInsets.only(top: 10.h),
+                          child: PrimaryCustomButton(
+                            child: CustomText(
+                              text: "Contact",
+                              fontSize: 16.sp,
+                            ),
+                            fn: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) {
+                                    return ChatDetailPage(
+                                      name: singleData['beneficiary_name'],
+                                      // sender: senderId,
+                                      reciever: singleData['beneficiary_id'],
+                                    );
+                                  },
+                                ),
+                              );
+                            },
+                          ),
+                        ),
+
                         getUserType == 'admin'
                             ? Container(
                                 margin: EdgeInsets.only(top: 10.h),
-                                child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceAround,
-                                  children: [
-                                    PrimaryCustomButton(
-                                      child: CustomText(
-                                        text: "Allow",
-                                        fontSize: 16.sp,
-                                      ),
-                                      color: blueColor,
-                                      fn: () {
-                                        // routeTo("", context);
-                                        handleApprove();
-                                      },
-                                    ),
-                                    PrimaryCustomButton(
-                                      child: CustomText(
-                                        text: "Remove",
-                                        fontSize: 16.sp,
-                                      ),
-                                      color: Colors.red,
-                                      fn: () {
-                                        handleReject();
-                                      },
-                                    ),
-                                    // CustomElevatedButton(
-                                    //     child: Text("ACCEPT"),
-                                    //     fn: () {
-                                    //       handleApprove();
-                                    //     }),
-                                    // CustomElevatedButton(
-                                    //     child: Text("REJECT"),
-                                    //     fn: () {
-                                    //       handleReject();
-                                    //     }),
-                                  ],
-                                ),
+                                child: singleData['status'] == "pending"
+                                    ? Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceAround,
+                                        children: [
+                                          PrimaryCustomButton(
+                                            child: CustomText(
+                                              text: "Allow",
+                                              fontSize: 16.sp,
+                                            ),
+                                            color: blueColor,
+                                            fn: () {
+                                              // routeTo("", context);
+                                              handleApprove();
+                                            },
+                                          ),
+                                          PrimaryCustomButton(
+                                            child: CustomText(
+                                              text: "Remove",
+                                              fontSize: 16.sp,
+                                            ),
+                                            color: Colors.red,
+                                            fn: () {
+                                              handleReject();
+                                            },
+                                          ),
+                                          // CustomElevatedButton(
+                                          //     child: Text("ACCEPT"),
+                                          //     fn: () {
+                                          //       handleApprove();
+                                          //     }),
+                                          // CustomElevatedButton(
+                                          //     child: Text("REJECT"),
+                                          //     fn: () {
+                                          //       handleReject();
+                                          //     }),
+                                        ],
+                                      )
+                                    : SizedBox(),
                               )
                             : SizedBox()
 

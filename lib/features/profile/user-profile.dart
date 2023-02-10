@@ -109,6 +109,16 @@ class UserProfile extends ConsumerWidget {
               ),
               GestureDetector(
                 onTap: () {
+                  routeTo("/myDonations", context);
+                  //ref.watch(donationClaimRequestsProvider(""));
+                },
+                child: UserProfileOptions(
+                  text: translation(context).myDonations,
+                  imageName: "claim",
+                ),
+              ),
+              GestureDetector(
+                onTap: () {
                   routeTo("/change-language", context);
                 },
                 child: UserProfileOptions(
@@ -124,7 +134,7 @@ class UserProfile extends ConsumerWidget {
                         routeTo("/apply-volunteer", context);
                       },
                       child: UserProfileOptions(
-                        text: "Volunteer Dashboard",
+                        text: translation(context).applyVolunter,
                         imageName: "volunteer",
                       ),
                     )

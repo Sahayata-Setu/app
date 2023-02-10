@@ -7,6 +7,7 @@ import 'package:donationapp/constant/common/Text/custom-text.dart';
 import 'package:donationapp/constant/common/button/cusotm-button.dart';
 import 'package:donationapp/constant/common/textfield/CustomTextArea.dart';
 import 'package:donationapp/constant/common/textfield/CustomTextField.dart';
+import 'package:donationapp/constant/common/textfield/customDropDown.dart';
 import 'package:donationapp/constant/kconstant.dart';
 import 'package:donationapp/helpers/route.utils.dart';
 import 'package:donationapp/store/add-donation/add.donation.store.dart';
@@ -32,6 +33,8 @@ class AddDontaion extends ConsumerWidget {
     // log("this is selected ${selectedDate}");
     final imageProv = ref.watch(idImageDonationProvider);
     log("this is fdrom ${donationDetails}");
+
+    const category = ["Foods", "Clothes", "Toys", "Books", "Others"];
 
     Future<void> _selectDate(BuildContext context) async {
       final DateTime? picked = await showDatePicker(
@@ -120,14 +123,21 @@ class AddDontaion extends ConsumerWidget {
               ),
 
               //* Category should have dropdown
-              Container(
-                margin: EdgeInsets.only(bottom: 10.h),
-                child: CustomTextArea(
-                  text: "Category",
-                  hint: "Category",
-                  name: "category",
-                  refs: ref.read(donationDetailsProvider.notifier),
-                ),
+              // Container(
+              //   margin: EdgeInsets.only(bottom: 10.h),
+              //   child: CustomTextArea(
+              //     text: "Category",
+              //     hint: "Category",
+              //     name: "category",
+              //     refs: ref.read(donationDetailsProvider.notifier),
+              //   ),
+              // ),
+
+              MainCustomDropDown(
+                list: category,
+                name: "category",
+                title: "Category",
+                refs: ref.read(donationDetailsProvider.notifier),
               ),
 
               Container(

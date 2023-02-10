@@ -13,7 +13,7 @@ class InfoText extends StatelessWidget {
       child: CustomText(
         text: text,
         fontColor: textInfoColor,
-        fontSize: 14.sp,
+        fontSize: 15.sp,
         fontWeight: FontWeight.w500,
       ),
     );
