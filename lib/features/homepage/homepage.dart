@@ -9,6 +9,7 @@ import 'package:donationapp/features/donations/widgets/categoriesTab.dart';
 import 'package:donationapp/features/homepage/widgets/campaigns/campaign.dart';
 import 'package:donationapp/features/homepage/widgets/preferred-locations.dart';
 import 'package:donationapp/main.dart';
+import 'package:donationapp/store/homepage/homepage.store.dart';
 import 'package:donationapp/store/message/message.store.dart';
 import 'package:donationapp/utils/store-service/language.store.dart';
 
@@ -80,22 +81,27 @@ class _HomePageState extends ConsumerState<HomePage> {
   @override
   Widget build(BuildContext context) {
     return App(
-      component: Container(
-        //height: ,
-        // margin: EdgeInsets.symmetric(vertical: kPadding),
-        // padding: EdgeInsets.all(kPadding),
-        margin: EdgeInsets.only(bottom: kPadding),
-        color: backgroundColor,
-        //  height: ScreenUtil().screenHeight + kPadding,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Campaigns(),
-            CategoriesTab(),
-            PreferredLocations()
-            //CustomTabBar()
-            // DonationsHome(), NeedsHome()
-          ],
+      component: RefreshIndicator(
+        onRefresh: () async {
+          // ref.refresh(donationsOrRequestProvider("donations"));
+        },
+        child: Container(
+          //height: ,
+          // margin: EdgeInsets.symmetric(vertical: kPadding),
+          // padding: EdgeInsets.all(kPadding),
+          margin: EdgeInsets.only(bottom: kPadding),
+          color: backgroundColor,
+          //  height: ScreenUtil().screenHeight + kPadding,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Campaigns(),
+              CategoriesTab(),
+              PreferredLocations()
+              //CustomTabBar()
+              // DonationsHome(), NeedsHome()
+            ],
+          ),
         ),
       ),
       //),

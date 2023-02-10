@@ -81,7 +81,7 @@ class AddRequest extends ConsumerWidget {
       // log("this is form don ${resp}");
     }
 
-    const category = ["Foods", "Clothes", "Toys", "Books", "Others"];
+    const category = ["Food", "Clothes", "Toys", "Book"];
 
     return App(
       component: Container(

@@ -189,7 +189,9 @@ class _LoginState extends ConsumerState<Login> {
                       child: Text("Login"),
                     ),
               TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    routeTo("/forgot-password", context);
+                  },
                   child: CustomText(
                     text: "Forgot Password",
                   )),

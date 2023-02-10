@@ -117,15 +117,15 @@ class UserProfile extends ConsumerWidget {
                   imageName: "claim",
                 ),
               ),
-              GestureDetector(
-                onTap: () {
-                  routeTo("/change-language", context);
-                },
-                child: UserProfileOptions(
-                  text: translation(context).changeLanguage,
-                  imageName: "i-icon",
-                ),
-              ),
+              // GestureDetector(
+              //   onTap: () {
+              //     routeTo("/change-language", context);
+              //   },
+              //   child: UserProfileOptions(
+              //     text: translation(context).changeLanguage,
+              //     imageName: "i-icon",
+              //   ),
+              // ),
 
               /// isVolunter ? const SizedBox():
               userType != "volunteer"

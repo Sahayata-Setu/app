@@ -8,7 +8,7 @@ class MyDonations extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(child: Text('my donations')),
+      body: SafeArea(child: Container(child: Text('my donations'))),
     );
   }
 }

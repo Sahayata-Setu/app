@@ -34,7 +34,7 @@ class AddDontaion extends ConsumerWidget {
     final imageProv = ref.watch(idImageDonationProvider);
     log("this is fdrom ${donationDetails}");
 
-    const category = ["Foods", "Clothes", "Toys", "Books", "Others"];
+    const category = ["Food", "Clothes", "Toys", "Book"];
 
     Future<void> _selectDate(BuildContext context) async {
       final DateTime? picked = await showDatePicker(
