@@ -39,7 +39,7 @@ class DonationDetail extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     // final singleData = data['body'];
-    // final messages = ref.watch(allConnectedUsersProvider);
+    final messages = ref.watch(allConnectedUsersProvider);
     // log("this is from data ${data['quantity']}");
     final getUserType = StorageService.getuserType();
     final data1 = ref.watch(singleDonationsDataProvider(id));
@@ -86,7 +86,7 @@ class DonationDetail extends ConsumerWidget {
         final resp = approveProv.approveDonations(id, "reject");
         ref.refresh(pendingDonationsProvider);
         const snackBar = SnackBar(
-          content: Text('Donation sucessfully rejected'),
+          content: Text('Request sucessfully rejected'),
         );
         ScaffoldMessenger.of(context).showSnackBar(snackBar);
         // log(resp);
@@ -98,6 +98,12 @@ class DonationDetail extends ConsumerWidget {
     // log("this is id${id}");
     // log("rgtf donation${singleData}");
     return App(
+      appbar: const NavBar(
+        title: "Donation Details",
+        showBadge: false,
+      ),
+      isAdmin: false,
+      bottomNavBar: const GoogleButtomNavBar(showBottomNavBar: false),
       component: data1.when(
         data: (data) {
           final singleData = data['body'];
@@ -113,7 +119,251 @@ class DonationDetail extends ConsumerWidget {
                 ImageCarousel(
                   data: singleData,
                 ),
-                // Padding(
+
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    CustomText(
+                      text: "Quantity",
+                      fontSize: 16.sp,
+                      fontWeight: FontWeight.bold,
+                      fontColor: Colors.grey.shade600,
+                    ),
+                    CustomText(
+                      text: "${singleData['quantity']}",
+                      fontSize: 15.sp,
+                      fontWeight: FontWeight.normal,
+                    ),
+                  ],
+                ),
+
+                SizedBox(
+                  height: kMargin.h,
+                ),
+
+                // ListTile(
+                //   title: CustomText(
+                //     text: "Quantity",
+                //     fontColor: Colors.grey.shade600,
+                //   ),
+                //   trailing: CustomText(
+                //     text: "${singleData['quantity']}",
+                //     fontWeight: FontWeight.w500,
+                //     fontSize: 15.sp,
+                //   ),
+                // ),
+
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    CustomText(
+                      text: "Preferred Time",
+                      fontSize: 16.sp,
+                      fontWeight: FontWeight.bold,
+                      fontColor: Colors.grey.shade600,
+                    ),
+                    CustomText(
+                      text: "${singleData['pickupDetails']}",
+                      fontSize: 15.sp,
+                      fontWeight: FontWeight.normal,
+                    ),
+                  ],
+                ),
+
+                SizedBox(
+                  height: kMargin.h,
+                ),
+
+                // ListTile(
+                //   title: CustomText(
+                //     text: "Prefeered Time",
+                //     fontColor: Colors.grey.shade600,
+                //   ),
+                //   trailing: CustomText(
+                //     text: "${singleData['pickupDetails']}",
+                //     fontWeight: FontWeight.w500,
+                //     fontSize: 15.sp,
+                //   ),
+                // ),
+
+                GestureDetector(
+                  onTap: () {
+                    // routeTo(
+                    //     "/message/${singleData['donor_name']}/${singleData['donor_id']}",
+                    //     context);
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) {
+                      return ChatDetailPage(
+                        name: singleData['donor_name'],
+                        // sender: senderId,
+                        reciever: singleData['donor_id'],
+                      );
+                    }));
+                  },
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      CustomText(
+                        text: "Contact Donor",
+                        fontSize: 16.sp,
+                        fontWeight: FontWeight.bold,
+                        fontColor: Colors.grey.shade600,
+                      ),
+                      LineIcon.sms(),
+                    ],
+                  ),
+                ),
+
+                SizedBox(
+                  height: kMargin.h,
+                ),
+
+                // ListTile(
+                //   title: CustomText(
+                //     text: "Contact Donor",
+                //     fontColor: Colors.grey.shade600,
+                //   ),
+                //   trailing: CustomIcon(
+                //     icon: Icons.message,
+                //     color: blueColor,
+                //   ),
+                // ),
+
+                GestureDetector(
+                  onTap: () {},
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      CustomText(
+                        text: "Helpline",
+                        fontSize: 16.sp,
+                        fontWeight: FontWeight.bold,
+                        fontColor: Colors.grey.shade600,
+                      ),
+                      LineIcon.sms(),
+                    ],
+                  ),
+                ),
+
+                SizedBox(
+                  height: kMargin.h,
+                ),
+
+                // ListTile(
+                //   title: CustomText(
+                //     text: "Helpline",
+                //     fontColor: Colors.grey.shade600,
+                //   ),
+                //   trailing: CustomIcon(
+                //     icon: Icons.message,
+                //     color: blueColor,
+                //   ),
+                // ),
+
+                HorizontalLine(),
+
+                SizedBox(
+                  height: kMargin.h,
+                ),
+
+                Container(
+                  alignment: Alignment.center,
+                  child: CustomText(
+                    fontSize: 18.sp,
+                    text: "Description",
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                SizedBox(
+                  height: kMargin.h,
+                ),
+                Padding(
+                  padding: EdgeInsets.only(
+                    left: kPadding1,
+                    right: kPadding1,
+                    bottom: kPadding1,
+                  ),
+                  child: CustomText(
+                    fontSize: 14.sp,
+                    text: "${singleData['description']}",
+                  ),
+                )
+              ],
+            ),
+          );
+        },
+        error: (e, st) => Center(
+          child: CustomText(text: "Something went wrong"),
+        ),
+        loading: () => LoadingPage(),
+      ),
+    );
+  }
+}
+                  
+              
+                
+ 
+
+
+// Unreachable code 
+
+
+// getUserType == 'admin'
+//                     ? Container(
+//                         margin: EdgeInsets.only(top: 10.h),
+//                         child: singleData['status'] == "pending"
+//                             ? Row(
+//                                 mainAxisAlignment:
+//                                     MainAxisAlignment.spaceAround,
+//                                 children: [
+//                                   // CustomElevatedButton(
+//                                   //     child: Text("ACCEPT"),
+//                                   //     fn: () {
+//                                   //       handleApprove();
+//                                   //     }),
+//                                   // CustomElevatedButton(
+//                                   //   child: Text("REJECT"),
+//                                   //   fn: () {
+//                                   //     handleReject();
+//                                   //   },
+//                                   // ),
+//                                   PrimaryCustomButton(
+//                                     child: CustomText(
+//                                       text: "Allow",
+//                                       fontSize: 16.sp,
+//                                     ),
+//                                     color: blueColor,
+//                                     fn: () {
+//                                       // routeTo("", context);
+//                                       handleApprove();
+//                                     },
+//                                   ),
+//                                   PrimaryCustomButton(
+//                                     child: CustomText(
+//                                       text: "Remove",
+//                                       fontSize: 16.sp,
+//                                     ),
+//                                     color: Colors.red,
+//                                     fn: () {
+//                                       handleReject();
+//                                     },
+//                                   ),
+//                                 ],
+//                               )
+//                             : SizedBox(),
+//                       )
+//                     : SizedBox(),
+
+
+
+
+
+// ! Unreachable code is above
+
+
+
+// Padding(
                 //   padding: EdgeInsets.all(kPadding1.w),
                 //   child: Column(
                 //     crossAxisAlignment: CrossAxisAlignment.start,
@@ -404,199 +654,14 @@ class DonationDetail extends ConsumerWidget {
                 //         height: kMargin.h,
                 //       ),
 
-                //       Container(
-                //         alignment: Alignment.center,
-                //         child: CustomText(
-                //           fontSize: 18.sp,
-                //           text: "Description",
-                //           fontWeight: FontWeight.bold,
-                //         ),
-                //       ),
-                //       SizedBox(
-                //         height: kMargin.h,
-                //       ),
-                //       Padding(
-                //         padding: EdgeInsets.only(
-                //           left: kPadding1,
-                //           right: kPadding1,
-                //           bottom: kPadding1,
-                //         ),
-                //         child: CustomText(
-                //           fontSize: 14.sp,
-                //           text: "${singleData['description']}",
-                //         ),
-                //       )
-                //     ],
-                //   ),
-                // ),
-                Container(
-                  margin: EdgeInsets.all(10.h),
-                  child: UserData(
-                    userName: "${singleData['donor_name']}",
-                    userCity: "${singleData['city']}",
-                  ),
-                ),
-                Container(
-                  margin: EdgeInsets.only(top: 10.h, bottom: 10.h),
-                  alignment: Alignment.center,
-                  child: CustomText(
-                    text: "Doner Details",
-                    fontSize: 16.sp,
-                    fontWeight: FontWeight.w800,
-                  ),
-                ),
-                Card(
-                  margin: EdgeInsets.symmetric(vertical: 5.h, horizontal: 10.h),
-                  child: Container(
-                    padding: EdgeInsets.all(10.h),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        DetailTile(
-                          title: "Full Name",
-                          value: "${singleData['donor_name']}",
-                        ),
-                        DetailTile(title: "Contact", value: "98xxxxxxxx"),
-                        DetailTile(
-                            title: "Pickup Details",
-                            value: "${singleData['pickupDetails']}"),
-                        DetailTile(
-                            title: "Category",
-                            value: "${singleData['category']}"),
-                        // DetailTile(title: "City", value: "Rajkot"),
-                        DetailTile(title: "Created At", value: "${date[0]}"),
-                        Container(
-                          margin: EdgeInsets.only(bottom: 10.h, top: 10.h),
-                          child: HorizontalLine(
-                            color: blueColor,
-                          ),
-                        ),
-                        Container(
-                          alignment: Alignment.center,
-                          margin: EdgeInsets.only(bottom: 10.h),
-                          child: CustomText(
-                            text: "Description",
-                            fontSize: 18.sp,
-                            fontWeight: FontWeight.w600,
-                          ),
-                        ),
-                        Container(
-                          alignment: Alignment.topLeft,
-                          child: CustomText(
-                            text: "${singleData['description']}",
-                            fontSize: 14.sp,
-                            fontWeight: FontWeight.w500,
-                            fontColor: textColor,
-                          ),
-                        )
-                        // DetailTile(title: "Descriptio", value: value)
-                      ],
-                    ),
-                  ),
-                ),
-
-                // Beneficiary section
-                // singleData['status'] == "donated"
-                //     ? Column(
-                //         children: [
-                //           Container(
-                //             margin: EdgeInsets.only(top: 20.h, bottom: 10.h),
-                //             alignment: Alignment.center,
-                //             child: CustomText(
-                //               text: "Beneficiary Details",
-                //               fontSize: 16.sp,
-                //               fontWeight: FontWeight.w800,
-                //             ),
-                //           ),
-                //           Card(
-                //             margin: EdgeInsets.symmetric(
-                //                 vertical: 5.h, horizontal: 10.h),
-                //             child: Container(
-                //               padding: EdgeInsets.all(10.h),
-                //               child: Column(
-                //                 mainAxisAlignment:
-                //                     MainAxisAlignment.spaceBetween,
-                //                 children: [
-                //                   DetailTile(
-                //                     title: "Full Name",
-                //                     value: "Tasnimul",
-                //                   ),
-                //                   DetailTile(
-                //                       title: "Email",
-                //                       value: "thtauhid@gmail.com"),
-                //                   DetailTile(
-                //                       title: "Contact", value: "98xxxxxxxx"),
-                //                   DetailTile(title: "City", value: "Rajkot"),
-                //                   DetailTile(
-                //                       title: "Date", value: "2023/01/23"),
-                //                 ],
-                //               ),
-                //             ),
-                //           ),
-                //         ],
-                //       )
-                //     : SizedBox(),
-
-                getUserType == 'admin'
-                    ? Container(
-                        margin: EdgeInsets.only(top: 10.h),
-                        child: singleData['status'] == "pending"
-                            ? Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceAround,
-                                children: [
-                                  // CustomElevatedButton(
-                                  //     child: Text("ACCEPT"),
-                                  //     fn: () {
-                                  //       handleApprove();
-                                  //     }),
-                                  // CustomElevatedButton(
-                                  //   child: Text("REJECT"),
-                                  //   fn: () {
-                                  //     handleReject();
-                                  //   },
-                                  // ),
-                                  PrimaryCustomButton(
-                                    child: CustomText(
-                                      text: "Allow",
-                                      fontSize: 16.sp,
-                                    ),
-                                    color: blueColor,
-                                    fn: () {
-                                      // routeTo("", context);
-                                      handleApprove();
-                                    },
-                                  ),
-                                  PrimaryCustomButton(
-                                    child: CustomText(
-                                      text: "Remove",
-                                      fontSize: 16.sp,
-                                    ),
-                                    color: Colors.red,
-                                    fn: () {
-                                      handleReject();
-                                    },
-                                  ),
-                                ],
-                              )
-                            : SizedBox(),
-                      )
-                    : SizedBox(),
-              ],
-            ),
-          );
-        },
-        error: (e, h) => Center(
-          child: Text("Something went wring"),
-        ),
-        loading: () => LoadingPage(),
-      ),
-      appbar: const NavBar(
-        title: "Donation Details",
-        showBadge: false,
-      ),
-      isAdmin: false,
-      bottomNavBar: const GoogleButtomNavBar(showBottomNavBar: false),
-    );
-  }
-}
+                      // ListTile(
+                      //   title: CustomText(
+                      //     text: "Category",
+                      //     fontColor: Colors.grey.shade600,
+                      //   ),
+                      //   trailing: CustomText(
+                      //     text: "${singleData['category']}",
+                      //     fontWeight: FontWeight.w500,
+                      //     fontSize: 15.sp,
+                      //   ),
+                      // ),

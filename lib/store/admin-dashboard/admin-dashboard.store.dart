@@ -40,6 +40,23 @@ final getAllRequestsProvider = FutureProvider<Map<String, dynamic>>(
   },
 );
 
+//Get All volunteers
+final getAllVolunteerProvider = FutureProvider<Map<String, dynamic>>(
+  (ref) {
+    return ref.watch(adminDashboardService).getAllVolunteers();
+  },
+);
+
+//Get Single volunteer application request
+final getAllSingleVolunteerApplicationProvider =
+    FutureProvider.family<Map<String, dynamic>, String>(
+  (ref, applicationId) {
+    return ref
+        .watch(adminDashboardService)
+        .getSingleVolunteerApplicationRequesr(applicationId);
+  },
+);
+
 class ApproveNotifier extends ChangeNotifier {
   ApproveNotifier(this.read) : super();
   final Reader read;

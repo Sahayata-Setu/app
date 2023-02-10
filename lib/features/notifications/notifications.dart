@@ -29,18 +29,24 @@ class Notifications extends ConsumerWidget {
         data: (data) {
           final notifications = data['body'];
           log("Notifications: $notifications");
-          return Container(
-              height: ScreenUtil().screenHeight,
-              padding: EdgeInsets.all(kPadding.w),
-              child: ListView.builder(
-                itemBuilder: (ctx, index) => NoticationItem(
-                    title: "${notifications[index]['title']}",
-                    createdAt:
-                        "${convertToAgo(notifications[index]['createdAt'])}",
-                    subTitle: notifications[index]['message'],
-                    icons: Icons.notification_add),
-                itemCount: notifications.length,
-              ));
+          return RefreshIndicator(
+            onRefresh: () async {
+              //Refresh the notifications to get new notifications
+              ref.refresh(getAllNotificationProvider(userId));
+            },
+            child: Container(
+                height: ScreenUtil().screenHeight,
+                padding: EdgeInsets.all(kPadding.w),
+                child: ListView.builder(
+                  itemBuilder: (ctx, index) => NoticationItem(
+                      title: "${notifications[index]['title']}",
+                      createdAt:
+                          "${convertToAgo(notifications[index]['createdAt'])}",
+                      subTitle: notifications[index]['message'],
+                      icons: Icons.notification_add),
+                  itemCount: notifications.length,
+                )),
+          );
         },
         error: (e, st) => Text("Error"),
         loading: () => LoadingPage(),

@@ -47,6 +47,7 @@ import 'package:donationapp/features/profile/user-profile.dart';
 import 'package:donationapp/features/profile/user-profile.data.dart';
 import 'package:donationapp/features/search-page/search-page.dart';
 import 'package:donationapp/features/signup/SignUp.dart';
+import 'package:donationapp/features/volunteer/campaigns.dart';
 import 'package:donationapp/features/volunteer/volunteer.dart';
 import '../features/donations/Dontations.dart';
 
@@ -87,6 +88,7 @@ import '../features/donations/Dontations.dart';
 
   MaterialRoute(page: UserProfile, path: "/user-profile"),
   MaterialRoute(page: CertificatePrint, path: "/certificatePreview"),
+  MaterialRoute(page: MyCampaigns, path: "/see-all-campaigns"),
   // MaterialRoute(page: ApplyForVolunteer, path: "/apply-volunteer"),
   MaterialRoute(page: ApplyForVolunteer, path: "/apply-volunteer"),
   MaterialRoute(page: ApproveVolunter, path: "/approveVolunter/:id"),
@@ -119,7 +121,7 @@ import '../features/donations/Dontations.dart';
       page: ViewVolunteerApplications, path: "/view-volunteer-applications"),
   MaterialRoute(
       page: VolunteerApplicationDetails,
-      path: "/volunteer-application-details"),
+      path: "/volunteer-application-details/:userId"),
 
   // Admin Profile Section
   MaterialRoute(page: AdminProfile, path: "/admin-profile"),
