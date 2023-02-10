@@ -434,16 +434,19 @@ class DonationDetail extends ConsumerWidget {
                     ? Row(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
-                          CustomElevatedButton(
-                              child: Text("ACCEPT"),
-                              fn: () {
-                                handleApprove();
-                              }),
-                          CustomElevatedButton(
-                              child: Text("REJECT"),
-                              fn: () {
-                                handleReject();
-                              }),
+                          singleData['status'] == "donated"
+                              ? SizedBox()
+                              : singleData['status'] == "rejected"
+                                  ? CustomElevatedButton(
+                                      child: Text("ACCEPT"),
+                                      fn: () {
+                                        handleApprove();
+                                      })
+                                  : CustomElevatedButton(
+                                      child: Text("REJECT"),
+                                      fn: () {
+                                        handleReject();
+                                      }),
                         ],
                       )
                     : SizedBox()

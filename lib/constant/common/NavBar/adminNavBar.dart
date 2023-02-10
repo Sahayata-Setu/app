@@ -39,16 +39,16 @@ class AdminNavBar extends StatelessWidget {
       //   icon: Icon(Icons.menu),
       // ),
       //leading: isAdmin == null ? const SizedBox.shrink() : Icon(Icons.menu),
-      actions: [
-        Container(
-            margin: EdgeInsets.symmetric(horizontal: 10.w),
-            child: IconButton(
-              onPressed: () {
-                routeTo("/search", context);
-              },
-              icon: Icon(Icons.search, size: KiconSize.h),
-            ))
-      ],
+      // actions: [
+      //   Container(
+      //       margin: EdgeInsets.symmetric(horizontal: 10.w),
+      //       child: IconButton(
+      //         onPressed: () {
+      //           routeTo("/search", context);
+      //         },
+      //         icon: Icon(Icons.search, size: KiconSize.h),
+      //       ))
+      // ],
     );
   }
 }
