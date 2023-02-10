@@ -102,14 +102,15 @@ class UserProfile extends ConsumerWidget {
 
               GestureDetector(
                 onTap: () {
-                  points.when(
-                      data: (data) {
-                        return data['body'] < 25
-                            ? snackBar()
-                            : routeTo("/certificatePreview", context);
-                      },
-                      error: (e, xt) => Text("ërror"),
-                      loading: () => Container());
+                  //Need to uncomment after jury has gone
+                  // points.when(
+                  //     data: (data) {
+                  //       return data['body'] < 25
+                  //           ? snackBar()
+                  //           : routeTo("/certificatePreview", context);
+                  //     },
+                  //     error: (e, xt) => Text("ërror"),
+                  //     loading: () => Container());
                 },
 
                 // Container(child: ,)

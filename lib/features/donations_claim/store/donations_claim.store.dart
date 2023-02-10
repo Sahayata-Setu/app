@@ -52,6 +52,22 @@ class AddNotifier extends ChangeNotifier {
     }
   }
 
+  increasePointOfCertificate(userId) async {
+    final donationSer = read(donationsClaimService);
+    // final id = StorageService.getId();
+    // final image = read(imagesProvider);
+    try {
+      final resp = await donationSer.increasePoint(userId);
+      // if (resp != null) {
+      //   // final userDetails = StorageService.getUser();
+      //   // StorageService.setUser({...?userDetails, ...data});
+      // }
+      return resp;
+    } catch (e) {
+      rethrow;
+    }
+  }
+
   //Update profile info
   // createDonationRequest() async {
   //   // log("this is of data ${data}");

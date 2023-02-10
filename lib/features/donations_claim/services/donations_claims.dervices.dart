@@ -65,6 +65,25 @@ class DonationClaimServiceClass {
       throw Exception("Invalid Request $e");
     }
   }
+
+  //Increase the point on successful approval
+  Future<dynamic> increasePoint(userId) async {
+    try {
+      // log("Data: ${donationId}");
+      final token = StorageService.getToken();
+      final response = await _client.post(
+        "/user/point/${userId}",
+        options: Options(
+          headers: {"Authorization": "Bearer ${token}"},
+        ),
+      );
+      // log("THis is from change status:$response");
+      return response;
+    } catch (e) {
+      log("this is error$e");
+      throw Exception("Invalid Request $e");
+    }
+  }
 }
 
 final donationsClaimService =

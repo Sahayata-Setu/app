@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:donationapp/constant/common/Text/custom-text.dart';
 import 'package:donationapp/features/donations_claim/store/donations_claim.store.dart';
 import 'package:donationapp/store/homepage/homepage.store.dart';
+import 'package:donationapp/utils/store-service/store.service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -19,6 +20,7 @@ class ForPending extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final donationClaimRef = ref.watch(donationClaimProvider);
+    final userId = StorageService.getId();
     // final changePostStatus = ref.watch(donationClaimRequestsProvider(""));
     return PopupMenuButton(
       itemBuilder: (context) => [
@@ -38,7 +40,12 @@ class ForPending extends ConsumerWidget {
             if (resp.isNotEmpty) {
               ref.refresh(donationClaimRequestsProvider(""));
               ref.refresh(donationsOrRequestProvider("donations"));
-              await donationClaimRef.changeStatusOfPost();
+              await donationClaimRef.changeStatusOfPost().then((val) async {
+                await donationClaimRef.increasePointOfCertificate(userId);
+                log('Hello-------------------------------');
+              }).catchError((err) {
+                log('Error');
+              });
               // log("This is response: $resp");
             }
             // donatiponClaimProvider
