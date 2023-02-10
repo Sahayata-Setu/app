@@ -14,7 +14,7 @@ class AddPreferredLocationServiceClass {
     try {
       final token = StorageService.getToken();
       final response = await _client.post(
-        "/admin/users",
+        "/user/donation-location",
         data: data,
         options: Options(
           headers: {"Authorization": "Bearer ${token}"},
@@ -28,26 +28,44 @@ class AddPreferredLocationServiceClass {
     }
   }
 
-  //Change reciever request status
-  // Future<dynamic> changeRequest(donationId) async {
-  //   try {
-  //     log("Data: ${donationId}");
-  //     final token = StorageService.getToken();
-  //     final response = await _client.post(
-  //       "/approval/change-request-status",
-  //       data: {"donationId": donationId},
-  //       options: Options(
-  //         headers: {"Authorization": "Bearer ${token}"},
-  //       ),
-  //     );
-  //     log("THis is from change status:$response");
-  //     return response;
-  //   } catch (e) {
-  //     log("this is error$e");
-  //     throw Exception("Invalid Request $e");
-  //   }
-  // }
+  // Display the preferred locations
+  Future<Map<String, dynamic>> getPreferredLocations() async {
+    try {
+      // log("Data: ${donationId}");
+      final token = StorageService.getToken();
+      final response = await _client.get(
+        "/user/donation-location",
+        options: Options(
+          headers: {"Authorization": "Bearer ${token}"},
+        ),
+      );
+      // log("THis is from change status:$response");
+      return response;
+    } catch (e) {
+      log("this is error$e");
+      throw Exception("Invalid Request $e");
+    }
+  }
+
+  // Display the preferred locations
+  Future<Map<String, dynamic>> getSinglePreferredLocation(id) async {
+    try {
+      // log("Data: ${donationId}");
+      final token = StorageService.getToken();
+      final response = await _client.get(
+        "/user/donation-location/$id",
+        options: Options(
+          headers: {"Authorization": "Bearer ${token}"},
+        ),
+      );
+      // log("THis is from change status:$response");
+      return response;
+    } catch (e) {
+      log("this is error$e");
+      throw Exception("Invalid Request $e");
+    }
+  }
 }
 
-final userDetailsService = Provider<AddPreferredLocationServiceClass>(
+final addPreferredService = Provider<AddPreferredLocationServiceClass>(
     (ref) => AddPreferredLocationServiceClass());

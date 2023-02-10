@@ -188,7 +188,11 @@ class _LoginState extends ConsumerState<Login> {
                       ),
                       child: Text("Login"),
                     ),
-
+              TextButton(
+                  onPressed: () {},
+                  child: CustomText(
+                    text: "Forgot Password",
+                  )),
               // PrimaryCustomButton(
               //     child: CustomText(
               //       text: "Login",

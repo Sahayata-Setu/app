@@ -32,6 +32,7 @@ import 'package:donationapp/features/donations/widgets/donationDetails.dart';
 import 'package:donationapp/features/donations_claim/donations_claim.dart';
 import 'package:donationapp/features/homepage/homepage-data.dart';
 import 'package:donationapp/features/homepage/homepage.dart';
+import 'package:donationapp/features/login/forgot-password.dart';
 import 'package:donationapp/features/login/login.dart';
 import 'package:donationapp/features/message/message.dart';
 import 'package:donationapp/features/message/message.dart';
@@ -117,6 +118,7 @@ import '../features/donations/Dontations.dart';
   // Admin Requests Section
   MaterialRoute(page: ViewRequests, path: "/requests"),
   MaterialRoute(page: RequestDetails, path: "/requestDetails"),
+  MaterialRoute(page: ForgotPassword, path: "/forgot-password"),
 
   // Admin Volunteer Applications
   MaterialRoute(
