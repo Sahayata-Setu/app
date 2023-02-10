@@ -154,7 +154,7 @@ class _MobileNumberState extends ConsumerState<MobileNumber> {
               },
               buttonText: "Send Otp",
             ),
-            Container(height: 150.h, child: Recaptcha())
+            // Container(height: 150.h, child: Recaptcha())
             // ElevatedButton(
             //   onPressed: () {
             //     verifyNumber();
