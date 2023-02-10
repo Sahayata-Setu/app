@@ -49,10 +49,18 @@ class NewAdminDashboard extends ConsumerWidget {
                         AdminInfoCard(
                           cardTitle: "All Time",
                           dashboardDats: dashboardDats,
+                          requests: dashboardDats['requests']['total'],
+                          donations: dashboardDats['donations']['total'],
+                          volunteers: dashboardDats['volunteers']['total'],
+                          users: dashboardDats['users']['total'],
                         ),
                         AdminInfoCard(
                           cardTitle: "Pending",
                           dashboardDats: dashboardDats,
+                          requests: dashboardDats['requests']['pending'],
+                          donations: dashboardDats['donations']['pending'],
+                          volunteers: dashboardDats['volunteers']['pending'],
+                          users: dashboardDats['users']['total'],
                         ),
                         AdminInfoCard(
                           cardTitle: "Approved",
