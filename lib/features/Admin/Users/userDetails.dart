@@ -96,7 +96,7 @@ class UserDetails extends ConsumerWidget {
                       ),
                     ),
                     child: CustomText(
-                      text: "Remove",
+                      text: "Verify",
                       fontColor: whiteColor,
                       fontSize: 16.sp,
                     ),

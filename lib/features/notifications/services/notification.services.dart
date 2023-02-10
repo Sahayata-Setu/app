@@ -27,6 +27,25 @@ class NotificationServiceClass {
       throw Exception("Invalid Request $e");
     }
   }
+
+  //Create notification
+  Future<dynamic> createNotification(data) async {
+    try {
+      final token = StorageService.getToken();
+      final response = await _client.post(
+        "/notification",
+        data: data,
+        options: Options(
+          headers: {"Authorization": "Bearer ${token}"},
+        ),
+      );
+
+      return response;
+    } catch (e) {
+      log("this is error$e");
+      throw Exception("Invalid Request $e");
+    }
+  }
 }
 
 final notificationService =

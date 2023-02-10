@@ -349,9 +349,16 @@ class AppRouter extends _i43.RootStackRouter {
       );
     },
     VolunteerApplicationDetailsRoute.name: (routeData) {
+      final pathParams = routeData.inheritedPathParams;
+      final args = routeData.argsAs<VolunteerApplicationDetailsRouteArgs>(
+          orElse: () => VolunteerApplicationDetailsRouteArgs(
+              userId: pathParams.get('userId')));
       return _i43.MaterialPageX<dynamic>(
         routeData: routeData,
-        child: _i39.VolunteerApplicationDetails(),
+        child: _i39.VolunteerApplicationDetails(
+          key: args.key,
+          userId: args.userId,
+        ),
       );
     },
     AdminProfileRoute.name: (routeData) {
@@ -530,7 +537,7 @@ class AppRouter extends _i43.RootStackRouter {
         ),
         _i43.RouteConfig(
           VolunteerApplicationDetailsRoute.name,
-          path: '/volunteer-application-details',
+          path: '/volunteer-application-details/:userId',
         ),
         _i43.RouteConfig(
           AdminProfileRoute.name,
@@ -1209,14 +1216,38 @@ class ViewVolunteerApplicationsRoute extends _i43.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i39.VolunteerApplicationDetails]
-class VolunteerApplicationDetailsRoute extends _i43.PageRouteInfo<void> {
-  const VolunteerApplicationDetailsRoute()
-      : super(
+class VolunteerApplicationDetailsRoute
+    extends _i43.PageRouteInfo<VolunteerApplicationDetailsRouteArgs> {
+  VolunteerApplicationDetailsRoute({
+    _i44.Key? key,
+    required dynamic userId,
+  }) : super(
           VolunteerApplicationDetailsRoute.name,
-          path: '/volunteer-application-details',
+          path: '/volunteer-application-details/:userId',
+          args: VolunteerApplicationDetailsRouteArgs(
+            key: key,
+            userId: userId,
+          ),
+          rawPathParams: {'userId': userId},
         );
 
   static const String name = 'VolunteerApplicationDetailsRoute';
+}
+
+class VolunteerApplicationDetailsRouteArgs {
+  const VolunteerApplicationDetailsRouteArgs({
+    this.key,
+    required this.userId,
+  });
+
+  final _i44.Key? key;
+
+  final dynamic userId;
+
+  @override
+  String toString() {
+    return 'VolunteerApplicationDetailsRouteArgs{key: $key, userId: $userId}';
+  }
 }
 
 /// generated route for
