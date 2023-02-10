@@ -165,17 +165,28 @@ class UserProfile extends ConsumerWidget {
               //     imageName: "volunteer",
               //   ),
               // ),
-              userType == "admin"
-                  ? GestureDetector(
-                      onTap: () {
-                        routeTo("/admin-dashboard", context);
-                      },
-                      child: UserProfileOptions(
-                        text: "Admin Dashboard",
-                        imageName: "volunteer",
-                      ),
-                    )
-                  : Container(),
+              // userType == "admin"
+              //     ? GestureDetector(
+              //         onTap: () {
+              //           routeTo("/admin-dashboard", context);
+              //         },
+              //         child: UserProfileOptions(
+              //           text: "Admin Dashboard",
+              //           imageName: "volunteer",
+              //         ),
+              //       )
+              //     : Container(),
+              // userType == "user"
+              GestureDetector(
+                onTap: () {
+                  routeTo("/leaderboard", context);
+                },
+                child: UserProfileOptions(
+                  imageName: "i-icon",
+                  text: "Leaderboard",
+                ),
+              ),
+              // : SizedBox(),
               GestureDetector(
                 onTap: () {
                   handleLogout();

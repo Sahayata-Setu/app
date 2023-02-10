@@ -18,6 +18,7 @@ import 'package:donationapp/features/Admin/Volunteer%20Application/volunteerAppl
 import 'package:donationapp/features/Admin/add-preferred-locations/add-preferred-locations.dart';
 import 'package:donationapp/features/Admin/admin-message/admin-message.dart';
 import 'package:donationapp/features/Admin/widgets/approveVolunter.dart';
+import 'package:donationapp/features/Leaderboard/leaderboard.dart';
 import 'package:donationapp/features/account-settings/account-settings.dart';
 import 'package:donationapp/features/apply-for-volunteer/apply-for-volunteer.dart';
 import 'package:donationapp/features/campaigns/campaignDetails.dart';
@@ -96,6 +97,8 @@ import '../features/donations/Dontations.dart';
   // MaterialRoute(page: ApplyForVolunteer, path: "/apply-volunteer"),
   MaterialRoute(page: ApplyForVolunteer, path: "/apply-volunteer"),
   MaterialRoute(page: ApproveVolunter, path: "/approveVolunter/:id"),
+
+  MaterialRoute(page: Leaderboard, path: "/leaderboard"),
 
   MaterialRoute(page: AdminDashBoardData, path: "/admin-dashboard"),
   MaterialRoute(page: OtpVerification, path: "/otp-verification"),

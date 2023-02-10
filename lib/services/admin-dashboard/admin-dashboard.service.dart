@@ -209,7 +209,24 @@ class AdminDashboardServiceClass {
           headers: {"Authorization": "Bearer ${token}"},
         ),
       );
+      return response;
+    } catch (e) {
+      // log("this is error$e");
+      throw Exception("Invalid Request $e");
+    }
+  }
 
+  // Get all time data for admin dashboard
+  Future<Map<String, dynamic>> getAllData() async {
+    // log("Application id is $applicationId");
+    try {
+      final token = StorageService.getToken();
+      final response = await _client.get(
+        "/admin/numbers",
+        options: Options(
+          headers: {"Authorization": "Bearer ${token}"},
+        ),
+      );
       return response;
     } catch (e) {
       // log("this is error$e");
