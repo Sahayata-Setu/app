@@ -87,7 +87,8 @@ class _HomePageState extends ConsumerState<HomePage> {
             Campaigns(),
             CategoriesTab(),
             Container(
-              padding: EdgeInsets.only(left: kPadding.w, top: kPadding.h),
+              padding: EdgeInsets.only(
+                  left: kPadding.w, top: kPadding.h, right: kPadding.w),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -96,8 +97,43 @@ class _HomePageState extends ConsumerState<HomePage> {
                     fontSize: 16.sp,
                     fontWeight: FontWeight.bold,
                   ),
+                  SizedBox(
+                    height: 10.h,
+                  ),
                   Container(
-                    child: CustomText(text: "Rajkot"),
+                    height: 100.h,
+                    width: double.infinity,
+                    child: GridView.builder(
+                      // physics: NeverScrollableScrollPhysics(),
+                      scrollDirection: Axis.horizontal,
+                      shrinkWrap: true,
+                      gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+                        maxCrossAxisExtent: 120,
+                        childAspectRatio: 3 / 2,
+                        crossAxisSpacing: 20,
+                        mainAxisSpacing: 20,
+                        mainAxisExtent: 150,
+                      ),
+
+                      itemBuilder: (ctx, index) {
+                        return Card(
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(22.r),
+                          ),
+                          color: Colors.purple,
+                          child: Center(
+                              child: CustomText(
+                            text: "Rajkot",
+                            fontSize: 16.sp,
+                            fontColor: whiteColor,
+                          )),
+                        );
+                      },
+                      itemCount: 10,
+                    ),
+                  ),
+                  SizedBox(
+                    height: 20.h,
                   )
                 ],
               ),
