@@ -45,7 +45,6 @@ class ButtonAreaAccount extends ConsumerWidget {
         // }
 
         // ignore: use_build_context_synchronously
-
       } catch (e) {
         log('$e the success');
         CustomScaffoldMessenger.error(

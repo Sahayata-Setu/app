@@ -149,7 +149,7 @@ class UserProfile extends ConsumerWidget {
                 },
                 child: UserProfileOptions(
                   text: translation(context).myDonations,
-                  imageName: "claim",
+                  imageName: "donation",
                 ),
               ),
               // GestureDetector(
