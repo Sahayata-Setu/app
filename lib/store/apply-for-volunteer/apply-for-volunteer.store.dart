@@ -15,6 +15,8 @@ final volunteerDetailsProvider = StateProvider(
 
 final idImageProvider = StateProvider((ref) => ([]));
 
+final loadingVolunteer = StateProvider((ref) => false);
+
 class VolunteerNotifier extends ChangeNotifier {
   VolunteerNotifier(this.read) : super();
   final Reader read;
@@ -23,14 +25,17 @@ class VolunteerNotifier extends ChangeNotifier {
     final applyVolunteer = read(volunteerService);
     // final id = StorageService.getUser();
     final image = read(idImageProvider);
+    read(loadingVolunteer.notifier).state = true;
     try {
       final resp = await applyVolunteer.applyForVolunteer(data, image);
-      // if (resp != null) {
-      //   // final userDetails = StorageService.getUser();
-      //   // StorageService.setUser({...?userDetails, ...data});
-      // }
+      if (resp != null) {
+        read(loadingVolunteer.notifier).state = false;
+        // final userDetails = StorageService.getUser();
+        // StorageService.setUser({...?userDetails, ...data});
+      }
       return resp;
     } catch (e) {
+      read(loadingVolunteer.notifier).state = false;
       rethrow;
     }
   }
