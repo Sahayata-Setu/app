@@ -31,6 +31,38 @@ class VolunteerApplicationDetails extends ConsumerWidget {
     final singleUser = selectedCategory == "All"
         ? ref.watch(singleUserDataProvider(userId))
         : ref.watch(getAllSingleVolunteerApplicationProvider(userId));
+
+    final approveProv = ref.watch(approveVolunteerProvider);
+    // final userId = StorageService.getId();
+    handleApprove() {
+      try {
+        final resp = approveProv.approveVolunteer(userId, "approve");
+        ref.refresh(pendingVolunteerProvider);
+        ref.refresh(getAllVolunteerProvider);
+        const snackBar = SnackBar(
+          content: Text('Sucessfully Approved.'),
+        );
+        ScaffoldMessenger.of(context).showSnackBar(snackBar);
+        log(resp);
+      } catch (e) {
+        log("this is error from resp ${e}");
+      }
+    }
+
+    handleReject() {
+      try {
+        final resp = approveProv.approveVolunteer(userId, "reject");
+        ref.refresh(pendingVolunteerProvider);
+        const snackBar = SnackBar(
+          content: Text('Request sucessfully rejected'),
+        );
+        ScaffoldMessenger.of(context).showSnackBar(snackBar);
+        // log(resp);
+      } catch (e) {
+        log("this is error from resp ${e}");
+      }
+    }
+
     // log("UserID: ${userId}");
     // log("messageE: ${singleUser}");
     return Scaffold(
@@ -71,8 +103,41 @@ class VolunteerApplicationDetails extends ConsumerWidget {
                     fontColor: textColor,
                     fontSize: 16.sp,
                   ),
-
+                  SizedBox(
+                    height: 10.h,
+                  ),
                   // * Display Image here
+                  CustomText(
+                    text: "Front Id",
+                    fontSize: 16.sp,
+                    fontWeight: FontWeight.bold,
+                  ),
+                  Container(
+                    height: 100.h,
+                    width: double.infinity,
+                    child: Image(
+                      image: NetworkImage(userData['images'] == null
+                          ? "https://www.ncenet.com/wp-content/uploads/2020/04/No-image-found.jpg"
+                          : userData['images'][0]),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 10.h,
+                  ),
+                  CustomText(
+                    text: "Back Id",
+                    fontSize: 16.sp,
+                    fontWeight: FontWeight.bold,
+                  ),
+                  Container(
+                    height: 100.h,
+                    width: double.infinity,
+                    child: Image(
+                      image: NetworkImage(userData['images'] == null
+                          ? "https://www.ncenet.com/wp-content/uploads/2020/04/No-image-found.jpg"
+                          : userData['images'][1]),
+                    ),
+                  ),
 
                   Container(
                     margin: EdgeInsets.symmetric(vertical: 15.h),
@@ -116,7 +181,8 @@ class VolunteerApplicationDetails extends ConsumerWidget {
                               PrimaryCustomButton(
                                 color: blueColor,
                                 fn: () {
-                                  routeTo("", context);
+                                  // routeTo("", context);
+                                  handleApprove();
                                 },
                                 child: CustomText(
                                   text: "Accept",
@@ -130,7 +196,8 @@ class VolunteerApplicationDetails extends ConsumerWidget {
                                 ),
                                 color: Colors.red,
                                 fn: () {
-                                  routeTo("", context);
+                                  handleReject();
+                                  // routeTo("", context);
                                 },
                               ),
                             ],

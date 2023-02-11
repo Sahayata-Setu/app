@@ -45,7 +45,8 @@ class CampiagnDetails extends ConsumerWidget {
                   Container(
                     // margin: EdgeInsets.only(bottom: kPadding.h),
                     child: ImageOverlay(
-                        image: data['images'][0],
+                        image:
+                            data['images'].length == 0 ? "" : data['images'][0],
                         title: "${data['title']}",
                         location: "${data['city']}",
                         height: 250.h,
