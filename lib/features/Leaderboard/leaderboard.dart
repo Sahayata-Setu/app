@@ -31,8 +31,7 @@ class Leaderboard extends ConsumerWidget {
       bottomNavBar: const GoogleButtomNavBar(showBottomNavBar: true),
       component: dashboardData.when(
         data: (data) {
-          final listData = data['body'].toList();
-          final indexValue = listData.asMap();
+          final listData = data['body'];
           log("This is from leaderboard data ${listData}");
           return Container(
             child: Column(
@@ -45,20 +44,13 @@ class Leaderboard extends ConsumerWidget {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                // listData.map<Widget>((e) {
                 CardList(
-                  title: "Hello",
-                  value: "Hey",
+                  title:
+                      "${listData['user']['rank']}. ${listData['user']['firstName']} ${listData['user']['lastName']}",
+                  value: "${listData['user']['points']}",
                   fontColor: whiteColor,
                   backgroundColor: blueColor,
                 ),
-                // }).toList(),
-                // CardList(
-                //   title: "Hello",
-                //   value: "Hey",
-                //   fontColor: whiteColor,
-                //   backgroundColor: blueColor,
-                // ),
                 Card(
                   child: Container(
                     child: Column(
@@ -82,8 +74,9 @@ class Leaderboard extends ConsumerWidget {
                                 itemBuilder: (context, index) {
                                   return CardList(
                                     title:
-                                        "${index + 1}.  ${listData[index]['firstName']} ${listData[index]['lastName']}",
-                                    value: "${listData[index]['points']}",
+                                        "${index + 1}.  ${listData['users'][index]['firstName']} ${listData['users'][index]['lastName']}",
+                                    value:
+                                        "${listData['users'][index]['points']}",
                                     fontColor: whiteColor,
                                     backgroundColor: blueColor,
                                   );
