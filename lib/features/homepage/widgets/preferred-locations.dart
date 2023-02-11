@@ -19,6 +19,7 @@ class PreferredLocations extends ConsumerWidget {
 
 // preferredSingleLocationProvider
     showPopUp(id) {
+      log("Message ${id}");
       final prefSingleLocation = ref.watch(preferredSingleLocationProvider(id));
 
       return showDialog<String>(

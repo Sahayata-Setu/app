@@ -55,12 +55,12 @@ class CampaignCards extends StatelessWidget {
                   width: 100.w,
                   fn: () {},
                 ),
-                IconButton(
-                    onPressed: () {}, //share
-                    icon: CustomIcon(
-                      icon: Icons.share,
-                      color: blueColor,
-                    ))
+                // IconButton(
+                //     onPressed: () {}, //share
+                //     icon: CustomIcon(
+                //       icon: Icons.share,
+                //       color: blueColor,
+                //     ))
               ],
             ),
           )
