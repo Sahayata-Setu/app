@@ -6,6 +6,7 @@ import 'package:donationapp/constant/common/loading/loadingPage.dart';
 import 'package:donationapp/constant/kconstant.dart';
 import 'package:donationapp/features/Admin/add-preferred-locations/store/add-preferred.store.dart';
 import 'package:donationapp/features/donations/widgets/categoriesTab.dart';
+import 'package:donationapp/features/homepage/widgets/SimpleMap.dart';
 import 'package:donationapp/features/homepage/widgets/campaigns/campaign.dart';
 import 'package:donationapp/features/homepage/widgets/preferred-locations.dart';
 import 'package:donationapp/main.dart';
@@ -97,7 +98,8 @@ class _HomePageState extends ConsumerState<HomePage> {
             children: [
               Campaigns(),
               CategoriesTab(),
-              PreferredLocations()
+              PreferredLocations(),
+              //  Container(height: 300.h, width: 200.h, child: Location())
               //CustomTabBar()
               // DonationsHome(), NeedsHome()
             ],

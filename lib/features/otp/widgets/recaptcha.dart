@@ -14,22 +14,24 @@ class Recaptcha extends StatefulWidget {
 class _RecaptchaState extends State<Recaptcha> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: WebViewPlus(
-          javascriptMode: JavascriptMode.unrestricted,
-          onWebViewCreated: ((controller) {
-            controller.loadUrl('assets/webpages/recaptcha.html');
-          }),
-          javascriptChannels: Set.from([
-            JavascriptChannel(
-                name: 'Captcha',
-                onMessageReceived: (JavascriptMessage message) {
-                  replaceRouteTo("/mobile-number", context);
-                })
-          ]),
-        ),
-      ),
+    return
+        // Scaffold(
+        //   body: Center(
+        //     child:
+        WebViewPlus(
+      javascriptMode: JavascriptMode.unrestricted,
+      onWebViewCreated: ((controller) {
+        controller.loadUrl('assets/webpages/recaptcha.html');
+      }),
+      // javascriptChannels: Set.from([
+      //   JavascriptChannel(
+      //       name: 'Captcha',
+      //       onMessageReceived: (JavascriptMessage message) {
+      //         replaceRouteTo("/mobile-number", context);
+      //      })
+      // ]),
+      // ),
+      //),
     );
   }
 }

@@ -216,7 +216,7 @@ class _LoginState extends ConsumerState<Login> {
                       ),
                       TextButton(
                         onPressed: () {
-                          routeTo("/recaptcha", context);
+                          routeTo("/mobile-number", context);
                         },
                         child: CustomText(
                           text: "Sign Up",

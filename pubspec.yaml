@@ -65,6 +65,9 @@ dependencies:
   firebase_core_platform_interface: ^4.5.2
   badges: ^3.0.2
   webview_flutter_plus: ^0.3.0+2
+  google_maps_flutter: ^2.2.3
+  flutter_firebase_recaptcha: ^1.0.2
+  flutter_radar: ^3.0.2
 
 dev_dependencies:
   flutter_test:

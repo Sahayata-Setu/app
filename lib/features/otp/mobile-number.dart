@@ -143,6 +143,8 @@ class _MobileNumberState extends ConsumerState<MobileNumber> {
               fontWeight: FontWeight.bold,
               fontColor: Colors.red,
             ),
+
+            // Container(height: 150.h, child: Recaptcha()),
             CustomGradientButtom(
               fn: () {
                 verifyNumber();
@@ -154,7 +156,6 @@ class _MobileNumberState extends ConsumerState<MobileNumber> {
               },
               buttonText: "Send Otp",
             ),
-            // Container(height: 150.h, child: Recaptcha())
             // ElevatedButton(
             //   onPressed: () {
             //     verifyNumber();
@@ -166,6 +167,7 @@ class _MobileNumberState extends ConsumerState<MobileNumber> {
             //   },
             //   child: Text("Sumbit"),
             // )
+            //  Recaptcha()
           ],
         ),
       ),
