@@ -34,7 +34,7 @@ final getAllDonationsByUser =
   },
 );
 
-final loadingAccount = StateProvider((ref) => (false));
+final loadingAccount = StateProvider((ref) => false);
 
 class AddNotifier extends ChangeNotifier {
   AddNotifier(this.read) : super();

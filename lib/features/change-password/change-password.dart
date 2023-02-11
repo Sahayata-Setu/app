@@ -7,6 +7,7 @@ import 'package:donationapp/constant/kconstant.dart';
 import 'package:donationapp/features/apply-for-volunteer/widget/text-fields-area-volunteer.dart';
 import 'package:donationapp/features/change-password/widgets/button-area-change-password.dart';
 import 'package:donationapp/features/change-password/widgets/text-fields-area-change-password.dart';
+import 'package:donationapp/store/account-setting/account.setting.store.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -16,6 +17,7 @@ class ChangePassword extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final loading = ref.watch(loadingAccount);
     return App(
       component: Container(
         height: MediaQuery.of(context).size.height,
