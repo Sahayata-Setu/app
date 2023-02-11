@@ -33,6 +33,7 @@ class CampaignsList extends ConsumerWidget {
         child: approvedCampagins.when(
           data: (data) {
             final datas = data['body'];
+            log("All campaigns ${datas}");
             return ListView.builder(
                 // scrollDirection: Axis.horizontal,
                 itemCount: datas.length,

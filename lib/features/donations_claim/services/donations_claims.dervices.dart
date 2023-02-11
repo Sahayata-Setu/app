@@ -27,6 +27,24 @@ class DonationClaimServiceClass {
     }
   }
 
+  //Get all donations or requests
+  // Future<Map<String, dynamic>> getDonationClaimRequests() async {
+  //   try {
+  //     final token = StorageService.getToken();
+  //     final response = await _client.get(
+  //       "/approval/get-all-requests",
+  //       options: Options(
+  //         headers: {"Authorization": "Bearer ${token}"},
+  //       ),
+  //     );
+
+  //     return response;
+  //   } catch (e) {
+  //     log("this is error$e");
+  //     throw Exception("Invalid Request $e");
+  //   }
+  // }
+
   //Change reciever request status
   Future<dynamic> changeRequest(donationId) async {
     try {
