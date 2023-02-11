@@ -150,12 +150,12 @@ class AdminDashboardServiceClass {
     try {
       final token = StorageService.getToken();
       final response = await _client.get(
-        "/user/donation/all",
+        "/admin/donations/all",
         options: Options(
           headers: {"Authorization": "Bearer ${token}"},
         ),
       );
-
+      log("respones is $response");
       return response;
     } catch (e) {
       // log("this is error$e");
@@ -167,7 +167,7 @@ class AdminDashboardServiceClass {
     try {
       final token = StorageService.getToken();
       final response = await _client.get(
-        "/user/request/category/all",
+        "/admin/requests/all",
         options: Options(
           headers: {"Authorization": "Bearer ${token}"},
         ),

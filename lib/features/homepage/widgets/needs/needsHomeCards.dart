@@ -1,4 +1,6 @@
 import 'package:donationapp/constant/common/Text/custom-text.dart';
+import 'package:donationapp/constant/common/alert-popup.dart';
+import 'package:donationapp/features/donations_claim/store/donations_claim.store.dart';
 import 'package:donationapp/features/homepage/widgets/heading.dart';
 import 'package:donationapp/features/needs/widgets/needDetail.data.dart';
 import 'package:donationapp/features/new-message/chat-detail.dart';
@@ -7,6 +9,7 @@ import 'package:donationapp/helpers/time.dart';
 import 'package:donationapp/routes/app.router.gr.dart';
 import 'package:donationapp/utils/store-service/language.store.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'dart:developer';
 
@@ -16,15 +19,117 @@ import 'package:donationapp/constant/common/button/cusotm-button.dart';
 import 'package:donationapp/constant/kconstant.dart';
 import 'package:line_icons/line_icon.dart';
 
-class NeedsHomeCards extends StatelessWidget {
+class NeedsHomeCards extends ConsumerWidget {
   const NeedsHomeCards({super.key, this.singleInfo});
 
   final singleInfo;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     // routePush(NeedDetailRoute(id: singleInfo['_id']), context);
-    log("this is for homepage${singleInfo}");
+    log("Single Info: $singleInfo");
+
+    final donationClaimRef = ref.watch(donationClaimProvider);
+    handleSumbit() async {
+      final response = await donationClaimRef.createNeedRequest({
+        "recieverId": singleInfo['beneficiary_id'],
+        "needPostId": singleInfo['_id']
+      });
+      // log("Hello ------------------ ${response['message'] == "Request Already exists"}");
+      if (response['message'] == "Request already exists") {
+        // ignore: use_build_context_synchronously
+        showDialog(
+          context: context,
+          builder: (BuildContext context) {
+            return buildPopupDialog(context, "${response['message']}",
+                singleInfo['beneficiary_name'], singleInfo['beneficiary_id']);
+          },
+        );
+      } else {
+        // ignore: use_build_context_synchronously
+        Navigator.push(context, MaterialPageRoute(builder: (context) {
+          return ChatDetailPage(
+            name: singleInfo['benificary_name'],
+            // sender: senderId,
+            reciever: singleInfo['benificary_id'],
+          );
+        }));
+      }
+    }
+
+    void _modalBottomSheetMenu(context) {
+      showModalBottomSheet(
+          shape: const RoundedRectangleBorder(
+            // <-- SEE HERE
+            borderRadius: BorderRadius.vertical(
+              top: Radius.circular(25.0),
+            ),
+          ),
+          context: context,
+          builder: (builder) {
+            return Container(
+              height: 100.h,
+              color:
+                  Colors.transparent, //could change this to Color(0xFF737373),
+              //so you don't have to change MaterialApp canvasColor
+              child: Container(
+                  decoration: BoxDecoration(
+                    color: backgroundColor,
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(18.0),
+                      topRight: Radius.circular(18.0),
+                    ),
+                  ),
+                  padding: EdgeInsets.only(top: 10.h, left: 10.w, right: 10.w),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Center(
+                        child: CustomText(
+                          text: "Do you want to create request \nor this need?",
+                          fontSize: 18.sp,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      SizedBox(
+                        height: 10.h,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          ElevatedButton(
+                            onPressed: () {
+                              handleSumbit();
+                            },
+                            child: CustomText(
+                              text: "Yes",
+                            ),
+                            style: ButtonStyle(
+                              backgroundColor:
+                                  MaterialStateProperty.all(Colors.green),
+                            ),
+                          ),
+                          ElevatedButton(
+                            onPressed: () {
+                              // buildPopupDialog(context);
+                              Navigator.pop(context);
+                            },
+                            child: CustomText(
+                              text: "No",
+                            ),
+                            style: ButtonStyle(
+                              backgroundColor:
+                                  MaterialStateProperty.all(Colors.red),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  )),
+            );
+          });
+    }
+
     return GestureDetector(
       onTap: () {
         routePush(NeedDetailRoute(id: singleInfo['_id']), context);
@@ -136,14 +241,15 @@ class NeedsHomeCards extends StatelessWidget {
                   width: 90.w,
                   height: 40.h,
                   fn: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) {
-                      return ChatDetailPage(
-                        name: singleInfo['beneficiary_name'],
-                        // sender: senderId,
-                        reciever: singleInfo['beneficiary_id'],
-                      );
-                    }));
+                    _modalBottomSheetMenu(context);
+                    // Navigator.push(context,
+                    //     MaterialPageRoute(builder: (context) {
+                    //   return ChatDetailPage(
+                    //     name: singleInfo['beneficiary_name'],
+                    //     // sender: senderId,
+                    //     reciever: singleInfo['beneficiary_id'],
+                    //   );
+                    // }));
                     // routeTo(
                     //     "/message/${singleInfo['donor_name']}/${singleInfo['donor_id']}",
                     //     context);

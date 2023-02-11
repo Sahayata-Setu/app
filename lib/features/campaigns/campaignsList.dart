@@ -33,6 +33,7 @@ class CampaignsList extends ConsumerWidget {
         child: approvedCampagins.when(
           data: (data) {
             final datas = data['body'];
+            log("All campaigns ${datas}");
             return ListView.builder(
                 // scrollDirection: Axis.horizontal,
                 itemCount: datas.length,
@@ -42,6 +43,7 @@ class CampaignsList extends ConsumerWidget {
                       routeTo("/campaigns/${datas[index]['_id']}", context);
                     },
                     child: CampaignCards(
+                      volunteerId: "${data[index]['volunteerId']}",
                       image: "${datas[index]['images'][0]}",
                       location: "${datas[index]['city']}",
                       title: "${datas[index]['title']}",

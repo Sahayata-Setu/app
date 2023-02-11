@@ -26,11 +26,14 @@ class DetailTile extends StatelessWidget {
             fontWeight: FontWeight.w500,
             fontColor: fontColor ?? textColor,
           ),
-          CustomText(
-            text: value,
-            fontSize: 15.sp,
-            fontWeight: FontWeight.w400,
-            fontColor: fontColor ?? textColor,
+          SizedBox(width: 10.w),
+          Flexible(
+            child: CustomText(
+              text: value,
+              fontSize: 15.sp,
+              fontWeight: FontWeight.w400,
+              fontColor: fontColor ?? textColor,
+            ),
           )
         ],
       ),

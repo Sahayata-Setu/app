@@ -19,6 +19,7 @@ class ViewDonations extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final allDonations = ref.watch(getAllDonationsProvider);
+    // log("All Donations: ${allDonations}");
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(60),
@@ -33,7 +34,6 @@ class ViewDonations extends ConsumerWidget {
           child: allDonations.when(
               data: (data) {
                 final donations = data['body'];
-                log("All Donations: ${donations}");
                 return Container(
                   padding: EdgeInsets.all(10.h),
                   // color: whiteColor,
@@ -60,7 +60,10 @@ class ViewDonations extends ConsumerWidget {
                   ),
                 );
               },
-              error: (e, st) => CustomText(text: "Something Went Wrong"),
+              error: (e, st) {
+                log("message: ${e}");
+                return CustomText(text: "Something Went Wrong");
+              },
               loading: () => LoadingPage()),
         ),
       ),

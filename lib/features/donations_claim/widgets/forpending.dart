@@ -14,14 +14,18 @@ class ForPending extends ConsumerWidget {
     super.key,
     this.donationId,
     this.userType,
+    this.needId,
   });
   final donationId;
   final userType;
+  final needId;
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final donationClaimRef = ref.watch(donationClaimProvider);
+    final selected = ref.watch(selectedCategoryProvider);
     final userId = StorageService.getId();
     // final changePostStatus = ref.watch(donationClaimRequestsProvider(""));
+    log("Need Id: $needId");
     return PopupMenuButton(
       itemBuilder: (context) => [
         // PopupMenuItem(
@@ -35,9 +39,12 @@ class ForPending extends ConsumerWidget {
             text: userType == "donor" ? "Donated" : "Received",
           ),
           onTap: () async {
-            final resp = await donationClaimRef.changeStatus(donationId);
+            final resp = selected == "donation"
+                ? await donationClaimRef.changeStatus(donationId)
+                : await donationClaimRef.changeNeedStatus(needId);
             // log("Resp: ${resp.statusCode}");
             if (resp.isNotEmpty) {
+              ref.refresh(neesClaimRequestsProvider(""));
               ref.refresh(donationClaimRequestsProvider(""));
               ref.refresh(donationsOrRequestProvider("donations"));
               await donationClaimRef.changeStatusOfPost().then((val) async {

@@ -10,8 +10,10 @@ import 'package:donationapp/constant/common/button/cusotm-button.dart';
 import 'package:donationapp/constant/common/loading/loadingPage.dart';
 import 'package:donationapp/constant/kconstant.dart';
 import 'package:donationapp/features/campaigns/widgets/campiganDetailsListings.dart';
+import 'package:donationapp/features/new-message/chat-detail.dart';
 import 'package:donationapp/store/homepage/homepage.store.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -33,6 +35,7 @@ class CampiagnDetails extends ConsumerWidget {
       component: campaignData.when(
           data: (dat) {
             final data = dat['body'];
+            log("Campaigns Single -------- $data");
             return Container(
               constraints: BoxConstraints(
                   minHeight: ScreenUtil().screenHeight + kPadding.h,
@@ -62,7 +65,16 @@ class CampiagnDetails extends ConsumerWidget {
                     alignment: Alignment.center,
                     child: CustomElevatedButton(
                         child: Text("Donate".toUpperCase()),
-                        fn: () {}, //go to donation
+                        fn: () {
+                          Navigator.push(context,
+                              MaterialPageRoute(builder: (context) {
+                            return ChatDetailPage(
+                              name: data['volunteer_name'],
+                              // sender: senderId,
+                              reciever: data['volunteer_id'],
+                            );
+                          }));
+                        }, //go to donation
                         width: 150.w),
                   )
                 ],
