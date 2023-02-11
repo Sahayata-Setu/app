@@ -5,21 +5,22 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AdminInfoCard extends StatelessWidget {
-  const AdminInfoCard({
-    super.key,
-    // this.dashboardDats,
-    this.totalRequests,
-    this.totalDonations,
-    this.cardTitle,
-    this.totalUsers,
-    this.totalCampaigns,
-  });
+  const AdminInfoCard(
+      {super.key,
+      // this.dashboardDats,
+      this.cardTitle,
+      this.requests,
+      this.donations,
+      // this.volunteers,
+      this.users,
+      this.campaigns});
   // final dashboardDats;
-  final totalRequests;
-  final totalDonations;
-  final totalUsers;
-  final totalCampaigns;
   final cardTitle;
+  final requests;
+  final donations;
+  // final volunteers;
+  final users;
+  final campaigns;
 
   @override
   Widget build(BuildContext context) {
@@ -48,14 +49,12 @@ class AdminInfoCard extends StatelessWidget {
               ),
               DetailTile(
                 title: "Total Requests",
-                // value: "${dashboardDats["requests"]["approved"]}",
-                value: totalRequests,
+                value: "${requests}",
                 fontColor: whiteColor,
               ),
               DetailTile(
                 title: "Total Donations",
-                // value: "${dashboardDats["donations"]["approved"]}",
-                value: totalDonations,
+                value: "${donations}",
                 fontColor: whiteColor,
               ),
               // DetailTile(
@@ -64,15 +63,19 @@ class AdminInfoCard extends StatelessWidget {
               //   value: totalVolunteers,
               //   fontColor: whiteColor,
               // ),
+              // DetailTile(
+              //   title: "Total Volunteers",
+              //   value: "${volunteers}",
+              //   fontColor: whiteColor,
+              // ),
               DetailTile(
                 title: "Total Users",
-                // value: "${dashboardDats["users"]["verified"]}",
-                value: totalUsers,
+                value: "${users}",
                 fontColor: whiteColor,
               ),
               DetailTile(
                 title: "Total Campaigns",
-                value: totalCampaigns,
+                value: "2",
                 fontColor: whiteColor,
               ),
             ],

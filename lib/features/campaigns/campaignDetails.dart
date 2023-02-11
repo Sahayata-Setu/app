@@ -21,7 +21,7 @@ class CampiagnDetails extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final campaignData = ref.watch(singleCampaignsByIdProvider(id));
-    log("THis is campaign : ${id}");
+    // log("THis is campaign : ${id}");
     // log
     return App(
       appbar: NavBar(

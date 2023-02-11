@@ -68,33 +68,27 @@ class NewAdminDashboard extends ConsumerWidget {
                         AdminInfoCard(
                           cardTitle: "All Time",
                           // dashboardDats: dashboardDats,
-                          totalCampaigns:
-                              "${dashboardData['all']['campaigns']}",
-                          totalDonations:
-                              "${dashboardData['all']['donations']}",
-                          totalRequests: "${dashboardData['all']['requests']}",
-                          totalUsers: "${dashboardData['all']['users']}",
+                          campaigns: "${dashboardData['all']['campaigns']}",
+                          donations: "${dashboardData['all']['donations']}",
+                          requests: "${dashboardData['all']['requests']}",
+                          users: "${dashboardData['all']['users']}",
                         ),
                         AdminInfoCard(
                           cardTitle: "Last 7 Days",
-                          totalCampaigns:
-                              "${dashboardData['seven']['campaigns7']}",
-                          totalDonations:
-                              "${dashboardData['seven']['donations7']}",
-                          totalRequests:
-                              "${dashboardData['seven']['requests7']}",
-                          totalUsers: "${dashboardData['seven']['users7']}",
+                          campaigns: "${dashboardData['seven']['campaigns7']}",
+                          donations: "${dashboardData['seven']['donations7']}",
+                          requests: "${dashboardData['seven']['requests7']}",
+                          users: "${dashboardData['seven']['users7']}",
                           // dashboardDats: dashboardDats,
                         ),
                         AdminInfoCard(
                           cardTitle: "Last 30 days",
-                          totalCampaigns:
+                          campaigns:
                               "${dashboardData['thirty']['campaigns30']}",
-                          totalDonations:
+                          donations:
                               "${dashboardData['thirty']['donations30']}",
-                          totalRequests:
-                              "${dashboardData['thirty']['requests30']}",
-                          totalUsers: "${dashboardData['thirty']['users30']}",
+                          requests: "${dashboardData['thirty']['requests30']}",
+                          users: "${dashboardData['thirty']['users30']}",
                         ),
                       ],
                     ),
@@ -167,6 +161,7 @@ class NewAdminDashboard extends ConsumerWidget {
                 ),
                 Expanded(
                   child: Container(
+                    margin: EdgeInsets.all(10.h),
                     padding: EdgeInsets.all(10.h),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.only(

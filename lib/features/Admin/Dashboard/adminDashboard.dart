@@ -36,10 +36,6 @@ class AdminDashboard extends StatelessWidget {
                       childAspectRatio: 4 / 2,
                       crossAxisSpacing: 20,
                       mainAxisSpacing: 20),
-                  // crossAxisCount: 2,
-                  // crossAxisSpacing: 4,
-                  // mainAxisSpacing: 3,
-                  // shrinkWrap: false,
                   children: [
                     DashboardCards(
                       title: "Users",

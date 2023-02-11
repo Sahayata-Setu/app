@@ -25,6 +25,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../constant/common/GoogleButtomNavBar/GoogleButtomNavBar.dart';
+import '../certifications/store/certificate.store.dart';
 
 class UserProfile extends ConsumerWidget {
   const UserProfile({super.key});
@@ -33,6 +34,8 @@ class UserProfile extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final userId = StorageService.getId();
     final userType = StorageService.getuserType();
+
+    final points = ref.watch(pointsProvider(userId));
     ref.watch(initUserDetailsForUpdate);
     // final userDetails = ref.watch(singleUserDataProvider(userId));
     // final userData = data['body'];
@@ -48,6 +51,14 @@ class UserProfile extends ConsumerWidget {
         content: Text('Logged Out'),
       );
       ScaffoldMessenger.of(context).showSnackBar(snackBar);
+    }
+
+    snackBar() {
+      final snackBar = SnackBar(
+        content: Text('You need minimum of 5 donations to get certificate'),
+      );
+      ScaffoldMessenger.of(context).showSnackBar(snackBar);
+      //pop(context);
     }
 
     return App(
@@ -88,10 +99,34 @@ class UserProfile extends ConsumerWidget {
                   imageName: "profile-setting",
                 ),
               ),
+
               GestureDetector(
                 onTap: () {
-                  routeTo("/certificatePreview", context);
+                  //Need to uncomment after jury has gone
+                  points.when(
+                      data: (data) {
+                        return data['body'] < 25
+                            ? snackBar()
+                            : routeTo("/certificatePreview", context);
+                      },
+                      error: (e, xt) => Text("ërror"),
+                      loading: () => Container());
                 },
+
+                // Container(child: ,)
+                // points == null
+                //     ? () {
+                //         const snackBar = SnackBar(
+                //           content: Text(
+                //               'You need to have atleast five points to get certificate'),
+                //         );
+                //         ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                //         pop(context);
+                //       }
+                //     : () {
+                //         routeTo("/certificatePreview", context);
+                //       }
+                // ,
                 child: UserProfileOptions(
                   text: translation(context).certificates,
                   imageName: "certificate",
@@ -117,15 +152,15 @@ class UserProfile extends ConsumerWidget {
                   imageName: "claim",
                 ),
               ),
-              GestureDetector(
-                onTap: () {
-                  routeTo("/change-language", context);
-                },
-                child: UserProfileOptions(
-                  text: translation(context).changeLanguage,
-                  imageName: "i-icon",
-                ),
-              ),
+              // GestureDetector(
+              //   onTap: () {
+              //     routeTo("/change-language", context);
+              //   },
+              //   child: UserProfileOptions(
+              //     text: translation(context).changeLanguage,
+              //     imageName: "i-icon",
+              //   ),
+              // ),
 
               /// isVolunter ? const SizedBox():
               userType != "volunteer"

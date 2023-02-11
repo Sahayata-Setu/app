@@ -11,41 +11,9 @@ class Certificate {
   Uint8List? logobytes;
   PdfImage? _logoImage;
 
-  // fetch() async {
-  //   ByteData _bytes = await rootBundle.load('assets/images/certificateBack.png');
-  //   logobytes = _bytes.buffer.asUint8List();
-  //   // setState(() {
-  //   //   try {
-  //   _logoImage = PdfImage.file(
-  //     pdf.document,
-  //     bytes: logobytes!,
-  //   );
-  // }
-  //       );
-  //     } catch (e) {
-  //       print("catch--  $e");
-  //       logobytes = null;
-  //       _logoImage = null;
-  //     }
-  //   });
-  // }
-
-  // Printing.layoutPdf(onLayout: (PdfPageFormat format) async {
-  //   return pdf.save();
-  // });
-  //}
-
-  Future<Uint8List> makePdf(String name) async {
+  Future<Uint8List> makePdf(String name, int points) async {
     List<String> splitted = [];
 
-    // final imageLogo = MemoryImage(
-    //     (await rootBundle.load('assets/images/veg.png')).buffer.asUint8List());
-    // ByteData _bytes =
-    //     await rootBundle.load('assets/images/certificateBack.png');
-    // logobytes = _bytes.buffer.asUint8List();
-    // // setState(() {
-    // //   try {
-    // _logoImage = PdfImage.file(pdf.document, bytes: logobytes!);
     final image = pw.MemoryImage(
         (await rootBundle.load('assets/images/cert.png')).buffer.asUint8List());
     pdf.addPage(pw.Page(
@@ -72,6 +40,15 @@ class Certificate {
                   child: pw.Text(name.toUpperCase(),
                       style: pw.TextStyle(
                         fontSize: 40,
+                      ))),
+              pw.Positioned(
+                  left: 80,
+                  bottom: 50,
+                  //margin: pw.EdgeInsets.all(70),
+                  child: pw.Text(
+                      "On Successful Completion of ${(points / 5).toInt()} Donations!!",
+                      style: pw.TextStyle(
+                        fontSize: 30,
                       )))
             ])));
     return pdf.save();

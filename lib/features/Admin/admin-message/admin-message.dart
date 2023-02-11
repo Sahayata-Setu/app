@@ -42,13 +42,7 @@ class AdminMessage extends ConsumerWidget {
                 padding: EdgeInsets.only(left: 16, right: 16, top: 10),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    Text(
-                      "Conversations",
-                      style:
-                          TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
-                    ),
-                  ],
+                  children: <Widget>[],
                 ),
               ),
             ),

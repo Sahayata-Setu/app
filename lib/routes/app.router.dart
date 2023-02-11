@@ -33,6 +33,7 @@ import 'package:donationapp/features/donations/widgets/donationDetails.dart';
 import 'package:donationapp/features/donations_claim/donations_claim.dart';
 import 'package:donationapp/features/homepage/homepage-data.dart';
 import 'package:donationapp/features/homepage/homepage.dart';
+import 'package:donationapp/features/login/forgot-password.dart';
 import 'package:donationapp/features/login/login.dart';
 import 'package:donationapp/features/message/message.dart';
 import 'package:donationapp/features/message/message.dart';
@@ -53,6 +54,7 @@ import 'package:donationapp/features/signup/SignUp.dart';
 import 'package:donationapp/features/volunteer/campaigns.dart';
 import 'package:donationapp/features/volunteer/volunteer.dart';
 import '../features/donations/Dontations.dart';
+import '../features/otp/widgets/recaptcha.dart';
 
 @MaterialAutoRouter(routes: [
   MaterialRoute(page: AuthCheckWidget, initial: true),
@@ -62,6 +64,7 @@ import '../features/donations/Dontations.dart';
 
   MaterialRoute(page: Signup, path: "/signup"),
   // MaterialRoute(page: Signup, path: "/signup"),
+
   MaterialRoute(page: HomePage, path: "/homepage"),
   MaterialRoute(page: DonationsClaim, path: "/donations_claim"),
   MaterialRoute(page: ChangePassword, path: "/change-password"),
@@ -69,6 +72,7 @@ import '../features/donations/Dontations.dart';
   // MaterialRoute(page: ChangeLocation, path: "/change-location"),
   MaterialRoute(page: AccountSettings, path: "/account-settings"),
   MaterialRoute(page: MyDonations, path: "/myDonations"),
+  MaterialRoute(page: Recaptcha, path: "/recaptcha"),
 
   MaterialRoute(page: Login, path: "/login"),
   MaterialRoute(page: SearchPage, path: "/search"),
@@ -123,6 +127,7 @@ import '../features/donations/Dontations.dart';
   // Admin Requests Section
   MaterialRoute(page: ViewRequests, path: "/requests"),
   MaterialRoute(page: RequestDetails, path: "/requestDetails"),
+  MaterialRoute(page: ForgotPassword, path: "/forgot-password"),
 
   // Admin Volunteer Applications
   MaterialRoute(
