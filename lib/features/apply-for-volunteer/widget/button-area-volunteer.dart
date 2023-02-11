@@ -10,6 +10,7 @@ import 'package:donationapp/store/apply-for-volunteer/apply-for-volunteer.store.
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:loading_animation_widget/loading_animation_widget.dart';
 
 class ButtonAreaVolunteer extends ConsumerWidget {
   const ButtonAreaVolunteer({super.key});
@@ -19,6 +20,8 @@ class ButtonAreaVolunteer extends ConsumerWidget {
     final volunteerDetails = ref.watch(volunteerDetailsProvider);
     final volProv = ref.watch(volunteerProvider);
     final imageProv = ref.watch(idImageProvider);
+    final loading = ref.watch(loadingVolunteer);
+
     // log("ths is vol det${volunteerDetails}");
 
     onSumbit() async {
@@ -51,12 +54,15 @@ class ButtonAreaVolunteer extends ConsumerWidget {
             color: lightBlueColor,
             borderRadius: BorderRadius.circular(18.r),
           ),
-          child: Center(
-            child: CustomText(
-              text: "SUBMIT",
-              fontWeight: FontWeight.bold,
-            ),
-          ),
+          child: loading
+              ? LoadingAnimationWidget.fourRotatingDots(
+                  color: blueBackgroundColor, size: 20.h)
+              : Center(
+                  child: CustomText(
+                    text: "SUBMIT",
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
         ),
       ),
     );
