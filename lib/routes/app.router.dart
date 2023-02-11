@@ -71,7 +71,7 @@ import '../features/otp/widgets/recaptcha.dart';
   // MaterialRoute(page: ChangeLocation, path: "/change-location"),
   MaterialRoute(page: AccountSettings, path: "/account-settings"),
   MaterialRoute(page: MyDonations, path: "/myDonations"),
-  //MaterialRoute(page: Recaptcha, path: "/recaptcha"),
+  MaterialRoute(page: Recaptcha, path: "/recaptcha"),
 
   MaterialRoute(page: Login, path: "/login"),
   MaterialRoute(page: SearchPage, path: "/search"),
