@@ -56,6 +56,7 @@ class _MobileNumberState extends ConsumerState<MobileNumber> {
         verificationFailed: (FirebaseAuthException e) {
           log("Error: $e");
           ref.read(errorProvider.notifier).state = "Too many requests";
+          ref.read(loadingMobileProv.notifier).state = false;
         },
         codeSent: (String verificationId, int? resendToken) {
           ref.read(loadingMobileProv.notifier).state = false;
@@ -159,11 +160,11 @@ class _MobileNumberState extends ConsumerState<MobileNumber> {
               },
               buttonText: "Send Otp",
             ),
-            Container(
-              height: 150.h,
-              width: 500.w,
-              child: Recaptcha(),
-            ),
+            // Container(
+            //   height: 150.h,
+            //   width: 500.w,
+            //   child: Recaptcha(),
+            // ),
             // ElevatedButton(
             //   onPressed: () {
             //     verifyNumber();

@@ -52,11 +52,11 @@ class _OtpVerificationState extends ConsumerState<OtpVerification> {
       PhoneAuthCredential credential = PhoneAuthProvider.credential(
           verificationId: verification, smsCode: otp);
       await auth.signInWithCredential(credential).then((value) {
-        log("Value: ${value.user!.phoneNumber}");
+        // log("Value: ${value.user!.phoneNumber}");
         ref.read(signUpDetailsProvider.notifier).state['phoneNo'] =
             value.user!.phoneNumber!;
         routeTo("/signup", context);
-        print("Logged IN");
+        // print("Logged IN");
       }).catchError((e) {
         print("Error: $e");
         ref.read(otpErrorProvider.notifier).state = "Invalid OTP";

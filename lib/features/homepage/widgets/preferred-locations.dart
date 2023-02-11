@@ -95,78 +95,93 @@ class PreferredLocations extends ConsumerWidget {
             prefLocation.when(
                 data: (data) {
                   final prefLoca = data['body'];
-                  // print("prefLoca: $prefLoca");
-                  return Container(
-                    height: 100.h,
-                    width: double.infinity,
-                    child: GridView.builder(
-                      // physics: NeverScrollableScrollPhysics(),
-                      scrollDirection: Axis.horizontal,
-                      shrinkWrap: true,
-                      gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-                        maxCrossAxisExtent: 120,
-                        childAspectRatio: 3 / 2,
-                        crossAxisSpacing: 20,
-                        mainAxisSpacing: 20,
-                        mainAxisExtent: 200,
-                      ),
+                  print("prefLoca: ${prefLoca.length}");
 
-                      itemBuilder: (ctx, index) {
-                        return GestureDetector(
-                          onTap: () {
-                            showPopUp("${prefLoca[index]['_id']}");
-                          },
-                          child: Card(
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(22.r),
-                            ),
-                            color: blueColor,
-                            child: Container(
-                              padding: EdgeInsets.all(8),
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                // crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  Row(
-                                    // mainAxisAlignment:
-                                    //     MainAxisAlignment.spaceAround,
-                                    children: [
-                                      LineIcon(LineIcons.landmark,
-                                          color: whiteColor),
-                                      Flexible(
-                                        child: CustomText(
-                                          text:
-                                              "${prefLoca[index]['landmark']}",
-                                          fontSize: 16.sp,
-                                          fontWeight: FontWeight.bold,
-                                          fontColor: whiteColor,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                  Row(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      LineIcon(LineIcons.mapMarker,
-                                          color: whiteColor),
-                                      Flexible(
-                                        child: CustomText(
-                                          text: "${prefLoca[index]['city']}",
-                                          fontSize: 16.sp,
-                                          fontColor: whiteColor,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ],
-                              ),
+                  return prefLoca.length == 0
+                      ? Center(
+                          child: Container(
+                            child: CustomText(
+                              text: "No prefereed Locations for this area",
+                              fontWeight: FontWeight.bold,
+                              fontSize: 14.sp,
                             ),
                           ),
+                        )
+                      : Container(
+                          height: 100.h,
+                          width: double.infinity,
+                          child: GridView.builder(
+                            // physics: NeverScrollableScrollPhysics(),
+                            scrollDirection: Axis.horizontal,
+                            shrinkWrap: true,
+                            gridDelegate:
+                                SliverGridDelegateWithMaxCrossAxisExtent(
+                              maxCrossAxisExtent: 120,
+                              childAspectRatio: 3 / 2,
+                              crossAxisSpacing: 20,
+                              mainAxisSpacing: 20,
+                              mainAxisExtent: 200,
+                            ),
+
+                            itemBuilder: (ctx, index) {
+                              return GestureDetector(
+                                onTap: () {
+                                  showPopUp("${prefLoca[index]['_id']}");
+                                },
+                                child: Card(
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(22.r),
+                                  ),
+                                  color: blueColor,
+                                  child: Container(
+                                    padding: EdgeInsets.all(8),
+                                    child: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      // crossAxisAlignment: CrossAxisAlignment.center,
+                                      children: [
+                                        Row(
+                                          // mainAxisAlignment:
+                                          //     MainAxisAlignment.spaceAround,
+                                          children: [
+                                            LineIcon(LineIcons.landmark,
+                                                color: whiteColor),
+                                            Flexible(
+                                              child: CustomText(
+                                                text:
+                                                    "${prefLoca[index]['landmark']}",
+                                                fontSize: 16.sp,
+                                                fontWeight: FontWeight.bold,
+                                                fontColor: whiteColor,
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            LineIcon(LineIcons.mapMarker,
+                                                color: whiteColor),
+                                            Flexible(
+                                              child: CustomText(
+                                                text:
+                                                    "${prefLoca[index]['city']}",
+                                                fontSize: 16.sp,
+                                                fontColor: whiteColor,
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              );
+                            },
+                            itemCount: prefLoca.length,
+                          ),
                         );
-                      },
-                      itemCount: prefLoca.length,
-                    ),
-                  );
                 },
                 error: (error, stackTrace) =>
                     CustomText(text: "Something Went Wrong"),
