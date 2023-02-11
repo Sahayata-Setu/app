@@ -1,6 +1,8 @@
 import 'dart:developer';
 
 import 'package:auto_route/auto_route.dart';
+import 'package:donationapp/app.dart';
+import 'package:donationapp/constant/common/GoogleButtomNavBar/GoogleButtomNavBar.dart';
 import 'package:donationapp/constant/common/NavBar/adminNavBar.dart';
 import 'package:donationapp/constant/common/Text/custom-text.dart';
 import 'package:donationapp/constant/common/loading/loadingPage.dart';
@@ -23,13 +25,14 @@ class UserDetails extends ConsumerWidget {
     final userDetails = ref.watch(singleUserDataProvider(userId));
     log("message: ${userDetails}");
 
-    return Scaffold(
-      appBar: PreferredSize(
+    return App(
+      appbar: PreferredSize(
         preferredSize: Size.fromHeight(60),
         child: AdminNavBar(title: "Users Details"),
       ),
-      drawer: Menu_Drawer(),
-      body: Container(
+      bottomNavBar: GoogleButtomNavBar(showBottomNavBar: false),
+      isAdmin: true,
+      component: Container(
         padding: EdgeInsets.fromLTRB(10.h, 5.h, 10.h, 10.h),
         child: userDetails.when(
             data: (data) {
