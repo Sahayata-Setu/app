@@ -11,29 +11,30 @@
 // ignore_for_file: type=lint
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'package:auto_route/auto_route.dart' as _i49;
-import 'package:flutter/material.dart' as _i50;
+import 'package:auto_route/auto_route.dart' as _i50;
+import 'package:flutter/material.dart' as _i51;
 
 import '../auth/auth_check/auth_check.dart' as _i1;
 import '../constant/common/splashScreen/splashScreen.dart' as _i2;
 import '../features/account-settings/account-settings.dart' as _i9;
 import '../features/Admin/add-preferred-locations/add-preferred-locations.dart'
     as _i36;
-import '../features/Admin/admin-message/admin-message.dart' as _i48;
+import '../features/Admin/add/add.dart' as _i44;
+import '../features/Admin/admin-message/admin-message.dart' as _i49;
 import '../features/Admin/Dashboard/admin-dashboard.data.dart' as _i32;
 import '../features/Admin/Donations/donatedDetails.dart' as _i40;
 import '../features/Admin/Donations/viewDonations.dart' as _i39;
 import '../features/Admin/NewDashboard/new-admin-dashboard.dart' as _i35;
-import '../features/Admin/Profile/adminChangePassword.dart' as _i47;
-import '../features/Admin/Profile/adminProfile.dart' as _i46;
+import '../features/Admin/Profile/adminChangePassword.dart' as _i48;
+import '../features/Admin/Profile/adminProfile.dart' as _i47;
 import '../features/Admin/Requests/requestDetails.dart' as _i42;
 import '../features/Admin/Requests/viewRequest.dart' as _i41;
 import '../features/Admin/Users/userDetails.dart' as _i38;
 import '../features/Admin/Users/viewUsers.dart' as _i37;
 import '../features/Admin/Volunteer%20Application/viewVolunteerApplications.dart'
-    as _i44;
-import '../features/Admin/Volunteer%20Application/volunteerApplicationDetails.dart'
     as _i45;
+import '../features/Admin/Volunteer%20Application/volunteerApplicationDetails.dart'
+    as _i46;
 import '../features/Admin/widgets/approveVolunter.dart' as _i30;
 import '../features/apply-for-volunteer/apply-for-volunteer.dart' as _i29;
 import '../features/campaigns/campaignDetails.dart' as _i18;
@@ -66,110 +67,110 @@ import '../features/signup/SignUp.dart' as _i4;
 import '../features/volunteer/campaigns.dart' as _i28;
 import '../features/volunteer/volunteer.dart' as _i23;
 
-class AppRouter extends _i49.RootStackRouter {
-  AppRouter([_i50.GlobalKey<_i50.NavigatorState>? navigatorKey])
+class AppRouter extends _i50.RootStackRouter {
+  AppRouter([_i51.GlobalKey<_i51.NavigatorState>? navigatorKey])
       : super(navigatorKey);
 
   @override
-  final Map<String, _i49.PageFactory> pagesMap = {
+  final Map<String, _i50.PageFactory> pagesMap = {
     AuthCheckWidgetRoute.name: (routeData) {
-      return _i49.MaterialPageX<dynamic>(
+      return _i50.MaterialPageX<dynamic>(
         routeData: routeData,
         child: const _i1.AuthCheckWidget(),
       );
     },
     SplashScreenRoute.name: (routeData) {
-      return _i49.MaterialPageX<dynamic>(
+      return _i50.MaterialPageX<dynamic>(
         routeData: routeData,
         child: _i2.SplashScreen(),
       );
     },
     MobileNumberRoute.name: (routeData) {
-      return _i49.MaterialPageX<dynamic>(
+      return _i50.MaterialPageX<dynamic>(
         routeData: routeData,
         child: const _i3.MobileNumber(),
       );
     },
     SignupRoute.name: (routeData) {
-      return _i49.MaterialPageX<dynamic>(
+      return _i50.MaterialPageX<dynamic>(
         routeData: routeData,
         child: const _i4.Signup(),
       );
     },
     HomePageRoute.name: (routeData) {
-      return _i49.MaterialPageX<dynamic>(
+      return _i50.MaterialPageX<dynamic>(
         routeData: routeData,
         child: const _i5.HomePage(),
       );
     },
     DonationsClaimRoute.name: (routeData) {
-      return _i49.MaterialPageX<dynamic>(
+      return _i50.MaterialPageX<dynamic>(
         routeData: routeData,
         child: const _i6.DonationsClaim(),
       );
     },
     ChangePasswordRoute.name: (routeData) {
-      return _i49.MaterialPageX<dynamic>(
+      return _i50.MaterialPageX<dynamic>(
         routeData: routeData,
         child: const _i7.ChangePassword(),
       );
     },
     ChangeLocationRoute.name: (routeData) {
-      return _i49.MaterialPageX<dynamic>(
+      return _i50.MaterialPageX<dynamic>(
         routeData: routeData,
         child: const _i8.ChangeLocation(),
       );
     },
     AccountSettingsRoute.name: (routeData) {
-      return _i49.MaterialPageX<dynamic>(
+      return _i50.MaterialPageX<dynamic>(
         routeData: routeData,
         child: const _i9.AccountSettings(),
       );
     },
     MyDonationsRoute.name: (routeData) {
-      return _i49.MaterialPageX<dynamic>(
+      return _i50.MaterialPageX<dynamic>(
         routeData: routeData,
         child: const _i10.MyDonations(),
       );
     },
     RecaptchaRoute.name: (routeData) {
-      return _i49.MaterialPageX<dynamic>(
+      return _i50.MaterialPageX<dynamic>(
         routeData: routeData,
         child: const _i11.Recaptcha(),
       );
     },
     LoginRoute.name: (routeData) {
-      return _i49.MaterialPageX<dynamic>(
+      return _i50.MaterialPageX<dynamic>(
         routeData: routeData,
         child: const _i12.Login(),
       );
     },
     SearchPageRoute.name: (routeData) {
-      return _i49.MaterialPageX<dynamic>(
+      return _i50.MaterialPageX<dynamic>(
         routeData: routeData,
         child: const _i13.SearchPage(),
       );
     },
     NewMessageRoute.name: (routeData) {
-      return _i49.MaterialPageX<dynamic>(
+      return _i50.MaterialPageX<dynamic>(
         routeData: routeData,
         child: _i14.NewMessage(),
       );
     },
     NotificationsRoute.name: (routeData) {
-      return _i49.MaterialPageX<dynamic>(
+      return _i50.MaterialPageX<dynamic>(
         routeData: routeData,
         child: const _i15.Notifications(),
       );
     },
     CampaignsListRoute.name: (routeData) {
-      return _i49.MaterialPageX<dynamic>(
+      return _i50.MaterialPageX<dynamic>(
         routeData: routeData,
         child: _i16.CampaignsList(),
       );
     },
     CreateCampaignRoute.name: (routeData) {
-      return _i49.MaterialPageX<dynamic>(
+      return _i50.MaterialPageX<dynamic>(
         routeData: routeData,
         child: const _i17.CreateCampaign(),
       );
@@ -178,7 +179,7 @@ class AppRouter extends _i49.RootStackRouter {
       final pathParams = routeData.inheritedPathParams;
       final args = routeData.argsAs<CampiagnDetailsRouteArgs>(
           orElse: () => CampiagnDetailsRouteArgs(id: pathParams.get('id')));
-      return _i49.MaterialPageX<dynamic>(
+      return _i50.MaterialPageX<dynamic>(
         routeData: routeData,
         child: _i18.CampiagnDetails(
           key: args.key,
@@ -191,7 +192,7 @@ class AppRouter extends _i49.RootStackRouter {
       final args = routeData.argsAs<DontaionsRouteArgs>(
           orElse: () =>
               DontaionsRouteArgs(category: pathParams.get('category')));
-      return _i49.MaterialPageX<dynamic>(
+      return _i50.MaterialPageX<dynamic>(
         routeData: routeData,
         child: _i19.Dontaions(
           key: args.key,
@@ -200,7 +201,7 @@ class AppRouter extends _i49.RootStackRouter {
       );
     },
     AddDontaionRoute.name: (routeData) {
-      return _i49.MaterialPageX<dynamic>(
+      return _i50.MaterialPageX<dynamic>(
         routeData: routeData,
         child: const _i20.AddDontaion(),
       );
@@ -209,7 +210,7 @@ class AppRouter extends _i49.RootStackRouter {
       final pathParams = routeData.inheritedPathParams;
       final args = routeData.argsAs<DonationDetailRouteArgs>(
           orElse: () => DonationDetailRouteArgs(id: pathParams.get('id')));
-      return _i49.MaterialPageX<dynamic>(
+      return _i50.MaterialPageX<dynamic>(
         routeData: routeData,
         child: _i21.DonationDetail(
           key: args.key,
@@ -222,7 +223,7 @@ class AppRouter extends _i49.RootStackRouter {
       final pathParams = routeData.inheritedPathParams;
       final args = routeData.argsAs<NeedsRouteArgs>(
           orElse: () => NeedsRouteArgs(category: pathParams.get('category')));
-      return _i49.MaterialPageX<dynamic>(
+      return _i50.MaterialPageX<dynamic>(
         routeData: routeData,
         child: _i22.Needs(
           key: args.key,
@@ -231,13 +232,13 @@ class AppRouter extends _i49.RootStackRouter {
       );
     },
     VolunteerRoute.name: (routeData) {
-      return _i49.MaterialPageX<dynamic>(
+      return _i50.MaterialPageX<dynamic>(
         routeData: routeData,
         child: const _i23.Volunteer(),
       );
     },
     AddRequestRoute.name: (routeData) {
-      return _i49.MaterialPageX<dynamic>(
+      return _i50.MaterialPageX<dynamic>(
         routeData: routeData,
         child: const _i24.AddRequest(),
       );
@@ -246,7 +247,7 @@ class AppRouter extends _i49.RootStackRouter {
       final pathParams = routeData.inheritedPathParams;
       final args = routeData.argsAs<NeedDetailRouteArgs>(
           orElse: () => NeedDetailRouteArgs(id: pathParams.get('id')));
-      return _i49.MaterialPageX<dynamic>(
+      return _i50.MaterialPageX<dynamic>(
         routeData: routeData,
         child: _i25.NeedDetail(
           key: args.key,
@@ -256,25 +257,25 @@ class AppRouter extends _i49.RootStackRouter {
       );
     },
     UserProfileRoute.name: (routeData) {
-      return _i49.MaterialPageX<dynamic>(
+      return _i50.MaterialPageX<dynamic>(
         routeData: routeData,
         child: const _i26.UserProfile(),
       );
     },
     CertificatePrintRoute.name: (routeData) {
-      return _i49.MaterialPageX<dynamic>(
+      return _i50.MaterialPageX<dynamic>(
         routeData: routeData,
         child: _i27.CertificatePrint(),
       );
     },
     MyCampaignsRoute.name: (routeData) {
-      return _i49.MaterialPageX<dynamic>(
+      return _i50.MaterialPageX<dynamic>(
         routeData: routeData,
         child: const _i28.MyCampaigns(),
       );
     },
     ApplyForVolunteerRoute.name: (routeData) {
-      return _i49.MaterialPageX<dynamic>(
+      return _i50.MaterialPageX<dynamic>(
         routeData: routeData,
         child: const _i29.ApplyForVolunteer(),
       );
@@ -283,7 +284,7 @@ class AppRouter extends _i49.RootStackRouter {
       final pathParams = routeData.inheritedPathParams;
       final args = routeData.argsAs<ApproveVolunterRouteArgs>(
           orElse: () => ApproveVolunterRouteArgs(id: pathParams.get('id')));
-      return _i49.MaterialPageX<dynamic>(
+      return _i50.MaterialPageX<dynamic>(
         routeData: routeData,
         child: _i30.ApproveVolunter(
           key: args.key,
@@ -292,19 +293,19 @@ class AppRouter extends _i49.RootStackRouter {
       );
     },
     LeaderboardRoute.name: (routeData) {
-      return _i49.MaterialPageX<dynamic>(
+      return _i50.MaterialPageX<dynamic>(
         routeData: routeData,
         child: const _i31.Leaderboard(),
       );
     },
     AdminDashBoardDataRoute.name: (routeData) {
-      return _i49.MaterialPageX<dynamic>(
+      return _i50.MaterialPageX<dynamic>(
         routeData: routeData,
         child: const _i32.AdminDashBoardData(),
       );
     },
     OtpVerificationRoute.name: (routeData) {
-      return _i49.MaterialPageX<dynamic>(
+      return _i50.MaterialPageX<dynamic>(
         routeData: routeData,
         child: const _i33.OtpVerification(),
       );
@@ -316,7 +317,7 @@ class AppRouter extends _i49.RootStackRouter {
                 receiverName: pathParams.getString('receiverName'),
                 receiverId: pathParams.getString('receiverId'),
               ));
-      return _i49.MaterialPageX<dynamic>(
+      return _i50.MaterialPageX<dynamic>(
         routeData: routeData,
         child: _i34.MessageDetails(
           key: args.key,
@@ -326,19 +327,19 @@ class AppRouter extends _i49.RootStackRouter {
       );
     },
     NewAdminDashboardRoute.name: (routeData) {
-      return _i49.MaterialPageX<dynamic>(
+      return _i50.MaterialPageX<dynamic>(
         routeData: routeData,
         child: _i35.NewAdminDashboard(),
       );
     },
     AddPreferredLocationRoute.name: (routeData) {
-      return _i49.MaterialPageX<dynamic>(
+      return _i50.MaterialPageX<dynamic>(
         routeData: routeData,
         child: const _i36.AddPreferredLocation(),
       );
     },
     ViewUsersRoute.name: (routeData) {
-      return _i49.MaterialPageX<dynamic>(
+      return _i50.MaterialPageX<dynamic>(
         routeData: routeData,
         child: _i37.ViewUsers(),
       );
@@ -347,7 +348,7 @@ class AppRouter extends _i49.RootStackRouter {
       final pathParams = routeData.inheritedPathParams;
       final args = routeData.argsAs<UserDetailsRouteArgs>(
           orElse: () => UserDetailsRouteArgs(userId: pathParams.get('userId')));
-      return _i49.MaterialPageX<dynamic>(
+      return _i50.MaterialPageX<dynamic>(
         routeData: routeData,
         child: _i38.UserDetails(
           key: args.key,
@@ -356,39 +357,45 @@ class AppRouter extends _i49.RootStackRouter {
       );
     },
     ViewDonationsRoute.name: (routeData) {
-      return _i49.MaterialPageX<dynamic>(
+      return _i50.MaterialPageX<dynamic>(
         routeData: routeData,
         child: _i39.ViewDonations(),
       );
     },
     DonatedDetailsRoute.name: (routeData) {
-      return _i49.MaterialPageX<dynamic>(
+      return _i50.MaterialPageX<dynamic>(
         routeData: routeData,
         child: _i40.DonatedDetails(),
       );
     },
     ViewRequestsRoute.name: (routeData) {
-      return _i49.MaterialPageX<dynamic>(
+      return _i50.MaterialPageX<dynamic>(
         routeData: routeData,
         child: _i41.ViewRequests(),
       );
     },
     RequestDetailsRoute.name: (routeData) {
-      return _i49.MaterialPageX<dynamic>(
+      return _i50.MaterialPageX<dynamic>(
         routeData: routeData,
         child: _i42.RequestDetails(),
       );
     },
     ForgotPasswordRoute.name: (routeData) {
-      return _i49.MaterialPageX<dynamic>(
+      return _i50.MaterialPageX<dynamic>(
         routeData: routeData,
         child: const _i43.ForgotPassword(),
       );
     },
-    ViewVolunteerApplicationsRoute.name: (routeData) {
-      return _i49.MaterialPageX<dynamic>(
+    AddRoute.name: (routeData) {
+      return _i50.MaterialPageX<dynamic>(
         routeData: routeData,
-        child: _i44.ViewVolunteerApplications(),
+        child: const _i44.Add(),
+      );
+    },
+    ViewVolunteerApplicationsRoute.name: (routeData) {
+      return _i50.MaterialPageX<dynamic>(
+        routeData: routeData,
+        child: _i45.ViewVolunteerApplications(),
       );
     },
     VolunteerApplicationDetailsRoute.name: (routeData) {
@@ -396,225 +403,229 @@ class AppRouter extends _i49.RootStackRouter {
       final args = routeData.argsAs<VolunteerApplicationDetailsRouteArgs>(
           orElse: () => VolunteerApplicationDetailsRouteArgs(
               userId: pathParams.get('userId')));
-      return _i49.MaterialPageX<dynamic>(
+      return _i50.MaterialPageX<dynamic>(
         routeData: routeData,
-        child: _i45.VolunteerApplicationDetails(
+        child: _i46.VolunteerApplicationDetails(
           key: args.key,
           userId: args.userId,
         ),
       );
     },
     AdminProfileRoute.name: (routeData) {
-      return _i49.MaterialPageX<dynamic>(
+      return _i50.MaterialPageX<dynamic>(
         routeData: routeData,
-        child: _i46.AdminProfile(),
+        child: _i47.AdminProfile(),
       );
     },
     AdminChangePasswordRoute.name: (routeData) {
-      return _i49.MaterialPageX<dynamic>(
+      return _i50.MaterialPageX<dynamic>(
         routeData: routeData,
-        child: _i47.AdminChangePassword(),
+        child: _i48.AdminChangePassword(),
       );
     },
     AdminMessageRoute.name: (routeData) {
-      return _i49.MaterialPageX<dynamic>(
+      return _i50.MaterialPageX<dynamic>(
         routeData: routeData,
-        child: _i48.AdminMessage(),
+        child: _i49.AdminMessage(),
       );
     },
   };
 
   @override
-  List<_i49.RouteConfig> get routes => [
-        _i49.RouteConfig(
+  List<_i50.RouteConfig> get routes => [
+        _i50.RouteConfig(
           AuthCheckWidgetRoute.name,
           path: '/',
         ),
-        _i49.RouteConfig(
+        _i50.RouteConfig(
           SplashScreenRoute.name,
           path: '/splash',
         ),
-        _i49.RouteConfig(
+        _i50.RouteConfig(
           MobileNumberRoute.name,
           path: '/mobile-number',
         ),
-        _i49.RouteConfig(
+        _i50.RouteConfig(
           SignupRoute.name,
           path: '/signup',
         ),
-        _i49.RouteConfig(
+        _i50.RouteConfig(
           HomePageRoute.name,
           path: '/homepage',
         ),
-        _i49.RouteConfig(
+        _i50.RouteConfig(
           DonationsClaimRoute.name,
           path: '/donations_claim',
         ),
-        _i49.RouteConfig(
+        _i50.RouteConfig(
           ChangePasswordRoute.name,
           path: '/change-password',
         ),
-        _i49.RouteConfig(
+        _i50.RouteConfig(
           ChangeLocationRoute.name,
           path: '/change-location',
         ),
-        _i49.RouteConfig(
+        _i50.RouteConfig(
           AccountSettingsRoute.name,
           path: '/account-settings',
         ),
-        _i49.RouteConfig(
+        _i50.RouteConfig(
           MyDonationsRoute.name,
           path: '/myDonations',
         ),
-        _i49.RouteConfig(
+        _i50.RouteConfig(
           RecaptchaRoute.name,
           path: '/recaptcha',
         ),
-        _i49.RouteConfig(
+        _i50.RouteConfig(
           LoginRoute.name,
           path: '/login',
         ),
-        _i49.RouteConfig(
+        _i50.RouteConfig(
           SearchPageRoute.name,
           path: '/search',
         ),
-        _i49.RouteConfig(
+        _i50.RouteConfig(
           NewMessageRoute.name,
           path: '/messages',
         ),
-        _i49.RouteConfig(
+        _i50.RouteConfig(
           NotificationsRoute.name,
           path: '/notifications',
         ),
-        _i49.RouteConfig(
+        _i50.RouteConfig(
           CampaignsListRoute.name,
           path: '/campaigns',
         ),
-        _i49.RouteConfig(
+        _i50.RouteConfig(
           CreateCampaignRoute.name,
           path: '/createCampaign',
         ),
-        _i49.RouteConfig(
+        _i50.RouteConfig(
           CampiagnDetailsRoute.name,
           path: '/campaigns/:id',
         ),
-        _i49.RouteConfig(
+        _i50.RouteConfig(
           DontaionsRoute.name,
           path: '/donations/:category',
         ),
-        _i49.RouteConfig(
+        _i50.RouteConfig(
           AddDontaionRoute.name,
           path: '/createDonation',
         ),
-        _i49.RouteConfig(
+        _i50.RouteConfig(
           DonationDetailRoute.name,
           path: '/donations-details/:id',
         ),
-        _i49.RouteConfig(
+        _i50.RouteConfig(
           NeedsRoute.name,
           path: '/needs/:category',
         ),
-        _i49.RouteConfig(
+        _i50.RouteConfig(
           VolunteerRoute.name,
           path: '/volunteer',
         ),
-        _i49.RouteConfig(
+        _i50.RouteConfig(
           AddRequestRoute.name,
           path: '/createNeed',
         ),
-        _i49.RouteConfig(
+        _i50.RouteConfig(
           NeedDetailRoute.name,
           path: '/needs/details/:id',
         ),
-        _i49.RouteConfig(
+        _i50.RouteConfig(
           UserProfileRoute.name,
           path: '/user-profile',
         ),
-        _i49.RouteConfig(
+        _i50.RouteConfig(
           CertificatePrintRoute.name,
           path: '/certificatePreview',
         ),
-        _i49.RouteConfig(
+        _i50.RouteConfig(
           MyCampaignsRoute.name,
           path: '/see-all-campaigns',
         ),
-        _i49.RouteConfig(
+        _i50.RouteConfig(
           ApplyForVolunteerRoute.name,
           path: '/apply-volunteer',
         ),
-        _i49.RouteConfig(
+        _i50.RouteConfig(
           ApproveVolunterRoute.name,
           path: '/approveVolunter/:id',
         ),
-        _i49.RouteConfig(
+        _i50.RouteConfig(
           LeaderboardRoute.name,
           path: '/leaderboard',
         ),
-        _i49.RouteConfig(
+        _i50.RouteConfig(
           AdminDashBoardDataRoute.name,
           path: '/admin-dashboard',
         ),
-        _i49.RouteConfig(
+        _i50.RouteConfig(
           OtpVerificationRoute.name,
           path: '/otp-verification',
         ),
-        _i49.RouteConfig(
+        _i50.RouteConfig(
           MessageDetailsRoute.name,
           path: '/message/:receiverName/:receiverId',
         ),
-        _i49.RouteConfig(
+        _i50.RouteConfig(
           NewAdminDashboardRoute.name,
           path: '/new-admin-dashboard',
         ),
-        _i49.RouteConfig(
+        _i50.RouteConfig(
           AddPreferredLocationRoute.name,
           path: '/add-preferred-location',
         ),
-        _i49.RouteConfig(
+        _i50.RouteConfig(
           ViewUsersRoute.name,
           path: '/view-user',
         ),
-        _i49.RouteConfig(
+        _i50.RouteConfig(
           UserDetailsRoute.name,
           path: '/userDetails/:userId',
         ),
-        _i49.RouteConfig(
+        _i50.RouteConfig(
           ViewDonationsRoute.name,
           path: '/donations-list',
         ),
-        _i49.RouteConfig(
+        _i50.RouteConfig(
           DonatedDetailsRoute.name,
           path: '/donatedDetails',
         ),
-        _i49.RouteConfig(
+        _i50.RouteConfig(
           ViewRequestsRoute.name,
           path: '/requests',
         ),
-        _i49.RouteConfig(
+        _i50.RouteConfig(
           RequestDetailsRoute.name,
           path: '/requestDetails',
         ),
-        _i49.RouteConfig(
+        _i50.RouteConfig(
           ForgotPasswordRoute.name,
           path: '/forgot-password',
         ),
-        _i49.RouteConfig(
+        _i50.RouteConfig(
+          AddRoute.name,
+          path: '/add',
+        ),
+        _i50.RouteConfig(
           ViewVolunteerApplicationsRoute.name,
           path: '/view-volunteer-applications',
         ),
-        _i49.RouteConfig(
+        _i50.RouteConfig(
           VolunteerApplicationDetailsRoute.name,
           path: '/volunteer-application-details/:userId',
         ),
-        _i49.RouteConfig(
+        _i50.RouteConfig(
           AdminProfileRoute.name,
           path: '/admin-profile',
         ),
-        _i49.RouteConfig(
+        _i50.RouteConfig(
           AdminChangePasswordRoute.name,
           path: '/admin-change-password',
         ),
-        _i49.RouteConfig(
+        _i50.RouteConfig(
           AdminMessageRoute.name,
           path: '/admin-message',
         ),
@@ -623,7 +634,7 @@ class AppRouter extends _i49.RootStackRouter {
 
 /// generated route for
 /// [_i1.AuthCheckWidget]
-class AuthCheckWidgetRoute extends _i49.PageRouteInfo<void> {
+class AuthCheckWidgetRoute extends _i50.PageRouteInfo<void> {
   const AuthCheckWidgetRoute()
       : super(
           AuthCheckWidgetRoute.name,
@@ -635,7 +646,7 @@ class AuthCheckWidgetRoute extends _i49.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i2.SplashScreen]
-class SplashScreenRoute extends _i49.PageRouteInfo<void> {
+class SplashScreenRoute extends _i50.PageRouteInfo<void> {
   const SplashScreenRoute()
       : super(
           SplashScreenRoute.name,
@@ -647,7 +658,7 @@ class SplashScreenRoute extends _i49.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i3.MobileNumber]
-class MobileNumberRoute extends _i49.PageRouteInfo<void> {
+class MobileNumberRoute extends _i50.PageRouteInfo<void> {
   const MobileNumberRoute()
       : super(
           MobileNumberRoute.name,
@@ -659,7 +670,7 @@ class MobileNumberRoute extends _i49.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i4.Signup]
-class SignupRoute extends _i49.PageRouteInfo<void> {
+class SignupRoute extends _i50.PageRouteInfo<void> {
   const SignupRoute()
       : super(
           SignupRoute.name,
@@ -671,7 +682,7 @@ class SignupRoute extends _i49.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i5.HomePage]
-class HomePageRoute extends _i49.PageRouteInfo<void> {
+class HomePageRoute extends _i50.PageRouteInfo<void> {
   const HomePageRoute()
       : super(
           HomePageRoute.name,
@@ -683,7 +694,7 @@ class HomePageRoute extends _i49.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i6.DonationsClaim]
-class DonationsClaimRoute extends _i49.PageRouteInfo<void> {
+class DonationsClaimRoute extends _i50.PageRouteInfo<void> {
   const DonationsClaimRoute()
       : super(
           DonationsClaimRoute.name,
@@ -695,7 +706,7 @@ class DonationsClaimRoute extends _i49.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i7.ChangePassword]
-class ChangePasswordRoute extends _i49.PageRouteInfo<void> {
+class ChangePasswordRoute extends _i50.PageRouteInfo<void> {
   const ChangePasswordRoute()
       : super(
           ChangePasswordRoute.name,
@@ -707,7 +718,7 @@ class ChangePasswordRoute extends _i49.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i8.ChangeLocation]
-class ChangeLocationRoute extends _i49.PageRouteInfo<void> {
+class ChangeLocationRoute extends _i50.PageRouteInfo<void> {
   const ChangeLocationRoute()
       : super(
           ChangeLocationRoute.name,
@@ -719,7 +730,7 @@ class ChangeLocationRoute extends _i49.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i9.AccountSettings]
-class AccountSettingsRoute extends _i49.PageRouteInfo<void> {
+class AccountSettingsRoute extends _i50.PageRouteInfo<void> {
   const AccountSettingsRoute()
       : super(
           AccountSettingsRoute.name,
@@ -731,7 +742,7 @@ class AccountSettingsRoute extends _i49.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i10.MyDonations]
-class MyDonationsRoute extends _i49.PageRouteInfo<void> {
+class MyDonationsRoute extends _i50.PageRouteInfo<void> {
   const MyDonationsRoute()
       : super(
           MyDonationsRoute.name,
@@ -743,7 +754,7 @@ class MyDonationsRoute extends _i49.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i11.Recaptcha]
-class RecaptchaRoute extends _i49.PageRouteInfo<void> {
+class RecaptchaRoute extends _i50.PageRouteInfo<void> {
   const RecaptchaRoute()
       : super(
           RecaptchaRoute.name,
@@ -755,7 +766,7 @@ class RecaptchaRoute extends _i49.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i12.Login]
-class LoginRoute extends _i49.PageRouteInfo<void> {
+class LoginRoute extends _i50.PageRouteInfo<void> {
   const LoginRoute()
       : super(
           LoginRoute.name,
@@ -767,7 +778,7 @@ class LoginRoute extends _i49.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i13.SearchPage]
-class SearchPageRoute extends _i49.PageRouteInfo<void> {
+class SearchPageRoute extends _i50.PageRouteInfo<void> {
   const SearchPageRoute()
       : super(
           SearchPageRoute.name,
@@ -779,7 +790,7 @@ class SearchPageRoute extends _i49.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i14.NewMessage]
-class NewMessageRoute extends _i49.PageRouteInfo<void> {
+class NewMessageRoute extends _i50.PageRouteInfo<void> {
   const NewMessageRoute()
       : super(
           NewMessageRoute.name,
@@ -791,7 +802,7 @@ class NewMessageRoute extends _i49.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i15.Notifications]
-class NotificationsRoute extends _i49.PageRouteInfo<void> {
+class NotificationsRoute extends _i50.PageRouteInfo<void> {
   const NotificationsRoute()
       : super(
           NotificationsRoute.name,
@@ -803,7 +814,7 @@ class NotificationsRoute extends _i49.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i16.CampaignsList]
-class CampaignsListRoute extends _i49.PageRouteInfo<void> {
+class CampaignsListRoute extends _i50.PageRouteInfo<void> {
   const CampaignsListRoute()
       : super(
           CampaignsListRoute.name,
@@ -815,7 +826,7 @@ class CampaignsListRoute extends _i49.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i17.CreateCampaign]
-class CreateCampaignRoute extends _i49.PageRouteInfo<void> {
+class CreateCampaignRoute extends _i50.PageRouteInfo<void> {
   const CreateCampaignRoute()
       : super(
           CreateCampaignRoute.name,
@@ -828,9 +839,9 @@ class CreateCampaignRoute extends _i49.PageRouteInfo<void> {
 /// generated route for
 /// [_i18.CampiagnDetails]
 class CampiagnDetailsRoute
-    extends _i49.PageRouteInfo<CampiagnDetailsRouteArgs> {
+    extends _i50.PageRouteInfo<CampiagnDetailsRouteArgs> {
   CampiagnDetailsRoute({
-    _i50.Key? key,
+    _i51.Key? key,
     dynamic id,
   }) : super(
           CampiagnDetailsRoute.name,
@@ -851,7 +862,7 @@ class CampiagnDetailsRouteArgs {
     this.id,
   });
 
-  final _i50.Key? key;
+  final _i51.Key? key;
 
   final dynamic id;
 
@@ -863,9 +874,9 @@ class CampiagnDetailsRouteArgs {
 
 /// generated route for
 /// [_i19.Dontaions]
-class DontaionsRoute extends _i49.PageRouteInfo<DontaionsRouteArgs> {
+class DontaionsRoute extends _i50.PageRouteInfo<DontaionsRouteArgs> {
   DontaionsRoute({
-    _i50.Key? key,
+    _i51.Key? key,
     dynamic category,
   }) : super(
           DontaionsRoute.name,
@@ -886,7 +897,7 @@ class DontaionsRouteArgs {
     this.category,
   });
 
-  final _i50.Key? key;
+  final _i51.Key? key;
 
   final dynamic category;
 
@@ -898,7 +909,7 @@ class DontaionsRouteArgs {
 
 /// generated route for
 /// [_i20.AddDontaion]
-class AddDontaionRoute extends _i49.PageRouteInfo<void> {
+class AddDontaionRoute extends _i50.PageRouteInfo<void> {
   const AddDontaionRoute()
       : super(
           AddDontaionRoute.name,
@@ -910,9 +921,9 @@ class AddDontaionRoute extends _i49.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i21.DonationDetail]
-class DonationDetailRoute extends _i49.PageRouteInfo<DonationDetailRouteArgs> {
+class DonationDetailRoute extends _i50.PageRouteInfo<DonationDetailRouteArgs> {
   DonationDetailRoute({
-    _i50.Key? key,
+    _i51.Key? key,
     dynamic data,
     dynamic id,
   }) : super(
@@ -936,7 +947,7 @@ class DonationDetailRouteArgs {
     this.id,
   });
 
-  final _i50.Key? key;
+  final _i51.Key? key;
 
   final dynamic data;
 
@@ -950,9 +961,9 @@ class DonationDetailRouteArgs {
 
 /// generated route for
 /// [_i22.Needs]
-class NeedsRoute extends _i49.PageRouteInfo<NeedsRouteArgs> {
+class NeedsRoute extends _i50.PageRouteInfo<NeedsRouteArgs> {
   NeedsRoute({
-    _i50.Key? key,
+    _i51.Key? key,
     dynamic category,
   }) : super(
           NeedsRoute.name,
@@ -973,7 +984,7 @@ class NeedsRouteArgs {
     this.category,
   });
 
-  final _i50.Key? key;
+  final _i51.Key? key;
 
   final dynamic category;
 
@@ -985,7 +996,7 @@ class NeedsRouteArgs {
 
 /// generated route for
 /// [_i23.Volunteer]
-class VolunteerRoute extends _i49.PageRouteInfo<void> {
+class VolunteerRoute extends _i50.PageRouteInfo<void> {
   const VolunteerRoute()
       : super(
           VolunteerRoute.name,
@@ -997,7 +1008,7 @@ class VolunteerRoute extends _i49.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i24.AddRequest]
-class AddRequestRoute extends _i49.PageRouteInfo<void> {
+class AddRequestRoute extends _i50.PageRouteInfo<void> {
   const AddRequestRoute()
       : super(
           AddRequestRoute.name,
@@ -1009,9 +1020,9 @@ class AddRequestRoute extends _i49.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i25.NeedDetail]
-class NeedDetailRoute extends _i49.PageRouteInfo<NeedDetailRouteArgs> {
+class NeedDetailRoute extends _i50.PageRouteInfo<NeedDetailRouteArgs> {
   NeedDetailRoute({
-    _i50.Key? key,
+    _i51.Key? key,
     dynamic data,
     dynamic id,
   }) : super(
@@ -1035,7 +1046,7 @@ class NeedDetailRouteArgs {
     this.id,
   });
 
-  final _i50.Key? key;
+  final _i51.Key? key;
 
   final dynamic data;
 
@@ -1049,7 +1060,7 @@ class NeedDetailRouteArgs {
 
 /// generated route for
 /// [_i26.UserProfile]
-class UserProfileRoute extends _i49.PageRouteInfo<void> {
+class UserProfileRoute extends _i50.PageRouteInfo<void> {
   const UserProfileRoute()
       : super(
           UserProfileRoute.name,
@@ -1061,7 +1072,7 @@ class UserProfileRoute extends _i49.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i27.CertificatePrint]
-class CertificatePrintRoute extends _i49.PageRouteInfo<void> {
+class CertificatePrintRoute extends _i50.PageRouteInfo<void> {
   const CertificatePrintRoute()
       : super(
           CertificatePrintRoute.name,
@@ -1073,7 +1084,7 @@ class CertificatePrintRoute extends _i49.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i28.MyCampaigns]
-class MyCampaignsRoute extends _i49.PageRouteInfo<void> {
+class MyCampaignsRoute extends _i50.PageRouteInfo<void> {
   const MyCampaignsRoute()
       : super(
           MyCampaignsRoute.name,
@@ -1085,7 +1096,7 @@ class MyCampaignsRoute extends _i49.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i29.ApplyForVolunteer]
-class ApplyForVolunteerRoute extends _i49.PageRouteInfo<void> {
+class ApplyForVolunteerRoute extends _i50.PageRouteInfo<void> {
   const ApplyForVolunteerRoute()
       : super(
           ApplyForVolunteerRoute.name,
@@ -1098,9 +1109,9 @@ class ApplyForVolunteerRoute extends _i49.PageRouteInfo<void> {
 /// generated route for
 /// [_i30.ApproveVolunter]
 class ApproveVolunterRoute
-    extends _i49.PageRouteInfo<ApproveVolunterRouteArgs> {
+    extends _i50.PageRouteInfo<ApproveVolunterRouteArgs> {
   ApproveVolunterRoute({
-    _i50.Key? key,
+    _i51.Key? key,
     dynamic id,
   }) : super(
           ApproveVolunterRoute.name,
@@ -1121,7 +1132,7 @@ class ApproveVolunterRouteArgs {
     this.id,
   });
 
-  final _i50.Key? key;
+  final _i51.Key? key;
 
   final dynamic id;
 
@@ -1133,7 +1144,7 @@ class ApproveVolunterRouteArgs {
 
 /// generated route for
 /// [_i31.Leaderboard]
-class LeaderboardRoute extends _i49.PageRouteInfo<void> {
+class LeaderboardRoute extends _i50.PageRouteInfo<void> {
   const LeaderboardRoute()
       : super(
           LeaderboardRoute.name,
@@ -1145,7 +1156,7 @@ class LeaderboardRoute extends _i49.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i32.AdminDashBoardData]
-class AdminDashBoardDataRoute extends _i49.PageRouteInfo<void> {
+class AdminDashBoardDataRoute extends _i50.PageRouteInfo<void> {
   const AdminDashBoardDataRoute()
       : super(
           AdminDashBoardDataRoute.name,
@@ -1157,7 +1168,7 @@ class AdminDashBoardDataRoute extends _i49.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i33.OtpVerification]
-class OtpVerificationRoute extends _i49.PageRouteInfo<void> {
+class OtpVerificationRoute extends _i50.PageRouteInfo<void> {
   const OtpVerificationRoute()
       : super(
           OtpVerificationRoute.name,
@@ -1169,9 +1180,9 @@ class OtpVerificationRoute extends _i49.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i34.MessageDetails]
-class MessageDetailsRoute extends _i49.PageRouteInfo<MessageDetailsRouteArgs> {
+class MessageDetailsRoute extends _i50.PageRouteInfo<MessageDetailsRouteArgs> {
   MessageDetailsRoute({
-    _i50.Key? key,
+    _i51.Key? key,
     required String receiverName,
     required String receiverId,
   }) : super(
@@ -1198,7 +1209,7 @@ class MessageDetailsRouteArgs {
     required this.receiverId,
   });
 
-  final _i50.Key? key;
+  final _i51.Key? key;
 
   final String receiverName;
 
@@ -1212,7 +1223,7 @@ class MessageDetailsRouteArgs {
 
 /// generated route for
 /// [_i35.NewAdminDashboard]
-class NewAdminDashboardRoute extends _i49.PageRouteInfo<void> {
+class NewAdminDashboardRoute extends _i50.PageRouteInfo<void> {
   const NewAdminDashboardRoute()
       : super(
           NewAdminDashboardRoute.name,
@@ -1224,7 +1235,7 @@ class NewAdminDashboardRoute extends _i49.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i36.AddPreferredLocation]
-class AddPreferredLocationRoute extends _i49.PageRouteInfo<void> {
+class AddPreferredLocationRoute extends _i50.PageRouteInfo<void> {
   const AddPreferredLocationRoute()
       : super(
           AddPreferredLocationRoute.name,
@@ -1236,7 +1247,7 @@ class AddPreferredLocationRoute extends _i49.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i37.ViewUsers]
-class ViewUsersRoute extends _i49.PageRouteInfo<void> {
+class ViewUsersRoute extends _i50.PageRouteInfo<void> {
   const ViewUsersRoute()
       : super(
           ViewUsersRoute.name,
@@ -1248,9 +1259,9 @@ class ViewUsersRoute extends _i49.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i38.UserDetails]
-class UserDetailsRoute extends _i49.PageRouteInfo<UserDetailsRouteArgs> {
+class UserDetailsRoute extends _i50.PageRouteInfo<UserDetailsRouteArgs> {
   UserDetailsRoute({
-    _i50.Key? key,
+    _i51.Key? key,
     required dynamic userId,
   }) : super(
           UserDetailsRoute.name,
@@ -1271,7 +1282,7 @@ class UserDetailsRouteArgs {
     required this.userId,
   });
 
-  final _i50.Key? key;
+  final _i51.Key? key;
 
   final dynamic userId;
 
@@ -1283,7 +1294,7 @@ class UserDetailsRouteArgs {
 
 /// generated route for
 /// [_i39.ViewDonations]
-class ViewDonationsRoute extends _i49.PageRouteInfo<void> {
+class ViewDonationsRoute extends _i50.PageRouteInfo<void> {
   const ViewDonationsRoute()
       : super(
           ViewDonationsRoute.name,
@@ -1295,7 +1306,7 @@ class ViewDonationsRoute extends _i49.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i40.DonatedDetails]
-class DonatedDetailsRoute extends _i49.PageRouteInfo<void> {
+class DonatedDetailsRoute extends _i50.PageRouteInfo<void> {
   const DonatedDetailsRoute()
       : super(
           DonatedDetailsRoute.name,
@@ -1307,7 +1318,7 @@ class DonatedDetailsRoute extends _i49.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i41.ViewRequests]
-class ViewRequestsRoute extends _i49.PageRouteInfo<void> {
+class ViewRequestsRoute extends _i50.PageRouteInfo<void> {
   const ViewRequestsRoute()
       : super(
           ViewRequestsRoute.name,
@@ -1319,7 +1330,7 @@ class ViewRequestsRoute extends _i49.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i42.RequestDetails]
-class RequestDetailsRoute extends _i49.PageRouteInfo<void> {
+class RequestDetailsRoute extends _i50.PageRouteInfo<void> {
   const RequestDetailsRoute()
       : super(
           RequestDetailsRoute.name,
@@ -1331,7 +1342,7 @@ class RequestDetailsRoute extends _i49.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i43.ForgotPassword]
-class ForgotPasswordRoute extends _i49.PageRouteInfo<void> {
+class ForgotPasswordRoute extends _i50.PageRouteInfo<void> {
   const ForgotPasswordRoute()
       : super(
           ForgotPasswordRoute.name,
@@ -1342,8 +1353,20 @@ class ForgotPasswordRoute extends _i49.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i44.ViewVolunteerApplications]
-class ViewVolunteerApplicationsRoute extends _i49.PageRouteInfo<void> {
+/// [_i44.Add]
+class AddRoute extends _i50.PageRouteInfo<void> {
+  const AddRoute()
+      : super(
+          AddRoute.name,
+          path: '/add',
+        );
+
+  static const String name = 'AddRoute';
+}
+
+/// generated route for
+/// [_i45.ViewVolunteerApplications]
+class ViewVolunteerApplicationsRoute extends _i50.PageRouteInfo<void> {
   const ViewVolunteerApplicationsRoute()
       : super(
           ViewVolunteerApplicationsRoute.name,
@@ -1354,11 +1377,11 @@ class ViewVolunteerApplicationsRoute extends _i49.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i45.VolunteerApplicationDetails]
+/// [_i46.VolunteerApplicationDetails]
 class VolunteerApplicationDetailsRoute
-    extends _i49.PageRouteInfo<VolunteerApplicationDetailsRouteArgs> {
+    extends _i50.PageRouteInfo<VolunteerApplicationDetailsRouteArgs> {
   VolunteerApplicationDetailsRoute({
-    _i50.Key? key,
+    _i51.Key? key,
     required dynamic userId,
   }) : super(
           VolunteerApplicationDetailsRoute.name,
@@ -1379,7 +1402,7 @@ class VolunteerApplicationDetailsRouteArgs {
     required this.userId,
   });
 
-  final _i50.Key? key;
+  final _i51.Key? key;
 
   final dynamic userId;
 
@@ -1390,8 +1413,8 @@ class VolunteerApplicationDetailsRouteArgs {
 }
 
 /// generated route for
-/// [_i46.AdminProfile]
-class AdminProfileRoute extends _i49.PageRouteInfo<void> {
+/// [_i47.AdminProfile]
+class AdminProfileRoute extends _i50.PageRouteInfo<void> {
   const AdminProfileRoute()
       : super(
           AdminProfileRoute.name,
@@ -1402,8 +1425,8 @@ class AdminProfileRoute extends _i49.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i47.AdminChangePassword]
-class AdminChangePasswordRoute extends _i49.PageRouteInfo<void> {
+/// [_i48.AdminChangePassword]
+class AdminChangePasswordRoute extends _i50.PageRouteInfo<void> {
   const AdminChangePasswordRoute()
       : super(
           AdminChangePasswordRoute.name,
@@ -1414,8 +1437,8 @@ class AdminChangePasswordRoute extends _i49.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i48.AdminMessage]
-class AdminMessageRoute extends _i49.PageRouteInfo<void> {
+/// [_i49.AdminMessage]
+class AdminMessageRoute extends _i50.PageRouteInfo<void> {
   const AdminMessageRoute()
       : super(
           AdminMessageRoute.name,
