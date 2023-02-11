@@ -190,20 +190,7 @@ class Menu_Drawer extends ConsumerWidget {
                 routeTo("/admin-profile", context);
               },
             ),
-            ListTile(
-              leading: Image.asset(
-                "assets/images/logout.png",
-                height: 16.h,
-              ),
-              title: CustomText(
-                text: "Logout",
-                fontColor: whiteColor,
-                fontSize: 18.sp,
-              ),
-              onTap: () {
-                handleLogout();
-              },
-            ),
+
             ListTile(
               leading: Image.asset(
                 "assets/images/logout.png",
@@ -217,6 +204,20 @@ class Menu_Drawer extends ConsumerWidget {
               onTap: () {
                 // handleLogout();
                 routeTo("/add-preferred-location", context);
+              },
+            ),
+            ListTile(
+              leading: Image.asset(
+                "assets/images/logout.png",
+                height: 16.h,
+              ),
+              title: CustomText(
+                text: "Logout",
+                fontColor: whiteColor,
+                fontSize: 18.sp,
+              ),
+              onTap: () {
+                handleLogout();
               },
             ),
           ],

@@ -434,25 +434,25 @@ class DonationDetail extends ConsumerWidget {
                 // ),
 
                 getUserType == 'admin'
-                    ? Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: [
-                          singleData['status'] == "donated" ||
-                                  singleData['status'] == "approved" ||
-                                  singleData['status'] == "rejected"
-                              ? SizedBox()
-                              : CustomElevatedButton(
+                    ? singleData['status'] == "donated" ||
+                            singleData['status'] == "approved" ||
+                            singleData['status'] == "rejected"
+                        ? SizedBox()
+                        : Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [
+                              CustomElevatedButton(
                                   child: Text("ACCEPT"),
                                   fn: () {
                                     handleApprove();
                                   }),
-                          CustomElevatedButton(
-                              child: Text("REJECT"),
-                              fn: () {
-                                handleReject();
-                              }),
-                        ],
-                      )
+                              CustomElevatedButton(
+                                  child: Text("REJECT"),
+                                  fn: () {
+                                    handleReject();
+                                  }),
+                            ],
+                          )
                     : SizedBox()
               ],
             ),

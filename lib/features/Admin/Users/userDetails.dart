@@ -78,29 +78,29 @@ class UserDetails extends ConsumerWidget {
                       ),
                     ),
                   ),
-                  ElevatedButton(
-                    onPressed: () {},
-                    style: ButtonStyle(
-                      backgroundColor:
-                          MaterialStateProperty.all<Color>(blueColor),
-                      padding: MaterialStateProperty.all(
-                        EdgeInsets.symmetric(
-                          horizontal: 20.h,
-                          vertical: 5.w,
-                        ),
-                      ),
-                      shape: MaterialStateProperty.all(
-                        RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(30.r),
-                        ),
-                      ),
-                    ),
-                    child: CustomText(
-                      text: "Verify",
-                      fontColor: whiteColor,
-                      fontSize: 16.sp,
-                    ),
-                  )
+                  // ElevatedButton(
+                  //   onPressed: () {},
+                  //   style: ButtonStyle(
+                  //     backgroundColor:
+                  //         MaterialStateProperty.all<Color>(blueColor),
+                  //     padding: MaterialStateProperty.all(
+                  //       EdgeInsets.symmetric(
+                  //         horizontal: 20.h,
+                  //         vertical: 5.w,
+                  //       ),
+                  //     ),
+                  //     shape: MaterialStateProperty.all(
+                  //       RoundedRectangleBorder(
+                  //         borderRadius: BorderRadius.circular(30.r),
+                  //       ),
+                  //     ),
+                  //   ),
+                  //   child: CustomText(
+                  //     text: "Verify",
+                  //     fontColor: whiteColor,
+                  //     fontSize: 16.sp,
+                  //   ),
+                  // )
                 ],
               );
             },

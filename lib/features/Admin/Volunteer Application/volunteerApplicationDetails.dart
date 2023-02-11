@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:auto_route/auto_route.dart';
+import 'package:donationapp/constant/common/GoogleButtomNavBar/GoogleButtomNavBar.dart';
 import 'package:donationapp/constant/common/NavBar/adminNavBar.dart';
 import 'package:donationapp/constant/common/Text/custom-text.dart';
 import 'package:donationapp/constant/common/button/primary-custom-botton.dart';
@@ -16,6 +17,8 @@ import 'package:donationapp/store/single-user/single-user.store.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import '../../../app.dart';
 
 class VolunteerApplicationDetails extends ConsumerWidget {
   VolunteerApplicationDetails(
@@ -33,13 +36,15 @@ class VolunteerApplicationDetails extends ConsumerWidget {
         : ref.watch(getAllSingleVolunteerApplicationProvider(userId));
     // log("UserID: ${userId}");
     // log("messageE: ${singleUser}");
-    return Scaffold(
-      appBar: PreferredSize(
+    return App(
+      appbar: PreferredSize(
         preferredSize: Size.fromHeight(60),
         child: AdminNavBar(title: "Application Details"),
       ),
-      drawer: Menu_Drawer(),
-      body: singleUser.when(
+      bottomNavBar: GoogleButtomNavBar(showBottomNavBar: false),
+      isAdmin: true,
+      // drawer: Menu_Drawer(),
+      component: singleUser.when(
           data: (data) {
             final userData = data['body'];
             return Container(
