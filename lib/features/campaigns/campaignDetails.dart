@@ -25,7 +25,7 @@ class CampiagnDetails extends ConsumerWidget {
     // log
     return App(
       appbar: NavBar(
-        showBadge: true,
+        showBadge: false,
         isAdmin: false,
         title: "Campaign Detail",
         isMainPage: false,
@@ -49,7 +49,7 @@ class CampiagnDetails extends ConsumerWidget {
                         width: double.infinity,
                         border_radius: false,
                         borderTop: true,
-                        showShareBtn: true),
+                        showShareBtn: false),
                   ),
                   Container(
                     alignment: Alignment.topLeft,
