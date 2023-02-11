@@ -18,6 +18,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class Campaigns extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    // final approvedCampagins = ref.watch(getApprovedCampaignsProvider(""));
     final approvedCampagins = ref.watch(getApprovedCampaignsProvider(""));
 
     return Container(
@@ -62,13 +63,15 @@ class Campaigns extends ConsumerWidget {
                   margin: EdgeInsets.only(top: 5.h),
                   child: CarouselSlider(
                     items: datas.map((e) {
+                      // return SizedBox();
                       return GestureDetector(
                         onTap: () {
                           routeTo("/campaigns/${e['_id']}", context);
                         },
                         child: ImageOverlay(
                           border_radius: true,
-                          image: "${e['images'][0]}",
+                          image:
+                              "${e['images'].length == 0 ? null : e['images'][0]}",
                           title: "${e['title']}",
                           location: "${e['city']}",
                           height: 250.h,

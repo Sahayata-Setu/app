@@ -158,52 +158,55 @@ class NavBar extends ConsumerWidget {
                                     // showBadge: showBadge ? true : false,
                                   ),
                                 ),
-                          userType == "ngo"
-                              ? SizedBox()
-                              : Padding(
-                                  padding: const EdgeInsets.all(kPadding1),
-                                  child: PopupMenuButton(
-                                    color: backgroundColor,
-                                    child: const Icon(
-                                      Icons.add,
-                                      size: KiconSize,
-                                    ),
-                                    // onSelected: (item)=>onSelected(context,item),
-                                    itemBuilder: (context) => [
-                                      PopupMenuItem<int>(
-                                          child: const Text("Create donation"),
-                                          onTap: () {
-                                            // go to create post item
-                                            routeTo("/createDonation", context);
-                                          }),
-                                      PopupMenuItem<int>(
-                                        child: const Text("Create need"),
-                                        onTap: () {
-                                          routeTo("/createNeed", context);
-                                          // go to create request button
-                                        },
-                                      ),
-                                      //check for isVolunteer?SizedBox():
-                                      if (userType == "volunteer")
-                                        PopupMenuItem<int>(
-                                          child: const Text("Create Campaign"),
-                                          onTap: () {
-                                            routeTo("/createCampaign", context);
-                                            // go to create request button
-                                          },
-                                        )
-                                      // userType == "volunteer"
-                                      //     ? PopupMenuItem<int>(
-                                      //         child: const Text("Create Campaign"),
-                                      //         onTap: () {
-                                      //           routeTo("/createCampaign", context);
-                                      //           // go to create request button
-                                      //         },
-                                      //       )
-                                      //     : PopupMenuItem(child: Text(""))
-                                    ],
+                          Padding(
+                            padding: const EdgeInsets.all(kPadding1),
+                            child: PopupMenuButton(
+                              color: backgroundColor,
+                              child: const Icon(
+                                Icons.add,
+                                size: KiconSize,
+                              ),
+                              // onSelected: (item)=>onSelected(context,item),
+                              itemBuilder: (context) => [
+                                if (userType == "user" ||
+                                    userType == "volunteer")
+                                  PopupMenuItem<int>(
+                                      child: const Text("Create donation"),
+                                      onTap: () {
+                                        // go to create post item
+                                        routeTo("/createDonation", context);
+                                      }),
+                                if (userType == "user" ||
+                                    userType == "volunteer")
+                                  PopupMenuItem<int>(
+                                    child: const Text("Create need"),
+                                    onTap: () {
+                                      routeTo("/createNeed", context);
+                                      // go to create request button
+                                    },
                                   ),
-                                )
+                                //check for isVolunteer?SizedBox():
+                                if (userType == "volunteer" ||
+                                    userType == "ngo")
+                                  PopupMenuItem<int>(
+                                    child: const Text("Create Campaign"),
+                                    onTap: () {
+                                      routeTo("/createCampaign", context);
+                                      // go to create request button
+                                    },
+                                  )
+                                // userType == "volunteer"
+                                //     ? PopupMenuItem<int>(
+                                //         child: const Text("Create Campaign"),
+                                //         onTap: () {
+                                //           routeTo("/createCampaign", context);
+                                //           // go to create request button
+                                //         },
+                                //       )
+                                //     : PopupMenuItem(child: Text(""))
+                              ],
+                            ),
+                          )
                           // Container(
                           //     margin: EdgeInsets.symmetric(horizontal: 10.w),
                           //     child: IconButton(

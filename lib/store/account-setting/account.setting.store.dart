@@ -34,7 +34,7 @@ final getAllDonationsByUser =
   },
 );
 
-final loading = StateProvider((ref) => (false));
+final loadingAccount = StateProvider((ref) => (false));
 
 class AddNotifier extends ChangeNotifier {
   AddNotifier(this.read) : super();
@@ -60,17 +60,17 @@ class AddNotifier extends ChangeNotifier {
   updateProfile(id, data) async {
     // log("this is of data ${data}");
     final updateService = read(updateProfileService);
-    read(loading.notifier).state = true;
+    read(loadingAccount.notifier).state = true;
 
     try {
       final resp = await updateService.updateProfile(id, data);
       if (resp != null) {
-        read(loading.notifier).state = false;
+        read(loadingAccount.notifier).state = false;
       }
       notifyListeners();
       return resp;
     } catch (e) {
-      read(loading.notifier).state = false;
+      read(loadingAccount.notifier).state = false;
       log('$e');
       rethrow;
     }
@@ -80,17 +80,17 @@ class AddNotifier extends ChangeNotifier {
   updatePassword(userId, data) async {
     // log("this is of data ${data}");
     final updateService = read(updateProfileService);
-    read(loading.notifier).state = true;
+    read(loadingAccount.notifier).state = true;
 
     try {
       final resp = await updateService.updatePassword(userId, data);
       if (resp != null) {
-        read(loading.notifier).state = false;
+        read(loadingAccount.notifier).state = false;
       }
       notifyListeners();
       return resp;
     } catch (e) {
-      read(loading.notifier).state = false;
+      read(loadingAccount.notifier).state = false;
       log('$e');
       rethrow;
     }
@@ -100,17 +100,17 @@ class AddNotifier extends ChangeNotifier {
   updateLocation(userId, data) async {
     // log("this is of data ${data}");
     final updateService = read(updateProfileService);
-    read(loading.notifier).state = true;
+    read(loadingAccount.notifier).state = true;
 
     try {
       final resp = await updateService.updateLocation(userId, data);
       if (resp != null) {
-        read(loading.notifier).state = false;
+        read(loadingAccount.notifier).state = false;
       }
       notifyListeners();
       return resp;
     } catch (e) {
-      read(loading.notifier).state = false;
+      read(loadingAccount.notifier).state = false;
       log('$e');
       rethrow;
     }
