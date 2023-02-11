@@ -15,6 +15,7 @@ import 'package:donationapp/features/Admin/Users/userDetails.dart';
 import 'package:donationapp/features/Admin/Users/viewUsers.dart';
 import 'package:donationapp/features/Admin/Volunteer%20Application/viewVolunteerApplications.dart';
 import 'package:donationapp/features/Admin/Volunteer%20Application/volunteerApplicationDetails.dart';
+import 'package:donationapp/features/Admin/add-ngo/add-ngo.dart';
 import 'package:donationapp/features/Admin/add-preferred-locations/add-preferred-locations.dart';
 import 'package:donationapp/features/Admin/add/add.dart';
 import 'package:donationapp/features/Admin/admin-message/admin-message.dart';
@@ -130,6 +131,7 @@ import '../features/otp/widgets/recaptcha.dart';
   MaterialRoute(page: RequestDetails, path: "/requestDetails"),
   MaterialRoute(page: ForgotPassword, path: "/forgot-password"),
   MaterialRoute(page: Add, path: "/add"),
+  MaterialRoute(page: AddNgo, path: "/add-ngo"),
 
   // Admin Volunteer Applications
   MaterialRoute(
