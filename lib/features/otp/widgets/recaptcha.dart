@@ -1,3 +1,4 @@
+import 'package:donationapp/constant/common/Text/custom-text.dart';
 import 'package:donationapp/helpers/route.utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
@@ -19,19 +20,9 @@ class _RecaptchaState extends State<Recaptcha> {
         //   body: Center(
         //     child:
         WebViewPlus(
-      javascriptMode: JavascriptMode.unrestricted,
-      onWebViewCreated: ((controller) {
-        controller.loadUrl('assets/webpages/recaptcha.html');
-      }),
-      // javascriptChannels: Set.from([
-      //   JavascriptChannel(
-      //       name: 'Captcha',
-      //       onMessageReceived: (JavascriptMessage message) {
-      //         replaceRouteTo("/mobile-number", context);
-      //      })
-      // ]),
-      // ),
-      //),
-    );
+            javascriptMode: JavascriptMode.unrestricted,
+            onWebViewCreated: ((controller) {
+              controller.loadUrl('assets/webpages/recaptcha.html');
+            }));
   }
 }

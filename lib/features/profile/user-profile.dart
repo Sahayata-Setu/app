@@ -102,6 +102,7 @@ class UserProfile extends ConsumerWidget {
 
               GestureDetector(
                 onTap: () {
+                  //Need to uncomment after jury has gone
                   points.when(
                       data: (data) {
                         return data['body'] < 25

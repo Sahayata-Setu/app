@@ -15,6 +15,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:loading_animation_widget/loading_animation_widget.dart';
 
 class MobileNumber extends ConsumerStatefulWidget {
   const MobileNumber({super.key});
@@ -33,6 +34,7 @@ class _MobileNumberState extends ConsumerState<MobileNumber> {
   @override
   Widget build(BuildContext context) {
     final error = ref.watch(errorProvider);
+    final loading = ref.watch(loadingMobileProv);
 
     //Data Fetching from store
     // final verification = "";
@@ -42,6 +44,8 @@ class _MobileNumberState extends ConsumerState<MobileNumber> {
     FirebaseAuth auth = FirebaseAuth.instance;
 
     void verifyNumber() {
+      ref.read(loadingMobileProv.notifier).state = true;
+
       auth.verifyPhoneNumber(
         phoneNumber: "+91${_mobilePhoneController.text}",
         verificationCompleted: (PhoneAuthCredential credential) async {
@@ -52,8 +56,10 @@ class _MobileNumberState extends ConsumerState<MobileNumber> {
         verificationFailed: (FirebaseAuthException e) {
           log("Error: $e");
           ref.read(errorProvider.notifier).state = "Too many requests";
+          ref.read(loadingMobileProv.notifier).state = false;
         },
         codeSent: (String verificationId, int? resendToken) {
+          ref.read(loadingMobileProv.notifier).state = false;
           ref.read(verificationIdProvider.notifier).state = verificationId;
           routeTo("/otp-verification", context);
         },
@@ -143,8 +149,6 @@ class _MobileNumberState extends ConsumerState<MobileNumber> {
               fontWeight: FontWeight.bold,
               fontColor: Colors.red,
             ),
-
-            // Container(height: 150.h, child: Recaptcha()),
             CustomGradientButtom(
               fn: () {
                 verifyNumber();
@@ -156,6 +160,11 @@ class _MobileNumberState extends ConsumerState<MobileNumber> {
               },
               buttonText: "Send Otp",
             ),
+            // Container(
+            //   height: 150.h,
+            //   width: 500.w,
+            //   child: Recaptcha(),
+            // ),
             // ElevatedButton(
             //   onPressed: () {
             //     verifyNumber();
@@ -167,7 +176,6 @@ class _MobileNumberState extends ConsumerState<MobileNumber> {
             //   },
             //   child: Text("Sumbit"),
             // )
-            //  Recaptcha()
           ],
         ),
       ),

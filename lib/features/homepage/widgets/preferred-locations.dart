@@ -19,6 +19,7 @@ class PreferredLocations extends ConsumerWidget {
 
 // preferredSingleLocationProvider
     showPopUp(id) {
+      log("Message ${id}");
       final prefSingleLocation = ref.watch(preferredSingleLocationProvider(id));
 
       return showDialog<String>(
@@ -119,22 +120,23 @@ class PreferredLocations extends ConsumerWidget {
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(22.r),
                             ),
-                            color: Colors.purple,
+                            color: blueColor,
                             child: Container(
-                              // padding: EdgeInsets.only(left: 10),
+                              padding: EdgeInsets.all(8),
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 // crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceAround,
+                                    // mainAxisAlignment:
+                                    //     MainAxisAlignment.spaceAround,
                                     children: [
                                       LineIcon(LineIcons.landmark,
                                           color: whiteColor),
                                       Flexible(
                                         child: CustomText(
-                                          text: "${prefLoca[index]['title']}",
+                                          text:
+                                              "${prefLoca[index]['landmark']}",
                                           fontSize: 16.sp,
                                           fontWeight: FontWeight.bold,
                                           fontColor: whiteColor,

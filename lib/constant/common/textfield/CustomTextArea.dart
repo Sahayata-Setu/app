@@ -63,6 +63,12 @@ class _CustomTextAreaState extends ConsumerState<CustomTextArea> {
             ),
             initialValue: widget.value ?? null,
             obscureText: widget.isObscure ?? false,
+            validator: (val) {
+              if (val!.isEmpty) {
+                return '${widget.hint} cannot be empty';
+              } else
+                return null;
+            },
             onChanged: (value) {
               widget.refs.state[widget.name] = value.trim();
             },
