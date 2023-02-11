@@ -16,15 +16,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class NewAdminDashboard extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final dashboardData = ref.watch(dashboardDataProvider);
-    List listItem = [
-      {"title": "Total Request", "value": "99"},
-      {"title": "Total Donation", "value": "99"},
-      {"title": "New Users", "value": "99"},
-      {"title": "New Volunteers", "value": "99"},
-      {"title": "Pending Requests", "value": "99"},
-      {"title": "Total Campaigns", "value": "9"},
-    ];
+    // final dashboardData = ref.watch(dashboardDataProvider);
+
+    final dashboardData = ref.watch(getAllDataProvider);
+
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(60),
@@ -33,12 +28,36 @@ class NewAdminDashboard extends ConsumerWidget {
       drawer: Menu_Drawer(),
       body: dashboardData.when(
           data: (data) {
-            final dashboardDats = data['body'];
-            log("DashBoard Data: $dashboardDats");
+            final dashboardData = data['body'];
+            log("DashBoard Data: $dashboardData");
+            List listItem = [
+              {
+                "title": "Total Request",
+                "value": "${dashboardData['today']['requests1']}"
+              },
+              {
+                "title": "Total Donation",
+                "value": "${dashboardData['today']['donations1']}"
+              },
+              {
+                "title": "New Users",
+                "value": "${dashboardData['today']['users1']}"
+              },
+              // Pending Requests data not available
+              {
+                "title": "Pending Requests",
+                "value": "${dashboardData['today']['users1']}"
+              },
+              {
+                "title": "Total Campaigns",
+                "value": "${dashboardData['today']['campaigns1']}"
+              },
+            ];
+
             return Column(
               children: [
                 Container(
-                  height: 250.h,
+                  height: 220.h,
                   margin: EdgeInsets.symmetric(
                     vertical: 15.h,
                   ),
@@ -48,23 +67,28 @@ class NewAdminDashboard extends ConsumerWidget {
                       children: [
                         AdminInfoCard(
                           cardTitle: "All Time",
-                          dashboardDats: dashboardDats,
-                          requests: dashboardDats['requests']['total'],
-                          donations: dashboardDats['donations']['total'],
-                          volunteers: dashboardDats['volunteers']['total'],
-                          users: dashboardDats['users']['total'],
+                          // dashboardDats: dashboardDats,
+                          campaigns: "${dashboardData['all']['campaigns']}",
+                          donations: "${dashboardData['all']['donations']}",
+                          requests: "${dashboardData['all']['requests']}",
+                          users: "${dashboardData['all']['users']}",
                         ),
                         AdminInfoCard(
-                          cardTitle: "Pending",
-                          dashboardDats: dashboardDats,
-                          requests: dashboardDats['requests']['pending'],
-                          donations: dashboardDats['donations']['pending'],
-                          volunteers: dashboardDats['volunteers']['pending'],
-                          users: dashboardDats['users']['total'],
+                          cardTitle: "Last 7 Days",
+                          campaigns: "${dashboardData['seven']['campaigns7']}",
+                          donations: "${dashboardData['seven']['donations7']}",
+                          requests: "${dashboardData['seven']['requests7']}",
+                          users: "${dashboardData['seven']['users7']}",
+                          // dashboardDats: dashboardDats,
                         ),
                         AdminInfoCard(
-                          cardTitle: "Approved",
-                          dashboardDats: dashboardDats,
+                          cardTitle: "Last 30 days",
+                          campaigns:
+                              "${dashboardData['thirty']['campaigns30']}",
+                          donations:
+                              "${dashboardData['thirty']['donations30']}",
+                          requests: "${dashboardData['thirty']['requests30']}",
+                          users: "${dashboardData['thirty']['users30']}",
                         ),
                       ],
                     ),
@@ -169,26 +193,23 @@ class NewAdminDashboard extends ConsumerWidget {
                             fontColor: whiteColor,
                           ),
                         ),
-                        // Container(
-                        //   height: 275.h,
-                        //   child: Scrollbar(
-                        //     thumbVisibility: true,
-                        //     radius: Radius.circular(30.r),
-                        //child:
-                        Expanded(
-                          child: ListView.builder(
-                            itemBuilder: (context, index) {
-                              return CardList(
-                                title: listItem[index]['title'],
-                                value: listItem[index]['value'],
-                                fontColor: whiteColor,
-                              );
-                            },
-                            itemCount: listItem.length,
+                        Container(
+                          height: 295.h,
+                          child: Scrollbar(
+                            thumbVisibility: true,
+                            radius: Radius.circular(30.r),
+                            child: ListView.builder(
+                              itemBuilder: (context, index) {
+                                return CardList(
+                                  title: listItem[index]['title'],
+                                  value: listItem[index]['value'],
+                                  fontColor: whiteColor,
+                                );
+                              },
+                              itemCount: listItem.length,
+                            ),
                           ),
                         ),
-                        //  ),
-                        //  ),
                       ],
                     ),
                   ),

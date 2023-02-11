@@ -16,7 +16,6 @@ import '../../constant/common/GoogleButtomNavBar/GoogleButtomNavBar.dart';
 
 class SearchPage extends ConsumerStatefulWidget {
   const SearchPage({super.key});
-
   @override
   ConsumerState<SearchPage> createState() => _SearchPageState();
 }
@@ -24,7 +23,7 @@ class SearchPage extends ConsumerStatefulWidget {
 class _SearchPageState extends ConsumerState<SearchPage> {
   // @override
   // void dispose() {
-  //   // TODO: implement dispose
+  //   TODO: implement dispose
   //   ref.read(seachControllerProvider.notifier).state.dispose();
   //   super.dispose();
   // }

@@ -7,18 +7,18 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class AdminInfoCard extends StatelessWidget {
   const AdminInfoCard(
       {super.key,
-      this.dashboardDats,
+      // this.dashboardDats,
       this.cardTitle,
       this.requests,
       this.donations,
-      this.volunteers,
+      // this.volunteers,
       this.users,
       this.campaigns});
-  final dashboardDats;
+  // final dashboardDats;
   final cardTitle;
   final requests;
   final donations;
-  final volunteers;
+  // final volunteers;
   final users;
   final campaigns;
 
@@ -57,11 +57,17 @@ class AdminInfoCard extends StatelessWidget {
                 value: "${donations}",
                 fontColor: whiteColor,
               ),
-              DetailTile(
-                title: "Total Volunteers",
-                value: "${volunteers}",
-                fontColor: whiteColor,
-              ),
+              // DetailTile(
+              //   title: "Total Volunteers",
+              //   // value: "${dashboardDats["requests"]["approved"]}",
+              //   value: totalVolunteers,
+              //   fontColor: whiteColor,
+              // ),
+              // DetailTile(
+              //   title: "Total Volunteers",
+              //   value: "${volunteers}",
+              //   fontColor: whiteColor,
+              // ),
               DetailTile(
                 title: "Total Users",
                 value: "${users}",

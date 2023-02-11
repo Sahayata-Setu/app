@@ -57,6 +57,13 @@ final getAllSingleVolunteerApplicationProvider =
   },
 );
 
+// Get All Data for admin dashboard
+final getAllDataProvider = FutureProvider<Map<String, dynamic>>(
+  (ref) {
+    return ref.watch(adminDashboardService).getAllData();
+  },
+);
+
 class ApproveNotifier extends ChangeNotifier {
   ApproveNotifier(this.read) : super();
   final Reader read;
