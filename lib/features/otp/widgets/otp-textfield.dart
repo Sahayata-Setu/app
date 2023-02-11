@@ -41,6 +41,7 @@ class _OtpTextFieldState extends ConsumerState<OtpTextField> {
       height: 40.h,
       width: 40.w,
       child: TextFormField(
+        keyboardType: TextInputType.number,
         controller: controller,
         decoration: InputDecoration(
           contentPadding: EdgeInsets.only(left: 12.w, right: 10.w),

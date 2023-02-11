@@ -15,9 +15,12 @@ import 'package:donationapp/features/Admin/Users/userDetails.dart';
 import 'package:donationapp/features/Admin/Users/viewUsers.dart';
 import 'package:donationapp/features/Admin/Volunteer%20Application/viewVolunteerApplications.dart';
 import 'package:donationapp/features/Admin/Volunteer%20Application/volunteerApplicationDetails.dart';
+import 'package:donationapp/features/Admin/add-ngo/add-ngo.dart';
 import 'package:donationapp/features/Admin/add-preferred-locations/add-preferred-locations.dart';
+import 'package:donationapp/features/Admin/add/add.dart';
 import 'package:donationapp/features/Admin/admin-message/admin-message.dart';
 import 'package:donationapp/features/Admin/widgets/approveVolunter.dart';
+import 'package:donationapp/features/Leaderboard/leaderboard.dart';
 import 'package:donationapp/features/account-settings/account-settings.dart';
 import 'package:donationapp/features/apply-for-volunteer/apply-for-volunteer.dart';
 import 'package:donationapp/features/campaigns/campaignDetails.dart';
@@ -101,6 +104,8 @@ import '../features/otp/widgets/recaptcha.dart';
   MaterialRoute(page: ApplyForVolunteer, path: "/apply-volunteer"),
   MaterialRoute(page: ApproveVolunter, path: "/approveVolunter/:id"),
 
+  MaterialRoute(page: Leaderboard, path: "/leaderboard"),
+
   MaterialRoute(page: AdminDashBoardData, path: "/admin-dashboard"),
   MaterialRoute(page: OtpVerification, path: "/otp-verification"),
   // MaterialRoute(page: CampiagnDetails, path: "/campains-single-detail"),
@@ -125,6 +130,8 @@ import '../features/otp/widgets/recaptcha.dart';
   MaterialRoute(page: ViewRequests, path: "/requests"),
   MaterialRoute(page: RequestDetails, path: "/requestDetails"),
   MaterialRoute(page: ForgotPassword, path: "/forgot-password"),
+  MaterialRoute(page: Add, path: "/add"),
+  MaterialRoute(page: AddNgo, path: "/add-ngo"),
 
   // Admin Volunteer Applications
   MaterialRoute(

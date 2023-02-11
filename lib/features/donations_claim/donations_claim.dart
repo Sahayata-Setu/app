@@ -29,21 +29,25 @@ class _DonationsClaimState extends ConsumerState<DonationsClaim> {
   @override
   Widget build(BuildContext context) {
     ScrollController scrollController = ScrollController();
+    final selectedCategory = ref.watch(selectedCategoryProvider);
     final donations = ref.watch(getAllDonationsByUser(StorageService.getId()));
 
     //Get all requests for donations and requests
-    final donationClaimRequests = ref.watch(donationClaimRequestsProvider(""));
-    log("All donations by userid: ${donationClaimRequests}");
+    final donationClaimRequests = selectedCategory == "donation"
+        ? ref.watch(donationClaimRequestsProvider(""))
+        : ref.watch(neesClaimRequestsProvider(""));
     //Selected Category
-    final selectedCategory = ref.watch(selectedCategoryProvider);
+    log("All donations by userid: ${donationClaimRequests}");
+    log("Category: ${selectedCategory}");
 
     return App(
       component: Container(
         padding: EdgeInsets.all(kPadding.h),
         child: donationClaimRequests.when(
             data: (data) {
-              // log("Datas: ${data['body'][0]}");
+              log("Datas: ${data['body']}");
               final allRequests = data['body'];
+
               return Column(
                 children: [
                   Container(
@@ -114,29 +118,57 @@ class _DonationsClaimState extends ConsumerState<DonationsClaim> {
                   SizedBox(
                     height: 40.h,
                   ),
-                  ListView.builder(
-                    controller: scrollController,
-                    shrinkWrap: true,
-                    scrollDirection: Axis.vertical,
-                    itemBuilder: (context, index) {
-                      return DonationsClaimCard(
-                        donorId: "${allRequests[index]['donorId']}",
-                        donor_name: "${allRequests[index]['donor_name']}",
-                        reciever_name: "${allRequests[index]['reciever_name']}",
-                        recieverId: "${allRequests[index]['donorId']}",
-                        donor_status: "${allRequests[index]['donor_status']}",
-                        reciever_status:
-                            "${allRequests[index]['reciever_status']}",
-                        donation: "${allRequests[index]['donationTitle']}",
-                        donationPostId:
-                            "${allRequests[index]['donationPostId']}",
-                        donationDate:
-                            "${convertToAgo(allRequests[index]['createdAt'])}",
-                        // donationStatus: "${allRequests[index]['status']}",
-                      );
-                    },
-                    itemCount: allRequests.length,
-                  )
+                  allRequests.length != 0
+                      ? ListView.builder(
+                          controller: scrollController,
+                          shrinkWrap: true,
+                          scrollDirection: Axis.vertical,
+                          itemBuilder: (context, index) {
+                            return selectedCategory == "donation"
+                                ? DonationsClaimCard(
+                                    donorId: "${allRequests[index]['donorId']}",
+                                    donor_name:
+                                        "${allRequests[index]['donor_name']}",
+                                    reciever_name:
+                                        "${allRequests[index]['reciever_name']}",
+                                    recieverId:
+                                        "${allRequests[index]['donorId']}",
+                                    donor_status:
+                                        "${allRequests[index]['donor_status']}",
+                                    reciever_status:
+                                        "${allRequests[index]['reciever_status']}",
+                                    donation:
+                                        "${allRequests[index]['donationTitle']}",
+                                    donationPostId:
+                                        "${allRequests[index]['donationPostId']}",
+                                    donationDate:
+                                        "${convertToAgo(allRequests[index]['createdAt'])}",
+                                    // donationStatus: "${allRequests[index]['status']}",
+                                  )
+                                : DonationsClaimCard(
+                                    donorId: "${allRequests[index]['donorId']}",
+                                    donor_name:
+                                        "${allRequests[index]['donor_name']}",
+                                    reciever_name:
+                                        "${allRequests[index]['reciever_name']}",
+                                    recieverId:
+                                        "${allRequests[index]['donorId']}",
+                                    donor_status:
+                                        "${allRequests[index]['donor_status']}",
+                                    reciever_status:
+                                        "${allRequests[index]['reciever_status']}",
+                                    donation:
+                                        "${allRequests[index]['needTitle']}",
+                                    needPostId:
+                                        "${allRequests[index]['needPostId']}",
+                                    donationDate:
+                                        "${convertToAgo(allRequests[index]['createdAt'])}",
+                                    // donationStatus: "${allRequests[index]['status']}",
+                                  );
+                          },
+                          itemCount: allRequests.length,
+                        )
+                      : Container()
                 ],
               );
             },

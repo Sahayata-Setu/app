@@ -9,11 +9,13 @@ class CardList extends StatelessWidget {
     required this.title,
     required this.value,
     required this.fontColor,
+    this.backgroundColor,
   });
 
   final title;
   final value;
   final fontColor;
+  final backgroundColor;
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +25,7 @@ class CardList extends StatelessWidget {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(12.r),
         ),
-        color: Color.fromARGB(63, 255, 255, 255),
+        color: backgroundColor ?? Color.fromARGB(63, 255, 255, 255),
         child: Container(
           padding: EdgeInsets.symmetric(
             horizontal: 10.h,

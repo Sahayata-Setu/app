@@ -58,7 +58,9 @@ class _LoginState extends ConsumerState<Login> {
             .signup({...loginDetails, "registrationToken": appToken});
         log("this is resp${resp['userRole']}");
         // log("user type ${getUserType}");
-        if (resp['userRole'] == "user" || resp['userRole'] == 'volunteer') {
+        if (resp['userRole'] == "user" ||
+            resp['userRole'] == 'volunteer' ||
+            resp['userRole'] == 'ngo') {
           replaceRouteTo('/homepage', context);
           const snackBar = SnackBar(
             content: Text('Logged In'),

@@ -3,14 +3,16 @@ import 'dart:developer';
 
 import 'package:donationapp/constant/common/Text/custom-text.dart';
 import 'package:donationapp/constant/kconstant.dart';
+import 'package:donationapp/features/donations_claim/store/donations_claim.store.dart';
 import 'package:donationapp/features/donations_claim/widgets/forpending.dart';
 import 'package:donationapp/helpers/convertToJsonObject.dart';
 import 'package:donationapp/utils/store-service/store.service.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:line_icons/line_icon.dart';
 
-class DonationsClaimCard extends StatelessWidget {
+class DonationsClaimCard extends ConsumerWidget {
   const DonationsClaimCard(
       {super.key,
       this.donation,
@@ -21,7 +23,8 @@ class DonationsClaimCard extends StatelessWidget {
       this.reciever_status,
       this.donor_name,
       this.reciever_name,
-      this.donationPostId});
+      this.donationPostId,
+      this.needPostId});
 
   final donation;
   final donationPostId;
@@ -29,11 +32,12 @@ class DonationsClaimCard extends StatelessWidget {
   final donorId;
   final donor_name;
   final reciever_name;
+  final needPostId;
   final recieverId;
   final donor_status;
   final reciever_status;
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final userId = StorageService.getId();
     late String userType;
 
@@ -42,7 +46,7 @@ class DonationsClaimCard extends StatelessWidget {
     } else {
       userType = "reciever";
     }
-
+    final selected = ref.watch(selectedCategoryProvider);
     log("Donations: ${userType}");
     return Card(
       shape: RoundedRectangleBorder(
@@ -70,6 +74,7 @@ class DonationsClaimCard extends StatelessWidget {
                   ),
                 ),
                 ForPending(
+                  needId: needPostId,
                   userType: userType,
                   donationId: donationPostId,
                 )

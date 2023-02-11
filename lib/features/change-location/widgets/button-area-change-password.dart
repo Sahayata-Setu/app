@@ -7,6 +7,7 @@ import 'package:donationapp/utils/store-service/store.service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:loading_animation_widget/loading_animation_widget.dart';
 
 class ButtonAreaChangeLocation extends ConsumerWidget {
   const ButtonAreaChangeLocation({super.key});
@@ -17,6 +18,7 @@ class ButtonAreaChangeLocation extends ConsumerWidget {
     // log('This is from button page : ${locationDetails}');
     final updateDetails = ref.watch(updateDetailsProfileProvider);
     final userId = StorageService.getId();
+    final state = ref.watch(loadingAccount);
 
     handleSumbit() async {
       try {
@@ -37,12 +39,15 @@ class ButtonAreaChangeLocation extends ConsumerWidget {
             color: lightBlueColor,
             borderRadius: BorderRadius.circular(18.r),
           ),
-          child: Center(
-            child: CustomText(
-              text: "Sumbit",
-              fontWeight: FontWeight.bold,
-            ),
-          ),
+          child: state
+              ? LoadingAnimationWidget.fourRotatingDots(
+                  color: blueBackgroundColor, size: 20.h)
+              : Center(
+                  child: CustomText(
+                    text: "Sumbit",
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
         ),
       ),
     );

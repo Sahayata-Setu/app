@@ -33,21 +33,29 @@ class CampaignsList extends ConsumerWidget {
         child: approvedCampagins.when(
           data: (data) {
             final datas = data['body'];
-            return ListView.builder(
-                // scrollDirection: Axis.horizontal,
-                itemCount: datas.length,
-                itemBuilder: (context, index) {
-                  return GestureDetector(
-                    onTap: () {
-                      routeTo("/campaigns/${datas[index]['_id']}", context);
-                    },
-                    child: CampaignCards(
-                      image: "${datas[index]['images'][0]}",
-                      location: "${datas[index]['city']}",
-                      title: "${datas[index]['title']}",
-                    ),
-                  );
-                });
+            log("All campaigns ${datas}");
+            return RefreshIndicator(
+              onRefresh: () async {
+                ref.refresh(getApprovedCampaignsProvider(""));
+              },
+              child: ListView.builder(
+                  // scrollDirection: Axis.horizontal,
+                  itemCount: datas.length,
+                  itemBuilder: (context, index) {
+                    return GestureDetector(
+                      onTap: () {
+                        routeTo("/campaigns/${datas[index]['_id']}", context);
+                      },
+                      child: CampaignCards(
+                        volunteerId: "${datas[index]['volunteer_id']}",
+                        volunteerName: "${datas[index]['volunteer_name']}",
+                        image: "${datas[index]['images'][0]}",
+                        location: "${datas[index]['city']}",
+                        title: "${datas[index]['title']}",
+                      ),
+                    );
+                  }),
+            );
           },
           error: (e, h) => CustomText(text: "Error Occured"),
           loading: () => LoadingPage(),

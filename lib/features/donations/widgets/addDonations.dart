@@ -43,9 +43,7 @@ class AddDontaion extends ConsumerWidget {
           firstDate: DateTime(2015, 8),
           lastDate: DateTime(2101));
       if (picked != null && picked != selectedDate) {
-        // setState(() {
         ref.read(datePickerDetails.notifier).state = picked;
-        // });
       }
     }
 
