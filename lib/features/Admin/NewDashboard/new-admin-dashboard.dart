@@ -32,12 +32,12 @@ class NewAdminDashboard extends ConsumerWidget {
             log("DashBoard Data: $dashboardData");
             List listItem = [
               {
-                "title": "Total Request",
-                "value": "${dashboardData['today']['requests1']}"
-              },
-              {
                 "title": "Total Donation",
                 "value": "${dashboardData['today']['donations1']}"
+              },
+              {
+                "title": "Total Request",
+                "value": "${dashboardData['today']['requests1']}"
               },
               {
                 "title": "New Users",
@@ -46,7 +46,11 @@ class NewAdminDashboard extends ConsumerWidget {
               // Pending Requests data not available
               {
                 "title": "Pending Requests",
-                "value": "${dashboardData['today']['users1']}"
+                "value": "${dashboardData['today']['requestsPending']}"
+              },
+              {
+                "title": "Pending Donations",
+                "value": "${dashboardData['today']['donationsPending']}"
               },
               {
                 "title": "Total Campaigns",
@@ -161,7 +165,7 @@ class NewAdminDashboard extends ConsumerWidget {
                 ),
                 Expanded(
                   child: Container(
-                    margin: EdgeInsets.all(10.h),
+                    // margin: EdgeInsets.all(10.h),
                     padding: EdgeInsets.all(10.h),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.only(

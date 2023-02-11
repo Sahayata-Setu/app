@@ -216,7 +216,7 @@ class Menu_Drawer extends ConsumerWidget {
               ),
               onTap: () {
                 // handleLogout();
-                routeTo("/add-preferred-location", context);
+                routeTo("/add", context);
               },
             ),
             ListTile(
