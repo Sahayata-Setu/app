@@ -12,6 +12,9 @@ import 'package:donationapp/store/message/message.store.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../../constant/common/NavBar/adminNavBar.dart';
+import '../Dashboard/widgets/drawer.dart';
+
 class AdminMessage extends ConsumerWidget {
   List<ChatUsers> chatUsers = [
     ChatUsers(
@@ -32,8 +35,13 @@ class AdminMessage extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final messages = ref.watch(allConnectedUsersProvider);
 
-    return App(
-      component: SingleChildScrollView(
+    return Scaffold(
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(60),
+        child: AdminNavBar(title: "Messages"),
+      ),
+      drawer: Menu_Drawer(),
+      body: SingleChildScrollView(
         physics: BouncingScrollPhysics(),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -99,12 +107,6 @@ class AdminMessage extends ConsumerWidget {
           ],
         ),
       ),
-      appbar: NavBar(
-        showBadge: false,
-        title: "Messages",
-      ),
-      bottomNavBar: const GoogleButtomNavBar(showBottomNavBar: false),
-      isAdmin: false,
     );
   }
 }

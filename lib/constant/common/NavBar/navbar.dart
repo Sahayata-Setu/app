@@ -120,14 +120,15 @@ class NavBar extends ConsumerWidget {
               )
             : const SizedBox(),
         isAdmin != null
-            ? Container(
-                margin: EdgeInsets.symmetric(horizontal: 10.w),
-                child: IconButton(
-                  onPressed: () {
-                    routeTo("/search", context);
-                  },
-                  icon: Icon(Icons.search, size: KiconSize.h),
-                ))
+            ? SizedBox()
+            //  Container(
+            //     margin: EdgeInsets.symmetric(horizontal: 10.w),
+            //     child: IconButton(
+            //       onPressed: () {
+            //         routeTo("/search", context);
+            //       },
+            //       icon: Icon(Icons.search, size: KiconSize.h),
+            //     ))
             : showBadge
                 ? userDet.when(
                     data: (data) {

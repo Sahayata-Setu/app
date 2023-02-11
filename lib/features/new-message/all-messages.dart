@@ -128,7 +128,7 @@ class NewMessage extends ConsumerWidget {
         ),
       ),
       appbar: NavBar(
-        showBadge: false,
+        showBadge: true,
         title: "Messages",
       ),
       bottomNavBar: const GoogleButtomNavBar(showBottomNavBar: true),

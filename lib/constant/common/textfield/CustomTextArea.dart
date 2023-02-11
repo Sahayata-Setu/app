@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:dartz/dartz.dart';
 import 'package:donationapp/constant/common/Text/custom-text.dart';
 import 'package:donationapp/constant/kconstant.dart';
@@ -33,6 +35,12 @@ class CustomTextArea extends ConsumerStatefulWidget {
 }
 
 class _CustomTextAreaState extends ConsumerState<CustomTextArea> {
+  bool passwordVisible = false;
+  @override
+  void initState() {
+    passwordVisible = false;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -50,6 +58,24 @@ class _CustomTextAreaState extends ConsumerState<CustomTextArea> {
           child: TextFormField(
             readOnly: widget.isPhoneNo == true ? true : false,
             decoration: InputDecoration(
+              suffixIcon: widget.text == "Password"
+                  ? IconButton(
+                      icon: Icon(
+                        // Based on passwordVisible state choose the icon
+                        passwordVisible
+                            ? Icons.visibility_off
+                            : Icons.visibility,
+                        color: Theme.of(context).primaryColorDark,
+                      ),
+                      onPressed: () {
+                        // Update the state i.e. toogle the state of passwordVisible variable
+                        setState(() {
+                          passwordVisible = !passwordVisible;
+                          log(passwordVisible.toString());
+                        });
+                      },
+                    )
+                  : null,
               contentPadding: widget.contentPadding == null
                   ? EdgeInsets.all(10.h)
                   : EdgeInsets.all(widget.contentPadding),
@@ -62,7 +88,7 @@ class _CustomTextAreaState extends ConsumerState<CustomTextArea> {
               fontSize: 16.sp,
             ),
             initialValue: widget.value ?? null,
-            obscureText: widget.isObscure ?? false,
+            obscureText: widget.isObscure == true ? !passwordVisible : false,
             validator: (val) {
               if (val!.isEmpty) {
                 return '${widget.hint} cannot be empty';

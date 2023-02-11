@@ -296,6 +296,28 @@ class DonationDetail extends ConsumerWidget {
                             fontColor: Colors.grey.shade600,
                           ),
                           CustomText(
+                            text: "${singleData['pickupDate'].split('T')[0]}",
+                            fontSize: 15.sp,
+                            fontWeight: FontWeight.normal,
+                          ),
+                        ],
+                      ),
+                      SizedBox(
+                        height: kMargin.h,
+                      ),
+                      Wrap(
+                        //mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          CustomText(
+                            text: "Preferred Location",
+                            fontSize: 16.sp,
+                            fontWeight: FontWeight.bold,
+                            fontColor: Colors.grey.shade600,
+                          ),
+                          SizedBox(
+                            height: kMargin.h,
+                          ),
+                          CustomText(
                             text: "${singleData['pickupDetails']}",
                             fontSize: 15.sp,
                             fontWeight: FontWeight.normal,
@@ -318,25 +340,6 @@ class DonationDetail extends ConsumerWidget {
                       //     fontSize: 15.sp,
                       //   ),
                       // ),
-
-                      GestureDetector(
-                        onTap: () {},
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            CustomText(
-                              text: "Helpline",
-                              fontSize: 16.sp,
-                              fontWeight: FontWeight.bold,
-                              fontColor: Colors.grey.shade600,
-                            ),
-                            LineIcon.sms(),
-                          ],
-                        ),
-                      ),
-                      SizedBox(
-                        height: kMargin.h,
-                      ),
 
                       HorizontalLine(),
 
@@ -431,24 +434,25 @@ class DonationDetail extends ConsumerWidget {
                 // ),
 
                 getUserType == 'admin'
-                    ? Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: [
-                          // singleData['status'] == "donated"
-                          // ? SizedBox()
-                          // : singleData['status'] == "rejected"
-                          CustomElevatedButton(
-                              child: Text("ACCEPT"),
-                              fn: () {
-                                handleApprove();
-                              }),
-                          CustomElevatedButton(
-                              child: Text("REJECT"),
-                              fn: () {
-                                handleReject();
-                              }),
-                        ],
-                      )
+                    ? singleData['status'] == "donated" ||
+                            singleData['status'] == "approved" ||
+                            singleData['status'] == "rejected"
+                        ? SizedBox()
+                        : Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [
+                              CustomElevatedButton(
+                                  child: Text("ACCEPT"),
+                                  fn: () {
+                                    handleApprove();
+                                  }),
+                              CustomElevatedButton(
+                                  child: Text("REJECT"),
+                                  fn: () {
+                                    handleReject();
+                                  }),
+                            ],
+                          )
                     : SizedBox()
               ],
             ),
