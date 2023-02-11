@@ -16,6 +16,7 @@ class UserProfileInformation extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     // log("this is user data from fkjdgfd ${data}");
     final userId = StorageService.getId();
+    final userType = StorageService.getuserType();
     final data = ref.watch(userDetailsProvider);
     final userDetails = ref.watch(singleUserDataProvider(userId));
 
@@ -25,11 +26,17 @@ class UserProfileInformation extends ConsumerWidget {
           final userDet = data['body'];
           return Column(
             children: [
-              CustomText(
-                text: "${userDet['firstName']} ${userDet['lastName']} ",
-                fontSize: 20.sp,
-                fontColor: blackColor,
-              ),
+              userType == "ngo"
+                  ? CustomText(
+                      text: "${userDet['firstName']} ",
+                      fontSize: 20.sp,
+                      fontColor: blackColor,
+                    )
+                  : CustomText(
+                      text: "${userDet['firstName']} ${userDet['lastName']} ",
+                      fontSize: 20.sp,
+                      fontColor: blackColor,
+                    ),
               SizedBox(
                 height: 8.h,
               ),

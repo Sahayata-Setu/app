@@ -12,7 +12,6 @@ class signupNGOServiceClass {
     // final singUpService
     try {
       final token = StorageService.getToken();
-      log("this is from$data");
       final response = await _client.post(
         "/admin/ngo",
         data: data,
@@ -20,6 +19,7 @@ class signupNGOServiceClass {
           headers: {"Authorization": "Bearer ${token}"},
         ),
       );
+      log("this is from$response");
 
       // StorageService.setToken(response['token']);
       // StorageService.setUserType(response['userRole']);

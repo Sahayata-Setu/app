@@ -17,7 +17,7 @@ class ButtonAreaAccount extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final updateDetailsProv = ref.watch(updateDetailsProfileProvider);
     final updateDetails = ref.watch(userDetailsProvider);
-    final state = ref.watch(loading);
+    final state = ref.watch(loadingAccount);
     // log("this is from button ${state}");
     final userId = StorageService.getId();
     handleSumbit() async {
@@ -45,7 +45,6 @@ class ButtonAreaAccount extends ConsumerWidget {
         // }
 
         // ignore: use_build_context_synchronously
-
       } catch (e) {
         log('$e the success');
         CustomScaffoldMessenger.error(

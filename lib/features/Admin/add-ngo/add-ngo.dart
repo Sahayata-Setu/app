@@ -25,11 +25,22 @@ class AddNgo extends ConsumerWidget {
 
     handleSumbit() async {
       try {
-        await signupNgoRef.signup(signupNgoDetails);
+        await signupNgoRef.signup(signupNgoDetails).then((val) {
+          const snackBar = SnackBar(
+            content: Text('Signup Successful'),
+          );
+          ScaffoldMessenger.of(context).showSnackBar(snackBar);
+          pop(context);
+          replaceRouteTo("/new-admin-dashboard", context);
+        }).catchError((err) {
+          const snackBar = SnackBar(
+            content: Text('Ngo already exists'),
+          );
+          ScaffoldMessenger.of(context).showSnackBar(snackBar);
+        });
         // ignore: use_build_context_synchronously
-        CustomScaffoldMessenger.info("NGO created successfully", context);
+        // CustomScaffoldMessenger.info("NGO created successfully", context);
         // ignore: use_build_context_synchronously
-        replaceRouteTo("/new-admin-dashboard", context);
       } catch (e) {
         log('$e the success');
         CustomScaffoldMessenger.error(
