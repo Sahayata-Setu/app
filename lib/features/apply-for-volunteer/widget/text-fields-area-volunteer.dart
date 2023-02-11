@@ -30,10 +30,8 @@ class TextFieldAreaVolunteer extends ConsumerWidget {
         ),
         CustomTextField(
           refs: ref.read(volunteerDetailsProvider.notifier),
-          // ref: ref,
           label: "Reason",
           name: "reason",
-
           borderColor: whiteColor,
         ),
         CustomText(

@@ -7,6 +7,7 @@ import 'package:donationapp/utils/store-service/store.service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:loading_animation_widget/loading_animation_widget.dart';
 
 class ButtonAreaChangePassword extends ConsumerWidget {
   const ButtonAreaChangePassword({super.key});
@@ -16,6 +17,8 @@ class ButtonAreaChangePassword extends ConsumerWidget {
     final passwordDetails = ref.watch(passwordDetailsProvider);
     final accountSettingProv = ref.watch(updateDetailsProfileProvider);
     final userId = StorageService.getId();
+
+    final loading = ref.watch(loadingAccount);
     // log("This is userId: ${userId}");
     updatePassword() async {
       try {
@@ -48,12 +51,15 @@ class ButtonAreaChangePassword extends ConsumerWidget {
             color: lightBlueColor,
             borderRadius: BorderRadius.circular(18.r),
           ),
-          child: Center(
-            child: CustomText(
-              text: "Sumbit",
-              fontWeight: FontWeight.bold,
-            ),
-          ),
+          child: loading
+              ? LoadingAnimationWidget.fourRotatingDots(
+                  color: blueBackgroundColor, size: 20.h)
+              : Center(
+                  child: CustomText(
+                    text: "Sumbit",
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
         ),
       ),
     );

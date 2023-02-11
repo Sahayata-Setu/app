@@ -30,9 +30,6 @@ class ApplyForVolunteer extends ConsumerWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(
-                height: 40.r,
-              ),
-              SizedBox(
                 height: 30.h,
               ),
               TextFieldAreaVolunteer(),
