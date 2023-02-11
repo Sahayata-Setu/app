@@ -176,16 +176,19 @@ class UserProfile extends ConsumerWidget {
               //         ),
               //       )
               //     : Container(),
+
+              // * This below lines are for leaderboard
+
               // userType == "user"
-              GestureDetector(
-                onTap: () {
-                  routeTo("/leaderboard", context);
-                },
-                child: UserProfileOptions(
-                  imageName: "i-icon",
-                  text: "Leaderboard",
-                ),
-              ),
+              // GestureDetector(
+              //   onTap: () {
+              //     routeTo("/leaderboard", context);
+              //   },
+              //   child: UserProfileOptions(
+              //     imageName: "i-icon",
+              //     text: "Leaderboard",
+              //   ),
+              // ),
               // : SizedBox(),
               GestureDetector(
                 onTap: () {
