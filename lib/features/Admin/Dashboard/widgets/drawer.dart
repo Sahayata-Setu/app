@@ -52,37 +52,7 @@ class Menu_Drawer extends ConsumerWidget {
                   Navigator.pop(context);
                 },
               ),
-
-              // * Previous Code is below
-
-              // child: IconButton(
-              //   onPressed: () {
-              //     Navigator.pop(context);
-              //   },
-              //   icon: Icon(Icons.close),
-              // ),
-
-              // * Upto here
             ),
-
-            // ****************************
-            // This is for temporary stage only
-            // ****************************
-
-            // ListTile(
-            //     title: CustomText(
-            //       text: "User Home",
-            //       fontColor: whiteColor,
-            //       fontSize: 18.sp,
-            //     ),
-            //     onTap: () {
-            //       Navigator.pop(context);
-            //       routeTo("/homepage", context);
-            //     }),
-
-            // ****************************
-            // Todo: Above ListTile should be removed
-            // ****************************
 
             ListTile(
                 leading: Image.asset(
@@ -98,6 +68,7 @@ class Menu_Drawer extends ConsumerWidget {
                   Navigator.pop(context);
                   routeTo("/new-admin-dashboard", context);
                 }),
+
             ListTile(
                 leading: Image.asset(
                   "assets/images/user.png",
@@ -126,8 +97,6 @@ class Menu_Drawer extends ConsumerWidget {
                   routeTo("/admin-message", context);
 
                   Navigator.pop(context);
-                  // Todo: Insert route of admin messages
-                  // routeTo("", context);
                 }),
             ListTile(
               leading: Image.asset(
@@ -192,6 +161,20 @@ class Menu_Drawer extends ConsumerWidget {
             ),
             ListTile(
               leading: Image.asset(
+                "assets/images/add.png",
+                height: 16.h,
+              ),
+              title: CustomText(
+                text: "Add",
+                fontColor: whiteColor,
+                fontSize: 18.sp,
+              ),
+              onTap: () {
+                routeTo("/add", context);
+              },
+            ),
+            ListTile(
+              leading: Image.asset(
                 "assets/images/logout.png",
                 height: 16.h,
               ),
@@ -204,36 +187,21 @@ class Menu_Drawer extends ConsumerWidget {
                 handleLogout();
               },
             ),
-            ListTile(
-              leading: Image.asset(
-                "assets/images/logout.png",
-                height: 16.h,
-              ),
-              title: CustomText(
-                text: "Add",
-                fontColor: whiteColor,
-                fontSize: 18.sp,
-              ),
-              onTap: () {
-                // handleLogout();
-                routeTo("/add", context);
-              },
-            ),
-            ListTile(
-              leading: Image.asset(
-                "assets/images/logout.png",
-                height: 16.h,
-              ),
-              title: CustomText(
-                text: "Add Location",
-                fontColor: whiteColor,
-                fontSize: 18.sp,
-              ),
-              onTap: () {
-                // handleLogout();
-                routeTo("/add-preferred-location", context);
-              },
-            ),
+            // ListTile(
+            //   leading: Image.asset(
+            //     "assets/images/logout.png",
+            //     height: 16.h,
+            //   ),
+            //   title: CustomText(
+            //     text: "Add Location",
+            //     fontColor: whiteColor,
+            //     fontSize: 18.sp,
+            //   ),
+            //   onTap: () {
+            //     // handleLogout();
+            //     routeTo("/add-preferred-location", context);
+            //   },
+            // ),
           ],
         ),
       ),

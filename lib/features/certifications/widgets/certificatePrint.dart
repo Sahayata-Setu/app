@@ -25,7 +25,7 @@ class CertificatePrint extends ConsumerWidget {
 
     return Scaffold(
         appBar: AppBar(
-          title: const Text('Report'),
+          title: const Text('Certificate'),
         ),
         body: points.when(
           data: (data) {
