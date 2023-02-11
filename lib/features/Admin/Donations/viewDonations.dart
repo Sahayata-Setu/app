@@ -19,7 +19,7 @@ class ViewDonations extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final allDonations = ref.watch(getAllDonationsProvider);
-    log("All Donations: ${allDonations}");
+    // log("All Donations: ${allDonations}");
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(60),

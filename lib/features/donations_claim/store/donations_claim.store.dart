@@ -13,6 +13,13 @@ final donationClaimRequestsProvider =
     return ref.watch(donationsClaimService).getDonationClaimRequests();
   },
 );
+//Get Need claim Requests
+final neesClaimRequestsProvider =
+    FutureProvider.family<Map<String, dynamic>, String>(
+  (ref, id) {
+    return ref.watch(donationsClaimService).getNeedClaimRequests();
+  },
+);
 
 final selectedCategoryProvider = StateProvider((ref) => "donation");
 
@@ -68,6 +75,60 @@ class AddNotifier extends ChangeNotifier {
     }
   }
 
+  //Change donor status or reciever status
+  changeNeedStatus(needId) async {
+    log("needId: $needId");
+    final donationSer = read(donationsClaimService);
+    // final id = StorageService.getId();
+    // final image = read(imagesProvider);
+    try {
+      final resp = await donationSer.changeNeedRequest(needId);
+      // if (resp != null) {
+      //   // final userDetails = StorageService.getUser();
+      //   // StorageService.setUser({...?userDetails, ...data});
+      // }
+      return resp;
+    } catch (e) {
+      rethrow;
+    }
+  }
+
+  //Change need post status
+  changeNeedPostStatus() async {
+    final donationSer = read(donationsClaimService);
+    // final id = StorageService.getId();
+    // final image = read(imagesProvider);
+    try {
+      final resp = await donationSer.changeNeedPostStatus();
+      // if (resp != null) {
+      //   // final userDetails = StorageService.getUser();
+      //   // StorageService.setUser({...?userDetails, ...data});
+      // }
+      return resp;
+    } catch (e) {
+      rethrow;
+    }
+  }
+
+  //Create new request for need
+  createNeedRequest(data) async {
+    // log("this is of data ${data}");
+    final donationClaimService = read(donationsClaimService);
+    // read(loading.notifier).state = true;
+
+    try {
+      final resp = await donationClaimService.createRequestForNeed(data);
+      if (resp != null) {
+        // read(loading.notifier).state = false;
+      }
+      notifyListeners();
+      return resp;
+    } catch (e) {
+      // read(loading.notifier).state = false;
+      log('$e');
+      rethrow;
+    }
+  }
   //Update profile info
   // createDonationRequest() async {
   //   // log("this is of data ${data}");

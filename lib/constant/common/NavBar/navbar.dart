@@ -132,7 +132,7 @@ class NavBar extends ConsumerWidget {
                 ? userDet.when(
                     data: (data) {
                       final userDetails = data['body'];
-                      log("User Data: ${data}");
+                      // log("User Data: ${data}");
                       return Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [

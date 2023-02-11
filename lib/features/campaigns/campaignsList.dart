@@ -43,6 +43,7 @@ class CampaignsList extends ConsumerWidget {
                       routeTo("/campaigns/${datas[index]['_id']}", context);
                     },
                     child: CampaignCards(
+                      volunteerId: "${data[index]['volunteerId']}",
                       image: "${datas[index]['images'][0]}",
                       location: "${datas[index]['city']}",
                       title: "${datas[index]['title']}",

@@ -19,7 +19,7 @@ class UserProfileInformation extends ConsumerWidget {
     final data = ref.watch(userDetailsProvider);
     final userDetails = ref.watch(singleUserDataProvider(userId));
 
-    log("this is from profilesec${userDetails}");
+    // log("this is from profilesec${userDetails}");
     return userDetails.when(
         data: (data) {
           final userDet = data['body'];
