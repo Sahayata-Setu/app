@@ -99,39 +99,40 @@ class UserProfile extends ConsumerWidget {
                   imageName: "profile-setting",
                 ),
               ),
-
-              GestureDetector(
-                onTap: () {
-                  //Need to uncomment after jury has gone
-                  points.when(
-                      data: (data) {
-                        return data['body'] < 25
-                            ? snackBar()
-                            : routeTo("/certificatePreview", context);
+              userType == "ngo"
+                  ? const SizedBox()
+                  : GestureDetector(
+                      onTap: () {
+                        //Need to uncomment after jury has gone
+                        points.when(
+                            data: (data) {
+                              return data['body'] < 25
+                                  ? snackBar()
+                                  : routeTo("/certificatePreview", context);
+                            },
+                            error: (e, xt) => Text("ërror"),
+                            loading: () => Container());
                       },
-                      error: (e, xt) => Text("ërror"),
-                      loading: () => Container());
-                },
 
-                // Container(child: ,)
-                // points == null
-                //     ? () {
-                //         const snackBar = SnackBar(
-                //           content: Text(
-                //               'You need to have atleast five points to get certificate'),
-                //         );
-                //         ScaffoldMessenger.of(context).showSnackBar(snackBar);
-                //         pop(context);
-                //       }
-                //     : () {
-                //         routeTo("/certificatePreview", context);
-                //       }
-                // ,
-                child: UserProfileOptions(
-                  text: translation(context).certificates,
-                  imageName: "certificate",
-                ),
-              ),
+                      // Container(child: ,)
+                      // points == null
+                      //     ? () {
+                      //         const snackBar = SnackBar(
+                      //           content: Text(
+                      //               'You need to have atleast five points to get certificate'),
+                      //         );
+                      //         ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                      //         pop(context);
+                      //       }
+                      //     : () {
+                      //         routeTo("/certificatePreview", context);
+                      //       }
+                      // ,
+                      child: UserProfileOptions(
+                        text: translation(context).certificates,
+                        imageName: "certificate",
+                      ),
+                    ),
               GestureDetector(
                 onTap: () {
                   routeTo("/donations_claim", context);
@@ -142,16 +143,19 @@ class UserProfile extends ConsumerWidget {
                   imageName: "claim",
                 ),
               ),
-              GestureDetector(
-                onTap: () {
-                  routeTo("/myDonations", context);
-                  //ref.watch(donationClaimRequestsProvider(""));
-                },
-                child: UserProfileOptions(
-                  text: translation(context).myDonations,
-                  imageName: "claim",
-                ),
-              ),
+
+              userType == "ngo"
+                  ? const SizedBox()
+                  : GestureDetector(
+                      onTap: () {
+                        routeTo("/myDonations", context);
+                        //ref.watch(donationClaimRequestsProvider(""));
+                      },
+                      child: UserProfileOptions(
+                        text: translation(context).myDonations,
+                        imageName: "claim",
+                      ),
+                    ),
               // GestureDetector(
               //   onTap: () {
               //     routeTo("/change-language", context);
@@ -163,25 +167,27 @@ class UserProfile extends ConsumerWidget {
               // ),
 
               /// isVolunter ? const SizedBox():
-              userType != "volunteer"
-                  ? GestureDetector(
-                      onTap: () {
-                        routeTo("/apply-volunteer", context);
-                      },
-                      child: UserProfileOptions(
-                        text: translation(context).applyVolunter,
-                        imageName: "volunteer",
-                      ),
-                    )
-                  : GestureDetector(
-                      onTap: () {
-                        routeTo("/see-all-campaigns", context);
-                      },
-                      child: UserProfileOptions(
-                        text: "My Campaigns",
-                        imageName: "volunteer",
-                      ),
-                    ),
+              userType == "ngo"
+                  ? const SizedBox()
+                  : userType != "volunteer"
+                      ? GestureDetector(
+                          onTap: () {
+                            routeTo("/apply-volunteer", context);
+                          },
+                          child: UserProfileOptions(
+                            text: translation(context).applyVolunter,
+                            imageName: "volunteer",
+                          ),
+                        )
+                      : GestureDetector(
+                          onTap: () {
+                            routeTo("/see-all-campaigns", context);
+                          },
+                          child: UserProfileOptions(
+                            text: "My Campaigns",
+                            imageName: "volunteer",
+                          ),
+                        ),
 
               // GestureDetector(
               //   onTap: () {

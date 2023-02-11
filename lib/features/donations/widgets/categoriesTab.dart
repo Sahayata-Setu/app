@@ -9,6 +9,7 @@ import 'package:donationapp/features/homepage/widgets/needs/needs.dart';
 import 'package:donationapp/features/homepage/widgets/needs/needs.data.dart';
 import 'package:donationapp/store/homepage/homepage.store.dart';
 import 'package:donationapp/utils/store-service/language.store.dart';
+import 'package:donationapp/utils/store-service/store.service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -20,6 +21,7 @@ class CategoriesTab extends ConsumerWidget {
     final showDonation = ref.watch(categoriesProvider);
     // bool showDonation = true;
     // log("this is donation type${showDonation}");
+    final userType = StorageService.getuserType();
     final donationData;
     return Container(
       // height: 550.h,
@@ -54,29 +56,35 @@ class CategoriesTab extends ConsumerWidget {
                     ref.read(categoriesProvider.notifier).state = true;
                   },
                 ),
-                GestureDetector(
-                  child: Column(
-                    children: [
-                      Heading(
-                        header: translation(context).need,
-                        color: showDonation ? textColor : blackColor,
-                      ),
-                      Container(
-                        width: 10.w,
-                        height: 10.h,
-                        decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            color: showDonation ? backgroundColor : blackColor),
+                userType == "ngo"
+                    ? SizedBox()
+                    : GestureDetector(
+                        child: Column(
+                          children: [
+                            Heading(
+                              header: translation(context).need,
+                              color: showDonation ? textColor : blackColor,
+                            ),
+                            Container(
+                              width: 10.w,
+                              height: 10.h,
+                              decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  color: showDonation
+                                      ? backgroundColor
+                                      : blackColor),
+                            )
+                          ],
+                        ),
+                        onTap: () {
+                          ref.read(categoriesProvider.notifier).state = false;
+                        },
                       )
-                    ],
-                  ),
-                  onTap: () {
-                    ref.read(categoriesProvider.notifier).state = false;
-                  },
-                )
               ],
             ),
           ),
+          // if (showDonation == true) DonationsHome() else NeedsHome()
+
           showDonation ? DonationsHome() : NeedsHome()
         ],
       ),

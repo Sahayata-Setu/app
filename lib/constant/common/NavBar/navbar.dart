@@ -136,65 +136,74 @@ class NavBar extends ConsumerWidget {
                       return Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
-                          badge.Badge(
-                            //  badgeColor: Colors.orange,
-                            badgeContent: Text(
-                              '${userDetails['points']}',
-                              style: TextStyle(color: Colors.white),
-                            ),
-                            child: Container(
-                              margin: EdgeInsets.only(top: 6.h),
-                              child: Icon(
-                                Icons.star,
-                                size: kiconSize2,
-                              ),
-                            ),
-                            // showBadge: showBadge ? true : false,
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.all(kPadding1),
-                            child: PopupMenuButton(
-                              color: backgroundColor,
-                              child: const Icon(
-                                Icons.add,
-                                size: KiconSize,
-                              ),
-                              // onSelected: (item)=>onSelected(context,item),
-                              itemBuilder: (context) => [
-                                PopupMenuItem<int>(
-                                    child: const Text("Create donation"),
-                                    onTap: () {
-                                      // go to create post item
-                                      routeTo("/createDonation", context);
-                                    }),
-                                PopupMenuItem<int>(
-                                  child: const Text("Create need"),
+                          userType == 'ngo'
+                              ? SizedBox()
+                              : GestureDetector(
                                   onTap: () {
-                                    routeTo("/createNeed", context);
-                                    // go to create request button
+                                    routeTo("/leaderboard", context);
                                   },
+                                  child: badge.Badge(
+                                    //  badgeColor: Colors.orange,
+                                    badgeContent: Text(
+                                      '${userDetails['points']}',
+                                      style: TextStyle(color: Colors.white),
+                                    ),
+                                    child: Container(
+                                      margin: EdgeInsets.only(top: 6.h),
+                                      child: Icon(
+                                        Icons.star,
+                                        size: kiconSize2,
+                                      ),
+                                    ),
+                                    // showBadge: showBadge ? true : false,
+                                  ),
                                 ),
-                                //check for isVolunteer?SizedBox():
-                                if (userType == "volunteer")
-                                  PopupMenuItem<int>(
-                                    child: const Text("Create Campaign"),
-                                    onTap: () {
-                                      routeTo("/createCampaign", context);
-                                      // go to create request button
-                                    },
-                                  )
-                                // userType == "volunteer"
-                                //     ? PopupMenuItem<int>(
-                                //         child: const Text("Create Campaign"),
-                                //         onTap: () {
-                                //           routeTo("/createCampaign", context);
-                                //           // go to create request button
-                                //         },
-                                //       )
-                                //     : PopupMenuItem(child: Text(""))
-                              ],
-                            ),
-                          )
+                          userType == "ngo"
+                              ? SizedBox()
+                              : Padding(
+                                  padding: const EdgeInsets.all(kPadding1),
+                                  child: PopupMenuButton(
+                                    color: backgroundColor,
+                                    child: const Icon(
+                                      Icons.add,
+                                      size: KiconSize,
+                                    ),
+                                    // onSelected: (item)=>onSelected(context,item),
+                                    itemBuilder: (context) => [
+                                      PopupMenuItem<int>(
+                                          child: const Text("Create donation"),
+                                          onTap: () {
+                                            // go to create post item
+                                            routeTo("/createDonation", context);
+                                          }),
+                                      PopupMenuItem<int>(
+                                        child: const Text("Create need"),
+                                        onTap: () {
+                                          routeTo("/createNeed", context);
+                                          // go to create request button
+                                        },
+                                      ),
+                                      //check for isVolunteer?SizedBox():
+                                      if (userType == "volunteer")
+                                        PopupMenuItem<int>(
+                                          child: const Text("Create Campaign"),
+                                          onTap: () {
+                                            routeTo("/createCampaign", context);
+                                            // go to create request button
+                                          },
+                                        )
+                                      // userType == "volunteer"
+                                      //     ? PopupMenuItem<int>(
+                                      //         child: const Text("Create Campaign"),
+                                      //         onTap: () {
+                                      //           routeTo("/createCampaign", context);
+                                      //           // go to create request button
+                                      //         },
+                                      //       )
+                                      //     : PopupMenuItem(child: Text(""))
+                                    ],
+                                  ),
+                                )
                           // Container(
                           //     margin: EdgeInsets.symmetric(horizontal: 10.w),
                           //     child: IconButton(
