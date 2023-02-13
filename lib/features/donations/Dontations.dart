@@ -66,8 +66,10 @@ class Dontaions extends ConsumerWidget {
                             cardType: "donations",
                             data: data['body']['donations'][index],
                             image: data['body']['donations'][index]['images']
-                                    [0] ??
-                                "assets/images/veg.png",
+                                        .length ==
+                                    0
+                                ? "https://www.woolha.com/media/2020/03/eevee.png"
+                                : data['body']['donations'][index]['images'][0],
                             id: data['body']['donations'][index]['_id'],
                             btnName: "CLAIM",
                           ),

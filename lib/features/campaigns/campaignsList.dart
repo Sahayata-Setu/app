@@ -19,7 +19,7 @@ class CampaignsList extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final approvedCampagins = ref.watch(getApprovedCampaignsProvider(""));
-
+    log("Campaigns: $approvedCampagins");
     return App(
       appbar: NavBar(
         showBadge: false,
@@ -28,8 +28,13 @@ class CampaignsList extends ConsumerWidget {
         isMainPage: false,
       ),
       component: Container(
-        padding: EdgeInsets.all(kPadding.h),
-        height: ScreenUtil().screenHeight + kPadding.h,
+        padding: EdgeInsets.only(
+          bottom: 120.h,
+          top: kPadding.h,
+          left: kPadding.w,
+          right: kPadding.w,
+        ),
+        height: ScreenUtil().screenHeight,
         child: approvedCampagins.when(
           data: (data) {
             final datas = data['body'];
@@ -49,8 +54,11 @@ class CampaignsList extends ConsumerWidget {
                       child: CampaignCards(
                         volunteerId: "${datas[index]['volunteer_id']}",
                         volunteerName: "${datas[index]['volunteer_name']}",
-                        image: "${datas[index]['images'][0]}",
-                        location: "${datas[index]['city']}",
+                        // image: "${datas['images'][0] ?? 0}",
+                        image:
+                            "${datas[index]['images'].length == 0 ? "" : datas[index]["images"][0]}",
+                        // location: "${datas[index]['city']}",
+                        location: "",
                         title: "${datas[index]['title']}",
                       ),
                     );

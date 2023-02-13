@@ -22,25 +22,34 @@ class ButtonAreaVolunteer extends ConsumerWidget {
     final imageProv = ref.watch(idImageProvider);
     final loading = ref.watch(loadingVolunteer);
 
-    // log("ths is vol det${volunteerDetails}");
+    log("ths is vol det${imageProv}");
 
     onSumbit() async {
-      try {
-        final resp = await volProv.applyVolunter(volunteerDetails, imageProv);
-        final snackBar = SnackBar(content: Text(resp['message']));
-        ScaffoldMessenger.of(context).showSnackBar(snackBar);
-        pop(context);
-      } catch (e) {
-        // jsonDecode(e.toString());
-        final val = jsonDecode(e.toString());
-        // log("this is val ${val['message']}");
-
+      // try {
+      final resp =
+          await volProv.applyVolunter(volunteerDetails, imageProv).then((val) {
         final snackBar = SnackBar(content: Text(val['message']));
         ScaffoldMessenger.of(context).showSnackBar(snackBar);
         pop(context);
-        log("errror $e");
-      }
+        log("this is val $val");
+        return val;
+      }).catchError((e) {
+        final snackBar = SnackBar(content: Text(e.toString()));
+        ScaffoldMessenger.of(context).showSnackBar(snackBar);
+        pop(context);
+        log("this is error $e");
+      });
     }
+    // catch (e) {
+    // jsonDecode(e.toString());
+    // final val = jsonDecode(e.toString());
+    // log("this is val ${val['message']}");
+//
+    // final snackBar = SnackBar(content: Text(val['message']));
+    // ScaffoldMessenger.of(context).showSnackBar(snackBar);
+    // pop(context);
+    // log("errror $e");
+    // }
 
     return Center(
       child: GestureDetector(

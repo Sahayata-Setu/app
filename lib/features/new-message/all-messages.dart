@@ -8,6 +8,7 @@ import 'package:donationapp/constant/common/loading/loadingPage.dart';
 import 'package:donationapp/domain/new-message/chatUserModel.dart';
 import 'package:donationapp/features/new-message/conversation-list.dart';
 import 'package:donationapp/store/message/message.store.dart';
+import 'package:donationapp/utils/store-service/store.service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -30,6 +31,7 @@ class NewMessage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final messages = ref.watch(allConnectedUsersProvider);
+    final userType = StorageService.getuserType();
 
     return App(
       component: RefreshIndicator(
@@ -108,12 +110,12 @@ class NewMessage extends ConsumerWidget {
                     itemBuilder: (context, index) {
                       return ConversationList(
                         name:
-                            "${data[index].firstName!} ${data[index].lastName!}",
-                        receiverId: data[index].id,
-                        messageText: data[index].message!,
+                            "${data[index].firstName} ${data[index].lastName}",
+                        receiverId: data[index].id ?? "",
+                        messageText: data[index].message ?? "",
                         imageUrl: "",
-                        time: data[index].createdAt!,
-                        createdAt: data[index].createdAt!,
+                        time: data[index].createdAt ?? "",
+                        createdAt: data[index].createdAt ?? "",
                         isMessageRead:
                             (index == 0 || index == 3) ? true : false,
                       );

@@ -159,10 +159,9 @@ class Menu_Drawer extends ConsumerWidget {
                 routeTo("/admin-profile", context);
               },
             ),
-
             ListTile(
               leading: Image.asset(
-                "assets/images/logout.png",
+                "assets/images/add.png",
                 height: 16.h,
               ),
               title: CustomText(
@@ -173,21 +172,6 @@ class Menu_Drawer extends ConsumerWidget {
               onTap: () {
                 // handleLogout();
                 routeTo("/add", context);
-              },
-            ),
-            ListTile(
-              leading: Image.asset(
-                "assets/images/logout.png",
-                height: 16.h,
-              ),
-              title: CustomText(
-                text: "Add Location",
-                fontColor: whiteColor,
-                fontSize: 18.sp,
-              ),
-              onTap: () {
-                // handleLogout();
-                routeTo("/add-preferred-location", context);
               },
             ),
             ListTile(
