@@ -1,5 +1,5 @@
-import 'package:donationapp/features/homepage/widgets/Dontations.dart';
-import 'package:donationapp/features/homepage/widgets/dontaionCard.dart';
+import 'package:donationapp/features/donations/Dontations.dart';
+import 'package:donationapp/features/needs/Needs.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -27,7 +27,7 @@ class _CustomTabBarState extends State<CustomTabBar>
       child: Column(
         children: [
           Container(
-            margin: EdgeInsets.symmetric(vertical: 15),
+            margin: EdgeInsets.symmetric(vertical: 15.h),
             child: TabBar(
               controller: tabBarController,
               indicatorSize: TabBarIndicatorSize.label,
@@ -65,13 +65,8 @@ class _CustomTabBarState extends State<CustomTabBar>
               ),
               // height: 400,
               child: TabBarView(
-                controller: tabBarController,
-                children: [
-                  Dontaions(),
-                  Text("needs"),
-                  Text("others"),
-                ],
-              ),
+                  controller: tabBarController,
+                  children: [Dontaions(), Needs(), Text("others")]),
             ),
           )
         ],

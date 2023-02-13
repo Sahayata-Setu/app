@@ -8,14 +8,14 @@ part 'user.model.g.dart';
 @freezed
 class User with _$User {
   const factory User({
-    String? id,
+    @JsonKey(name: "_id") String? id,
     String? firstName,
     String? lastName,
     String? email,
     String? address,
     String? password,
     // List<Null>? posts,
-    int? phoneNo,
+    String? phoneNo,
     String? gender,
     String? language,
     String? profilePic,

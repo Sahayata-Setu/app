@@ -1,8 +1,10 @@
 import 'dart:developer';
-
 import 'package:donationapp/app.dart';
+import 'package:donationapp/constant/common/GoogleButtomNavBar/GoogleButtomNavBar.dart';
 import 'package:donationapp/constant/common/NavBar/navbar.dart';
 import 'package:donationapp/constant/common/Text/custom-text.dart';
+import 'package:donationapp/constant/common/textfield/CustomTextArea.dart';
+import 'package:donationapp/constant/common/textfield/customDropDown.dart';
 import 'package:donationapp/constant/kconstant.dart';
 import 'package:donationapp/constant/modules/signup/signup.class.dart';
 import 'package:donationapp/constant/common/textfield/CustomTextField.dart';
@@ -13,8 +15,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../constant/common/BottomNavBar/BottomNavBar.dart';
-
 class Signup extends ConsumerWidget {
   const Signup({super.key});
 
@@ -22,6 +22,13 @@ class Signup extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final signUpDetails = ref.watch(signUpDetailsProvider);
     final signUpRef = ref.watch(signUpProvider);
+    log("this is sgnup details: ${signUpDetails}");
+
+    const languages = ["english", "hindi", "gujarati"];
+    const gender = ["male", "female", "other"];
+    final phoneNo = ref.watch(signUpDetailsProvider);
+
+    log("Phone No: ${phoneNo['phoneNo']}");
     // log("$signUpRef");
 
     handleSumbit() async {
@@ -44,13 +51,13 @@ class Signup extends ConsumerWidget {
         showBadge: false,
       ),
       component: Container(
-        height: 600.h,
+        // height: 600.h,
         color: SignupKConstant.backgroundColor,
         child: Container(
           padding: EdgeInsets.only(
             left: kPadding.w,
             right: kPadding.w,
-            top: kPadding.h + 30,
+            top: 10.h,
           ),
           child: SingleChildScrollView(
             scrollDirection: Axis.vertical,
@@ -63,49 +70,138 @@ class Signup extends ConsumerWidget {
                   fontSize: 24.sp,
                   fontColor: blackColor,
                 ),
-                CustomTextField(
-                  ref: ref.read(signUpDetailsProvider.notifier),
-                  label: "First Name",
+                const SizedBox(
+                  height: kMargin / 2,
+                ),
+
+                CustomTextArea(
+                  text: "First Name",
+                  refs: ref.read(signUpDetailsProvider.notifier),
                   name: "firstName",
                 ),
-                CustomTextField(
-                  ref: ref.read(signUpDetailsProvider.notifier),
-                  label: "Last Name",
+
+                CustomTextArea(
+                  text: "Last Name",
+                  refs: ref.read(signUpDetailsProvider.notifier),
                   name: "lastName",
                 ),
-                CustomTextField(
-                  ref: ref.read(signUpDetailsProvider.notifier),
-                  label: "Email",
+
+                CustomTextArea(
+                  text: "Email",
+                  refs: ref.read(signUpDetailsProvider.notifier),
                   name: "email",
                 ),
-                CustomTextField(
-                  ref: ref.read(signUpDetailsProvider.notifier),
-                  label: "Phone Number",
+
+                CustomTextArea(
+                  text: "Phone Number",
+                  refs: ref.read(signUpDetailsProvider.notifier),
                   name: "phoneNo",
+                  isPhoneNo: true,
+                  value: ref.watch(signUpDetailsProvider)['phoneNo'],
                 ),
-                CustomTextField(
-                  ref: ref.read(signUpDetailsProvider.notifier),
-                  label: "Address",
+                // CustomTextField(
+                //   refs: ref.read(signUpDetailsProvider.notifier),
+                //   label: "First Name",
+                //   name: "firstName",
+                // ),
+                // CustomTextField(
+                //   refs: ref.read(signUpDetailsProvider.notifier),
+                //   label: "Last Name",
+                //   name: "lastName",
+                // ),
+                // CustomTextField(
+                //   refs: ref.read(signUpDetailsProvider.notifier),
+                //   label: "Email",
+                //   name: "email",
+                // ),
+                // CustomTextField(
+                //   refs: ref.read(signUpDetailsProvider.notifier),
+                //   label: "Phone Number",
+                //   name: "phoneNo",
+                // ),
+                // CustomTextField(
+                //   refs: ref.read(signUpDetailsProvider.notifier),
+                //   label: "Address",
+                //   name: "address",
+                // ),
+                // CustomTextField(
+                //   refs: ref.read(signUpDetailsProvider.notifier),
+                //   label: "City",
+                //   name: "city",
+                // ),
+                // CustomTextField(
+                //   refs: ref.read(signUpDetailsProvider.notifier),
+                //   label: "Password",
+                //   name: "password",
+                // ),
+                CustomTextArea(
+                  text: "City",
+                  refs: ref.read(signUpDetailsProvider.notifier),
+                  name: "city",
+                ),
+                CustomTextArea(
+                  text: "Address",
+                  refs: ref.read(signUpDetailsProvider.notifier),
                   name: "address",
                 ),
-
-                CustomTextField(
-                  ref: ref.read(signUpDetailsProvider.notifier),
-                  label: "Gender",
+                MainCustomDropDown(
+                  list: gender,
                   name: "gender",
-                ),
-                CustomTextField(
-                  ref: ref.read(signUpDetailsProvider.notifier),
-                  label: "Language",
-                  name: "language",
-                ),
-                CustomTextField(
-                  ref: ref.read(signUpDetailsProvider.notifier),
-                  label: "Password",
-                  name: "password",
+                  title: "Gender",
+                  refs: ref.read(signUpDetailsProvider.notifier),
                 ),
 
-                //
+                MainCustomDropDown(
+                  list: languages,
+                  name: "language",
+                  title: "Preferred Language",
+                  refs: ref.read(signUpDetailsProvider.notifier),
+                ),
+
+                // DropdownButtonFormField(
+                //   items: gender.map((String category) {
+                //     return new DropdownMenuItem(
+                //         value: category, child: Text(category));
+                //   }).toList(),
+                //   decoration: const InputDecoration(
+                //     label: Text("Gender"),
+                //   ),
+                //   onChanged: (val) {
+                //     ref.read(signUpDetailsProvider.notifier).state['gender'] =
+                //         val.toString();
+                //     // log("This is dropdown val ${val}");
+                //   },
+                // ),
+
+                // SizedBox(
+                //   height: 10.h,
+                // ),
+                // DropdownButtonFormField(
+                //   items: languages.map((String category) {
+                //     return new DropdownMenuItem(
+                //         value: category, child: Text(category));
+                //   }).toList(),
+                //   decoration: const InputDecoration(
+                //     label: Text("Language"),
+                //   ),
+                //   onChanged: (val) {
+                //     ref.read(signUpDetailsProvider.notifier).state['language'] =
+                //         val.toString();
+
+                //     // log("This is dropdown val ${val}");
+                //   },
+                // ),
+
+                CustomTextArea(
+                  text: "Password",
+                  refs: ref.read(signUpDetailsProvider.notifier),
+                  name: "password",
+                  isObscure: true,
+                ),
+                SizedBox(
+                  height: kMargin.h,
+                ),
+
                 ElevatedButton(
                   onPressed: () async {
                     // replaceRouteTo("/homepage", context);
@@ -117,18 +213,34 @@ class Signup extends ConsumerWidget {
                   child: Text("Sign Up"),
                 ),
 
-                TextButton(
-                  onPressed: () {
-                    replaceRouteTo("/login", context);
-                  },
-                  child: Text("Already have an account? Login"),
+                SizedBox(
+                  height: 10.h,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    CustomText(
+                      text: "Already have an account ?",
+                      fontSize: 14.sp,
+                    ),
+                    TextButton(
+                      onPressed: () {
+                        replaceRouteTo("/login", context);
+                      },
+                      child: CustomText(
+                        text: "Login",
+                        fontSize: 14.sp,
+                      ),
+                    )
+                  ],
                 )
               ],
             ),
           ),
         ),
       ),
-      bottomNavBar: BottomNavBar(showBottomNavBar: false),
+      isAdmin: false,
+      bottomNavBar: const GoogleButtomNavBar(showBottomNavBar: false),
     );
   }
 }

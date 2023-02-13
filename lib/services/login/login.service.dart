@@ -1,7 +1,6 @@
 import 'dart:async';
 import 'dart:developer';
 
-import 'package:donationapp/domain/user/user.model.dart';
 import 'package:donationapp/utils/base-client/base_client.dart';
 import 'package:donationapp/utils/store-service/store.service.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -24,8 +23,11 @@ class LoginServiceClass implements AuthBase {
 
   _initUser() {
     String? str = StorageService.getToken();
+    String? getUserType = StorageService.getuserType();
     log("${str == null}");
     if (str != '') {
+      // log("this is str ${str}");
+      controller.add(getUserType);
       controller.add(str);
     } else {
       controller.add(null);
@@ -44,11 +46,14 @@ class LoginServiceClass implements AuthBase {
     // final singUpService
     try {
       // log("this is from$data");
+
       final response = await _client.post("/auth/login", data: req);
-      // log("${response}");
+      log("this is from store ${response}");
       // if(response.statusCode(400) )
-      controller.add(response['token']);
+      log("${response}");
       StorageService.setToken(response['token']);
+      StorageService.setUserType(response['userRole']);
+      StorageService.setId(response['userId']);
 
       return response;
     } catch (e) {
@@ -60,6 +65,7 @@ class LoginServiceClass implements AuthBase {
   @override
   Future<void> logOut() async {
     controller.add('');
+    StorageService.setToken('');
     StorageService.removeAll();
     return;
   }

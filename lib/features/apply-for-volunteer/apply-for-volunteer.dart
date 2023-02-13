@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:donationapp/app.dart';
 import 'package:donationapp/constant/common/BottomNavBar/BottomNavBar.dart';
+import 'package:donationapp/constant/common/GoogleButtomNavBar/GoogleButtomNavBar.dart';
 import 'package:donationapp/constant/common/NavBar/navbar.dart';
 import 'package:donationapp/constant/common/Text/custom-text.dart';
 import 'package:donationapp/constant/common/textfield/CustomTextField.dart';
@@ -29,18 +30,6 @@ class ApplyForVolunteer extends ConsumerWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(
-                height: 40.r,
-              ),
-              Center(
-                child: CircleAvatar(
-                  radius: 30.r,
-                  child: Image.asset(
-                    "assets/images/profileicon.png",
-                    height: 20.h,
-                  ),
-                ),
-              ),
-              SizedBox(
                 height: 30.h,
               ),
               TextFieldAreaVolunteer(),
@@ -52,8 +41,10 @@ class ApplyForVolunteer extends ConsumerWidget {
         showBadge: false,
         // route: "/homepage",
         title: "Apply for volunteer",
+        isMainPage: false,
       ),
-      bottomNavBar: BottomNavBar(showBottomNavBar: false),
+      isAdmin: true,
+      bottomNavBar: const GoogleButtomNavBar(showBottomNavBar: false),
     );
   }
 }

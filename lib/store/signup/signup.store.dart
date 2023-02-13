@@ -16,6 +16,7 @@ final signUpDetailsProvider = StateProvider(
     "gender": "",
     "language": "",
     "password": "",
+    "city": "",
   }),
 );
 

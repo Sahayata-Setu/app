@@ -16,6 +16,9 @@ class SignUpServiceClass {
       // log("${response.statusCode()}");
       // if(response.statusCode(400) )
       StorageService.setToken(response['token']);
+      StorageService.setUserType(response['userRole']);
+      StorageService.setId(response['userId']);
+      // StorageService.setToken(response['token']);
 
       return response;
     } catch (e) {

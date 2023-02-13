@@ -14,6 +14,10 @@ final loginDetailsProvider = StateProvider(
   }),
 );
 
+final obscureTextProvider = StateProvider<bool>((ref) => (false));
+
+final stateProvider = StateProvider((ref) => (false));
+
 class SignUpNotifier extends ChangeNotifier {
   SignUpNotifier(this.read) : super();
   final Reader read;
@@ -22,12 +26,17 @@ class SignUpNotifier extends ChangeNotifier {
   signup(data) async {
     // log("${data}");
     final authService = read(loginService);
+    read(stateProvider.notifier).state = true;
+
     try {
       final resp = await authService.login(data);
-
+      if (resp != null) {
+        read(stateProvider.notifier).state = false;
+      }
       notifyListeners();
       return resp;
     } catch (e) {
+      read(stateProvider.notifier).state = false;
       log('$e');
       rethrow;
     }

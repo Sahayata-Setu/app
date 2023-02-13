@@ -8,14 +8,22 @@ class LogoArea extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: CircleAvatar(
-          backgroundColor: Colors.grey,
-          radius: 50.r,
-          child: CustomText(
-            text: "H",
-            fontSize: 50.sp,
-            fontColor: Colors.black,
-          )),
+      child: Container(
+          // backgroundColor: Colors.grey,
+          // radius: 50.r,
+          child: Image.asset(
+        "assets/images/logo.png",
+        fit: BoxFit.fill,
+        height: 100.h,
+        width: 100.h,
+      )
+          // backgroundImage:  ,
+          // CustomText(
+          // text: "H",
+          // fontSize: 50.sp,
+          // fontColor: Colors.black,
+          // ),
+          ),
     );
   }
 }

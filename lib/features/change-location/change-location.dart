@@ -1,14 +1,9 @@
-import 'dart:developer';
-
 import 'package:donationapp/app.dart';
-import 'package:donationapp/constant/common/BottomNavBar/BottomNavBar.dart';
+import 'package:donationapp/constant/common/GoogleButtomNavBar/GoogleButtomNavBar.dart';
 import 'package:donationapp/constant/common/NavBar/navbar.dart';
 import 'package:donationapp/constant/kconstant.dart';
-import 'package:donationapp/features/apply-for-volunteer/widget/text-fields-area-volunteer.dart';
 import 'package:donationapp/features/change-location/widgets/button-area-change-password.dart';
 import 'package:donationapp/features/change-location/widgets/text-fields-area-change-password.dart';
-import 'package:donationapp/features/change-password/widgets/button-area-change-password.dart';
-import 'package:donationapp/features/change-password/widgets/text-fields-area-change-password.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -38,11 +33,13 @@ class ChangeLocation extends ConsumerWidget {
         ),
       ),
       appbar: const NavBar(
+        isMainPage: false,
         showBadge: false,
         // route: "/homepage",
         title: "Change Location",
       ),
-      bottomNavBar: BottomNavBar(showBottomNavBar: false),
+      isAdmin: false,
+      bottomNavBar: const GoogleButtomNavBar(showBottomNavBar: false),
     );
   }
 }

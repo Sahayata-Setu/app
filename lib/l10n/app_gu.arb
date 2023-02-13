@@ -1,0 +1,32 @@
+{
+    "home":"પ્રથમ પાનું",
+    "ongoingCampaigns":"ચાલુ ઝુંબેશ",
+    "donation":"દાન",
+    "donate":"દાન કરો",
+    "claim":"દાવો કરો",
+    "need":"આવશ્યકતા",
+    "food":"ખોરાક",
+    "clothes":"કપડાં",
+    "books":"પુસ્તકો",
+    "toys":"રમકડાંઓ",
+    "createDonation":"દાન બનાવો",
+    "createNeed":"જરૂરિયાત બનાવો",
+    "seeAll":"બધા જુઓ",
+    "latestDonations":"નવીનતમ દાન",
+    "latestNeeds":"નવીનતમ જરૂરિયાતની વિનંતીઓ",
+    "profile":"પ્રોફાઇલ",
+ "accountSettings":"એકાઉન્ટ સેટિંગસ",
+"certificates":"પ્રમાણપત્રો",
+"donations_claim":"દાન/દાવો",
+"changeLanguage":"ભાષા બદલો",
+"applyVolunter":"સ્વયંસેવક માટે અરજી કરો",
+"logout":"લૉગ આઉટ ",
+"message": "संदेश",
+"notifications": "સૂચનાઓ",
+"search": "શોધો",
+"contact_doner":"દાતાનો સંપર્ક કરો",
+"myDonations":"મારા દાન"
+
+
+
+}
